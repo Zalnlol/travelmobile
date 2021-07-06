@@ -109,7 +109,7 @@
                                     </div>
                                     <div class="form-group tm-form-element tm-form-element-2">                                            
                                         <select name="hour-option" class="form-control tm-select" id="children">
-                                            <option value="0">0:00 am</option>
+                                            <option value="0">1:00 am</option>
                                             <option value="1">1:00 am</option>
                                             <option value="2">2:00 am</option>
                                             <option value="3">3:00 am</option>
