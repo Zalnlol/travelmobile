@@ -1,59 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"> 
-    <link rel="stylesheet" type="text/css" href="{{ asset('travelmobile-css/travelmobile.css') }}"> <!--custom project css-->
-    <!-- Template 2095 Level -->
-    <!-- http://www.tooplate.com/view/2095-level -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet"> <!--Font logo-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/tooplate-style.css') }}">
-    <title>Travel Mobile</title>
-</head>
-<body>
-    <div class="tm-main-content" id="top">
-        <div class="tm-top-bar-bg"></div>
-        <div class="tm-top-bar" id="tm-top-bar">
-            <!-- Top Navbar -->
-            <div class="container">
-                <div class="row">
-                    <nav class="navbar navbar-expand-lg narbar-light">
-                        <a class="navbar-brand mr-auto" href="#" id="logo">
-                            <img src="images/travel-mobile-logo.png" alt="Site logo">
-                            Travel Mobile
-                        </a>
-                        <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
-                            <ul class="navbar-nav ml-auto">
-                              <li class="nav-item">
-                                <a class="nav-link" href="#top">Trang chủ <span class="sr-only">(current)</span></a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="#tm-section-4">Hướng dẫn</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="#tm-section-5">Đăng nhập</a>
-                              </li>
-                              <li class="nav-item">
-                                <a class="nav-link" href="#tm-section-6">Đăng ký</a>
-                              </li>
-                            </ul>
-                        </div>                            
-                    </nav>            
-                </div>
-            </div>
-        </div>
+@extends('layoutUser.layout')
+@section('titleweb','Home Page')
+$@section('bodycode')
+    
+
 
         <div class="tm-section tm-bg-img" id="tm-section-1">
             <div class="tm-bg-white ie-container-width-fix-2">
@@ -208,63 +157,6 @@
                 </div>
             </div>
         </div>
+        @endsection
 
 
-
-
-        <footer class="tm-bg-dark-blue">
-            <div class="container">
-                <div class="row">
-                    <p class="col-sm-12 text-center tm-font-light tm-color-white p-4 tm-margin-b-0">
-                    Copyright &copy; <span class="tm-current-year">2021</span> Travel Mobile
-                    - Design: Tooplate</p>        
-                </div>
-            </div>                
-        </footer>
-    </div>
-
-    <!-- load JS files -->
-    <script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>             <!-- jQuery (https://jquery.com/download/) -->
-    <script src="{{ asset('js/popper.min.js') }}"></script>                    <!-- https://popper.js.org/ -->       
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>                 <!-- https://getbootstrap.com/ -->
-    <script src="{{ asset('js/datepicker.min.js') }}"></script>                <!-- https://github.com/qodesmith/datepicker -->
-    <script src="{{ asset('js/jquery.singlePageNav.min.js') }}"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
-    <script src="{{ asset('slick/slick.min.js') }}"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
-    <script>
-        function setCarousel() {
-                
-            if ($('.tm-article-carousel').hasClass('slick-initialized')) {
-                $('.tm-article-carousel').slick('destroy');
-            } 
-
-            if($(window).width() < 438){
-                // Slick carousel
-                $('.tm-article-carousel').slick({
-                    infinite: false,
-                    dots: true,
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                });
-            }
-            else {
-             $('.tm-article-carousel').slick({
-                    infinite: false,
-                    dots: true,
-                    slidesToShow: 3,
-                    slidesToScroll: 1
-                });   
-            }
-        }
-
-        $(document).ready(function(){
-            // Date Picker
-            const pickerCheckIn = datepicker('#inputCheckIn');
-            const pickerCheckOut = datepicker('#inputCheckOut');
-
-            // Slick carousel
-            setCarousel();
-            setPageNav();
-        })
-    </script>
-</body>
-</html>
