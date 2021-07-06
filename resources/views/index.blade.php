@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="travelmobile-css/travelmobile.css"> <!--custom project css-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"> 
+    <link rel="stylesheet" type="text/css" href="{{ asset('travelmobile-css/travelmobile.css') }}"> <!--custom project css-->
     <!-- Template 2095 Level -->
     <!-- http://www.tooplate.com/view/2095-level -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet"> <!--Font logo-->
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-    <link rel="stylesheet" type="text/css" href="css/datepicker.css"/>
-    <link rel="stylesheet" href="css/tooplate-style.css"> 
+    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/tooplate-style.css') }}">
     <title>Travel Mobile</title>
 </head>
 <body>
@@ -28,7 +28,7 @@
                 <div class="row">
                     <nav class="navbar navbar-expand-lg narbar-light">
                         <a class="navbar-brand mr-auto" href="#" id="logo">
-                            <img src="img/logo.jpg" alt="Site logo">
+                            <img src="images/travel-mobile-logo.png" alt="Site logo">
                             Travel Mobile
                         </a>
                         <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -156,7 +156,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="tm-article-carousel">                            
                             <article class="tm-bg-white mr-2 tm-carousel-item">
-                                <img src="img/img-01.jpg" alt="Image" class="img-fluid">
+                                <img src="images/img-01.jpg" alt="Image" class="img-fluid">
                                 <div class="tm-article-pad">
                                     <header><h3 class="text-uppercase tm-article-title-2">Nunc in felis aliquet metus luctus iaculis</h3></header>
                                     <p>Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla. Nullam sollicitudin at augue venenatis eleifend. Nulla ligula ligula, egestas sit amet viverra id, iaculis sit amet ligula.</p>
@@ -164,7 +164,7 @@
                                 </div>                                
                             </article>                    
                             <article class="tm-bg-white mr-2 tm-carousel-item">
-                                <img src="img/img-02.jpg" alt="Image" class="img-fluid">
+                                <img src="images/img-02.jpg" alt="Image" class="img-fluid">
                                 <div class="tm-article-pad">
                                     <header><h3 class="text-uppercase tm-article-title-2">Sed cursus dictum nunc quis molestie</h3></header>
                                     <p>Pellentesque quis dui sit amet purus scelerisque eleifend sed ut eros. Morbi viverra blandit massa in varius. Sed nec ex eu ex tincidunt iaculis. Curabitur eget turpis gravida.</p>
@@ -172,7 +172,7 @@
                                 </div>                                
                             </article>
                             <article class="tm-bg-white mr-2 tm-carousel-item">
-                                <img src="img/img-01.jpg" alt="Image" class="img-fluid">
+                                <img src="images/img-01.jpg" alt="Image" class="img-fluid">
                                 <div class="tm-article-pad">
                                     <header><h3 class="text-uppercase tm-article-title-2">Eget diam pellentesque interdum ut porta</h3></header>
                                     <p>Aenean finibus tempor nulla, et maximus nibh dapibus ac. Duis consequat sed sapien venenatis consequat. Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla.</p>
@@ -180,7 +180,7 @@
                                 </div>                                
                             </article>
                             <article class="tm-bg-white mr-2 tm-carousel-item">
-                                <img src="img/img-02.jpg" alt="Image" class="img-fluid">
+                                <img src="images/img-02.jpg" alt="Image" class="img-fluid">
                                 <div class="tm-article-pad">
                                     <header><h3 class="text-uppercase tm-article-title-2">Lorem ipsum dolor sit amet, consectetur</h3></header>
                                     <p>Suspendisse molestie sed dui eget faucibus. Duis accumsan sagittis tortor in ultrices. Praesent tortor ante, fringilla ac nibh porttitor, fermentum commodo nulla.</p>
@@ -188,7 +188,7 @@
                                 </div>                                
                             </article>                    
                             <article class="tm-bg-white mr-2 tm-carousel-item">
-                                <img src="img/img-01.jpg" alt="Image" class="img-fluid">
+                                <img src="images/img-01.jpg" alt="Image" class="img-fluid">
                                 <div class="tm-article-pad">
                                     <header><h3 class="text-uppercase tm-article-title-2">Orci varius natoque penatibus et</h3></header>
                                     <p>Pellentesque quis dui sit amet purus scelerisque eleifend sed ut eros. Morbi viverra blandit massa in varius. Sed nec ex eu ex tincidunt iaculis. Curabitur eget turpis gravida.</p>
@@ -196,7 +196,7 @@
                                 </div>                                
                             </article>
                             <article class="tm-bg-white tm-carousel-item">
-                                <img src="img/img-02.jpg" alt="Image" class="img-fluid">
+                                <img src="images/img-02.jpg" alt="Image" class="img-fluid">
                                 <div class="tm-article-pad">
                                     <header><h3 class="text-uppercase tm-article-title-2">Nullam sollicitudin at augue venenatis eleifend</h3></header>
                                     <p>Aenean finibus tempor nulla, et maximus nibh dapibus ac. Duis consequat sed sapien venenatis consequat. Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla.</p>
@@ -224,12 +224,12 @@
     </div>
 
     <!-- load JS files -->
-    <script src="js/jquery-1.11.3.min.js"></script>             <!-- jQuery (https://jquery.com/download/) -->
-    <script src="js/popper.min.js"></script>                    <!-- https://popper.js.org/ -->       
-    <script src="js/bootstrap.min.js"></script>                 <!-- https://getbootstrap.com/ -->
-    <script src="js/datepicker.min.js"></script>                <!-- https://github.com/qodesmith/datepicker -->
-    <script src="js/jquery.singlePageNav.min.js"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
-    <script src="slick/slick.min.js"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
+    <script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>             <!-- jQuery (https://jquery.com/download/) -->
+    <script src="{{ asset('js/popper.min.js') }}"></script>                    <!-- https://popper.js.org/ -->       
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>                 <!-- https://getbootstrap.com/ -->
+    <script src="{{ asset('js/datepicker.min.js') }}"></script>                <!-- https://github.com/qodesmith/datepicker -->
+    <script src="{{ asset('js/jquery.singlePageNav.min.js') }}"></script>      <!-- Single Page Nav (https://github.com/ChrisWojcik/single-page-nav) -->
+    <script src="{{ asset('slick/slick.min.js') }}"></script>                  <!-- http://kenwheeler.github.io/slick/ -->
     <script>
         function setCarousel() {
                 
