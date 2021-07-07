@@ -18,22 +18,30 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/tooplate-style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-        <title>Login</title>
+        <title>Đăng ký</title>
     </head>
     <body id="body">
         <div id="login-card" class="card">
             <div class="card-body">
-            <h2 class="text-center">Đăng nhập</h2>
+            <h2 class="text-center">Đăng ký tài khoản</h2>
             <br>
                 <form action="/action_page.php">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="txt-email" placeholder="Nhập email" name="email">
+                        <input type="email" class="form-control" id="txt-fullname" placeholder="Họ tên" name="fullname">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="txt-password" placeholder="Nhập mật khẩu" name="password">
+                        <input type="email" class="form-control" id="txt-email" placeholder="Email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="txt-password" placeholder="Mật khẩu" name="password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="txt-password" placeholder="Nhập lại mật khẩu" name="password">
                     </div>
                         <button type="submit" id="button" class="btn btn-primary deep-purple btn-block ">Xác nhận</button>
+                        <button type="cancel" id="button" class="btn btn-primary deep-purple btn-block ">Hủy</button>
                     <br><br>
+                    
                     <div id="btn" class="text-center">
                         <button type="button" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-facebook"></i></button>
                         <button type="button" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-google"></i></button>

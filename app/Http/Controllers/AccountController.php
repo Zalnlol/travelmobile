@@ -60,4 +60,9 @@ class AccountController extends Controller
         // $request->session()->regenerateToken();          //Bảo mật
         return redirect('login');
     }
+
+    //Mở trang register (đăng ký)
+    public function register(){
+        return view("register");
+    }
 }
