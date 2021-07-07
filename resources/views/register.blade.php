@@ -7,15 +7,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
         <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"> 
-        <link rel="stylesheet" type="text/css" href="{{ asset('travelmobile-css/travelmobile.css') }}"> <!--custom project css-->
-        <!-- Template 2095 Level -->
-        <!-- http://www.tooplate.com/view/2095-level -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet"> <!--Font logo-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/tooplate-style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         <title>Đăng ký</title>
@@ -41,12 +32,12 @@
                     
                         <button type="submit" id="button" class="btn btn-primary deep-purple btn-block ">Đăng ký</button>
                         <button type="cancel" id="button" class="btn btn-primary deep-purple btn-block ">Hủy</button>
-                    <br><br>
-                    
+                    <hr>
+                    <br>
                     <div id="btn" class="text-center">
+                        Hoặc đăng nhập bằng tài khoản
                         <button type="button" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-facebook"></i></button>
                         <button type="button" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-google"></i></button>
-                        <button type="button" class="btn btn-info btn-circle btn-sm"><i class="fa fa-twitter"></i></button>
                     </div>
                 </form>
             </div>
