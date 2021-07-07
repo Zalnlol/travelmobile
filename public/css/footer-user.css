@@ -1,0 +1,69 @@
+.footer-row{
+    color: white;
+    padding: 5% 0;
+}
+.icon-list{
+    margin-top: 3rem;
+}
+
+#td-icon{
+    width: 80px;
+    text-align: left;
+    
+}
+
+#a-icon{
+    color: white;
+}
+ #icon{
+    font-size: 20pt;
+    
+}
+#a-icon:hover{
+    color: #0056b3;
+}
+.table-thead{
+    font-size: 14pt;
+}
+.table-body{
+    font-size: 12pt;
+}
+#td-infor{
+   padding: 10px 30px;
+
+}
+#td-infor1{
+    padding: 10px 50px;
+ 
+ }
+.table-infor a{
+    color: white;
+}
+.table-infor a:hover{
+    color: #0056b3;
+}
+
+
+#th-info{
+    padding: 0px 30px;
+    padding-bottom: 20px;
+    padding-top: 50px;
+
+}
+#th-info1{
+    padding: 0px 50px;
+    padding-bottom: 20px;
+    padding-top: 50px;
+
+}
+.company-info{
+    font-size: 12pt;
+
+}
+#tel-and-mail{
+    color: white;
+}
+
+#tel-and-mail:hover{
+    color: #0056b3;
+}

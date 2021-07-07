@@ -1,0 +1,27 @@
+.logo-team{
+	margin-left: 5%;
+	 width:20%;
+}
+     @media screen and (max-width: 524px) {   
+        .logo-team{width:50%; }
+         
+      }
+     @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        .logo-team{width:50%; }
+     }
+     @media all and (max-width: 1199px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        .logo-team{width:50%; }
+     }
+     @media all and (max-width: 600px) {
+        .logo-team{width:50%; }
+     }
+     @media all and (max-width: 560px)  and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        .logo-team{width:50%; }
+     }
+     @media screen and (max-width: 991px) {
+        .logo-team{width:50%; }
+
+     }
+     @media screen and (max-width: 767px) {
+        .logo-team{width:50%; }
+     }

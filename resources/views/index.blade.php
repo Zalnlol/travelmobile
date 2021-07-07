@@ -2,9 +2,8 @@
 @section('titleweb','Home Page')
 @section('bodycode')
     
-<div>
-    ffff
-</div>
+<div style="margin-top:5%">
+
 
         <div class="tm-section tm-bg-img" id="tm-section-1">
             <div class="tm-bg-white ie-container-width-fix-2">
@@ -159,6 +158,7 @@
                 </div>
             </div>
         </div>
+    </div >       
         @endsection
 
 

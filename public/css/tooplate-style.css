@@ -66,10 +66,7 @@ p {
 	padding-top: 0;
 	padding-bottom: 0;
 }
-.navbar-brand {
-	font-size: 1.8rem;
-	font-weight: 700;
-}
+
 .navbar a { color: black; }
 
 .navbar-toggler-icon {
