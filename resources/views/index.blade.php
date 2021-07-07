@@ -1,8 +1,10 @@
 @extends('layoutUser.layout')
 @section('titleweb','Home Page')
-$@section('bodycode')
+@section('bodycode')
     
-
+<div>
+    ffff
+</div>
 
         <div class="tm-section tm-bg-img" id="tm-section-1">
             <div class="tm-bg-white ie-container-width-fix-2">

@@ -24,7 +24,7 @@
         <div class="tm-top-bar-bg"></div>
         <div class="tm-top-bar" id="tm-top-bar">
             <!-- Top Navbar -->
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                    
                     
