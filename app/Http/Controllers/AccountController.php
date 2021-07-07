@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
+    //Mở trang login
+    public function login(){
+        return view("login");
+    }
     //kiem tra tai khoan dang nhap user
     public function checkLogin(Request $request){
         $email = $request->email;

@@ -20,29 +20,31 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
         <title>Login</title>
     </head>
-<body>
-    <div class="login">
-        <div class="login-triangle"></div>
-        
-        <h2 class="login-header">Log in</h2>
-        
-        <form class="login-container">
-            <p><input type="email" placeholder="Email"></p>
-            <p><input type="password" placeholder="Password"></p>
-            <p><input type="submit" value="Log in"></p>
-        </form>
-    </div>
+    <body id="body">
 
-
-
-    <footer class="tm-bg-dark-blue">
-        <div class="container">
-            <div class="row">
-                <p class="col-sm-12 text-center tm-font-light tm-color-white p-4 tm-margin-b-0">
-                Copyright &copy; <span class="tm-current-year">2021</span> Travel Mobile
-                - Design: Tooplate</p>        
+        <div id="login-card" class="card">
+        <div class="card-body">
+          <h2 class="text-center">Login form</h2>
+          <br>
+          <form action="/action_page.php">
+            <div class="form-group">
+              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
             </div>
-        </div>                
-    </footer>
-</body>
+            <div class="form-group">
+              <input type="password" class="form-control" id="email" placeholder="Enter password" name="pswd">
+            </div>
+            <button type="submit" id="button" class="btn btn-primary deep-purple btn-block ">Submit</button>
+        <br>
+            <br>
+           
+            <div id="btn" class="text-center">
+           <button type="button" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-facebook"></i></button>
+           <button type="button" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-google"></i></button>
+           <button type="button" class="btn btn-info btn-circle btn-sm"><i class="fa fa-twitter"></i></button>
+           </div>
+        
+          </form>
+        </div>
+        <div>
+    </body>
 </html>
