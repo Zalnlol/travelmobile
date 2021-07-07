@@ -38,7 +38,8 @@
                     <div class="form-group">
                         <input type="password" class="form-control" id="txt-password" placeholder="Nhập lại mật khẩu" name="password">
                     </div>
-                        <button type="submit" id="button" class="btn btn-primary deep-purple btn-block ">Xác nhận</button>
+                    
+                        <button type="submit" id="button" class="btn btn-primary deep-purple btn-block ">Đăng ký</button>
                         <button type="cancel" id="button" class="btn btn-primary deep-purple btn-block ">Hủy</button>
                     <br><br>
                     
