@@ -29,6 +29,12 @@ Route::post('/checklogin', [AccountController::class,"checkLogin"]);
 Route::get('/logout', [AccountController::class,"logout"]);
 Route::get('/register', [AccountController::class,"register"]);
 
+
+
+
+Route::get('/admin', function () {
+    return view('AdminHome');
+});
 Route::get('user/index', [UserController::class,"index"]);
 Route::get('user/create', [UserController::class, "create"]);
 Route::post('user/postCreate', [UserController::class, "postCreate"]);
