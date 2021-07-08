@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
         <img src="{{ asset('images/travel-mobile-logo-footer.png')}}"  alt="Product Demo" style="opacity .8;width:200px">
-       
+        
     </a>
 
 

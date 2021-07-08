@@ -1,5 +1,6 @@
 @extends('layoutUser.layout')
 @section('titleweb','Home Page')
+    
 @section('bodycode')
     
 <div style="margin-top:5%">
@@ -12,7 +13,12 @@
                                 <div class="form-row tm-search-form-row">
                                     <div class="form-group tm-form-element tm-form-element-100">
                                         <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
-                                        <input name="city" type="text" class="form-control" id="inputCity" placeholder="Nhập thành phố, quận, địa chỉ...">
+                                        <input name="city" type="text" class="form-control" id="search_input" list="geoname" onchange="return check()" placeholder="Nhập thành phố, quận, địa chỉ...">
+                                        <datalist id="geoname">
+                                            <option >
+                                                Sử dụng vị trí của bạn
+                                            </option>
+                                        </datalist>
                                     </div>
                                 </div>
                                 <div class="form-row tm-search-form-row">
@@ -151,6 +157,61 @@
             </div>
         </div>
     </div >       
+
+      <script>
+          var searchInput = 'search_input';
+    
+          $(document).ready(function () {
+              var autocomplete;
+              autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+                  types: ['geocode'],
+                  /*componentRestrictions: {
+                      country: "USA"
+                  }*/
+              });
+    
+              google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                  var near_place = autocomplete.getPlace();
+              });
+          });
+
+        //   gps
+
+   
+        function gps() {
+            navigator.geolocation.getCurrentPosition(function (location) {
+                let LAT = location.coords.latitude
+                let LNG = location.coords.longitude
+                const KEY = "AIzaSyD8UMIGbEN_jj-ajz--z80LFhrRNyhGEQ4";
+                let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${LAT},${LNG}&key=${KEY}`;
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        let parts = data.results[0].address_components;
+                        //   document.body.insertAdjacentHTML(
+                        //     "beforeend",
+                        //     `<p>Formatted: ${data.results[0].formatted_address}</p>`
+                        //   );
+                        document.getElementById('search_input').value = data.results[0].formatted_address;
+
+                    })
+                    .catch(err => console.warn(err.message));
+            });
+
+        }
+        function check() {
+            let str=document.getElementById("search_input").value
+            if(str=="Sử dụng vị trí của bạn"){
+                gps()
+            }
+        }
+
+
+
+      </script>
+
+
         @endsection
 
 
