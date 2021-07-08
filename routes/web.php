@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AccountController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,30 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/login', [AccountController::class,"login"]);
+Route::post('/checklogin', [AccountController::class,"checkLogin"]);
+Route::get('/logout', [AccountController::class,"logout"]);
+Route::get('/register', [AccountController::class,"register"]);
+
 Route::get('user/index', [UserController::class,"index"]);
 Route::get('user/create', [UserController::class, "create"]);
 Route::post('user/postCreate', [UserController::class, "postCreate"]);
 Route::get('user/update/{id}', [UserController::class, "update"]);
 Route::post('user/postUpdate/{id}', [UserController::class, "postUpdate"]);
 Route::get('user/delete/{id}', [UserController::class, "delete"]);
+
+
+//Route cho user
+Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(function(){
+    Route::get('profile/{id}',[AccountController::class,"details"]);
+});
+
+
+//Route cho admin
+Route::prefix('admin')->name('admin')->middleware('checkLogin:admin')->group(function(){
+    Route::get('users', [AccountController::class,"index"])->name('userlist');
+    Route::get('create', [AccountController::class, "create"]);
+    Route::post('post', [AccountController::class,"postCreate"]);
+    Route::get('resetPass/{id}', [AccountController::class,"resetPassword"]);
+
+});

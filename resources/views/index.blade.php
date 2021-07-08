@@ -106,51 +106,45 @@
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="tm-article-carousel">                            
                             <article class="tm-bg-white mr-2 tm-carousel-item">
-                                <img src="images/img-01.jpg" alt="Image" class="img-fluid">
+                                <img src="images/features-1.jpg" alt="Image" class="img-fluid">
                                 <div class="tm-article-pad">
-                                    <header><h3 class="text-uppercase tm-article-title-2">Nunc in felis aliquet metus luctus iaculis</h3></header>
-                                    <p>Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla. Nullam sollicitudin at augue venenatis eleifend. Nulla ligula ligula, egestas sit amet viverra id, iaculis sit amet ligula.</p>
-                                    <a href="#" class="text-uppercase btn-primary tm-btn-primary">Get More Info.</a>
+                                    <header><h3 class="text-uppercase tm-article-title-2">Ít giấy tờ yêu cầu, thủ tục nhanh gọn</h3></header>
+                                    <p>Passport, CMND và giấy phép lái xe</p>
                                 </div>                                
                             </article>                    
                             <article class="tm-bg-white mr-2 tm-carousel-item">
-                                <img src="images/img-02.jpg" alt="Image" class="img-fluid">
+                                <img src="images/features-2.jpg" alt="Image" class="img-fluid">
                                 <div class="tm-article-pad">
-                                    <header><h3 class="text-uppercase tm-article-title-2">Sed cursus dictum nunc quis molestie</h3></header>
-                                    <p>Pellentesque quis dui sit amet purus scelerisque eleifend sed ut eros. Morbi viverra blandit massa in varius. Sed nec ex eu ex tincidunt iaculis. Curabitur eget turpis gravida.</p>
-                                    <a href="#" class="text-uppercase btn-primary tm-btn-primary">View Detail</a>
+                                    <header><h3 class="text-uppercase tm-article-title-2">Hỗ trợ giao xe tận nhà, giao xe tại sân bay</h3></header>
+                                    <p>Phí giao xe miễn phí hoặc thấp<p>
                                 </div>                                
                             </article>
                             <article class="tm-bg-white mr-2 tm-carousel-item">
-                                <img src="images/img-01.jpg" alt="Image" class="img-fluid">
+                                <img src="images/features-3.jpg" alt="Image" class="img-fluid">
                                 <div class="tm-article-pad">
-                                    <header><h3 class="text-uppercase tm-article-title-2">Eget diam pellentesque interdum ut porta</h3></header>
-                                    <p>Aenean finibus tempor nulla, et maximus nibh dapibus ac. Duis consequat sed sapien venenatis consequat. Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla.</p>
-                                    <a href="#" class="text-uppercase btn-primary tm-btn-primary">More Info.</a>
+                                    <header><h3 class="text-uppercase tm-article-title-2">Sử dụng các loại hình thanh toán như</h3></header>
+                                    <p>ATM/VISA, cửa hàng tiện lợi, ví điện tử<p>
                                 </div>                                
                             </article>
                             <article class="tm-bg-white mr-2 tm-carousel-item">
-                                <img src="images/img-02.jpg" alt="Image" class="img-fluid">
+                                <img src="images/features-4.jpg" alt="Image" class="img-fluid">
                                 <div class="tm-article-pad">
-                                    <header><h3 class="text-uppercase tm-article-title-2">Lorem ipsum dolor sit amet, consectetur</h3></header>
-                                    <p>Suspendisse molestie sed dui eget faucibus. Duis accumsan sagittis tortor in ultrices. Praesent tortor ante, fringilla ac nibh porttitor, fermentum commodo nulla.</p>
-                                    <a href="#" class="text-uppercase btn-primary tm-btn-primary">Detail Info.</a>
+                                    <header><h3 class="text-uppercase tm-article-title-2">Chọn lựa theo các dòng xe bao gồm</h3></header>
+                                    <p>Sedan, Hatchback, Crossover, SUV, Pickup...<p>
                                 </div>                                
                             </article>                    
                             <article class="tm-bg-white mr-2 tm-carousel-item">
-                                <img src="images/img-01.jpg" alt="Image" class="img-fluid">
+                                <img src="images/features-5.jpg" alt="Image" class="img-fluid">
                                 <div class="tm-article-pad">
-                                    <header><h3 class="text-uppercase tm-article-title-2">Orci varius natoque penatibus et</h3></header>
-                                    <p>Pellentesque quis dui sit amet purus scelerisque eleifend sed ut eros. Morbi viverra blandit massa in varius. Sed nec ex eu ex tincidunt iaculis. Curabitur eget turpis gravida.</p>
-                                    <a href="#" class="text-uppercase btn-primary tm-btn-primary">Read More</a>
+                                    <header><h3 class="text-uppercase tm-article-title-2">Vững tay lái với gói bảo hiểm từ </h3></header>
+                                    <p>Bảo hiểm Quân Đội MIC, Petrolimex PJICO</p>
                                 </div>                                
                             </article>
                             <article class="tm-bg-white tm-carousel-item">
-                                <img src="images/img-02.jpg" alt="Image" class="img-fluid">
+                                <img src="images/features-6.jpg" alt="Image" class="img-fluid">
                                 <div class="tm-article-pad">
-                                    <header><h3 class="text-uppercase tm-article-title-2">Nullam sollicitudin at augue venenatis eleifend</h3></header>
-                                    <p>Aenean finibus tempor nulla, et maximus nibh dapibus ac. Duis consequat sed sapien venenatis consequat. Aliquam ac lacus volutpat, dictum risus at, scelerisque nulla.</p>
-                                    <a href="#" class="text-uppercase btn-primary tm-btn-primary">More Details</a>
+                                    <header><h3 class="text-uppercase tm-article-title-2">Không tính phí nếu hủy chuyến</h3></header>
+                                    <p>Không tính phí nếu hủy chuyến<p>
                                 </div>                                
                             </article>
                         </div>    

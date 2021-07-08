@@ -20,10 +20,10 @@
           <a class="nav-link" href="#tm-section-4">Hướng dẫn</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#tm-section-5">Đăng nhập</a>
+          <a class="nav-link" href="login">Đăng nhập</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#tm-section-6">Đăng ký</a>
+          <a class="nav-link" href="register">Đăng ký</a>
         </li>
       </ul>
   </div>  
