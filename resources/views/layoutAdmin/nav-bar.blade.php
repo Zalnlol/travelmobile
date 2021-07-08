@@ -6,14 +6,5 @@
         </li>
     </ul>
     <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-            <input type="search" placeholder="Search"  aria-label="Search" class="form-control form-control-navbar">
-            <div class="input-group-append">
-                <button type="submit" class="btn btn-navbar">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </div>
-    </form>
+    
 </nav>
