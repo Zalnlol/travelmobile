@@ -1,5 +1,5 @@
 <!-- Lưu tại resources/views/user/index.blade.php -->
-@extends('layout.layout')
+@extends('layoutAdmin.layout')
 @section('title', 'user index')
 @section('content')
 <!-- Content Header (Page header) -->

@@ -1,5 +1,5 @@
 <!-- lưu tại /resources/views/user/create.blade.php -->
-@extends('layout.layout')
+@extends('layoutAdmin.layout')
 @section('title', 'user - create new')
 @section('content')
 <section class="content">

@@ -21,16 +21,16 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
-        @include('layout.nav-bar')
+        @include('layoutAdmin.nav-bar')
         <!-- Main sidebar container -->
-        @include('layout.main-sidebar')
+        @include('layoutAdmin.main-sidebar')
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             @yield('content')
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        @include('layout.footer')
+        @include('layoutAdmin.footer')
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control Sidebar content goes here-->
