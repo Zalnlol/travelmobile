@@ -24,13 +24,13 @@
                         <input type="password" class="form-control" id="txt-password" placeholder="Nhập mật khẩu" name="password">
                     </div>
                     <div class="text-right">
-                        <a href="">Quên mật khẩu?</a>
+                        <a href=""><b>Quên mật khẩu?</b></a>
                     </div>
                         <br>
                         <button type="submit" id="button" class="btn btn-primary deep-purple btn-block ">Xác nhận</button>
                         <br>
                     <div class="text-center">
-                        Bạn chưa là thành viên? <a href="register">Hãy đăng kí ngay!</a>
+                        Bạn chưa là thành viên? <a href="register"><b>Hãy đăng kí ngay!</b></a>
                     </div>
                     <hr>
                     <br>

@@ -4,7 +4,7 @@
 #login-card{
     width:350px;
     border-radius: 25px;
-    margin:150px auto;
+    margin:75px auto;
 }
 
 #email{
@@ -24,7 +24,7 @@
     padding: 5px;
     margin: 0px 55px;
     align-items: center;
-    border-radius: 5px"
+    border-radius: 5px
 }
 #container{
     margin-top:25px;

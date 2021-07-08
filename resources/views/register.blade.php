@@ -18,7 +18,7 @@
             <br>
                 <form action="/action_page.php">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="txt-fullname" placeholder="Họ tên" name="fullname">
+                        <input type="text" class="form-control" id="txt-fullname" placeholder="Họ tên" name="fullname">
                     </div>
                     <div class="form-group">
                         <input type="email" class="form-control" id="txt-email" placeholder="Email" name="email">
@@ -29,13 +29,17 @@
                     <div class="form-group">
                         <input type="password" class="form-control" id="txt-password" placeholder="Nhập lại mật khẩu" name="password">
                     </div>
-                    
-                        <button type="submit" id="button" class="btn btn-primary deep-purple btn-block ">Đăng ký</button>
-                        <button type="cancel" id="button" class="btn btn-primary deep-purple btn-block ">Hủy</button>
+                    <br>
+                    <button type="submit" id="button" class="btn btn-primary deep-purple btn-block ">Đăng ký</button>
+                    <button formaction="/" id="button" class="btn btn-primary deep-purple btn-block ">Hủy</button>
+                    <br>
+                    <div class="text-center">
+                        <a href="login"><b>Tôi là thành viên</b></a>
+                    </div>
                     <hr>
                     <br>
                     <div id="btn" class="text-center">
-                        Hoặc đăng nhập bằng tài khoản
+                        <b>Hoặc đăng nhập bằng tài khoản</b>
                         <button type="button" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-facebook"></i></button>
                         <button type="button" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-google"></i></button>
                     </div>
