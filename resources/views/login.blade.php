@@ -9,10 +9,11 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"> 
         <link rel="stylesheet" type="text/css" href="{{ asset('css/tooplate-style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-        <title>Login</title>
+        <title>Đăng nhập</title>
     </head>
     <body id="body">
         <div id="login-card" class="card">
+            
             <div class="card-body">
             <h2 class="text-center">Đăng nhập</h2>
             <br>

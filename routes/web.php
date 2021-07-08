@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,3 +59,8 @@ Route::prefix('admin')->name('admin')->middleware('checkLogin:admin')->group(fun
     Route::get('resetPass/{id}', [AccountController::class,"resetPassword"]);
 
 });
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
