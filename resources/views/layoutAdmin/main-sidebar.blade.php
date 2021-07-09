@@ -1,78 +1,203 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
-        <img src="{{ asset('img/AdminLTELogo.png')}}" alt="Product Demo"
-        class = "brand-image img-circle elevation-3" style="opacity .8">
-        <span class="brand-text font-weight-light">Product Demo</span>
+        <img src="{{ asset('images/travel-mobile-logo-footer.png')}}"  alt="Product Demo" style="opacity .8;width:200px">
+        
     </a>
 
 
     <!-- Sidebar -->
-    <div class="sidebar">
-        <!-- Sidebar user(optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-            <img src="{{ asset('img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-            <a href="#" class="d-block">Admin</a>
-        </div>
-    </div>
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+            <a href="#"class="nav-link">
+                <i class="fas fa-user"></i>
+              <p>
+                Quản lý người dùng
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('admin/user')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách người dùng</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/book')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tạo người dùng</p>
+                </a>
+              </li>
+            
+            </ul>
+          </li>
+        </ul>
+    </nav>
 
-    <!-- Sidebar Menu-->
+  
+  
+     <!-- admin-->
     <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" rolle="menu" data-accordion="false">
-            <!--Add icons to the links using the .nav-icon class with font-awesome or any other icon font library-->
-            <li class="nav-item has tree-view">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-book-open"></i>
-                    <p>Books
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+            <a href="#"class="nav-link">
+                <i class="fas fa-users-cog"></i>
+              <p>
+                Quản trị viên
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('admin/user')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách quản trị viên</p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="{{ url('product/index')}}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>View Products</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url('product/create')}}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Create a Product</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/book')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Thêm quản trị viên</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
     </nav>
-    <!-- Sidebar Menu-->
-    <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" rolle="menu" data-accordion="false">
-            <!--Add icons to the links using the .nav-icon class with font-awesome or any other icon font library-->
-            <li class="nav-item has tree-view">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-id-card"></i>
-                    <p>User Accounts
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
+  
+    
+     <!-- Danh sách xe trong hệ thống-->
+     <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+            <a href="#"class="nav-link">
+                <i class="fas fa-car-side"></i>
+              <p>
+                Dữ liệu về xe
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('admin/user')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách xe </p>
                 </a>
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="{{ url('account/index')}}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>View Accounts</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ url('account/create')}}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Create an Account</p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/book')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách xe chưa duyệt</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/book')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách xe mẫu</p>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
     </nav>
-</aside>
+
+
+<!-- Danh sách họp đồng-->
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+            <a href="#"class="nav-link">
+                <i class="fas fa-file-signature"></i>
+              <p>
+                Dữ liệu thuê xe
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('admin/user')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách hợp đồng</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/book')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách bằng lái xe</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/book')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách bằng lái xe chưa duyệt</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+    </nav>
+
+
+<!--Doanh thu-->
+
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+            <a href="#"class="nav-link">
+                <i class="fas fa-chart-pie"></i>
+              <p>
+                Doanh thu
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('admin/user')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Quản lý doanh thu</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+    </nav>
+
+    <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+            <a href="#"class="nav-link">
+                <i class="fas fa-newspaper"></i>
+              <p>
+                Blog
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('admin/user')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Doanh sách bài blog </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+    </nav>
+
+
+
+    </aside>
