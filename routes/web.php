@@ -64,7 +64,7 @@ Route::prefix('admin')->name('admin')->middleware('checkLogin:admin')->group(fun
 });
 
 
-// Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
