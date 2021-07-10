@@ -22,9 +22,12 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // });
 
+// Route ben ngoai
+
 Route::get('/', function () {
     return view('index');
 });
+
 
 Route::get('/login', [AccountController::class,"login"]);
 Route::post('/checklogin', [AccountController::class,"checkLogin"]);
@@ -34,6 +37,11 @@ Route::get('/register', [AccountController::class,"register"]);
 
 
 
+// -----------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------
+
+
+//Route cho admin
 Route::get('/admin', function () {
     return view('AdminHome');
 });
@@ -45,13 +53,8 @@ Route::post('user/postUpdate/{id}', [UserController::class, "postUpdate"]);
 Route::get('user/delete/{id}', [UserController::class, "delete"]);
 
 
-//Route cho user
-Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(function(){
-    Route::get('profile/{id}',[AccountController::class,"details"]);
-});
 
 
-//Route cho admin
 Route::prefix('admin')->name('admin')->middleware('checkLogin:admin')->group(function(){
     Route::get('users', [AccountController::class,"index"])->name('userlist');
     Route::get('create', [AccountController::class, "create"]);
@@ -61,6 +64,28 @@ Route::prefix('admin')->name('admin')->middleware('checkLogin:admin')->group(fun
 });
 
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// -----------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------
+
+
+
+//Route cho user
+Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(function(){
+    Route::get('profile/{id}',[AccountController::class,"details"]);
+});
+
+
+// -----------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------
+
+//Route de test
+
+
+Route::get('/searchcar', function () {
+    return view('user/searchcar');
+});

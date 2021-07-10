@@ -38,8 +38,8 @@
            <div class="col-sm-5 ">
                 <table class="table-infor">
                     <thead class="table-thead">
-                        <th id="th-info">Chính sách</th>
-                        <th id="th-info1">Tìm hiểu thêm</th>
+                        <th id="th-info" style="color: white">Chính sách</th>
+                        <th id="th-info1" style="color: white">Tìm hiểu thêm</th>
                     </thead>
                     <tbody class="table-body" >
                         <tr>
