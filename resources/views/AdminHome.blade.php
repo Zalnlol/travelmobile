@@ -146,58 +146,18 @@
     </div>
 
 
-    <!--Test-->
+  <!-- Ion Slider -->
+  <link rel="stylesheet" href="{{asset('plugins/ion-rangeslider/css/ion.rangeSlider.min.css')}}">
+        <div class="col-sm-6">
+          <input id="range_1" type="text" name="range_1" value="">
+        </div>
+
+
+ 
+   
    
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/scrollbar.css') }}">
-
-    <div class="card card-prirary cardutline direct-chat direct-chat-primary  ">
-        
-        <!-- /.card-header -->
-        <div class="card-body ">
-
-          <div class="direct-chat-messages scrollbar-grey">
-
-            <div class="direct-chat-msg">
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-
-            </div>
-        </div>
-      </div>
-    </div>
-
-
-  
-    <div class="scrollbar scrollbar-primary">
-        <div class="force-overflow"></div>
-      </div>
-
-
+   
 @endsection
 
 @section('script-section')

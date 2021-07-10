@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    #carimage {
+      height: 80px;
+      background-color: #f8f9fb;
+      border-radius: 50%;
+      /* border: solid; */
+      border-width: 1px;
+    }
+
+    .xe:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div name="4chosnadal" class="xe" style="width: 80px" onclick="return checkcars()">
+    <input type="text" value="0" name="4chosnadal" id="check" hidden>
+    <div id="carimage">
+      <img src="mf-4-hatchback.png" style="width: 60px;padding: 23px 0px; margin-left: 10px;" alt="">
+    </div>
+    <div style="text-align: center;" id="stylecar">4 chỗ (mini)</div>
+  </div>
+
+  <script>
+    function checkcars() {
+
+      let value1 = document.getElementById("check").value;
+      
+      if(value1==0){
+        document.getElementById("carimage").style.border= "solid";
+        document.getElementById("carimage").style.borderWidth="1px";
+        document.getElementById("stylecar").style.fontWeight="bold";
+        document.getElementById("check").value=1;
+      }else{
+        document.getElementById("carimage").style.border= "none";
+        document.getElementById("stylecar").style.fontWeight="normal";
+        document.getElementById("check").value=0;
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>
