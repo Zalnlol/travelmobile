@@ -66,17 +66,14 @@ Route::prefix('admin')->name('admin')->middleware('checkLogin:admin')->group(fun
 
 //Route login Auth
 Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
 
 // -----------------------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------------------
 
 Route::get('/redirect', [SocialAuthFacebookController::class, "redirect"]);
 Route::get('/callback', [SocialAuthFacebookController::class, "callback"]);
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 
 // -----------------------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------------------
