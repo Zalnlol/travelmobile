@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\SocialAuthFacebookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,10 +64,18 @@ Route::prefix('admin')->name('admin')->middleware('checkLogin:admin')->group(fun
 
 });
 
-
+//Route login Auth
 Auth::routes();
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// -----------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------
+
+Route::get('/redirect', [SocialAuthFacebookController::class, "redirect"]);
+Route::get('/callback', [SocialAuthFacebookController::class, "callback"]);
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 // -----------------------------------------------------------------------------------------------------------

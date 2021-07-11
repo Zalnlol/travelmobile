@@ -66,7 +66,7 @@
 
                 <div id="btn" class="text-center">
                     Hoặc đăng nhập bằng tài khoản
-                    <button type="button" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-facebook"></i></button>
+                    <a href="{{url('/redirect')}}"><button type="button" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-facebook"></i></button></a>
                     <button type="button" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-google"></i></button>
                 </div>
             </form>

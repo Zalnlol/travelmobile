@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+
+    <!--{{-- Bạn đã đăng nhập thành công --}}
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -14,10 +16,18 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Bạn đã đăng nhập thành công!') }}
                 </div>
             </div>
         </div>
+    </div>-->
+
+    <div class="row">
+        <div class="col-3 pt-5">
+            <div><h1>{{ $user->name }}</h1></div>
+        </div>
     </div>
+
+
 </div>
 @endsection
