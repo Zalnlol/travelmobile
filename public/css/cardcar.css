@@ -1,0 +1,42 @@
+#titleCard{
+    font-weight: bold;
+    font-size: 13pt;
+}
+#cardPrice{
+
+    font-size: 12pt;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+#checker{
+    color: #0056b3;
+
+}
+.fa-star{
+    font-size: 12pt;
+    margin-left: 5%;
+}
+#card-tag{
+    background-color: #e1e4e9;
+    padding: 6px;
+    font-weight: bold;
+    border-radius: 10%;
+}
+
+.Map-List {
+    
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+}
+#map{
+    border: none;
+    background-color: white;
+    padding: 10px 10px;
+    border-radius: 30%;
+    box-shadow: 0px 0px 10px rgb(189, 183, 183);
+}
+#map:hover{
+    cursor: pointer;
+}

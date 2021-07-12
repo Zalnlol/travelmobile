@@ -77,23 +77,19 @@
             </select>
             <div class="row" style="margin-top: 20px">
                 <div class="col" style="text-align: center">
+                    <input type="submit" class="btn btn-success" style="padding: 10px 30px" name="" id="" value="Áp dụng">
                     <a href="">
-                        <button class="btn btn-success"  style="padding: 10px 30px">
+                        <button class="btn btn-info"  style="padding: 10px 30px">
                         <i class="fa fa-undo"></i>
                         Bỏ lọc
-                    </button></a></div>
+                    </button></a>
+
+                    
+                
+                </div>
             </div>
 
-            
-
-
-
-
-
-
-
-
-
+        
 
 
         </form>

@@ -22,5 +22,25 @@
   .xe:hover {
     cursor: pointer;
   }
+  .tile-search1{
+    font-weight: bold;
+    color: 0056b3;
+    
+}
+#search_input{
+    border: none;
+}
+#sb{
+    border: none;
+    background-color: #0056b3;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 15%;
+}
+
+#sb:hover{
+    background-color: #034791;
+    cursor: pointer;
+}
 
 
