@@ -83,7 +83,7 @@
 
                     <td>{{ $count++ }}</td>
                     <td>
-                      @if ($item->status == 1)
+                      @if ($item->status == 1)dsadasd
                       <span class="badge badge-success">Đang chờ duyệt</span>
                       @endif
                       @if ($item->status == 2)
