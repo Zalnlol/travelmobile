@@ -27,9 +27,8 @@ class MyCarController extends Controller
         return view('User-Rental.update', compact('crentals'));
     }
 
-    public function edit( Request $req)
+    public function edit(Request $req)
     {
-
         $car_id=$req->car_id;
         $brand = $req->brand;
         $name = $req->name;
@@ -73,8 +72,7 @@ class MyCarController extends Controller
             $up = DB::table('tb_car_rental')
                 ->where('car_id', intval($car_id))
                  ->update(['status' => 2]);
-        }
-        else{
+        }else{
             $ostatus = DB::table('tb_car_rental')
                     ->where('car_id', intval($car_id))
                     ->first();
