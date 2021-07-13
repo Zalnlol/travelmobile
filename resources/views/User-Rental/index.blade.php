@@ -1,24 +1,13 @@
 @extends('layoutUser.layout')
-@section('titleweb','Car Rental')
+@section('titleweb','Xe của tôi')
 @section('bodycode')
-
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  	<title>Xe của tôi</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="css/style.css">
-
-	</head>
-	<body>
-	<section class="ftco-section">
+	<section class="ftco-section" style="margin-top: 150px">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
@@ -100,8 +89,6 @@
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-
-</body>
-</html>
+>
 
 @endsection
