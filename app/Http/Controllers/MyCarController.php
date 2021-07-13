@@ -23,13 +23,13 @@ class MyCarController extends Controller
 
     public function update($car_id, Request $req)
     {
-        $crentals = CarRental::where('car_id',$car_id)->get()->first();
+        $crentals = CarRental::where('car_id', $car_id)->first();
         return view('User-Rental.update', compact('crentals'));
     }
 
     public function edit(Request $req)
     {
-        $car_id=$req->car_id;
+        $car_id = $req->car_id;
         $brand = $req->brand;
         $name = $req->name;
         $seatnum = $req->seatnum;
@@ -72,7 +72,8 @@ class MyCarController extends Controller
             $up = DB::table('tb_car_rental')
                 ->where('car_id', intval($car_id))
                  ->update(['status' => 2]);
-        }else{
+        }
+        else{
             $ostatus = DB::table('tb_car_rental')
                     ->where('car_id', intval($car_id))
                     ->first();
@@ -84,16 +85,16 @@ class MyCarController extends Controller
         return redirect('mycar');   
     }
 
-    public function store(Request $req)
+    public function store(RentalRequest $req)
     {
         $crentals = $req->all();
         CarRental::create($crentals);
         return redirect('mycar');
     }
 
-    public function delete($car_id)
+    public function delete($id)
     {
-        $rentals = CarRental::where('car_id',$car_id);
+        $rentals = CarRental::where('car_id', $car_id)->first();
         $rentals->delete();
         return redirect('mycar');
     }
@@ -108,22 +109,4 @@ class MyCarController extends Controller
         return view('Rental-image.create');
     }
 
-    public function checkupload(Request $req)
-    {
-        $upload = $req->all();
-        if($req->hasFile('image')){
-            $file = $req->file('image');
-            $extension = $file->getClientOriginalExtension();
-            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
-                return redirect('mycar/image/upload');
-            }
-                $imgName = $file->getClientOriginalName();
-                $file->move('images/car_rental', $imgName);
-                $upload['image'] = $imgName;
-        }
-
-        $up = new CarPic($upload);
-        $up->save();
-        return redirect('mycar/image');
-    }
 }

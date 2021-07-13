@@ -261,13 +261,13 @@ font-weight: bolder;}
 
       <form action="{{ route('rental.edit', $crentals->car_id) }}" method="post">
         @csrf
+        <input type="hidden" id="input_5" name="car_id" data-type="input-textbox" readonly class="form-textbox" size="20" value="{{ $crentals->car_id }}" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
         <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_5">
           <label class="form-label form-label-top" id="label_5" for="input_5"> Biển số xe </label>
           <div id="cid_5" class="form-input-wide">
             <input type="text" id="input_5" name="plate_id" data-type="input-textbox" readonly class="form-textbox" size="20" value="{{ $crentals->plate_id  }}" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
           </div>
         </li>
-        <input type="text"  name="car_id" data-type="input-textbox" class="form-textbox" value="{{ $crentals->car_id  }}" readonly hidden/>
       <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_6">
         <label class="form-label form-label-top" id="label_6" for="input_6"> Hãng xe </label>
         <div id="cid_6" class="form-input-wide">
@@ -729,6 +729,10 @@ font-weight: bolder;}
         </div>
       </li>
 
+      @if ($crentals->status == 1)
+              <input type="hidden"  aria-describedby="label_26" class="form-checkbox" id="input_26_0" name="approval" value="3"/>
+      @endif
+
       @if ($crentals->status == 2)
       <li class="form-line" data-type="control_checkbox" id="id_26">
       <label class="form-label form-label-top" id="label_24" for="input_24"> Trạng thái  </label>
@@ -743,11 +747,8 @@ font-weight: bolder;}
             <span class="form-checkbox-item" style="clear:left">
               <span class="dragger-item">
               </span>
-            
               <input type="checkbox"  aria-describedby="label_26" class="form-checkbox" id="input_26_0" name="approval" value="1"/>
-              <label id="label_input_26_0" for="input_26_0"> Tạm ngưng </label>    
-              
-
+              <label id="label_input_26_0" for="input_26_0"> Tạm ngưng </label> 
             </span>
           </div>
         </div>
@@ -772,7 +773,6 @@ font-weight: bolder;}
               <input type="checkbox"  aria-describedby="label_26" class="form-checkbox" id="input_26_0" name="approval" value="1" checked/>
               <label id="label_input_26_0" for="input_26_0"> Tạm ngưng </label>    
               
-
             </span>
           </div>
         </div>
@@ -810,6 +810,7 @@ font-weight: bolder;}
       
       @endif
 
+    
         <li class="form-line" data-type="control_button" id="id_2" >
             <div id="cid_2" class="form-input-wide" style="margin-left: auto" style="margin-right: auto" >
               <div style="text-align:center"  data-align="left" class="form-buttons-wrapper form-buttons-left   jsTest-button-wrapperField" style="width: 100px">

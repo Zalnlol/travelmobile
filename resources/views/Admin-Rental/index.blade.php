@@ -83,7 +83,7 @@
 
                     <td>{{ $count++ }}</td>
                     <td>
-                      @if ($item->status == 1)dsadasd
+                      @if ($item->status == 1)
                       <span class="badge badge-success">Đang chờ duyệt</span>
                       @endif
                       @if ($item->status == 2)
@@ -168,7 +168,7 @@
                     <td>{{ $item->over_max_travel_cost }}k</td>
                     <td>{{ $item->rules }}</td> --}}
                     <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="{{ route('admin.rental.view', $item->id) }}">
+                        <a class="btn btn-primary btn-sm" href="{{ route('admin.rental.view', $item->car_id) }}">
                             <i class="fas fa-folder">
                             </i>
                             Xem
@@ -178,7 +178,7 @@
                             </i>
                             Duyệt
                         </a> --}}
-                        <a class="btn btn-danger btn-sm" href="{{ route('admin.rental.delete', $item->id) }}">
+                        <a class="btn btn-danger btn-sm" href="{{ route('admin.rental.delete', $item->car_id) }}">
                             <i class="fas fa-trash">
                             </i>
                             Xóa

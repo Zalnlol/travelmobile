@@ -225,7 +225,7 @@ font-weight: bolder;}
 
 <link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/buttons/form-submit-button-book_blue1.css?3.3.26399"/>
 
-  <div role="main" class="form-all" style="margin-top: 10%">
+  <div role="main" class="form-all" >
     <ul class="form-section page-section">
       <li id="cid_1" class="form-input-wide" data-type="control_head">
         <div class="form-header-group  header-default">
@@ -245,7 +245,7 @@ font-weight: bolder;}
         </div>
       </li>
 
-      <form action="{{ route('admin.rental.approval', $rentalview->id) }}" method="post">
+      <form action="{{ route('admin.rental.approval', $rentalview->car_id) }}" method="post">
         @csrf
       <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_5">
         <label class="form-label form-label-top" id="label_5" for="input_5"> Biển số xe </label>

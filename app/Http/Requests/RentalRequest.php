@@ -24,7 +24,7 @@ class RentalRequest extends FormRequest
     public function rules()
     {
         return [
-            'plate_id' => 'required|unique:car_rentals',
+            'plate_id' => 'required|unique:tb_car_rental',
             'brand' => 'required',
             'name' => 'required',
             'consumption' => 'required',

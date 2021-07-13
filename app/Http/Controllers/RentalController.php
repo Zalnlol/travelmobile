@@ -14,38 +14,38 @@ class RentalController extends Controller
         return view('Admin-Rental.index', compact('rental'));
     }
 
-    public function view($id)
+    public function view($car_id)
     {
-        $rentalview = CarRental::find($id);
+        $rentalview = CarRental::where('car_id', $car_id)->get()->first();
         return view('Admin-Rental.view', compact('rentalview'));
     }
 
-    public function approval($id, Request $req)
+    public function approval($car_id, Request $req)
     {
         $approval = $req->approval;
         if($approval == 1){
-            $up = DB::table('car_rentals')
-                ->where('id', intval($id))
+            $up = DB::table('tb_car_rental')
+                ->where('car_id', intval($car_id))
                 ->update(['status' => 2]);
         }else if($approval == 2){
-            $up = DB::table('car_rentals')
-                ->where('id', intval($id))
+            $up = DB::table('tb_car_rental')
+                ->where('car_id', intval($car_id))
                 ->update(['status' => 3]);
         }else{
-            $ostatus = DB::table('car_rentals')
-            ->where('id', intval($id))
+            $ostatus = DB::table('tb_car_rental')
+            ->where('car_id', intval($car_id))
             ->first();
             $status = $ostatus->status;
-            $up = DB::table('car_rentals')
-                ->where('id', intval($id))
+            $up = DB::table('tb_car_rental')
+                ->where('car_id', intval($car_id))
                  ->update(['status' => $status]);
         }
         return redirect('admin/rental');
     }
 
-    public function delete($id)
+    public function delete($car_id)
     {
-        $rentals = CarRental::find($id);
+        $rentals = CarRental::where('car_id', $car_id)->get()->first();
         $rentals->delete();
         return redirect('admin/rental');
     }
