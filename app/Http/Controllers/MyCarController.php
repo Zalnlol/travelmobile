@@ -86,7 +86,7 @@ class MyCarController extends Controller
         return redirect('mycar');   
     }
 
-    public function store(RentalRequest $req)
+    public function store(Request $req)
     {
         $crentals = $req->all();
         CarRental::create($crentals);
