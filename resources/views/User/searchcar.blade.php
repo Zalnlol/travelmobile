@@ -17,7 +17,7 @@
 
                         <div class="col">
                             <span class="tile-search1" >Địa điểm</span>
-                            <input type="text" name="location"id="search_input" list="geoname" onchange="return check()" placeholder="Nhập thành phố, quận, địa chỉ...">
+                            <input type="text" name="city"id="search_input" list="geoname" onchange="return check()" placeholder="Nhập thành phố, quận, địa chỉ...">
                             <datalist id="geoname">
                                 <option >
                                     Sử dụng vị trí của bạn
@@ -96,14 +96,6 @@
                         <div class="col-lg-2">
                             <input type="submit"   name="sb" id="sb" value="Áp dụng">
                         </div>
-                       
-                        
-
-
-
-
-
-
                     </div>
                     </form>
                 </div>
@@ -129,6 +121,7 @@
         </div>
     </div>
     <div style="height: 50px"></div>
+
 
 
 </div>
@@ -170,7 +163,7 @@
       navigator.geolocation.getCurrentPosition(function (location) {
           let LAT = location.coords.latitude
           let LNG = location.coords.longitude
-          const KEY = "AIzaSyAcq08zMID4G60k8DtKPKd_qTABlnv3EU4";
+          const KEY = "AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8";
           let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${LAT},${LNG}&key=${KEY}`;
           fetch(url)
               .then(response => response.json())

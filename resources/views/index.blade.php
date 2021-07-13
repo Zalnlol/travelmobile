@@ -2,6 +2,8 @@
 @section('titleweb','Home Page')
     
 @section('bodycode')
+
+
     
 <div style="margin-top:5%">
         <div class="tm-section tm-bg-img" id="tm-section-1">
