@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class CarRental extends Model
 {
-    use HasFactory;  protected $table='tb_car_rental';
+    use HasFactory; 
+    
+    protected $table='tb_car_rental';
 
     protected $fillable = ['user_id' ,'type_id', 'brand', 'name', 'seatnum', 'auto', 'fuel', 'consumption', 'description', 'model_year',
     'rent_price', 'convertible', 'bluetooth', 'gps', 'usb', 'kid_chair', 'map', 'camera', 'address', 'discount_weekly',
