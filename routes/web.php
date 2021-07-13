@@ -26,6 +26,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/searchcar', function () {
+    return view('User/searchcar');
+});
 
 
 Route::get('/login', [AccountController::class, "login"]);
