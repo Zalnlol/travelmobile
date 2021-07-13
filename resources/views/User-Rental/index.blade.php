@@ -7,14 +7,13 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="css/style.css">
-<<<<<<< HEAD
 
 	</head>
 	<body>
 	<section class="ftco-section" style="margin-top: 10%">
-=======
+
 	<section class="ftco-section" style="margin-top: 150px">
->>>>>>> d3f3155bbb65c9cb12a82d6feb5f21deace31eed
+
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
