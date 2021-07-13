@@ -21,15 +21,16 @@ class MyCarController extends Controller
         return view('User-Rental.create');
     }
 
-    public function update($id, Request $req)
+    public function update($car_id, Request $req)
     {
-        $crentals = CarRental::find($id);
+        $crentals = CarRental::where('car_id',$car_id)->get()->first();
         return view('User-Rental.update', compact('crentals'));
     }
 
-    public function edit($id, Request $req)
+    public function edit( Request $req)
     {
-        $plate_id = $req->plate_id;
+
+        $car_id=$req->car_id;
         $brand = $req->brand;
         $name = $req->name;
         $seatnum = $req->seatnum;
@@ -56,30 +57,30 @@ class MyCarController extends Controller
         $over_max_travel_cost = $req->over_max_travel_cost;
         $rules = $req->rules;
 
-        $up = DB::table('car_rentals')
-        ->where('id', intval($id))
-        ->update(['plate_id'=>$plate_id, 'brand'=> $brand, 'name'=>$name, 'seatnum' => $seatnum, 'model_year' => $model_year, 'auto'=>$auto, 'fuel'=>$fuel,
+        $up = DB::table('tb_car_rental')
+        ->where('car_id', intval($car_id))
+        ->update(['brand'=> $brand, 'name'=>$name, 'seatnum' => $seatnum, 'model_year' => $model_year, 'auto'=>$auto, 'fuel'=>$fuel,
         'consumption'=>$consumption, 'rent_price'=> $rent_price, 'description'=>$description, 'convertible' => $convertible, 'bluetooth' => $bluetooth, 'gps'=>$gps, 'usb'=>$usb,
         'kid_chair'=>$kid_chair, 'map'=> $map, 'camera'=>$camera, 'discount_weekly' => $discount_weekly, 'discount_monthly' => $discount_monthly, 'address'=>$address, 'max_ship_distance'=>$max_ship_distance,
         'shipping_price_km'=>$shipping_price_km, 'free_ship_distance'=> $free_ship_distance, 'max_travel_distance'=>$max_travel_distance, 'over_max_travel_cost' => $over_max_travel_cost, 'rules' => $rules]);  
         
         $approval = $req->approval;
         if($approval == 1){
-            $up = DB::table('car_rentals')
-                ->where('id', intval($id))
+            $up = DB::table('tb_car_rental')
+                ->where('car_id', intval($car_id))
                  ->update(['status' => 4]);
         }else if($approval == null){
-            $up = DB::table('car_rentals')
-                ->where('id', intval($id))
+            $up = DB::table('tb_car_rental')
+                ->where('car_id', intval($car_id))
                  ->update(['status' => 2]);
         }
         else{
-            $ostatus = DB::table('car_rentals')
-                    ->where('id', intval($id))
+            $ostatus = DB::table('tb_car_rental')
+                    ->where('car_id', intval($car_id))
                     ->first();
             $status = $ostatus->status;
-            $up = DB::table('car_rentals')
-                ->where('id', intval($id))
+            $up = DB::table('tb_car_rental')
+                ->where('car_id', intval($car_id))
                  ->update(['status' => $status]);
         }
         return redirect('mycar');   
@@ -92,9 +93,9 @@ class MyCarController extends Controller
         return redirect('mycar');
     }
 
-    public function delete($id)
+    public function delete($car_id)
     {
-        $rentals = CarRental::find($id);
+        $rentals = CarRental::where('car_id',$car_id);
         $rentals->delete();
         return redirect('mycar');
     }
