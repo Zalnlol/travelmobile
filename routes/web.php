@@ -66,19 +66,20 @@ Route::prefix('admin')->name('admin.')->/*middleware('checkLogin:admin')->*/grou
 
 
     Route::get('rental', 'RentalController@index')->name('rental');
-    Route::get('rental/view/{id}', 'RentalController@view')->name('rental.view');
-    Route::post('rental/approval/{id}', 'RentalController@approval')->name('rental.approval');
-    Route::get('rental/delete/{id}', 'RentalController@delete')->name('rental.delete');
+    Route::get('rental/view/{car_id}', 'RentalController@view')->name('rental.view');
+    Route::post('rental/approval/{car_id}', 'RentalController@approval')->name('rental.approval');
+    Route::get('rental/delete/{car_id}', 'RentalController@delete')->name('rental.delete');
 
 });
 
 Route::get('mycar', 'MyCarController@index');
 Route::get('mycar/rental', 'MyCarController@create')->name('rental.create');
 Route::post('mycar/checkRental', 'MyCarController@store')->name('rental.store');
-Route::get('mycar/view/{id}', 'MyCarController@view')->name('rental.view');
-Route::get('mycar/update/{id}', 'MyCarController@update')->name('rental.update');
-Route::post('mycar/edit/{id}', 'MyCarController@edit')->name('rental.edit');
-Route::get('mycar/delete/{id}', 'MyCarController@delete')->name('rental.delete');
+Route::get('mycar/view/{car_id}', 'MyCarController@view')->name('rental.view');
+Route::get('mycar/update/{car_id}', 'MyCarController@update')->name('rental.update');
+
+Route::post('mycar/edit', 'MyCarController@edit')->name('rental.edit');
+Route::get('mycar/delete/{car_id}', 'MyCarController@delete')->name('rental.delete');
 Route::get('mycar/image', 'MyCarController@image')->name('rental.image');
 Route::get('mycar/image/upload', 'MyCarController@upload')->name('rental.upload');
 Route::post('mycar/image/checkUpload', 'MyCarController@checkUpload')->name('rental.checkUpload');

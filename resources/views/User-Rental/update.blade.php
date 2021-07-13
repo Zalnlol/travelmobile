@@ -259,14 +259,9 @@ font-weight: bolder;}
         @endif
       </div>
 
-      <form action="{{ route('rental.edit', $crentals->id) }}" method="post">
+      <form action="{{ route('rental.edit', $crentals->car_id) }}" method="post">
         @csrf
-      <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_5">
-        <label class="form-label form-label-top" id="label_5" for="input_5"> Biển số xe </label>
-        <div id="cid_5" class="form-input-wide">
-          <input type="text" id="input_5" name="plate_id" data-type="input-textbox" class="form-textbox" size="20" value="{{ $crentals->plate_id }}" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
-        </div>
-      </li>
+        <input type="text"  name="car_id" data-type="input-textbox" class="form-textbox" value="{{ $crentals->car_id  }}" readonly hidden/>
       <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_6">
         <label class="form-label form-label-top" id="label_6" for="input_6"> Hãng xe </label>
         <div id="cid_6" class="form-input-wide">
