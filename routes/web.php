@@ -7,6 +7,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\SocialAuthFacebookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\NewUserWelcomeMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +86,9 @@ Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(
     Route::get('profile/{id}',[AccountController::class,"details"]);
 });
 
+// Route::get('/profile/{user}',[ProfileController::class,"index"])->name('profile.show');
+// Route::get('/profile/{user}/edit',[ProfileController::class,"edit"])->name('profile.edit');
+
 
 // -----------------------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------------------
@@ -94,4 +98,9 @@ Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(
 
 Route::get('/searchcar', function () {
     return view('user/searchcar');
+});
+
+
+Route::get('/email', function(){
+    return new NewUserWelcomeMail();
 });
