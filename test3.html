@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Google Maps GeoCoding</title>
+</head>
+
+<body>
+    <header>
+        <h1>Reverse GeoCoding with Google Maps</h1>
+    </header>
+    <!-- write some stuff about a place here -->
+    <script>
+        function gps() {
+            navigator.geolocation.getCurrentPosition(function (location) {
+                let LAT = location.coords.latitude
+                let LNG = location.coords.longitude
+                const KEY = "AIzaSyD8UMIGbEN_jj-ajz--z80LFhrRNyhGEQ4";
+                let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${LAT},${LNG}&key=${KEY}`;
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        let parts = data.results[0].address_components;
+                        //   document.body.insertAdjacentHTML(
+                        //     "beforeend",
+                        //     `<p>Formatted: ${data.results[0].formatted_address}</p>`
+                        //   );
+                        document.getElementById('inputid').value = data.results[0].formatted_address;
+
+                    })
+                    .catch(err => console.warn(err.message));
+            });
+
+        }
+        function check() {
+            let str=document.getElementById("inputid").value
+            if(str="Sử dụng vị trí của bạn"){
+                gps()
+            }
+        }
+    </script>
+
+    <input type="text" placeholder="nhập địa chỉ" id="inputid" list="geoname" onchange="return check()" >
+    <datalist id="geoname">
+        <option id="1">Sử dụng vị trí của bạn</option>
+    </datalist>
+
+
+
+    <script>
+      
+       
+
+    </script>
+
+
+    
+
+</body>
+
+</html>

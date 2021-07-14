@@ -87,7 +87,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin/user')}}" class="nav-link">
+                <a href="{{ route('admin.rental') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách xe </p>
                 </a>

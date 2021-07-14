@@ -2,6 +2,8 @@
 @section('titleweb','Home Page')
     
 @section('bodycode')
+
+
     
 <div style="margin-top:5%">
         <div class="tm-section tm-bg-img" id="tm-section-1">
@@ -9,7 +11,7 @@
                 <div class="container ie-h-align-center-fix">
                     <div class="row">
                         <div class="col-xs-12 ml-auto mr-auto ie-container-width-fix">
-                            <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
+                            <form action="{{ url('/searchcar') }}" method="get" class="tm-search-form tm-section-pad-2">
                                 <div class="form-row tm-search-form-row">
                                     <div class="form-group tm-form-element tm-form-element-100">
                                         <i class="fa fa-map-marker fa-2x tm-form-element-icon"></i>
@@ -182,7 +184,7 @@
             navigator.geolocation.getCurrentPosition(function (location) {
                 let LAT = location.coords.latitude
                 let LNG = location.coords.longitude
-                const KEY = "AIzaSyAcq08zMID4G60k8DtKPKd_qTABlnv3EU4";
+                const KEY = "AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8";
                 let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${LAT},${LNG}&key=${KEY}`;
                 fetch(url)
                     .then(response => response.json())
