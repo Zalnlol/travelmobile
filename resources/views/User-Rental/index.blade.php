@@ -61,7 +61,7 @@
 						      <td>
 						      	<a href="#" class="close" data-dismiss="alert" >
                                     <td class="project-actions text-right">
-										<a class="btn btn-info btn-sm" href="{{ route('rental.update', $item->car_id) }}">
+										<a class="btn btn-info btn-sm" href="{{ route('rental.image', $item->car_id) }}">
                                             <i class="fas fa-pencil-alt">
                                             </i>
                                             Ảnh xe

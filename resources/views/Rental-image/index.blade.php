@@ -56,7 +56,7 @@
                 </td>
                     <a href="#" class="close" data-dismiss="alert" >
                       <td class="project-actions text-right" style="padding-top: 30px">
-                        <a class="btn btn-info btn-sm" href="" style="margin-bottom: 10px">
+                        <a class="btn btn-info btn-sm" href="{{ route('rental.upload') }}" style="margin-bottom: 10px">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Thêm
