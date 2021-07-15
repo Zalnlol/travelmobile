@@ -123,84 +123,84 @@
                             <ul class="list-unstyled list-inline media-detail pull-left">
                                 <div id="rating">
                                     @if ($item->star_num == 1)
-                                        <input type="radio"  id="star5" name="" value="5" />
-                                        <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                        <input type="radio"  id="" name=""read value="5" />
+                                        <label class = "full" for="" title="Awesome - 5 stars"></label>
                                     
-                                        <input type="radio"  id="star4" name="" value="4" />
-                                        <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                        <input type="radio"  id="" name=""read value="4" />
+                                        <label class = "full" for="" title="Pretty good - 4 stars"></label>
                                     
-                                        <input type="radio"  id="star3" name="" value="3" />
-                                        <label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                        <input type="radio"  id="" name=""read value="3" />
+                                        <label class = "full" for="" title="Meh - 3 stars"></label>
                                     
-                                        <input type="radio"  id="star2" name="" value="2" />
-                                        <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio"  id="" name=""read value="2" />
+                                        <label class = "full" for="" title="Kinda bad - 2 stars"></label>
                                     
-                                        <input type="radio"  id="star1" name="" value="1" checked />
-                                        <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                        <input type="radio"  id="" name=""read value="1" checked />
+                                        <label class = "full" for="" title="Sucks big time - 1 star"></label>
                                     @endif
                                     @if ($item->star_num == 2)
-                                        <input type="radio"  id="star5" name="" value="5" />
-                                        <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                        <input type="radio"  id="" name=""read value="5" />
+                                        <label class = "full" for="" title="Awesome - 5 stars"></label>
                                     
-                                        <input type="radio"  id="star4" name="" value="4" />
-                                        <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                        <input type="radio"  id="" name=""read value="4" />
+                                        <label class = "full" for="" title="Pretty good - 4 stars"></label>
                                     
-                                        <input type="radio"  id="star3" name="" value="3" />
-                                        <label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                        <input type="radio"  id="" name=""read value="3" />
+                                        <label class = "full" for="" title="Meh - 3 stars"></label>
                                     
-                                        <input type="radio"  id="star2" name="" value="2" checked />
-                                        <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio"  id="" name=""read value="2" checked />
+                                        <label class = "full" for="" title="Kinda bad - 2 stars"></label>
                                     
-                                        <input type="radio"  id="star1" name="" value="1" />
-                                        <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                        <input type="radio"  id="" name=""read value="1" />
+                                        <label class = "full" for="" title="Sucks big time - 1 star"></label>
                                     @endif
                             @if ($item->star_num == 3)
-                                    <input type="radio"  id="star5" name="" value="5" />
-                                    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio"  id="" name=""read value="5" />
+                                    <label class = "full" for="" title="Awesome - 5 stars"></label>
                                 
-                                    <input type="radio"  id="star4" name="" value="4" />
-                                    <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio"  id="" name=""read value="4" />
+                                    <label class = "full" for="" title="Pretty good - 4 stars"></label>
                                 
-                                    <input type="radio"  id="star3" name="" value="3" checked/>
-                                    <label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio"  id="" name=""read value="3" checked/>
+                                    <label class = "full" for="" title="Meh - 3 stars"></label>
                                 
-                                    <input type="radio"  id="star2" name="" value="2" />
-                                    <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio"  id="" name=""read value="2" />
+                                    <label class = "full" for="" title="Kinda bad - 2 stars"></label>
                                 
-                                    <input type="radio"  id="star1" name="" value="1"/>
-                                    <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                    <input type="radio"  id="" name=""read value="1"/>
+                                    <label class = "full" for="" title="Sucks big time - 1 star"></label>
                             @endif
                             @if ($item->star_num == 4)
-                                <input type="radio"  id="star5" name="" value="5" />
-                                <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio"  id="" name=""read value="5" />
+                                <label class = "full" for="" title="Awesome - 5 stars"></label>
                             
-                                <input type="radio"  id="star4" name="" value="4" checked/>
-                                <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio"  id="" name=""read value="4" checked/>
+                                <label class = "full" for="" title="Pretty good - 4 stars"></label>
                             
-                                <input type="radio"  id="star3" name="" value="3" />
-                                <label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio"  id="" name=""read value="3" />
+                                <label class = "full" for="" title="Meh - 3 stars"></label>
                             
-                                <input type="radio"  id="star2" name="" value="2" />
-                                <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio"  id="" name=""read value="2" />
+                                <label class = "full" for="" title="Kinda bad - 2 stars"></label>
                             
-                                <input type="radio"  id="star1" name="" value="1" />
-                                <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                <input type="radio"  id="" name=""read value="1" />
+                                <label class = "full" for="" title="Sucks big time - 1 star"></label>
                             @endif
                             @if ($item->star_num == 5)
-                                <input type="radio"  id="star5" name="" value="5" checked/>
-                                <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio"  id="" name=""read value="5" checked/>
+                                <label class = "full" for="" title="Awesome - 5 stars"></label>
                             
-                                <input type="radio"  id="star4" name="" value="4" />
-                                <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio"  id="" name=""read value="4" />
+                                <label class = "full" for="" title="Pretty good - 4 stars"></label>
                             
-                                <input type="radio"  id="star3" name="" value="3" />
-                                <label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio"  id="" name=""read value="3" />
+                                <label class = "full" for="" title="Meh - 3 stars"></label>
                             
-                                <input type="radio"  id="star2" name="" value="2" />
-                                <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio"  id="" name=""read value="2" />
+                                <label class = "full" for="" title="Kinda bad - 2 stars"></label>
                             
-                                <input type="radio"  id="star1" name="" value="1" />
-                                <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                <input type="radio"  id="" name=""read value="1" />
+                                <label class = "full" for="" title="Sucks big time - 1 star"></label>
                             @endif
                                 </div>
                             </ul>
