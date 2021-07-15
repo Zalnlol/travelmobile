@@ -94,6 +94,9 @@ Route::get('mycar/image', 'MyCarController@image')->name('rental.image');
 Route::get('mycar/image/upload', 'MyCarController@upload')->name('rental.upload');
 Route::post('mycar/image/checkUpload', 'MyCarController@checkUpload')->name('rental.checkUpload');
 
+Route::get('review', 'ReviewController@index')->name('review');
+Route::post('review/post', 'ReviewController@store')->name('review.post');
+
 Auth::routes();
 
 Route::get('/searchcar', function () {

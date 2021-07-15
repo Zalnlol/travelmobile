@@ -20,7 +20,6 @@
         width:150px;
     }
     .form-all{
-        margin-top: 20px;
         margin-right: auto;
         margin-left: auto;
         width:750px;
@@ -399,7 +398,7 @@ font-weight: bolder;}
       <li class="form-line form-line-column form-col-8" data-type="control_textbox" id="id_12">
         <label class="form-label form-label-top" id="label_12" for="consumption"> Mức tiêu thụ </label>
         <div id="cid_12" class="form-input-wide">
-          <input type="text" id="input_12" name="consumption" value="{{ $rentalview->consumption }}" placeholder="Số lít nhiên liệu cho quãng đường 100km." data-type="input-textbox" class="form-textbox" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_12" />
+          <input type="text" id="input_12" name="consumption" readonly value="{{ $rentalview->consumption }}" placeholder="Số lít nhiên liệu cho quãng đường 100km." data-type="input-textbox" class="form-textbox" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_12" />
         </div>
       </li>
       <li class="form-line form-line-column form-col-9" data-type="control_textbox" id="id_13">
