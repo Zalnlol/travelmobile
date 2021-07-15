@@ -71,7 +71,7 @@
                                             </i>
                                             Sửa
                                         </a>
-                                        <a class="btn btn-danger btn-sm" href="{{ route('rental.delete', $item->car_id) }}">
+                                        <a class="btn btn-danger btn-sm" href="{{ route('rental.delete', $item->car_id) }}" onclick="javascript:return confirm('Bạn có chắc muốn xóa ?')">
                                             Xóa
                                         </a>
                                     </td>
