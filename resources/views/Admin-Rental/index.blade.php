@@ -178,7 +178,7 @@
                             </i>
                             Duyệt
                         </a> --}}
-                        <a class="btn btn-danger btn-sm" href="{{ route('admin.rental.delete', $item->car_id) }}">
+                        <a class="btn btn-danger btn-sm" href="{{ route('admin.rental.delete', $item->car_id) }}" onclick="javascript:return confirm('Are you sure ?')">
                             <i class="fas fa-trash">
                             </i>
                             Xóa

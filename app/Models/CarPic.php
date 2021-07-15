@@ -9,6 +9,6 @@ class CarPic extends Model
 {
     use HasFactory;
 
-
+    protected $table = 'tb_car_pic';
     
 }

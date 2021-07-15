@@ -50,9 +50,4 @@ class RentalController extends Controller
         return redirect('admin/rental');
     }
 
-    public function slider()
-    {
-        return view('Admin-Rental.slider');
-    }
-
 }

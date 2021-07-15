@@ -92,7 +92,7 @@ class MyCarController extends Controller
         return redirect('mycar');
     }
 
-    public function delete($id)
+    public function delete($car_id)
     {
         $rentals = CarRental::where('car_id', $car_id)->first();
         $rentals->delete();
