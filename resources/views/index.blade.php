@@ -212,8 +212,6 @@
 
 
       </script>
-
-
-        @endsection
+    @endsection
 
 
