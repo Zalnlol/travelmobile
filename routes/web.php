@@ -4,11 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
-<<<<<<< Updated upstream
-use App\Http\Controllers\ProfilesController;
-=======
 use App\Http\Controllers\SearchCar;
->>>>>>> Stashed changes
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\NewUserWelcomeMail;
@@ -109,17 +105,13 @@ Route::get('/searchcar', function () {
     return view('user/searchcar');
 });
 
-<<<<<<< Updated upstream
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-<<<<<<< Updated upstream
-=======
-});
-///
+
 Route::get('/user-profile', function () {
     return view('user-profile');
 });
->>>>>>> Stashed changes
-=======
+
 
 
 
@@ -132,5 +124,3 @@ Route::get('/searchcar', [SearchCar::class, "search"])->name("searchcar");
 //Test 
 
 Route::get('/test', [SearchCar::class, "testajax1"])->name("test");
-Route::get('/test/ajax?name={name}', [SearchCar::class, "testajax2"])->name("test");
->>>>>>> Stashed changes
