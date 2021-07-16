@@ -107,4 +107,12 @@ Route::get('/searchcar', function () {
     return view('user/searchcar');
 });
 
+<<<<<<< Updated upstream
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+=======
+});
+///
+Route::get('/user-profile', function () {
+    return view('user-profile');
+});
+>>>>>>> Stashed changes
