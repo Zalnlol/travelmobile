@@ -8,11 +8,11 @@
 
         <form action="">
             <label id="title-box">Phạm vi tìm kiếm</label>
-            <select name="phamvi" class="form-control">
-                <option value="1">5km</option>
-                <option value="2" selected>10km</option>
-                <option value="3">20km</option>
-                <option value="4">30km</option>
+            <select id="phamvi" name="phamvi" class="form-control">
+                <option value="5">5km</option>
+                <option value="10" selected>10km</option>
+                <option value="20">20km</option>
+                <option value="30">30km</option>
             </select>
 
             <label id="title-box" style="margin-top: 7%">Mức giá</label>
