@@ -162,6 +162,7 @@
     </div >       
 
     <script src="{{ asset('script/map.js') }}"></script>  
+
         @endsection
 
 
