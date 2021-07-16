@@ -114,8 +114,6 @@ Route::get('auth/facebook/callback', [FbController::class, 'facebookSignin']);
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/user-profile', function () {
     return view('user-profile');
 });
