@@ -12,4 +12,9 @@ class Review extends Model
     protected $table = 'tb_review';
 
     protected $fillable = ['star_num', 'comment'];
+
+    public function car_rental()
+    {
+        $this->hasMany(CarRental::class, 'car_id');
+    }
 }

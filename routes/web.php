@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SearchCar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\NewUserWelcomeMail;
@@ -30,9 +31,7 @@ use App\Http\Controllers\FbController;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/searchcar', function () {
-    return view('User/searchcar');
-});
+
 
 
 Route::get('/login', [AccountController::class, "login"]);
@@ -89,7 +88,6 @@ Route::get('/email', function(){
 Route::get('mycar', 'MyCarController@index');
 Route::get('mycar/rental', 'MyCarController@create')->name('rental.create');
 Route::post('mycar/checkRental', 'MyCarController@store')->name('rental.store');
-Route::get('mycar/view/{car_id}', 'MyCarController@view')->name('rental.view');
 Route::get('mycar/update/{car_id}', 'MyCarController@update')->name('rental.update');
 
 Route::post('mycar/edit', 'MyCarController@edit')->name('rental.edit');
@@ -97,8 +95,6 @@ Route::get('mycar/delete/{car_id}', 'MyCarController@delete')->name('rental.dele
 Route::get('mycar/image', 'MyCarController@image')->name('rental.image');
 Route::get('mycar/image/upload', 'MyCarController@upload')->name('rental.upload');
 Route::post('mycar/image/checkUpload', 'MyCarController@checkUpload')->name('rental.checkUpload');
-
-Route::get('test', 'MyCarController@insertRecord');
 
 Route::get('review', 'ReviewController@index')->name('review');
 Route::post('review/post', 'ReviewController@store')->name('review.post');
@@ -117,3 +113,22 @@ Route::get('auth/facebook', [FbController::class, 'redirectToFacebook']);
 Route::get('auth/facebook/callback', [FbController::class, 'facebookSignin']);
 
 
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/user-profile', function () {
+    return view('user-profile');
+});
+
+
+
+
+//Search car
+
+Route::get('/searchcar', [SearchCar::class, "search"])->name("searchcar");
+
+
+
+//Test 
+
+Route::get('/test', [SearchCar::class, "testajax1"])->name("test");

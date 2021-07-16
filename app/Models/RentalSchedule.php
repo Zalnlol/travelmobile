@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class RentalSchedule extends Model
+{
+    public $timestamps = FALSE;
+    use HasFactory;
+    protected $table = 'tb_rental_schedule';
+
+    protected $primaryKey = 'schedule_id';
+
+    protected $fillable = ['car_id' ,'image','start_date','end_date','status','note'];
+}
