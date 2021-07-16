@@ -1,5 +1,6 @@
 @extends('layoutUser.layout')
 @section('titleweb','Home Page')
+
     
 @section('bodycode')
 
@@ -26,10 +27,10 @@
                                 <div class="form-row tm-search-form-row">
                                     <div class="form-group tm-form-element tm-form-element-2">
                                         <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                                        <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="Bắt đầu">
+                                        <input name="checkin" type="text" class="form-control" id="inputCheckIn" placeholder="Bắt đầu">
                                     </div>
                                     <div class="form-group tm-form-element tm-form-element-2">                                            
-                                        <select name="hour-option" class="form-control tm-select" id="children">
+                                        <select name="hourstart" class="form-control tm-select" id="children">
                                             <option value="0">12:00 am</option>
                                             <option value="1">1:00 am</option>
                                             <option value="2">2:00 am</option>
@@ -61,10 +62,10 @@
                                 <div class="form-row tm-search-form-row">
                                     <div class="form-group tm-form-element tm-form-element-2">
                                         <i class="fa fa-calendar fa-2x tm-form-element-icon"></i>
-                                        <input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="Kết thúc">
+                                        <input name="checkout" type="text" class="form-control" id="inputCheckOut" placeholder="Kết thúc">
                                     </div>
                                     <div class="form-group tm-form-element tm-form-element-2">                                            
-                                        <select name="hour-option" class="form-control tm-select" id="children">
+                                        <select name="hourend" class="form-control tm-select" id="children">
                                             <option value="0">0:00 am</option>
                                             <option value="1">1:00 am</option>
                                             <option value="2">2:00 am</option>
@@ -160,60 +161,7 @@
         </div>
     </div >       
 
-      <script>
-          var searchInput = 'search_input';
-    
-          $(document).ready(function () {
-              var autocomplete;
-              autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
-                  types: ['geocode'],
-                  /*componentRestrictions: {
-                      country: "USA"
-                  }*/
-              });
-    
-              google.maps.event.addListener(autocomplete, 'place_changed', function () {
-                  var near_place = autocomplete.getPlace();
-              });
-          });
-
-        //   gps
-
-   
-        function gps() {
-            navigator.geolocation.getCurrentPosition(function (location) {
-                let LAT = location.coords.latitude
-                let LNG = location.coords.longitude
-                const KEY = "AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8";
-                let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${LAT},${LNG}&key=${KEY}`;
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                        let parts = data.results[0].address_components;
-                        //   document.body.insertAdjacentHTML(
-                        //     "beforeend",
-                        //     `<p>Formatted: ${data.results[0].formatted_address}</p>`
-                        //   );
-                        document.getElementById('search_input').value = data.results[0].formatted_address;
-
-                    })
-                    .catch(err => console.warn(err.message));
-            });
-
-        }
-        function check() {
-            let str=document.getElementById("search_input").value
-            if(str=="Sử dụng vị trí của bạn"){
-                gps()
-            }
-        }
-
-
-
-      </script>
-
-
+    <script src="{{ asset('script/map.js') }}"></script>  
         @endsection
 
 

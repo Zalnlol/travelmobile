@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+
+    <script>
+
+        /*
+        converttocoordinates('223 Đường Lê Tấn Bê, An Lạc, Bình Tân, Thành phố Hồ Chí Minh', function(ValueReturn){
+
+            console.log("gia tri torng ham ValueReturn ", ValueReturn)
+        })
+
+        function converttocoordinates(address, callback) {
+
+            const KEY = "AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8";
+            let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${KEY}`;
+            let loc = fetch(url)
+                .then(response => response.json())
+                .then(data => {
+
+
+
+                    lat = data.results[0].geometry.location.lat;
+                    lng = data.results[0].geometry.location.lng;
+                    toado = [];
+                    toado[0] = lat;
+                    toado[1] = lng;
+
+                    // console.log(location);
+                    return toado;
+
+                })
+                .catch(err => console.warn(err.message));
+
+            const printAddress = async () => {
+                const a = await loc;
+                return  a 
+                
+            };
+
+            printAddress().then(function(values) {
+                // Muon xu ly gi voi gia tri return 
+
+                return callback(values)
+            })
+        }
+
+        */
+
+        let abc = ConvertAdd('223 Đường Lê Tấn Bê, An Lạc, Bình Tân, Thành phố Hồ Chí Minh');
+        abc.id="nhan";
+        console.log("abc ", abc)
+
+        function ConvertAdd(address) {
+            const KEY = "AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8";
+            let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${KEY}`;
+
+            var request = new XMLHttpRequest();
+            request.open('GET', url, false);  // `false` makes the request synchronous
+            request.send(null);
+
+            if (request.status === 200) {// That's HTTP for 'ok'
+                loc = JSON.parse(request.responseText);
+                return loc.results[0].geometry.location
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

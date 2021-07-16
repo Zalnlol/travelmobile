@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\SearchCar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\NewUserWelcomeMail;
@@ -27,9 +28,7 @@ use App\Mail\NewUserWelcomeMail;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/searchcar', function () {
-    return view('User/searchcar');
-});
+
 
 
 Route::get('/login', [AccountController::class, "login"]);
@@ -74,9 +73,10 @@ Route::prefix('admin')->name('admin.')->/*middleware('checkLogin:admin')->*/grou
 });
 
 //----------------------------------------------------------------------------------------------------------
-//Route Thiện đang làm, DO NOT TOUCH
-// Route::get('/profile/{user}',[ProfileController::class,"index"])->name('profile.show');
-// Route::get('/profile/{user}/edit',[ProfileController::class,"edit"])->name('profile.edit');
+//Route user view profile or edit profile
+Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profile.show');
+Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profile.edit');
+// Route::get('/profile/{user}',[ProfilesController::class,"update"])->name('profile.update');
 
 Route::get('/email', function(){
     return new NewUserWelcomeMail();
@@ -102,4 +102,22 @@ Route::get('/searchcar', function () {
     return view('user/searchcar');
 });
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/user-profile', function () {
+    return view('user-profile');
+});
+
+
+
+
+//Search car
+
+Route::get('/searchcar', [SearchCar::class, "search"])->name("searchcar");
+
+
+
+//Test 
+
+Route::get('/test', [SearchCar::class, "testajax1"])->name("test");

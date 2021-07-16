@@ -28,7 +28,7 @@
             </a>
             
             <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" id="dropdown-list" href="#">Trang cá nhân</a>
+              <a class="dropdown-item" id="dropdown-list" href="edit">Trang cá nhân</a>
               <a class="dropdown-item" id="dropdown-list" href="#">Xe của tôi</a>
               <a class="dropdown-item" id="dropdown-list" href="#">Chuyến của tôi</a>
               <a class="dropdown-item" id="dropdown-list" href="#">Đổi mật khẩu</a>
