@@ -85,7 +85,6 @@ Route::get('/email', function(){
 Route::get('mycar', 'MyCarController@index');
 Route::get('mycar/rental', 'MyCarController@create')->name('rental.create');
 Route::post('mycar/checkRental', 'MyCarController@store')->name('rental.store');
-Route::get('mycar/view/{car_id}', 'MyCarController@view')->name('rental.view');
 Route::get('mycar/update/{car_id}', 'MyCarController@update')->name('rental.update');
 
 Route::post('mycar/edit', 'MyCarController@edit')->name('rental.edit');
@@ -93,8 +92,6 @@ Route::get('mycar/delete/{car_id}', 'MyCarController@delete')->name('rental.dele
 Route::get('mycar/image', 'MyCarController@image')->name('rental.image');
 Route::get('mycar/image/upload', 'MyCarController@upload')->name('rental.upload');
 Route::post('mycar/image/checkUpload', 'MyCarController@checkUpload')->name('rental.checkUpload');
-
-Route::get('test', 'MyCarController@insertRecord');
 
 Route::get('review', 'ReviewController@index')->name('review');
 Route::post('review/post', 'ReviewController@store')->name('review.post');

@@ -18,8 +18,9 @@ class CarRental extends Model
     'discount_monthly', 'free_ship_distance', 'max_ship_distance', 'shipping_price_km','max_travel_distance',
     'over_max_travel_cost', 'rules', 'status', 'approval'];
 
-    public function pic()
+    public function review()
     {
-        return $this->hasOne('App\Models\CarPic');
+        return $this->belongsTo(Review::class, 'car_id');
     }
+
 }

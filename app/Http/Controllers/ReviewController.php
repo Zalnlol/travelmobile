@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Review;
+use App\Models\CarRental;
 
 class ReviewController extends Controller
 {
@@ -13,9 +14,9 @@ class ReviewController extends Controller
         return view('User-Review.index', compact('post'));
     }
 
-    public function store(Request $req)
+    public function store(Request $request)
     {
-        $post = $req->all();
+        $post = $request->all();
         Review::create($post);
         return redirect('review');
     }
