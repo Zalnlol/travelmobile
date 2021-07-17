@@ -3,7 +3,7 @@
 <div class="card " style="height:550px">
     <div class="card-body scrollbar-grey" style=" overflow-y: auto;">
         <div class="row" id="danhsachxe">
-            {{-- <div class="col-lg-6" style="margin-top: 20px">
+            <div class="col-lg-6" style="margin-top: 20px">
                 <div class="card">
                     <img src="{{ asset('images/cars1.jpg') }}" class="card-img-top" alt="Card image cap">
                     <div class="card-body">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-            </div> --}}
+            </div>
 
        
         </div>

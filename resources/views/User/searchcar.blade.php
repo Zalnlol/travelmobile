@@ -131,7 +131,7 @@
 
 
     <script src="{{ asset('script/map.js') }}"></script>
-    <script>
+    {{-- <script>
    
         let carlist = {!! json_encode($carlist->toArray(), JSON_HEX_TAG) !!};
         let addressU = {!! json_encode($address, JSON_HEX_TAG) !!};
@@ -176,7 +176,7 @@
         
     
 
-    </script>
+    </script> --}}
 
    
 

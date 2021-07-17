@@ -39,20 +39,20 @@ function gps() {
             .then(data => {
                 console.log(data);
                 let parts = data.results[0].address_components;
-
                 document.getElementById('search_input').value = data.results[0].formatted_address;
+                checktoado();
 
             })
             .catch(err => console.warn(err.message));
     });
 
 }
-function check() {
-    let str = document.getElementById("search_input").value
-    if (str == "Sử dụng vị trí của bạn") {
-        gps()
-    }
-}
+// function check() {
+//     let str = document.getElementById("search_input").value
+//     if (str == "Sử dụng vị trí của bạn") {
+//         gps()
+//     }
+// }
 
 
 //calculate distance
@@ -220,6 +220,27 @@ function display12(carlist,address,Carimage,path){
     });
 
 }
+
+
+function checktoado() {
+    let str = document.getElementById("search_input").value
+    if (str == "Sử dụng vị trí của bạn") {
+        gps()
+    }
+    
+    diachi = document.getElementById('search_input').value;
+   toado= ConvertAdd(diachi);
+
+   lang=toado.lng;
+    
+   document.getElementById('lat').value=toado.lat
+   document.getElementById('lng').value=lang
+   return true;
+   
+}
+
+
+
 
 
 
