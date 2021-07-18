@@ -199,14 +199,14 @@ font-weight: bolder;}
 
 <form class="jotform-form" action="{{ route('rental.checkUpload') }}" method="post" enctype="multipart/form-data" >
     @csrf
-
+    <input type="hidden" name="car_id" value="{{ $id }}">
   <div role="main" class="form-all" style="margin-top: 5%">
     <ul class="form-section page-section">
       <li id="cid_47" class="form-input-wide" data-type="control_head">
         <div class="form-header-group  header-default">
           <div class="header-text httal htvam">
             <h2 id="header_47" class="form-header" data-component="header">
-              Ảnh xe
+              Ảnh xe <h5>(Phải đủ 4 hình)</h5>
             </h2>
             <div id="subHeader_47" class="form-subHeader">
               Đăng nhiều hình ở các góc độ khác nhau để tăng thông tin cho xe của bạn.
@@ -238,7 +238,7 @@ font-weight: bolder;}
               <div class="qq-uploader-buttonText-value">
                 Browse Files
               </div>
-              <input type="file" id="input_59" name="image1" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
+              <input type="file" id="input_59" name="image" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
             </div>
             <span style="display:none" class="cancelText">
               Cancel
@@ -267,7 +267,7 @@ font-weight: bolder;}
               <div class="qq-uploader-buttonText-value">
                 Browse Files
               </div>
-              <input type="file" id="input_66" name="image2" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
+              <input type="file" id="input_66" name="image_left" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
             </div>
             <span style="display:none" class="cancelText">
               Cancel
@@ -296,7 +296,7 @@ font-weight: bolder;}
               <div class="qq-uploader-buttonText-value">
                 Browse Files
               </div>
-              <input type="file" id="input_67" name="image3" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
+              <input type="file" id="input_67" name="image_right" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
             </div>
             <span style="display:none" class="cancelText">
               Cancel
@@ -325,7 +325,7 @@ font-weight: bolder;}
               <div class="qq-uploader-buttonText-value">
                 Browse Files
               </div>
-              <input type="file" id="input_68" name="image4" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
+              <input type="file" id="input_68" name="image_behind" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
             </div>
             <span style="display:none" class="cancelText">
               Cancel

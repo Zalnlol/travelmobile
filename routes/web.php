@@ -74,8 +74,8 @@ Route::prefix('admin')->name('admin.')->/*middleware('checkLogin:admin')->*/grou
 
 //----------------------------------------------------------------------------------------------------------
 //Route user view profile or edit profile
-Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profile.show');
-Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profile.edit');
+// Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profile.show');
+// Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profile.edit');
 // Route::get('/profile/{user}',[ProfilesController::class,"update"])->name('profile.update');
 
 Route::get('/email', function(){
@@ -84,6 +84,7 @@ Route::get('/email', function(){
 //----------------------------------------------------------------------------------------------------------
 Route::get('mycar', 'MyCarController@index');
 Route::get('mycar/rental', 'MyCarController@create')->name('rental.create');
+Route::get('mycar/newrental', 'MyCarController@create1');
 Route::post('mycar/checkRental', 'MyCarController@store')->name('rental.store');
 Route::get('mycar/update/{car_id}', 'MyCarController@update')->name('rental.update');
 
@@ -105,9 +106,9 @@ Route::get('/searchcar', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/user-profile', function () {
-    return view('user-profile');
-});
+// Route::get('/user-profile', function () {
+//     return view('user-profile');
+// });
 
 
 

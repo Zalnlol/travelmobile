@@ -16,6 +16,7 @@ class ReviewController extends Controller
 
     public function store(Request $request)
     {
+        
         $post = $request->all();
         Review::create($post);
         return redirect('review');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CarRental;
 use App\Models\CarPic;
+use App\Models\CarMFG;
+use App\Models\CarType;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\RentalRequest;
 
@@ -16,7 +18,7 @@ class MyCarController extends Controller
         return view('User-Rental.index', compact('mycar'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
         return view('User-Rental.create');
     }
@@ -99,14 +101,37 @@ class MyCarController extends Controller
         return redirect('mycar');
     }
 
-    public function image()
-    {
-        return view('Rental-image.index');
+    public function image($car_id)
+    { 
+        $images = CarPic::where('car_id', intval($car_id))->get()->first();
+        return view('Rental-image.index', compact('images'));
     }
 
-    public function upload(Request $req)
-    {
-        return view('Rental-image.create');
-    }
+    // public function upload()
+    // {     
+    //     return view('Rental-image.create');
+    // }
+
+    // public function checkUpload(Request $request)
+    // {
+    //     $uploads = $request->all();
+    //     if($request->hasFile('image', 'image_left', 'image_right', 'image_behind')){
+    //         $file = $request->file('image', 'image_left', 'image_right', 'image_behind');
+    //         $extension = $file->getClientOriginalExtension();
+    //         if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
+    //             return redirect('mycar/image/upload');
+    //         }
+    //             $imgName = $file->getClientOriginalName();
+    //             $file->move('images/carimg', $imgName);
+    //             $uploads['image'] = $imgName;
+    //             $uploads['image_left'] = $imgName;
+    //             $uploads['image_right'] = $imgName;
+    //             $uploads['image_behind'] = $imgName;
+    //     }
+
+    //     $up = new CarPic($uploads);
+    //     $up->save();
+    //     return redirect('mycar/image');
+    // }
 
 }
