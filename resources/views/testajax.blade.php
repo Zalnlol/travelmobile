@@ -35,26 +35,27 @@ type id<input type="text" readonly id="typeid"> <br>
 seatnum<input type="text" readonly id="seatnum"><br>
 brand<input type="text" readonly id="brand"><br>
 model<input type="text" readonly id="model"><br>
+Price<input type="text" readonly id="price"><br>
 
 
 <script>
     function display(){
         let brands = {!! json_encode($brands->toArray(), JSON_HEX_TAG) !!};
         id = document.getElementById('hangxe').value; 
-        console.log(car)  ;
         brands.forEach(element =>{
             if(element['mfg_id']===id){
-                name=element['name']
+                name=element['name'];
+                
             }
         });
         document.getElementById('brand').value= name
         document.getElementById('model').value= document.getElementById('chiecxe').value
-
+        console.log(car);
         car.forEach(element=>{
             if(document.getElementById('chiecxe').value==element['model']){
                 document.getElementById('typeid').value = element['type_id']
                 document.getElementById('seatnum').value = element['seatnum']
-
+                document.getElementById('price').value= element['suggest_price'];
             }
         });
        
@@ -68,7 +69,7 @@ model<input type="text" readonly id="model"><br>
         let i = 0;
          car = {!! json_encode($cars->toArray(), JSON_HEX_TAG) !!};
         
-        console.log(id);
+
 
 
         car.forEach(element => {

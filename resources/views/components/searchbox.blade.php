@@ -159,18 +159,18 @@
 
     function checkcars3() {
 
-        let value1 = document.getElementById("7cho").value;
+        let value1 = document.getElementById("bantai").value;
 
 
         if (value1 == 0) {
             document.getElementById("carimage3").style.border = "solid";
             document.getElementById("carimage3").style.borderWidth = "1px";
             document.getElementById("stylecar3").style.fontWeight = "bold";
-            document.getElementById("7cho").value = 1;
+            document.getElementById("bantai").value = 1;
         } else {
             document.getElementById("carimage3").style.border = "none";
             document.getElementById("stylecar3").style.fontWeight = "normal";
-            document.getElementById("7cho").value = 0;
+            document.getElementById("bantai").value = 0;
         }
 
     }

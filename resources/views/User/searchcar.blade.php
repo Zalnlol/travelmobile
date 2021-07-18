@@ -197,19 +197,23 @@
                     document.getElementById('4cho').value=0; 
                     checkcars1();
                 }
+
+
                 if(sessionStorage.getItem("7cho")==0){
                     document.getElementById('7cho').value=1;
-                    checkcars1();
+                    checkcars2();
                 }else{
                     document.getElementById('7cho').value=0; 
-                    checkcars1();
+                    checkcars2();
                 }
+
+
                 if(sessionStorage.getItem("bantai")==0){
                     document.getElementById('bantai').value=1;
-                    checkcars1();
+                    checkcars3();
                 }else{
                     document.getElementById('bantai').value=0; 
-                    checkcars1();
+                    checkcars3();
                 }
                
                 document.getElementById('brand').value = sessionStorage.getItem("brand");

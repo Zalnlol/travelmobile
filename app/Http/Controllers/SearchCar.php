@@ -155,7 +155,7 @@ function search(Request $request){
                 foreach($listscan as $element){
                         foreach(checkschedule($listscan,$searchinfo) as $element2){
                             if($element['car_id']==$element2['car_id']){
-                                unset($listscan[$i]);
+                                array_splice($listscan,$i,1);
                             }
                         }
                         $i+=1;
@@ -262,24 +262,174 @@ function filter(Request $request){
                 foreach($listscan as $element){
                         foreach(checkschedule($listscan,$searchinfo) as $element2){
                             if($element['car_id']==$element2['car_id']){
-                                unset($listscan[$i]);
+                                array_splice($listscan,$i,1);
                             }
                         }
                         $i+=1;
                 }
 
 
-                dd($listscan);
 
 
                 //Filter
-            $min= $data['min']   ;   
-        
-                if( ($data['min'] !=null) && ($data['max'] !=null))
-                {
-                    dd('gg');
-                };
 
+                $max=$data['max'];
+                $min=$data['min'];
+            
+               
+                if( ($min !=null) && ($max !=null))
+                {  
+                    $i=0;
+                    foreach($listscan as $element){
+                        if ( ($element['rent_price']>$max) ||($element['rent_price']<$min) ){
+                            array_splice($listscan,$i,1);
+                            $i-=1;
+                        }
+                        $i+=1;
+                    }
+                } elseif(($min !=null) && ($max ==null)){
+                    $i=0;
+                    foreach($listscan as $element){
+                        if ( $element['rent_price']<$min ){
+                            array_splice($listscan,$i,1);
+                            $i-=1;
+                        }
+                        $i+=1;
+                    }
+                }elseif(($min ==null) && ($max !=null)){
+                    $i=0;
+                    foreach($listscan as $element){
+                        if  ($element['rent_price']>$max) {
+                            array_splice($listscan,$i,1);
+                            $i-=1;
+                        }
+                        $i+=1;
+                    }
+                }
+
+
+
+                $cho4=$data['4cho'];
+                $cho7=$data['7cho'];
+                $bantai=$data['bantai'];
+
+  
+
+
+                if(($cho4==1)&&($cho7==0)&&($bantai==0)){
+                    $i=0;
+                    foreach($listscan as $element){
+                        $car =CarType::where('type_id',$element['type_id'])->get()->first();
+                        // print_r($car['seatnum'].'  ,  ');
+                        if((($car['seatnum']==4)||($car['seatnum']==5))&&($car['car_style']!='PICK-UP') ){   
+                        }else{
+                            array_splice($listscan,$i,1);
+                            $i-=1;
+                        }
+                        $i+=1;
+                    }
+                }elseif(($cho4==0)&&($cho7==1)&&($bantai==0)){
+                    $i=0;
+                    foreach($listscan as $element){
+                        $car =CarType::where('type_id',$element['type_id'])->get()->first();
+                        // print_r($car['seatnum'].'  ,  ');
+                        if (($car['seatnum']==7)&&($car['car_style']!='PICK-UP') ){   
+                        }else{
+                            array_splice($listscan,$i,1);
+                            $i-=1;
+                        }
+                        $i+=1;
+                    }
+
+                }elseif(($cho4==0)&&($cho7==0)&&($bantai==1)){
+                    $i=0;
+                    foreach($listscan as $element){
+                        $car =CarType::where('type_id',$element['type_id'])->get()->first();
+                        // print_r($car['seatnum'].'  ,  ');
+                        if ($car['car_style']=='PICK-UP'){   
+                        }else{
+                            array_splice($listscan,$i,1);
+                            $i-=1;
+                        }
+                        $i+=1;
+                    }
+
+                }elseif(($cho4==1)&&($cho7==1)&&($bantai==0)){
+                    $i=0;
+                    foreach($listscan as $element){
+                        $car =CarType::where('type_id',$element['type_id'])->get()->first();
+                        // print_r($car['seatnum'].'  ,  ');
+                        if((($car['seatnum']==4)||($car['seatnum']==5)||($car['seatnum']==7))&&($car['car_style']!='PICK-UP') ){   
+                        }else{
+                            array_splice($listscan,$i,1);
+                            $i-=1;
+                        }
+                        $i+=1;
+                    }
+                }elseif(($cho4==1)&&($cho7==0)&&($bantai==1)){
+                    $i=0;
+                    foreach($listscan as $element){
+                        $car =CarType::where('type_id',$element['type_id'])->get()->first();
+                        // print_r($car['seatnum'].'  ,  ');
+                        if((($car['seatnum']==4)||($car['seatnum']==5))||($car['car_style']=='PICK-UP') ){   
+                        }else{
+                            array_splice($listscan,$i,1);
+                            $i-=1;
+                        }
+                        $i+=1;
+                    }
+                }elseif(($cho4==0)&&($cho7==1)&&($bantai==1)){
+                    $i=0;
+                    foreach($listscan as $element){
+                        $car =CarType::where('type_id',$element['type_id'])->get()->first();
+                        // print_r($car['seatnum'].'  ,  ');
+                        if((($car['seatnum']==7))||($car['car_style']=='PICK-UP') ){   
+                        }else{
+                            array_splice($listscan,$i,1);
+                            $i-=1;
+                        }
+                        $i+=1;
+                    }
+                }
+
+                $brand=$data['brand'];
+                
+                if($brand!=null){
+                    $i=0;
+                    foreach($listscan as $element){
+                       if($element['brand']!=$brand){
+                            array_splice($listscan,$i,1);
+                            $i-=1;
+                       }
+                       $i+=1;
+                    }
+                }
+
+
+                $auto=$data['auto'];
+
+               if($auto!=null){
+                   if($auto==1){
+                    $i=0;
+                    foreach($listscan as $element){
+                       if($element['auto']!=$auto){
+                            array_splice($listscan,$i,1);
+                            $i-=1;
+                       }
+                        $i+=1;
+                        }
+                   }else{
+                    $i=0;
+                    foreach($listscan as $element){
+                       if($element['auto']!=$auto){
+                            array_splice($listscan,$i,1);
+                            $i-=1;
+                       }
+                        $i+=1;
+                        }
+
+                   }
+               }
             
             $i=0;
             foreach($listscan as $element){
