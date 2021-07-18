@@ -71,7 +71,9 @@
                     <a href="{{url('auth/facebook')}}">
                         <button type="button" class="btn btn-primary btn-circle btn-sm"><i class="fa fa-facebook"></i></button>
                     </a>
-                    <button type="button" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-google"></i></button>
+                    <a href="{{url('auth/google')}}">
+                        <button type="button" class="btn btn-danger btn-circle btn-sm"><i class="fa fa-google"></i></button>
+                    </a>
                 </div>
             </form>
         </div>

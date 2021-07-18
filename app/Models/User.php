@@ -54,14 +54,13 @@ class User extends Authenticatable
         'avatar_image',
     ];
 
-
+    //Function gửi mail trap, lỗi nên tạm tắt
     // protected static function boot(){
     //     parent::boot();
 
     //     static::create(function($user){
-    //         $user->profile()->create(['title'=>$user->name,]);
+    //         $user->profile()->create(['name'=> $user->name, 'email'=> $user->email]);
+    //         Mail::to($user->email)->send(new NewUserWelcomeMail());
     //     });
-
-    //     Mail::to($user->email)->send(new NewUserWelcomeMail());
     // }
 }
