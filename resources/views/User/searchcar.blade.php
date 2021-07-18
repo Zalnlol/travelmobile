@@ -5,32 +5,35 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/search.css') }}">
 
 @section('bodycode')
+
+
     <div class="main-body container">
         <div class="row">
             <div class="col">
                 <div class="card ">
                     <div class="card-body ">
-                        <form action="">
+                        <form action="{{ url('/searchcar') }}">
                             <div class="row">
-
-
                                 <div class="col">
                                     <span class="tile-search1">Địa điểm</span>
                                     <input type="text" name="city" id="search_input" list="geoname"
-                                        onchange="return check()" placeholder="Nhập thành phố, quận, địa chỉ...">
+                                        onchange="return checktoado()" placeholder="Nhập thành phố, quận, địa chỉ..."
+                                        value="{{ $searchinfo['city'] }}">
                                     <datalist id="geoname">
                                         <option>
                                             Sử dụng vị trí của bạn
                                         </option>
                                     </datalist>
+                                    <input type="text" name="lat" id="lat" value="{{ $searchinfo['lat'] }}" hidden>
+                                    <input type="text" name="lng" id="lng" value="{{ $searchinfo['lng'] }}" hidden>
                                 </div>
 
                                 <div class="col">
                                     <span class="tile-search1">Bắt đầu</span>
 
-                                    <input type="text" name="location " style="border: none; width: 6.5rem ;"
-                                        value="Wed Jul 14 2021" id="inputCheckIn">
-                                    <select name="hour-option" style="border: none;">
+                                    <input type="text" style="border: none; width: 6.5rem ;"
+                                        value="{{ $searchinfo['checkin'] }}" id="inputCheckIn" name="checkin">
+                                    <select name="hourstart" style="border: none;" id="hourstart">
                                         <option value="0">12:00 am</option>
                                         <option value="1">1:00 am</option>
                                         <option value="2">2:00 am</option>
@@ -62,9 +65,9 @@
                                 <div class="col">
                                     <span class="tile-search1">Kết thúc</span>
 
-                                    <input type="text" name="location " style="border: none; width: 6.5rem ;"
-                                        value="Wed Jul 14 2021" id="inputCheckOut">
-                                    <select name="hour-option" style="border: none;">
+                                    <input type="text" style="border: none; width: 6.5rem ;" id="inputCheckOut"
+                                        name="checkout" value="{{ $searchinfo['checkout'] }}">
+                                    <select name="hourend" style="border: none;" id="hourend">
                                         <option value="0">12:00 am</option>
                                         <option value="1">1:00 am</option>
                                         <option value="2">2:00 am</option>
@@ -110,12 +113,12 @@
         <div class="row">
             <div class="col-sm-4">
                 <div>
-                    <x-searchbox></x-searchbox>
+                    <x-searchbox :hangxe="$hangxe" :searchinfo="$searchinfo"></x-searchbox>
                 </div>
             </div>
             <div class="col-sm-8">
                 <div id="listcard">
-                    <x-carlist></x-carlist>
+                    <x-carlist :danhsachxe1="$listcardiplay"></x-carlist>
                 </div>
                 <div id="listmap" style="display: none">
                     <x-searchmap></x-searchmap>
@@ -125,60 +128,99 @@
         <div style="height: 50px"></div>
 
 
-
     </div>
 
 
 
     <script src="{{ asset('script/map.js') }}"></script>
-    {{-- <script>
-   
-        let carlist = {!! json_encode($carlist->toArray(), JSON_HEX_TAG) !!};
-        let addressU = {!! json_encode($address, JSON_HEX_TAG) !!};
-        let Carimage = {!! json_encode($Carimage, JSON_HEX_TAG) !!};
-        let path = {!! json_encode(asset("/"), JSON_HEX_TAG) !!};
+    <script>
+        let carlist = {!! json_encode($idmap, JSON_HEX_TAG) !!};
+        let searchinfo = {!! json_encode($searchinfo, JSON_HEX_TAG) !!};
 
-     
-        var coordinates = []
-        // console.log(carlist.length);
-        let car1 = {}
-        n=1;
-        usermmap = ConvertAdd(addressU);
-    
-        for(i=0;i<carlist.length;i++){
-         
-            coordinates1 = ConvertAdd(carlist[i]['address']);
-            // console.log(coordinates1);
-            car1.lat = coordinates1.lat;
-            car1.lng = coordinates1.lng;
-            str= JSON.stringify(car1);
-            coordinates.push(JSON.parse(str)) ;
-            carlist[i]['lat']=JSON.parse(JSON.stringify(car1.lat))
-            carlist[i]['lng']=JSON.parse(JSON.stringify(car1.lng))
-           
+        let usermpid = {};
+        usermpid['lat'] = searchinfo['lat']
+        usermpid['lng'] = searchinfo['lng'];
+
+
+        document.getElementById('hourstart').value = searchinfo['hourstart'];
+        document.getElementById('hourend').value = searchinfo['hourend'];
+        initMap(carlist, usermpid);
+
+
+        src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8&callback=initMap"
+        var map;
+
+        function initMap(maker, usermap) {
+
+            maker.forEach(element => {
+                element.lat = parseFloat(element.lat, 10);
+                element.lng = parseFloat(element.lng, 10);
+            });
+            usermap.lat = parseFloat(usermap.lat, 10);
+            usermap.lng = parseFloat(usermap.lng, 10);
+
+            map = new google.maps.Map(document.getElementById('mapmap'), {
+                center: {
+                    lat: usermap.lat,
+                    lng: usermap.lng
+                },
+                zoom: 15
+            });
+            maker.forEach(element => {
+
+                addMarker(element);
+
+            });
+
+            //add marker function
+            function addMarker(coords) {
+
+                var marker1 = new google.maps.Marker({
+                    position: coords,
+                    map: map
+
+                });
+            }
+
+
         }
 
-        
-        radius=document.getElementById("phamvi").value;
     
-        initMap(coordinates,usermmap);
+            if (sessionStorage.getItem("phamvi") != '') {
+                document.getElementById('phamvi').value = sessionStorage.getItem("phamvi");
+                document.getElementById('min').value = sessionStorage.getItem("min");
+                document.getElementById('max').value = sessionStorage.getItem("max");
+                if(sessionStorage.getItem("4cho")==0){
+                    document.getElementById('4cho').value=1;
+                    checkcars1();
+                }else{
+                    document.getElementById('4cho').value=0; 
+                    checkcars1();
+                }
+                if(sessionStorage.getItem("7cho")==0){
+                    document.getElementById('7cho').value=1;
+                    checkcars1();
+                }else{
+                    document.getElementById('7cho').value=0; 
+                    checkcars1();
+                }
+                if(sessionStorage.getItem("bantai")==0){
+                    document.getElementById('bantai').value=1;
+                    checkcars1();
+                }else{
+                    document.getElementById('bantai').value=0; 
+                    checkcars1();
+                }
+               
+                document.getElementById('brand').value = sessionStorage.getItem("brand");
+                document.getElementById('auto').value = sessionStorage.getItem("auto");
+            }
+            deletesession();
 
-        scancar =ScanWithinRadius(coordinates,usermmap,radius)
+ 
+    </script>
 
 
-
-        display12(carlist, scancar,Carimage,path);
-       
-        console.log(carlist);
-
-
-
-        
-    
-
-    </script> --}}
-
-   
 
 
 

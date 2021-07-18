@@ -11,9 +11,12 @@ class searchbox extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $hangxe;
+    public $ngaygio;
+    public function __construct($hangxe,$searchinfo)
     {
-        //
+        $this->hangxe=$hangxe;
+        $this->ngaygio=$searchinfo;
     }
 
     /**
@@ -26,3 +29,7 @@ class searchbox extends Component
         return view('components.searchbox');
     }
 }
+
+
+
+

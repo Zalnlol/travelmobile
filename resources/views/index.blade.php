@@ -34,8 +34,8 @@
                                             placeholder="Bắt đầu">
                                     </div>
                                     <div class="form-group tm-form-element tm-form-element-2">
-                                        <select name="hourstart" class="form-control tm-select" id="children">
-                                            <option value="0">12:00 am</option>
+                                        <select name="hourstart" class="form-control tm-select" id="children1">
+                                            <option value="0">0:00 am</option>
                                             <option value="1">1:00 am</option>
                                             <option value="2">2:00 am</option>
                                             <option value="3">3:00 am</option>
@@ -186,6 +186,22 @@
     </div>
 
     <script src="{{ asset('script/map.js') }}"></script>
+
+    <script>
+        var today = new Date();
+
+
+        document.getElementById('children').value = today.getHours();
+        document.getElementById('children1').value = today.getHours();
+
+        parts = (today.getDate() + '/ ' + (today.getMonth() + 1) + ' /' + today.getFullYear()).split("/");
+        date = new Date(+parts[2], parts[1] - 1, +parts[0]);
+        start= (date.toString()).substr(0, 15);
+        
+
+        document.getElementById('inputCheckIn').value=((new Date(+parts[2], parts[1]-1, +parts[0])).toString()).substr(0, 15);
+        document.getElementById('inputCheckOut').value=((new Date(+parts[2], parts[1]-1, +parts[0]+1)).toString()).substr(0, 15);
+    </script>
 
 
 @endsection

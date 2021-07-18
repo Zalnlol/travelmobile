@@ -3,43 +3,54 @@
 <div class="card " style="height:550px">
     <div class="card-body scrollbar-grey" style=" overflow-y: auto;">
         <div class="row" id="danhsachxe">
+            {{-- {{dd($danhsachxe)}} --}}
+            @foreach ($danhsachxe as $chiecxe)
             <div class="col-lg-6" style="margin-top: 20px">
                 <div class="card">
-                    <img src="{{ asset('images/cars1.jpg') }}" class="card-img-top" alt="Card image cap">
+                    <img src="{{ asset(''.$chiecxe->car_image) }}" class="card-img-top" alt="Card image cap">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-8">
-                                <span id="titleCard">NISSAN SUNNY 2019</span>
+                                <span id="titleCard">{{$chiecxe->name}}</span>
                             </div>
 
                             <div class="col-sm-4" style="text-align: right">
-                                <span id="cardPrice">850K</span>
+                                <span id="cardPrice">{{$chiecxe->rent_price}}</span>
                             </div>
                         </div>
                         <div class="row" style="margin-top: 3%">
                             <div class="col-sm-5">
                                 <script>
-                                    rating(4)
-
-                                    function rating(number) {
-                                        for (i = 1; i <= 5; i++) {
-                                            if (i <= number) {
+                                     star = {!! json_encode($chiecxe->star_num, JSON_HEX_TAG) !!};
+                                    rating(star)         
+                                      function rating(number) {
+                                        for (i = 0; i < 5; i++) {
+                                            if (i < number) {
                                                 document.write('<i class="fa fa-star fa-1x" id="checker" ></i>')
                                             } else {
                                                 document.write('<i class="fa fa-star fa-1x"></i>')
                                             }
                                         }
 
-                                    }
+                                        }              
                                 </script>
+                                
                             </div>
                             <div class="col-sm-7">
-                                • 3 chuyến ~ 10km
+                                • {{$chiecxe->trip_number}}  chuyến 
                             </div>
                         </div>
                         <br>
+            
+                  
+                        @if ($chiecxe->auto==1)
+                            <span id="card-tag">Số tự động</span>
+                        @else
+                            <span id="card-tag">Số sàn</span>
+                            
+                        @endif
+                        
 
-                        <span id="card-tag">Số tự động</span>
                         <span id="card-tag">Giao xe tận nơi</span>
                         <br>
                         <br>
@@ -47,7 +58,7 @@
                         <div class="row">
                             <div class="col">
                                 <i class="fa fa-map-marker" id="checker"></i>
-                                <span style="font-size: 10pt"> Thị Trấn Tân Phước Khánh, Bình Dương, Việt Nam</span>
+                                <span style="font-size: 10pt"> {{$chiecxe->address}}</span>
 
                             </div>
                         </div>
@@ -55,6 +66,9 @@
                 </div>
 
             </div>
+            @endforeach
+
+          
 
        
         </div>
@@ -67,6 +81,19 @@
         </aside>
 
     </div>
+
+    <script>
+        //   function rating(number) {
+        //     for (i = 0; i < 5; i++) {
+        //         if (i <= number) {
+        //             document.write('<i class="fa fa-star fa-1x" id="checker" ></i>')
+        //         } else {
+        //             document.write('<i class="fa fa-star fa-1x"></i>')
+        //         }
+        //     }
+
+        // }
+    </script>
 
 
 </div>
