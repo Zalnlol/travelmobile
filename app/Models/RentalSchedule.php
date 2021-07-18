@@ -13,5 +13,5 @@ class RentalSchedule extends Model
 
     protected $primaryKey = 'schedule_id';
 
-    protected $fillable = ['car_id' ,'image','start_date','end_date','status','note'];
+    protected $fillable = ['car_id','start_date','end_date','status','note'];
 }

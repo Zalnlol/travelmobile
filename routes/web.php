@@ -4,10 +4,15 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\ProfilesController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchCar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\NewUserWelcomeMail;
+use App\Http\Controllers\FbController;
+use App\Http\Controllers\GoogleLogin;
+
 
 
 /*
@@ -103,8 +108,20 @@ Route::get('/searchcar', function () {
     return view('user/searchcar');
 });
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//----------------------------------------------------------------------------------------------------------
+//Facebook login
+Route::get('auth/facebook', [FbController::class, 'redirectToFacebook']);
+Route::get('auth/facebook/callback', [FbController::class, 'facebookSignin']);
+//Google login
+Route::get('google',function(){
+    return view('googleAuth');
+});
+Route::get('auth/google', [GoogleLogin::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleLogin::class, 'handleGoogleCallback']);
+//----------------------------------------------------------------------------------------------------------
+
 
 // Route::get('/user-profile', function () {
 //     return view('user-profile');
@@ -116,6 +133,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Search car
 
 Route::get('/searchcar', [SearchCar::class, "search"])->name("searchcar");
+Route::get('/searchcar/filter', [SearchCar::class, "filter"])->name("filter");
 
 
 

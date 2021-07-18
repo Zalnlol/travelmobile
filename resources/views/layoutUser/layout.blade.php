@@ -27,7 +27,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
 
     <title>@yield('titleweb')</title>
 </head>
@@ -41,9 +40,9 @@
             
                     <nav class="navbar navbar-expand-lg narbar-light">
                         <div class="logo-team">
-                          <a  href="#"  >
+                          <a  href="{{url('/')}}"  >
                             <div >
-                                <img src="images/travel-mobile-logo.png" style="width: 100%" alt="Site logo">
+                                <img src="{{asset('images/travel-mobile-logo.png') }}" style="width: 100%" alt="Site logo">
                             </div>
                           </a>
                         </div>
@@ -55,7 +54,7 @@
                           <div id="mainNav" class="collapse navbar-collapse tm-bg-white" style="margin-left: 30%">
                             <ul class="navbar-nav ml-auto">
                               <li class="nav-item">
-                                <a class="nav-link" href="#top">Trang chủ <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{url('/')}}">Trang chủ <span class="sr-only">(current)</span></a>
                               </li>
                               <li class="nav-item">
                                 <a class="nav-link" href="#tm-section-4">Hướng dẫn</a>
