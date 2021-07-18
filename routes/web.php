@@ -132,6 +132,7 @@ Route::get('/user-profile', function () {
 //Search car
 
 Route::get('/searchcar', [SearchCar::class, "search"])->name("searchcar");
+Route::get('/searchcar/filter', [SearchCar::class, "filter"])->name("filter");
 
 
 

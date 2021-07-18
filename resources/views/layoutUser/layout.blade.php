@@ -40,9 +40,9 @@
             
                     <nav class="navbar navbar-expand-lg narbar-light">
                         <div class="logo-team">
-                          <a  href="#"  >
+                          <a  href="{{url('/')}}"  >
                             <div >
-                                <img src="images/travel-mobile-logo.png" style="width: 100%" alt="Site logo">
+                                <img src="{{asset('images/travel-mobile-logo.png') }}" style="width: 100%" alt="Site logo">
                             </div>
                           </a>
                         </div>
@@ -54,7 +54,7 @@
                           <div id="mainNav" class="collapse navbar-collapse tm-bg-white" style="margin-left: 30%">
                             <ul class="navbar-nav ml-auto">
                               <li class="nav-item">
-                                <a class="nav-link" href="#top">Trang chủ <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{url('/')}}">Trang chủ <span class="sr-only">(current)</span></a>
                               </li>
                               <li class="nav-item">
                                 <a class="nav-link" href="#tm-section-4">Hướng dẫn</a>

@@ -11,9 +11,10 @@ class carlist extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $danhsachxe;
+    public function __construct($danhsachxe1)
     {
-        //
+        $this->danhsachxe=$danhsachxe1;
     }
 
     /**
@@ -23,6 +24,7 @@ class carlist extends Component
      */
     public function render()
     {
+
         return view('components.carlist');
     }
 }

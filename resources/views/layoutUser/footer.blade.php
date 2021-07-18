@@ -3,8 +3,8 @@
     <div class="container-fluid">
        <div class="row justify-content-around  "  >
            <div class="col-sm-4 ">
-            <a href="">
-                <img src="images/travel-mobile-logo-footer.png" style="width: 60%" alt="Site logo">
+            <a href="{{url('/')}}">
+                <img src="{{asset('images/travel-mobile-logo-footer.png') }}" style="width: 60%" alt="Site logo">
                </a>
                <table class="icon-list">
                    <tbody>
