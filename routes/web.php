@@ -55,7 +55,7 @@ Route::get('user/delete/{id}', [UserController::class, "delete"]);
 
 //Route cho user
 Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(function(){
-    Route::get('profile/{id}',[AccountController::class,"details"]);
+    Route::get('profile/{id}',[AccountController::class,"details"]);    
 });
 
 
