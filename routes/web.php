@@ -52,7 +52,7 @@ Route::get('user/delete/{id}', [UserController::class, "delete"]);
 
 //Route cho user
 Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(function(){
-    Route::get('profile/{id}',[AccountController::class,"details"]);
+    Route::get('profile/{id}',[AccountController::class,"details"]);    
 });
 
 
@@ -70,6 +70,11 @@ Route::prefix('admin')->name('admin.')->/*middleware('checkLogin:admin')->*/grou
     Route::post('rental/approval/{car_id}', 'RentalController@approval')->name('rental.approval');
     Route::get('rental/delete/{car_id}', 'RentalController@delete')->name('rental.delete');
 
+    Route::get('mfg','MGFCarController@index')->name('mfg');
+
+    Route::get('model','ModelcarController@index')->name('model-index');
+    Route::get('create','ModelcarController@create')->name('model-create');
+    Route::post('postCreate','ModelcarController@postCreate')->name('model-post');
 });
 
 //----------------------------------------------------------------------------------------------------------
