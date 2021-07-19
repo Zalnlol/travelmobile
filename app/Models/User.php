@@ -54,6 +54,9 @@ class User extends Authenticatable
         'avatar_image',
     ];
 
+
+
+
     //Function gửi mail trap, lỗi nên tạm tắt
     // protected static function boot(){
     //     parent::boot();

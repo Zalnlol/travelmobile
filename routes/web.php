@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchCar;
@@ -36,10 +35,6 @@ Route::get('/', function () {
 
 
 
-Route::get('/login', [AccountController::class, "login"]);
-Route::post('/checklogin', [AccountController::class, "checkLogin"]);
-Route::get('/logout', [AccountController::class, "logout"]);
-Route::get('/register', [AccountController::class, "register"]);
 
 
 
@@ -120,7 +115,13 @@ Route::get('google',function(){
 Route::get('auth/google', [GoogleLogin::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleLogin::class, 'handleGoogleCallback']);
 //----------------------------------------------------------------------------------------------------------
+//Phân chia login admin
 
+Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+
+
+
+//----------------------------------------------------------------------------------------------------------
 
 Route::get('/user-profile', function () {
     return view('user-profile');
