@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+        <input type="text" id="address" placeholder="Nhập địa điểm">
+         <input type="button" value="Tìm" onclick="return search()">
+         Lat <input type="text" readonly id="lat">
+         lng <input type="text" readonly id="lng">
+
+
+    <script>
+
+    function search() {
+       address= document.getElementById('address').value
+       
+       let abc = ConvertAdd(address);
+       document.getElementById('lat').value=abc.lat
+       document.getElementById('lng').value=abc.lng
+        
+    }
+
+        
+
+        function ConvertAdd(address) {
+            const KEY = "AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8";
+            let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${KEY}`;
+
+            var request = new XMLHttpRequest();
+            request.open('GET', url, false);  // `false` makes the request synchronous
+            request.send(null);
+
+            if (request.status === 200) {// That's HTTP for 'ok'
+                loc = JSON.parse(request.responseText);
+                return loc.results[0].geometry.location
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -16,10 +16,6 @@ class FbController extends Controller
     public function redirectToFacebook(){
         return Socialite::driver('facebook')->redirect();
     }
-    public function callback()
-    {
-       
-    }
 
     public function facebookSignin()
     {
@@ -27,7 +23,7 @@ class FbController extends Controller
     
             $user = Socialite::driver('facebook')->user();
             $facebookId = User::where('facebook_id', $user->id)->first();
-     
+            
             if($facebookId){
                 Auth::login($facebookId);
                 return redirect('/');
@@ -38,7 +34,7 @@ class FbController extends Controller
                     'facebook_id' => $user->id,
                     'password' => encrypt('john123')
                 ]);
-    
+                
                 Auth::login($createUser);
                 return redirect('/');
             }
