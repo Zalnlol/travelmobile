@@ -75,11 +75,19 @@ Route::prefix('admin')->name('admin.')->/*middleware('checkLogin:admin')->*/grou
     Route::post('rental/approval/{car_id}', 'RentalController@approval')->name('rental.approval');
     Route::get('rental/delete/{car_id}', 'RentalController@delete')->name('rental.delete');
 
-    Route::get('mfg','MGFCarController@index')->name('mfg');
+    Route::get('mfg','MGFCarController@index')->name('mfg-index');
+    Route::get('mfg/create','MGFCarController@create')->name('mfg-create');
+    Route::post('mfg/postCreate','MGFCarController@postCreate')->name('mfg-post-create');
+    Route::get('mfg/update/{mfg_id}', 'MGFCarController@update')->name('mfg-update');
+    Route::post('mfg/postUpdate/{mfg_id}','MGFCarController@postUpdate');
+    Route::get('mfg/delete/{mfg_id}', 'MGFCarController@delete')->name('mfg-delete');
 
     Route::get('model','ModelcarController@index')->name('model-index');
-    Route::get('create','ModelcarController@create')->name('model-create');
-    Route::post('postCreate','ModelcarController@postCreate')->name('model-post');
+    Route::get('model/create','ModelcarController@create')->name('model-create');
+    Route::post('model/postCreate','ModelcarController@postCreate')->name('model-post-create');
+    Route::get('model/update/{type_id}', 'ModelcarController@update')->name('model-update');
+    Route::post('model/postUpdate/{type_id}','ModelcarController@postUpdate');
+    Route::get('model/delete/{type_id}', 'ModelcarController@delete')->name('model-delete');
 });
 
 //----------------------------------------------------------------------------------------------------------

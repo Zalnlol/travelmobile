@@ -12,13 +12,13 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ url('admin/postCreate') }}" method="post"
+                        <form role="form" action="" method="post"
                             enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="txt-id">Mã model xe</label>
-                                    <input type="text" class="form-control" id="txt-id" name="type_id" placeholder="1">
+                                    <input type="text" class="form-control" id="txt-id" name="type_id" value="">
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-name">Mã hãng</label>
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-name">Kiểu dáng</label>
-                                    <input type="text" class="form-control" id="txt-name" name="car_type"
+                                    <input type="text" class="form-control" id="txt-name" name="car_style"
                                         placeholder="Nhập giá đề xuất">
                                 </div>
 

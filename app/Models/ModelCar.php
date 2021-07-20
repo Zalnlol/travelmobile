@@ -11,5 +11,5 @@ class ModelCar extends Model
     public $timestamps = FALSE;
     protected $table = 'tb_car_type';
     protected $primaryKey = 'type_id';
-    protected $fillable = ['type_id','mfg_id','model' ,'suggest_price','fuel_type','seatnum','car_type','update_at','create_at'];
+    protected $fillable = ['type_id','mfg_id','model' ,'suggest_price','fuel_type','seatnum','car_style','update_at','create_at'];
 }

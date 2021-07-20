@@ -68,13 +68,13 @@
                     
                     <td>{{ $items->created_at }}</td>
                     <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="">
+                        <a class="btn btn-primary btn-sm" href="{{ url('admin/model/update/' .$items->type_id) }}">
                             <i class="fas fa-folder">
                             </i>
                             Chỉnh sửa
                         </a>
                         
-                        <a class="btn btn-danger btn-sm" href="" onclick="javascript:return confirm('Are you sure ?')">
+                        <a class="btn btn-danger btn-sm" href="{{ url('admin/model/delete/' .$items->type_id) }}" onclick="javascript:return confirm('Are you sure ?')">
                             <i class="fas fa-trash">
                             </i>
                             Xóa

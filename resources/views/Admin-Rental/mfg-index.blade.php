@@ -56,16 +56,17 @@
                 <tr>
                   @foreach ($mfg as $items)
 
-                    <td>{{ $count++ }}</td>
+                    <td></td>
                     <td>{{ $items->mfg_id }}</td>
                     <td>{{ $items->name }}</td>
-                    <td>{{ $items->logo }}</td>
+                    <td><img width="100px" src="{{ url('/img/logo/	' .$items->logo ) }}"/></td>
+                    {{-- <td>{{ $items->logo }}</td> --}}
                     <td>{{ $items->nation }}</td>
                     <td>{{ $items->website }}</td>
                     
                     <td>{{ $items->created_at }}</td>
                     <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="">
+                        <a class="btn btn-primary btn-sm" href="{{ url('admin/mfg/update/' .$items->mfg_id) }}">
                             <i class="fas fa-folder">
                             </i>
                             Chỉnh sửa
