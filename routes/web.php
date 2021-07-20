@@ -134,6 +134,10 @@ Route::get('/user-profile', function () {
 Route::get('/searchcar', [SearchCar::class, "search"])->name("searchcar");
 Route::get('/searchcar/filter', [SearchCar::class, "filter"])->name("filter");
 
+Route::get('/searchcar/profile', function () {
+    return view('User/carprofile');
+});
+
 
 
 //Test 
