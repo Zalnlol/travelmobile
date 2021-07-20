@@ -185,43 +185,51 @@
 
         }
 
-    
-            if (sessionStorage.getItem("phamvi") != '') {
-                document.getElementById('phamvi').value = sessionStorage.getItem("phamvi");
-                document.getElementById('min').value = sessionStorage.getItem("min");
-                document.getElementById('max').value = sessionStorage.getItem("max");
-                if(sessionStorage.getItem("4cho")==0){
-                    document.getElementById('4cho').value=1;
-                    checkcars1();
-                }else{
-                    document.getElementById('4cho').value=0; 
-                    checkcars1();
+        function GetURLParameter(sParam) {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) {
+                    return sParameterName[1];
                 }
-
-
-                if(sessionStorage.getItem("7cho")==0){
-                    document.getElementById('7cho').value=1;
-                    checkcars2();
-                }else{
-                    document.getElementById('7cho').value=0; 
-                    checkcars2();
-                }
-
-
-                if(sessionStorage.getItem("bantai")==0){
-                    document.getElementById('bantai').value=1;
-                    checkcars3();
-                }else{
-                    document.getElementById('bantai').value=0; 
-                    checkcars3();
-                }
-               
-                document.getElementById('brand').value = sessionStorage.getItem("brand");
-                document.getElementById('auto').value = sessionStorage.getItem("auto");
             }
-            deletesession();
+        }
 
- 
+        if(GetURLParameter('phamvi')!=undefined){
+            document.getElementById('phamvi').value = GetURLParameter('phamvi');
+            document.getElementById('min').value = GetURLParameter('min');
+            document.getElementById('max').value = GetURLParameter('max');
+            document.getElementById('brand').value = GetURLParameter('brand');
+            document.getElementById('auto').value = GetURLParameter('auto');
+
+            if(GetURLParameter('4cho')==0){
+                document.getElementById('4cho').value=1;
+                checkcars1();
+            }else{
+                document.getElementById('4cho').value=0; 
+                checkcars1();
+            }
+
+
+            if(GetURLParameter('7cho')==0){
+                document.getElementById('7cho').value=1;
+                checkcars2();
+            }else{
+                document.getElementById('7cho').value=0; 
+                checkcars2();
+            }
+
+
+            if(GetURLParameter('bantai')==0){
+                document.getElementById('bantai').value=1;
+                checkcars3();
+            }else{
+                document.getElementById('bantai').value=0; 
+                checkcars3();
+            }
+
+        }
     </script>
 
 

@@ -149,53 +149,6 @@
     <!--Test-->
    
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/scrollbar.css') }}">
-
-    <div class="card card-prirary cardutline direct-chat direct-chat-primary  ">
-        
-        <!-- /.card-header -->
-        <div class="card-body ">
-
-          <div class="direct-chat-messages scrollbar-grey">
-
-            <div class="direct-chat-msg">
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-               ndhdnfifjdhi
-               <br>
-
-            </div>
-        </div>
-      </div>
-    </div>
-
-
-  
-    <div class="scrollbar scrollbar-primary">
-        <div class="force-overflow"></div>
-      </div>
 
 
 @endsection

@@ -174,28 +174,8 @@
         }
 
     }
-  
-    function savessesion(){
-        sessionStorage.setItem("phamvi", document.getElementById('phamvi').value);
-        sessionStorage.setItem("min", document.getElementById('min').value);
-        sessionStorage.setItem("max", document.getElementById('max').value);
-        sessionStorage.setItem("4cho", document.getElementById('4cho').value);
-        sessionStorage.setItem("7cho", document.getElementById('7cho').value);
-        sessionStorage.setItem("bantai", document.getElementById('bantai').value);
-        sessionStorage.setItem("brand", document.getElementById('brand').value);
-        sessionStorage.setItem("auto", document.getElementById('auto').value);
-    }
 
-    function deletesession(){
-        sessionStorage.setItem("phamvi", "");
-        sessionStorage.setItem("min", "");
-        sessionStorage.setItem("max", "");
-        sessionStorage.setItem("4cho", "");
-        sessionStorage.setItem("7cho", "");
-        sessionStorage.setItem("bantai", "");
-        sessionStorage.setItem("brand", "");
-        sessionStorage.setItem("auto", "");
-    }
+  
    
 
 </script>
