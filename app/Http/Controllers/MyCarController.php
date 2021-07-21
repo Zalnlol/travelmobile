@@ -96,21 +96,21 @@ class MyCarController extends Controller
 
     public function delete($car_id)
     {
-        $rentals = CarRental::where('car_id', $id)->first();
+        $rentals = CarRental::where('car_id', $car_id)->first();
         $rentals->delete();
         return redirect('mycar');
     }
 
-    public function image($car_id)
+    public function image()
     { 
-        $images = CarPic::where('car_id', intval($car_id))->get()->first();
-        return view('Rental-image.index', compact('images'));
+        // $images = CarPic::where('car_id', intval($car_id))->get()->first();
+        return view('Rental-image.index');
     }
 
-    // public function upload()
-    // {     
-    //     return view('Rental-image.create');
-    // }
+    public function upload()
+    {     
+        return view('Rental-image.create');
+    }
 
     // public function checkUpload(Request $request)
     // {

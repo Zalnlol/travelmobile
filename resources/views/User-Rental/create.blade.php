@@ -433,8 +433,8 @@
         <li class="form-line" data-type="control_textarea" id="id_36">
           <label class="form-label form-label-top" id="label_36" for="description">Mô tả</label>
           <div id="cid_36" class="form-input-wide">
-            <textarea rows="4" id="description" class="form-textarea" name="description" placeholder="        Huyndai Elantra số tự động đăng kí tháng 06/2018. Xe gia đình mới đẹp, nội thất nguyên bản, sạch sẽ, bảo dưỡng thường xuyên, rửa xe miễn phí cho khách.
-            Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch. Xe trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, camera hành trình, hệ thống giải trí AV cùng nhiều tiện nghi khác..." cols="40" rows="6" data-component="textarea" aria-labelledby="label_36"></textarea>
+            <textarea class="form-control ckeditor" rows="4" id="description" name="description" placeholder="" cols="40" rows="6">Huyndai Elantra số tự động đăng kí tháng 06/2018. Xe gia đình mới đẹp, nội thất nguyên bản, sạch sẽ, bảo dưỡng thường xuyên, rửa xe miễn phí cho khách.
+              Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch. Xe trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, camera hành trình, hệ thống giải trí AV cùng nhiều tiện nghi khác...</textarea>
           </div>
         </li>
 
@@ -708,4 +708,7 @@
           </div>
     </form>
   </div>
+@endsection
+@section('Script')
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 @endsection

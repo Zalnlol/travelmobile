@@ -16,6 +16,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <form action="">
     <label>Vui lòng chọn hãng xe</label>
 <select name="hangxe" id="hangxe" class="form-control" onchange="return chiecxe()">
     <option value="0">Vui lòng chọn hãng xe</option>
@@ -36,7 +37,7 @@ seatnum<input type="text" readonly id="seatnum"><br>
 brand<input type="text" readonly id="brand"><br>
 model<input type="text" readonly id="model"><br>
 Price<input type="text" readonly id="price"><br>
-
+</form>
 
 <script>
     function display(){
