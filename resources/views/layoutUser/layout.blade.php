@@ -61,7 +61,7 @@
                                 <a class="nav-link" href="#tm-section-4">Hướng dẫn</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" href="#tm-section-4">Blog</a>
+                                <a class="nav-link" href="#tm-section-4">Blog </a>
                               </li>
 
                                 <!-- Authentication Links -->
@@ -82,6 +82,8 @@
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             <img src="images/avatar.png" style="width: 40px" class="rounded-circle">
                                             {{ Auth::user()->name }}
+                                            {{-- //get id of logged in user --}}
+                                            {{ Auth::user()->user_id}}
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
