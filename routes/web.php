@@ -5,12 +5,14 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\SearchCar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\NewUserWelcomeMail;
 use App\Http\Controllers\FbController;
 use App\Http\Controllers\GoogleLogin;
+
 
 
 
@@ -34,7 +36,10 @@ Route::get('/', function () {
 });
 
 
-
+Route::get('/login', [AccountController::class, "login"]);
+Route::post('/checklogin', [AccountController::class, "checkLogin"]);
+Route::get('/logout', [AccountController::class, "logout"]);
+Route::get('/register', [AccountController::class, "register"]);
 
 
 
