@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Mail\NewUserWelcomeMail;
 use App\Http\Controllers\FbController;
 use App\Http\Controllers\GoogleLogin;
-
-
+use App\Http\Controllers\RentalContract;
 
 /*
 |--------------------------------------------------------------------------
@@ -140,10 +139,8 @@ Route::get('/user-profile', function () {
 Route::get('/searchcar', [SearchCar::class, "search"])->name("searchcar");
 Route::get('/searchcar/filter', [SearchCar::class, "filter"])->name("filter");
 
-Route::get('/searchcar/profile', function () {
-    return view('User/carprofile');
-});
 
+Route::get('/searchcar/profile', [RentalContract::class, "carprofile"])->name("carprofile");
 
 
 //Test 

@@ -118,7 +118,7 @@
             </div>
             <div class="col-sm-8">
                 <div id="listcard">
-                    <x-carlist :danhsachxe1="$listcardiplay"></x-carlist>
+                    <x-carlist :danhsachxe1="$listcardiplay" :searchinfo="$searchinfo"></x-carlist>
                 </div>
                 <div id="listmap" style="display: none">
                     <x-searchmap></x-searchmap>
@@ -200,6 +200,7 @@
             document.getElementById('phamvi').value = GetURLParameter('phamvi');
             document.getElementById('min').value = GetURLParameter('min');
             document.getElementById('max').value = GetURLParameter('max');
+       
             document.getElementById('brand').value = GetURLParameter('brand');
             document.getElementById('auto').value = GetURLParameter('auto');
 
