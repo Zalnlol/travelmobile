@@ -92,8 +92,8 @@ Route::prefix('admin')->name('admin.')->/*middleware('checkLogin:admin')->*/grou
 
 //----------------------------------------------------------------------------------------------------------
 //Route user view profile or edit profile
-// Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profile.show');
-// Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profile.edit');
+Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profile.show');
+Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profile.edit');
 // Route::get('/profile/{user}',[ProfilesController::class,"update"])->name('profile.update');
 
 Route::get('/email', function(){
