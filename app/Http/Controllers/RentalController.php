@@ -50,4 +50,16 @@ class RentalController extends Controller
         return redirect('admin/rental');
     }
 
+    public function active()
+    {
+        $rental = CarRental::where('status', 2)->get();
+        return view('Admin-Rental.active-index', compact('rental'));
+    }
+
+    public function deny()
+    {
+        $rental = CarRental::where('status', 3)->get();
+        return view('Admin-Rental.deny-index', compact('rental'));
+    }
+
 }

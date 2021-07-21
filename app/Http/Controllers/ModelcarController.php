@@ -10,10 +10,10 @@ class ModelcarController extends Controller
     public function index()
     {
         $model = ModelCar::all();
-        return view('Admin-Rental.model-index', compact('model'));
+        return view('Admin-Model.model-index', compact('model'));
     }
     public function create() {
-        return view('Admin-Rental.model-create');
+        return view('Admin-Model.model-create');
     }
     public function postCreate(Request $request) {
         // nhận tất cả tham số vào mảng product
@@ -29,7 +29,7 @@ class ModelcarController extends Controller
         }
         public function update($type_id) {
             $p = ModelCar::find($type_id);
-            return view('Admin-Rental.model-update', ['p'=>$p]);
+            return view('Admin-Model.model-update', ['p'=>$p]);
         }
         public function postUpdate(Request $request, $type_id) {
             $model = $request->all();
