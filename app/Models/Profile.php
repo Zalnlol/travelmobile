@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-    use HasFactory;
+    // use HasFactory;
     protected $guarded = [];
     public function avatar_image(){
         $imagePath = ($this->image) ? $this->image : 'img/default-user-icon.jpg';
