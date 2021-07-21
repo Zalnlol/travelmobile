@@ -15,7 +15,7 @@ class CreateMFGCarsTable extends Migration
     {
         Schema::create('tb_car_mfg', function (Blueprint $table) {
             $table->id();
-            $table->string('mgf_id')->nullable();
+            $table->string('mfg_id')->nullable();
             $table->string('name')->nullable();
             $table->string('logo')->nullable();
             $table->string('nation')->nullable();

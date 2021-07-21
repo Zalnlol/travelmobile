@@ -70,6 +70,7 @@
           </li>
         </ul>
     </nav>
+
   <!-- Danh sách hãng xe trong hệ thống-->
   <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -85,12 +86,12 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{ route('admin.mfg') }}" class="nav-link">
+            <a href="{{ route('admin.mfg-index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Danh sách hãng xe </p>
             </a>
           </li><li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.mfg-create') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Thêm mới hãng xe </p>
             </a>

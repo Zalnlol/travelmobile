@@ -77,9 +77,9 @@
                                     </td>
 				          		</a>
 				        	</td>
-						    </tr>
-                                              
+						    </tr>                                           
                             @endforeach
+						
 						  </tbody>
 						</table>
 					</div>
@@ -95,6 +95,5 @@
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
->
 
 @endsection

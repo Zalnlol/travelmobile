@@ -41,37 +41,35 @@
 
             <tbody>
               <tr>
-                <td scope="row" style=""></td>
-                <td class="w-25">
-                    <img src="" class="img-fluid img-thumbnail" alt="">
+                <td scope="row" style="">
                 </td>
                 <td class="w-25">
-                    <img src="" class="img-fluid img-thumbnail" alt="">
+                    <img src="../../images/carimg/cars1.jpg" class="img-fluid img-thumbnail" alt="Hình chính giữa">
                 </td>
                 <td class="w-25">
-                    <img src="" class="img-fluid img-thumbnail" alt="">
+                    <img src="../../images/carimg/cars1.jpg" class="img-fluid img-thumbnail" alt="Hình bên trái">
                 </td>
                 <td class="w-25">
-                    <img src="" class="img-fluid img-thumbnail" alt="">
+                    <img src="../../images/carimg/cars2.jpg" class="img-fluid img-thumbnail" alt="Hình bên phải">
+                </td>
+                <td class="w-25">
+                    <img src="../../images/carimg/cars2.jpg" class="img-fluid img-thumbnail" alt="Hình chính giữa">
                 </td>
                     <a href="#" class="close" data-dismiss="alert" >
                       <td class="project-actions text-right" style="padding-top: 30px">
-                        <a class="btn btn-info btn-sm" href="{{ route('rental.upload') }}" style="margin-bottom: 10px">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Thêm
-                        </a>
                           <a class="btn btn-info btn-sm"  href="" style="margin-bottom: 10px; margin-right: 5px">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Sửa
                           </a>
-                          <a class="btn btn-danger btn-sm" href="" style="margin-right: 5px">
+                          <a class="btn btn-danger btn-sm" href="" style="margin-right: 10px">
                               Xóa
                           </a>
                       </td>
                     </a>
+                    
               </tr>
+            
             </tbody>
           </table>   
       </div>

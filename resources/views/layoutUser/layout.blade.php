@@ -21,9 +21,7 @@
     
     
     <link rel="stylesheet" type="text/css" href="{{ asset('css/nav-bar.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/footer-user.css') }}">
-    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/userprofile.css') }}"> --}}
-    
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/footer-user.css') }}">   
 
     <!--Google Map---->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -83,7 +81,7 @@
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" id="dropdown-list" href="index">Trang cá nhân</a>
+                                            <a class="dropdown-item" id="dropdown-list" href="User.index">Trang cá nhân</a>
                                             <a class="dropdown-item" id="dropdown-list" href="#">Xe của tôi</a>
                                             <a class="dropdown-item" id="dropdown-list" href="#">Chuyến của tôi</a>
                                             <a class="dropdown-item" id="dropdown-list" href="#">Đổi mật khẩu</a>
