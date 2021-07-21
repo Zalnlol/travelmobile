@@ -23,4 +23,8 @@ class CarRental extends Model
         return $this->belongsTo(Review::class, 'car_id');
     }
 
+    public function image()
+    {
+        return $this->belongsTo(CarPic::class, 'car_id');
+    }
 }
