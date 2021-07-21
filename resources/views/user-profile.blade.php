@@ -3,13 +3,11 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/userprofile.css') }}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/userprofile.css') }}"> --}}
     <img src="{{asset('/../..images/icon.png')}}">;
 </head>
 
 <body>
-
-
     <section class="body">
         <div class="cover-profile new-profile"
             style="background-image: url();"></div>
@@ -84,10 +82,6 @@
             </div>
         </div>
     </section>
-
-
-
-
 </body>
 <div style="position: absolute; top: 0px;"></div>
 
