@@ -10,8 +10,8 @@ class CarMFG extends Model
     use HasFactory;
 
     public $timestamps = FALSE;
-
+    public $incrementing = false;
     protected $table = 'tb_car_mfg';
-    
-    protected $fillable = ['mfg_id','name' ,'logo','nation','website'];
+    protected $primaryKey = 'mfg_id';
+    protected $fillable = ['name' ,'logo','nation','website','update_at','create_at'];
 }

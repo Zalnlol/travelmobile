@@ -1,0 +1,85 @@
+.slider {
+    width: 100%;
+    margin: 100px auto;
+}
+
+.slick-slide {
+    margin: 0px 5px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: black;
+}
+.card-rental{
+    width:90%;
+    border-radius: 7%;
+    box-shadow: 0px 0px 20px rgb(216, 212, 212);
+}
+#price{
+    font-size: 20pt;
+    font-weight: bold;
+    color: #0056b3;
+}
+#start-end-day{
+    font-size: 12pt;
+    font-weight: bold;
+}
+#thoi-gian{
+    margin-top: 5%; 
+    margin-left: 1%;
+    font-size: 12pt;
+    background-color: #f8ede4;
+    width: 98%;
+}
+#gia-thue{
+    margin-top: 5%; 
+    font-size: 12pt;
+    width: 98%;
+}
+#gia-thue1{
+    font-size: 12pt;
+    width: 98%;
+}
+
+#gia-thue2{
+    font-size: 12pt;
+    width: 98%;
+    font-weight: bold;
+}
+
+
+#Ten-xe{
+    font-size: 23pt;
+    font-weight: bold;
+
+}
+#checker{
+    color: #0056b3;
+
+}
+.fa-star{
+    font-size: 13pt;
+    margin-left: 1%;
+}
+#card-tag{
+    background-color: #e1e4e9;
+    padding: 6px;
+    font-weight: bold;
+    border-radius: 10%;
+}
+#title-left{
+    color: #a9aaad;
+    font-weight: bold;
+}
+
+.icon{
+    width: 20px;
+}
+#text-icon{
+    margin-left: 5%;
+}

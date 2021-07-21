@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchCar;
@@ -36,10 +35,6 @@ Route::get('/', function () {
 
 
 
-Route::get('/login', [AccountController::class, "login"]);
-Route::post('/checklogin', [AccountController::class, "checkLogin"]);
-Route::get('/logout', [AccountController::class, "logout"]);
-Route::get('/register', [AccountController::class, "register"]);
 
 
 
@@ -57,7 +52,7 @@ Route::get('user/delete/{id}', [UserController::class, "delete"]);
 
 //Route cho user
 Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(function(){
-    Route::get('profile/{id}',[AccountController::class,"details"]);
+    Route::get('profile/{id}',[AccountController::class,"details"]);    
 });
 
 
@@ -75,6 +70,19 @@ Route::prefix('admin')->name('admin.')->/*middleware('checkLogin:admin')->*/grou
     Route::post('rental/approval/{car_id}', 'RentalController@approval')->name('rental.approval');
     Route::get('rental/delete/{car_id}', 'RentalController@delete')->name('rental.delete');
 
+    Route::get('mfg','MGFCarController@index')->name('mfg-index');
+    Route::get('mfg/create','MGFCarController@create')->name('mfg-create');
+    Route::post('mfg/postCreate','MGFCarController@postCreate')->name('mfg-post-create');
+    Route::get('mfg/update/{mfg_id}', 'MGFCarController@update')->name('mfg-update');
+    Route::post('mfg/postUpdate/{mfg_id}','MGFCarController@postUpdate');
+    Route::get('mfg/delete/{mfg_id}', 'MGFCarController@delete')->name('mfg-delete');
+
+    Route::get('model','ModelcarController@index')->name('model-index');
+    Route::get('model/create','ModelcarController@create')->name('model-create');
+    Route::post('model/postCreate','ModelcarController@postCreate')->name('model-post-create');
+    Route::get('model/update/{type_id}', 'ModelcarController@update')->name('model-update');
+    Route::post('model/postUpdate/{type_id}','ModelcarController@postUpdate');
+    Route::get('model/delete/{type_id}', 'ModelcarController@delete')->name('model-delete');
 });
 
 //----------------------------------------------------------------------------------------------------------
@@ -121,7 +129,13 @@ Route::get('google',function(){
 Route::get('auth/google', [GoogleLogin::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleLogin::class, 'handleGoogleCallback']);
 //----------------------------------------------------------------------------------------------------------
+//Phân chia login admin
 
+Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
+
+
+
+//----------------------------------------------------------------------------------------------------------
 
 // Route::get('/user-profile', function () {
 //     return view('user-profile');
@@ -134,6 +148,10 @@ Route::get('auth/google/callback', [GoogleLogin::class, 'handleGoogleCallback'])
 
 Route::get('/searchcar', [SearchCar::class, "search"])->name("searchcar");
 Route::get('/searchcar/filter', [SearchCar::class, "filter"])->name("filter");
+
+Route::get('/searchcar/profile', function () {
+    return view('User/carprofile');
+});
 
 
 
