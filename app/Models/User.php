@@ -54,7 +54,11 @@ class User extends Authenticatable
     protected $appends = [
         'avatar_image',
     ];
-
+    public function getId()
+    {
+        $id = Auth::id();
+        return $this->id;
+    }
 
 
 
