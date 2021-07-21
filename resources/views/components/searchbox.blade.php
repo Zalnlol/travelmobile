@@ -67,7 +67,7 @@
                 
                 @foreach ($hangxe as $xe ){
                     
-                    <option value="{{$xe->name}} ">{{$xe->name}} </option>
+                    <option value="{{$xe->name}}">{{$xe->name}} </option>
                 } 
                 @endforeach
                 

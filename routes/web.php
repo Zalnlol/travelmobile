@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Mail\NewUserWelcomeMail;
 use App\Http\Controllers\FbController;
 use App\Http\Controllers\GoogleLogin;
-
-
+use App\Http\Controllers\RentalContract;
 
 
 /*
@@ -63,14 +62,14 @@ Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(
 
 //Route cho admin
 Route::prefix('admin')->name('admin.')->/*middleware('checkLogin:admin')->*/group(function(){
-    Route::get('users', [AccountController::class,"index"])->name('userlist');
-    Route::get('create', [AccountController::class, "create"]);
-    Route::post('post', [AccountController::class, "postCreate"]);
-    Route::get('resetPass/{id}', [AccountController::class, "resetPassword"]);
-
-
+    // Route::get('users', [AccountController::class,"index"])->name('userlist');
+    // Route::get('create', [AccountController::class, "create"]);
+    // Route::post('post', [AccountController::class, "postCreate"]);
+    // Route::get('resetPass/{id}', [AccountController::class, "resetPassword"]);
 
     Route::get('rental', 'RentalController@index')->name('rental');
+    Route::get('active-rental', 'RentalController@active')->name('active-rental');
+    Route::get('deny-rental', 'RentalController@deny')->name('deny-rental');
     Route::get('rental/view/{car_id}', 'RentalController@view')->name('rental.view');
     Route::post('rental/approval/{car_id}', 'RentalController@approval')->name('rental.approval');
     Route::get('rental/delete/{car_id}', 'RentalController@delete')->name('rental.delete');
@@ -154,10 +153,8 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 Route::get('/searchcar', [SearchCar::class, "search"])->name("searchcar");
 Route::get('/searchcar/filter', [SearchCar::class, "filter"])->name("filter");
 
-Route::get('/searchcar/profile', function () {
-    return view('User/carprofile');
-});
 
+Route::get('/searchcar/profile', [RentalContract::class, "carprofile"])->name("carprofile");
 
 
 //Test 

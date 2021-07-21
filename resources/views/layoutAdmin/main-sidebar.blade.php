@@ -141,7 +141,7 @@
             <a href="#"class="nav-link">
                 <i class="fas fa-car-side"></i>
               <p>
-                Dữ liệu về xe
+                Danh sách xe đăng ký
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -149,19 +149,19 @@
               <li class="nav-item">
                 <a href="{{ route('admin.rental') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh sách xe </p>
+                  <p> Xe đăng ký </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin/book')}}" class="nav-link">
+                <a href="{{route('admin.active-rental')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh sách xe chưa duyệt</p>
+                  <p>Danh sách xe đang hoạt động</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin/book')}}" class="nav-link">
+                <a href="{{route('admin.deny-rental')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh sách xe mẫu</p>
+                  <p>Danh sách xe đã từ chối</p>
                 </a>
               </li>
             </ul>

@@ -13,5 +13,5 @@ class CarMFG extends Model
     public $incrementing = false;
     protected $table = 'tb_car_mfg';
     protected $primaryKey = 'mfg_id';
-    protected $fillable = ['name' ,'logo','nation','website','update_at','create_at'];
+    protected $fillable = ['mfg_id', 'name' ,'logo','nation','website'];
 }

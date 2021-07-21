@@ -11,7 +11,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Danh sách xe đăng ký</li>
+            <li class="breadcrumb-item active">Danh sách xe đã từ chối</li>
           </ol>
         </div>
       </div>
@@ -24,7 +24,7 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Danh sách xe đăng ký</h3>
+        <h3 class="card-title">Danh sách xe đã từ chối</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -83,18 +83,11 @@
 
                     <td>{{ $count++ }}</td>
                     <td>
-                      @if ($item->status == 1)
-                      <span class="badge badge-success">Đang chờ duyệt</span>
-                      @endif
-                      @if ($item->status == 2)
-                      <span class="badge badge-success">Đang hoạt động</span>
-                      @endif
-                      @if ($item->status == 3)
+                        
+                        @if ($item->status == 3)
                       <span class="badge badge-danger">Đã bị từ chối</span>
                       @endif
-                      @if ($item->status == 4)
-                      <span class="badge badge-danger">Đang tạm ngưng</span>
-                      @endif
+
                     </td>
                     <td>{{ $item->plate_id }}</td>
                     <td>{{ $item->brand }}</td>
@@ -210,4 +203,5 @@
             });
         });
     </script>
+
 @endsection
