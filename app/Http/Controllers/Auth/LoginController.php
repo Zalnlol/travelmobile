@@ -37,6 +37,8 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        session(['url.intended' => url()->previous()]);
+        $this->redirectTo = session()->get('url.intended');
         $this->middleware('guest')->except('logout');
     }
 
@@ -57,7 +59,7 @@ class LoginController extends Controller
             if (auth()->user()->is_admin == 1) {
                 return redirect()->route('admin.home');
             }else{
-                return redirect()->intended('http://heera.it');;
+                return redirect()->intended('/');
             }
         }else{
             return redirect()->route('login')
