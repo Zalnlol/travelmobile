@@ -521,8 +521,10 @@
                             </div>
                             <input type="input" hidden readonly name="user_id" id="user_id" value="">
                             <input type="input" hidden readonly name="car_id" id="car_id" value="">
+                            <input type="input" hidden readonly name="contract_date" id="contract_date" value="" >
                             <input type="input" hidden readonly name="pickup_date" id="pickup_date" value=""  >
                             <input type="input" hidden readonly name="return_date" id="return_date" value=""  >
+                            <input type="input" hidden readonly name="rental_price" id="rental_price" value=""  >
                             <input type="input" hidden readonly name="pickup_address" id="pickup_address" value=""  >
                             <input type="input" hidden readonly name="shipping_cost" id="shipping_cost"  value="" >
                             <input type="input" hidden readonly name="contract_value" id="contract_value" value=""  >
@@ -658,11 +660,13 @@
                 let gplx = {!! json_encode($gplx, JSON_HEX_TAG) !!};  
                 if(id==null){
                     document.getElementById('btn').click() = true;
+                }else{
+                    document.getElementById('nutsubmit').click() = true;
                 }
                 if(gplx==null){
                     document.getElementById('btn1').click() = true;
                 }{
-                    document.getElementById('nutsubmit').click() = true;
+                    // document.getElementById('nutsubmit').click() = true;
                 } 
             }
             
