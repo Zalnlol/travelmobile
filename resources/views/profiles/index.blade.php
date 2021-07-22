@@ -19,9 +19,13 @@
                                 <p>{{ $user->name }}</p><a class="func-edit" title="Chỉnh sửa"><i
                                         class="ic ic-edit"></i></a>
                             </div>
-                            @can('update', $user->profile)
-                                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
-                            @endcan
+                        @if ($user_id ==$user->user_id)
+                            <a href="/profile/{{ $user->user_id }}/edit">Edit Profile</a>
+                        @endif
+
+                            {{-- @can('update', $user->profile)
+                                {{-- <a href="/profile/{{ $user->user_id }}/edit">Edit Profile</a> --}}
+                            {{-- @endcan --}} 
                             <div class="d-flex"><span class="join">Tham gia: {{ $user->created_at->format('d/m/Y') }}</span>
                             </div>
                         </div>

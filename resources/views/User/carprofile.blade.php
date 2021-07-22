@@ -294,7 +294,7 @@
                                 <span style=" font-size: 12pt;font-weight: bold;">/ngày</span>
                             </div>
                         </div>
-                        <form action="{{url('/searchcar/profile/checkout')}}">
+                        <form action="{{url('/searchcar/profile/checkout')}}" >
                             <span id="start-end-day">
                                 Ngày bắt đầu
                             </span>
@@ -530,8 +530,10 @@
 
                             <div class="row" style="margin: 5% 0%; ">
                                 <div class="col-sm-12">
-                                    <input type="submit" style="padding:10px ; font-weight: bold; "
-                                        class="form-control btn btn-success" value="ĐẶT XE">
+                                    <input type="button" style="padding:10px ; font-weight: bold; "
+                                        class="form-control btn btn-success" value="ĐẶT XE" onclick="return checkgplx()" >
+
+                                        <input type="submit" id="nutsubmit" hidden>
                                 </div>
                             </div>
 
@@ -544,6 +546,79 @@
 
 
         </div>
+
+        
+{{-- Modal form login anh GPLX --}}
+
+        <button type="button" hidden id="btn" class="btn btn-primary" data-toggle="modal" data-target="#modelDN">
+            Dang Nhap
+          </button>
+        
+          <button type="button" hidden id="btn1" class="btn btn-primary" data-toggle="modal" data-target="#modelGPLX">
+            GPLX
+          </button>
+        
+          <!-- Modal -->
+          <div class="modal fade" id="modelDN" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content" style="margin-top: 50%">
+                <div class="modal-header">
+        
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;">Thông báo</h4>
+                  <br>
+                  <div style="text-align: center;">
+                    <i class="fa fa-exclamation-triangle fa-2x" style="color: red"></i>
+                    
+                    <span style="font-size: 13pt"> Bạn cần đăng nhập để tiếp tục</span> 
+                  </div>
+        
+                  <br>
+                </div>
+                <div class="modal-footer">
+                  <a href="{{url('/login')}}">
+                    <button type="button" class="btn btn-primary">Đăng nhập</button>
+                  </a>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="modal fade" id="modelGPLX" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content" style="margin-top: 50%">
+                <div class="modal-header">
+        
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;">Thông báo</h4>
+                  <br>
+                  <div style="text-align: center;">
+                    <i class="fa fa-exclamation-triangle fa-2x" style="color: red"></i>
+                    <span style="font-size: 13pt"> Bạn cần xác thực GPLX để có thể đặt xe</span> 
+                  </div>
+        
+                  <br>
+                </div>
+                <div class="modal-footer">
+                  <a href="">
+                    <button type="button" class="btn btn-primary">Đồng ý</button>
+                  </a>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
 
 
 
@@ -575,6 +650,21 @@
         <script>
             let searchinfo = {!! json_encode($searchinfo, JSON_HEX_TAG) !!};
             let carlist = {!! json_encode($carlist, JSON_HEX_TAG) !!};  
+
+            function  checkgplx(){
+                    
+                let id = {!! json_encode($user_id, JSON_HEX_TAG) !!};
+                
+                let gplx = {!! json_encode($gplx, JSON_HEX_TAG) !!};  
+                if(id==null){
+                    document.getElementById('btn').click() = true;
+                }
+                if(gplx==null){
+                    document.getElementById('btn1').click() = true;
+                }{
+                    document.getElementById('nutsubmit').click() = true;
+                } 
+            }
             
         </script>
 

@@ -9,13 +9,24 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfilesController extends Controller
 {
-    public function index(User $user)
+    public function index(Request  $request ,User $user)
     {   
-        // dd(User::find($user));
-        $user = User::find($user);
+     
+        $data = User::all();
+
+        foreach($data as $element){
+            if($element['user_id']=$user['$user']){
+                $user=$element;
+            }
+
+        }
+        
+        $user_id=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+
+
         // return view('home',['user'=>$user]);
         // return view('index', compact('user'));
-        return view('profiles.index', compact('user'));
+        return view('profiles.index', compact('user','user_id'));
         // return view('home', [
         //     'user'=> $user
         // ]);    

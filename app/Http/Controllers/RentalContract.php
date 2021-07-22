@@ -17,7 +17,7 @@ class RentalContract extends Controller
         $gplx=null;
        if($user_id!=null){
            $datauser= User::where('user_id',$user_id)->get()->first();
-        //    dd($datauser);
+           $gplx=$datauser['driver_id'];
        }
 
         $data= $request->all();
@@ -55,7 +55,7 @@ class RentalContract extends Controller
         $trip_number=$sochuyen->count();
 
 
-        return view('User/carprofile',compact('carlist','img','chuxe','searchinfo','star_num','trip_number'));
+        return view('User/carprofile',compact('carlist','img','chuxe','searchinfo','star_num','trip_number','user_id','gplx'));
     }
 
 
