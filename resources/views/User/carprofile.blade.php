@@ -294,7 +294,7 @@
                                 <span style=" font-size: 12pt;font-weight: bold;">/ngày</span>
                             </div>
                         </div>
-                        <form action="hopdong">
+                        <form action="{{url('/searchcar/profile/checkout')}}">
                             <span id="start-end-day">
                                 Ngày bắt đầu
                             </span>

@@ -157,6 +157,7 @@ Route::get('/searchcar/filter', [SearchCar::class, "filter"])->name("filter");
 
 
 Route::get('/searchcar/profile', [RentalContract::class, "carprofile"])->name("carprofile");
+Route::get('/searchcar/profile/checkout', [RentalContract::class, "checkout"])->name("carprofile");
 
 
 //Test 

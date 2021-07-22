@@ -12,6 +12,14 @@ use Illuminate\Http\Request;
 class RentalContract extends Controller
 {
     function carprofile(Request $request){
+
+        $user_id=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        $gplx=null;
+       if($user_id!=null){
+           $datauser= User::where('user_id',$user_id)->get()->first();
+        //    dd($datauser);
+       }
+
         $data= $request->all();
 
         $searchinfo['city']=$data['city'];
@@ -49,4 +57,6 @@ class RentalContract extends Controller
 
         return view('User/carprofile',compact('carlist','img','chuxe','searchinfo','star_num','trip_number'));
     }
+
+
 }
