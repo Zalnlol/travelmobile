@@ -58,5 +58,42 @@ class RentalContract extends Controller
         return view('User/carprofile',compact('carlist','img','chuxe','searchinfo','star_num','trip_number','user_id','gplx'));
     }
 
+    function checkout(Request $request){
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $data=$request->all();
+        $data['user_id']=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        $data['contract_date'] = date("Y-m-d H:00:00");
+        $request->session()->put('inforcontract', $data);
+
+        \Stripe\Stripe::setApiKey('sk_test_51JFgZ6H6AZEb7dRzxGOrHcoqmMspkZ7ODHdOZqXOSYic5TMoY7Fx64K0fbMzd3a6Rqd6jU6MuiVcjuuXwhYHGDea00bQcRSAsz');
+        		
+		$amount =(float) round($data['deposit']/23000,2)*100   ;
+
+        
+        $payment_intent = \Stripe\PaymentIntent::create([
+			'description' => 'Stripe Test Payment',
+			'amount' => $amount,
+			'currency' => 'usd',
+			'description' => 'Thanh toán phí cọc dịch vụ thuê xe TravelMobile',
+			'payment_method_types' => ['card'],
+		]);
+		// $intent = $payment_intent->client_secret;
+
+        // $payment_intent= \Stripe\Refund::create([
+        //     'charge' => 'ch_1JFgyWH6AZEb7dRzABsDP5mt'
+        // ]);
+    //   $transfers=   \Stripe\transfer::create([
+    //         'amount' => 400,
+    //         'currency' => 'usd',
+    //         'destination' => 'acct_1JFgZ6H6AZEb7dRz',
+    //         'transfer_group' => 'ORDER_95',
+    //       ]);
+        $amount/=100;
+        $intent = $payment_intent->client_secret;
+
+		return view('checkout.credit-card',compact('intent','amount'));
+
+    }
+
 
 }
