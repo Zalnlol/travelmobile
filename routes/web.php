@@ -62,11 +62,11 @@ Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(
 
 
 //Route cho admin
-Route::prefix('admin')->name('admin.')->/*middleware('checkLogin:admin')->*/group(function(){
-    // Route::get('users', [AccountController::class,"index"])->name('userlist');
-    // Route::get('create', [AccountController::class, "create"]);
-    // Route::post('post', [AccountController::class, "postCreate"]);
-    // Route::get('resetPass/{id}', [AccountController::class, "resetPassword"]);
+Route::prefix('admin')->name('admin.')->middleware('checkLogin:admin')->group(function(){
+    Route::get('users', [AccountController::class,"index"])->name('userlist');
+    Route::get('create', [AccountController::class, "create"]);
+    Route::post('post', [AccountController::class, "postCreate"]);
+    Route::get('resetPass/{id}', [AccountController::class, "resetPassword"]);
 
     Route::get('rental', 'RentalController@index')->name('rental');
     Route::get('active-rental', 'RentalController@active')->name('active-rental');
