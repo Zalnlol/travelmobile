@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -41,7 +42,13 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {   
+        if($request->session()->has('user')){
+            $request->session()->forget('user');
+        }
+        
+        
         $input = $request->all();
+        
    
         $this->validate($request, [
             'email' => 'required|email',
@@ -50,6 +57,9 @@ class LoginController extends Controller
    
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
+            $user = User::where('email',$input['email'])->get()->first();
+            $request->session()->put('user', $user);
+
             if (auth()->user()->is_admin == 1) {
                 return redirect()->route('admin.home');
             }else{

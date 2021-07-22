@@ -12,9 +12,11 @@ class carlist extends Component
      * @return void
      */
     public $danhsachxe;
-    public function __construct($danhsachxe1)
+    public $searchinfo;
+    public function __construct($danhsachxe1,$searchinfo)
     {
         $this->danhsachxe=$danhsachxe1;
+        $this->searchinfo=$searchinfo;
     }
 
     /**

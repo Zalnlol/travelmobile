@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -22,6 +23,7 @@ class User extends Authenticatable
     public $primaryKey = 'user_id';
 
     protected $fillable = [
+        'user_id',
         'name',
         'email',
         'password',
@@ -53,6 +55,17 @@ class User extends Authenticatable
     protected $appends = [
         'avatar_image',
     ];
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
+    }
+
+    public function getId()
+    {
+        $id = Auth::id();
+        return $this->id;
+    }
+    
 
 
 

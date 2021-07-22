@@ -21,7 +21,8 @@
     
     
     <link rel="stylesheet" type="text/css" href="{{ asset('css/nav-bar.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/footer-user.css') }}">   
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/footer-user.css') }}">
+    
 
     <!--Google Map---->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -59,6 +60,9 @@
                               <li class="nav-item">
                                 <a class="nav-link" href="#tm-section-4">Hướng dẫn</a>
                               </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="#tm-section-4">Blog </a>
+                              </li>
 
                                 <!-- Authentication Links -->
                                 @guest
@@ -78,10 +82,12 @@
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             <img src="images/avatar.png" style="width: 40px" class="rounded-circle">
                                             {{ Auth::user()->name }}
+                                            {{-- //get id of logged in user --}}
+                                            {{ Auth::user()->user_id}}
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" id="dropdown-list" href="User.index">Trang cá nhân</a>
+                                            <a class="dropdown-item" id="dropdown-list" href="#">Trang cá nhân</a>
                                             <a class="dropdown-item" id="dropdown-list" href="#">Xe của tôi</a>
                                             <a class="dropdown-item" id="dropdown-list" href="#">Chuyến của tôi</a>
                                             <a class="dropdown-item" id="dropdown-list" href="#">Đổi mật khẩu</a>

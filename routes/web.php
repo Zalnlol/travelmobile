@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Mail\NewUserWelcomeMail;
 use App\Http\Controllers\FbController;
 use App\Http\Controllers\GoogleLogin;
-
-
+use App\Http\Controllers\RentalContract;
 
 
 /*
@@ -92,8 +91,8 @@ Route::prefix('admin')->name('admin.')->middleware('checkLogin:admin')->group(fu
 
 //----------------------------------------------------------------------------------------------------------
 //Route user view profile or edit profile
-// Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profile.show');
-// Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profile.edit');
+Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profile.show');
+Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profile.edit');
 // Route::get('/profile/{user}',[ProfilesController::class,"update"])->name('profile.update');
 
 Route::get('/email', function(){
@@ -154,12 +153,13 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 Route::get('/searchcar', [SearchCar::class, "search"])->name("searchcar");
 Route::get('/searchcar/filter', [SearchCar::class, "filter"])->name("filter");
 
-Route::get('/searchcar/profile', function () {
-    return view('User/carprofile');
-});
 
+Route::get('/searchcar/profile', [RentalContract::class, "carprofile"])->name("carprofile");
 
 
 //Test 
+
+Route::get('checkout','CheckoutController@checkout');
+Route::post('checkout','CheckoutController@afterpayment')->name('checkout.credit-card');
 
 Route::get('/test', [SearchCar::class, "testajax1"])->name("test");
