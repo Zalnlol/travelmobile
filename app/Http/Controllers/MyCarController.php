@@ -91,7 +91,7 @@ class MyCarController extends Controller
     {
         $crentals = $req->all();
         CarRental::create($crentals);
-        return redirect('mycar');
+        return redirect()->route('rental.upload');
     }
 
     public function delete($car_id)
@@ -107,8 +107,8 @@ class MyCarController extends Controller
         return view('Rental-image.index');
     }
 
-    public function upload()
-    {     
+    public function upload(Request $request)
+    {   
         return view('Rental-image.create');
     }
 
