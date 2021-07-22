@@ -18,7 +18,6 @@ class ProfilesController extends Controller
             if($element['user_id']=$user['$user']){
                 $user=$element;
             }
-
         }
         
         $user_id=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
@@ -35,23 +34,30 @@ class ProfilesController extends Controller
     
     
 
-    // public function edit(User $user)
-    // {
-    //     $this->authorize('update', $user->profile);
+    public function edit(User $user)
+    {
+        // $this->authorize('update', $user->profile);
 
-    //     return view('profiles.edit', compact('user'));
-    // }
+        return view('profiles.edit', compact('user'));
+    }
 
-    // public function update(User $user)
-    // {
-    //     $this->authorize('update', $user->profile);
+    public function update(User $user)
+    {
+        // $this->authorize('update', $user->profile);
 
-    //     $data = request()->validate([
-    //         'title' => 'required',
-    //         'description' => 'required',
-    //         'url' => 'url',
-    //         'image' => '',
-    //     ]);
+        $data = request()->validate([
+            'name' => 'required',
+            'image' => '',
+            'mobile' => '',
+            'dob' => '',
+            'gender' => 'required',
+            'email' => 'email',
+            'driver_id' => '',
+            'driver_id_image' => '',
+        ]);
+
+        $user->update($data);
+        return redirect("/profile/{$user->id}");
 
     //     if (request('image')) {
     //         $imagePath = request('image')->store('profile', 'public');
@@ -68,5 +74,5 @@ class ProfilesController extends Controller
     //     ));
 
     //     return redirect("/profile/{$user->id}");
-    // }
+    }
 }

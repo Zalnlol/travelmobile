@@ -19,7 +19,7 @@
                                 <p>{{ $user->name }}</p><a class="func-edit" title="Chỉnh sửa"><i
                                         class="ic ic-edit"></i></a>
                             </div>
-                        @if ($user_id ==$user->user_id)
+                        @if ($user_id == $user->user_id)
                             <a href="/profile/{{ $user->user_id }}/edit">Edit Profile</a>
                         @endif
 

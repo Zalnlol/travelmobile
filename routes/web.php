@@ -97,7 +97,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 //Route user view profile or edit profile
 Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profiles.show');
 Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profiles.edit');
-// Route::get('/profile/{user}',[ProfilesController::class,"update"])->name('profiles.update');
+Route::patch('/profile/{user}',[ProfilesController::class,"update"])->name('profiles.update');
 
 Route::get('/email', function(){
     return new NewUserWelcomeMail();
