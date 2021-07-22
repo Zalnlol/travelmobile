@@ -60,8 +60,9 @@
                               <li class="nav-item">
                                 <a class="nav-link" href="#tm-section-4">Hướng dẫn</a>
                               </li>
+
                               <li class="nav-item">
-                                <a class="nav-link" href="#tm-section-4">Blog </a>
+                                <a class="nav-link" href="#tm-section-4">Trang Blog</a>
                               </li>
 
                                 <!-- Authentication Links -->
@@ -78,11 +79,11 @@
                                         </li>
                                     @endif
                                 @else
-                                    <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown" style="width:300px">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             <img src="{{ asset('' . Auth::user()->avatar_image) }}" style="width: 40px" class="rounded-circle">
                                     
-                                            {{ Auth::user()->name }}
+                                           <span >{{ Auth::user()->name }}</span> 
                                             {{-- //get id of logged in user --}}
                                             {{-- {{ Auth::user()->user_id}} --}}
                                         </a>
