@@ -79,7 +79,7 @@
                                         </li>
                                     @endif
                                 @else
-                                    <li class="nav-item dropdown" style="width:300px">
+                                    <li class="nav-item dropdown" style="width:320px">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             <img src="{{ asset('' . Auth::user()->avatar_image) }}" style="width: 40px" class="rounded-circle">
                                     
