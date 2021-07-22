@@ -14,8 +14,8 @@ class ProfilesController extends Controller
         // dd(User::find($user));
         $user = User::find($user);
         // return view('home',['user'=>$user]);
-        return view('index', compact('user'));
-        // return view('User.index', compact('user'));
+        // return view('index', compact('user'));
+        return view('profiles.index', compact('user'));
         // return view('home', [
         //     'user'=> $user
         // ]);    
