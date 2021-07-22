@@ -55,9 +55,9 @@ Route::get('user/delete/{id}', [UserController::class, "delete"]);
 
 
 //Route cho user
-Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(function(){
-    Route::get('profile/{id}',[AccountController::class,"details"]);    
-});
+// Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(function(){
+//     Route::get('profile/{id}',[AccountController::class,"details"]);    
+// });
 
 
 //Route cho admin
@@ -90,10 +90,14 @@ Route::prefix('admin')->name('admin.')/*->middleware('checkLogin:admin')*/->grou
 });
 
 //----------------------------------------------------------------------------------------------------------
+Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
 //Route user view profile or edit profile
-Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profile.show');
-Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profile.edit');
-// Route::get('/profile/{user}',[ProfilesController::class,"update"])->name('profile.update');
+Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profiles.show');
+Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profiles.edit');
+// Route::get('/profile/{user}',[ProfilesController::class,"update"])->name('profiles.update');
 
 Route::get('/email', function(){
     return new NewUserWelcomeMail();
@@ -114,13 +118,11 @@ Route::post('mycar/image/checkUpload', 'MyCarController@checkUpload')->name('ren
 Route::get('review', 'ReviewController@index')->name('review');
 Route::post('review/post', 'ReviewController@store')->name('review.post');
 
-Auth::routes();
 
 Route::get('/searchcar', function () {
     return view('user/searchcar');
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //----------------------------------------------------------------------------------------------------------
 //Facebook login
@@ -155,11 +157,14 @@ Route::get('/searchcar/filter', [SearchCar::class, "filter"])->name("filter");
 
 
 Route::get('/searchcar/profile', [RentalContract::class, "carprofile"])->name("carprofile");
+Route::get('/searchcar/profile/checkout', [RentalContract::class, "checkout"])->name("carprofile");
 
 
 //Test 
 
 Route::get('checkout','CheckoutController@checkout');
 Route::post('checkout','CheckoutController@afterpayment')->name('checkout.credit-card');
-
-Route::get('/test', [SearchCar::class, "testajax1"])->name("test");
+Route::get('/refund','CheckoutController@checkout');
+Route::get('/test', function(){
+    return view('refund');
+});
