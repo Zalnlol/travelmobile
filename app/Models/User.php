@@ -52,9 +52,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends = [
-        'avatar_image',
-    ];
+    // protected $appends = [
+    //     'avatar_image',
+    // ];
 
     public function profile(){
         return $this->hasOne(Profile::class);
@@ -62,6 +62,9 @@ class User extends Authenticatable
 
     public function getId()
     {
+        if (Auth::check()) {
+            // The user is logged in...
+        }
         $id = Auth::id();
         return $this->id;
     }
