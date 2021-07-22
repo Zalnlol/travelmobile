@@ -20,7 +20,8 @@ class MyCarController extends Controller
 
     public function create(Request $request)
     {
-        return view('User-Rental.create');
+        $data = $request->session()->get('user')->user_id;
+        return view('User-Rental.create', compact('data'));
     }
 
     public function update($car_id, Request $req)
@@ -69,29 +70,34 @@ class MyCarController extends Controller
         if($approval == 1){
             $up = DB::table('tb_car_rental')
                 ->where('car_id', intval($car_id))
-                 ->update(['status' => 4]);
+                ->update(['status' => 4]);
         }else if($approval == null){
             $up = DB::table('tb_car_rental')
                 ->where('car_id', intval($car_id))
-                 ->update(['status' => 2]);
+                ->update(['status' => 2]);
         }
         else{
             $ostatus = DB::table('tb_car_rental')
-                    ->where('car_id', intval($car_id))
-                    ->first();
+                ->where('car_id', intval($car_id))
+                ->first();
             $status = $ostatus->status;
             $up = DB::table('tb_car_rental')
                 ->where('car_id', intval($car_id))
-                 ->update(['status' => $status]);
+                ->update(['status' => $status]);
         }
         return redirect('mycar');   
     }
 
     public function store(RentalRequest $req)
     {
-        $crentals = $req->all();
+        $crentals = $req->all();      
         CarRental::create($crentals);
-        return redirect()->route('rental.upload');
+        //dd(session('user'), session('user')->user_id);
+        // dd($data = $req->session()->get('user')->user_id);
+        dd($req->session()->all()); 
+        
+
+        return redirect()->route('rental.upload', compact('id'));
     }
 
     public function delete($car_id)
@@ -112,26 +118,26 @@ class MyCarController extends Controller
         return view('Rental-image.create');
     }
 
-    // public function checkUpload(Request $request)
-    // {
-    //     $uploads = $request->all();
-    //     if($request->hasFile('image', 'image_left', 'image_right', 'image_behind')){
-    //         $file = $request->file('image', 'image_left', 'image_right', 'image_behind');
-    //         $extension = $file->getClientOriginalExtension();
-    //         if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
-    //             return redirect('mycar/image/upload');
-    //         }
-    //             $imgName = $file->getClientOriginalName();
-    //             $file->move('images/carimg', $imgName);
-    //             $uploads['image'] = $imgName;
-    //             $uploads['image_left'] = $imgName;
-    //             $uploads['image_right'] = $imgName;
-    //             $uploads['image_behind'] = $imgName;
-    //     }
+    public function checkUpload(Request $request)
+    {
+        $uploads = $request->all();
+        if($request->hasFile('image', 'image_left', 'image_right', 'image_behind')){
+            $file = $request->file('image', 'image_left', 'image_right', 'image_behind');
+            $extension = $file->getClientOriginalExtension();
+            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
+                return redirect('mycar/image/upload');
+            }
+                $imgName = $file->getClientOriginalName();
+                $file->move('images/carimg', $imgName);
+                $uploads['image'] = $imgName;
+                $uploads['image_left'] = $imgName;
+                $uploads['image_right'] = $imgName;
+                $uploads['image_behind'] = $imgName;
+        }
 
-    //     $up = new CarPic($uploads);
-    //     $up->save();
-    //     return redirect('mycar/image');
-    // }
+        $up = new CarPic($uploads);
+        $up->save();
+        return redirect('mycar/image');
+    }
 
 }

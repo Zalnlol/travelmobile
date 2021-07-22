@@ -59,7 +59,7 @@ class LoginController extends Controller
         {
             $user = User::where('email',$input['email'])->get()->first();
             $request->session()->put('user', $user);
-
+            // dd($request->session()->get('user')->user_id);
             if (auth()->user()->is_admin == 1) {
                 return redirect()->route('admin.home');
             }else{
