@@ -83,7 +83,7 @@
                                             <img src="images/avatar.png" style="width: 40px" class="rounded-circle">
                                             {{ Auth::user()->name }}
                                             {{-- //get id of logged in user --}}
-                                            {{ Auth::user()->user_id}}
+                                            {{-- {{ Auth::user()->user_id}} --}}
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

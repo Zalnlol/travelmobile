@@ -8,8 +8,8 @@
         <div class="content-profile--new">
             <div class="desc-profile desc-account">
                 <div class="avatar-box">
-                    {{-- <div class="avatar avatar--xl has-edit"> --}}
-                        <img src="{{ $user->profile->avatar_image() }}" class="rounded-circle w-100">
+                    <div class="avatar avatar--xl has-edit">
+                        <img src="{{ $user->avatar_image }}">
                     </div>
                 </div>
                 <div class="snippet">
