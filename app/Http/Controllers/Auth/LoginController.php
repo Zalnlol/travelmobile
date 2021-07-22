@@ -42,10 +42,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {   
-        if($request->session()->has('user')){
-            $request->session()->forget('user');
-        }
-        
+
         
         $input = $request->all();
         
@@ -57,13 +54,10 @@ class LoginController extends Controller
    
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
-            $user = User::where('email',$input['email'])->get()->first();
-            $request->session()->put('user', $user);
-
             if (auth()->user()->is_admin == 1) {
                 return redirect()->route('admin.home');
             }else{
-                return redirect()->route('home');
+                return redirect()->intended('http://heera.it');;
             }
         }else{
             return redirect()->route('login')

@@ -134,8 +134,6 @@ function search(Request $request){
                 $searchinfo['hourend']='11';
             }
 
-        
-
                 $carlist=CarRental::all();
                 $arrays=[];
                 $listcardiplay=[];
@@ -220,7 +218,6 @@ function search(Request $request){
                 $listcardiplay[$i]=  (object) $element;
                 $i+=1;
             }
-            dd($request->session()->get('user')->user_id);
             
             return view('User.searchcar',compact('listcardiplay','idmap','hangxe','searchinfo'));
 

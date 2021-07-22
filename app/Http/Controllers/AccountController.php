@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class AccountController extends Controller
 {
     //Mở trang login
-    public function login(){
+    public function login(Request $request){
+        dd($request);
         return view("login");
     }
     //kiem tra tai khoan dang nhap user

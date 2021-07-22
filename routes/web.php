@@ -161,5 +161,7 @@ Route::get('/searchcar/profile', [RentalContract::class, "carprofile"])->name("c
 
 Route::get('checkout','CheckoutController@checkout');
 Route::post('checkout','CheckoutController@afterpayment')->name('checkout.credit-card');
-
-Route::get('/test', [SearchCar::class, "testajax1"])->name("test");
+Route::get('/refund','CheckoutController@checkout');
+Route::get('/test', function(){
+    return view('refund');
+});
