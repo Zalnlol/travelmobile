@@ -80,7 +80,8 @@
                                 @else
                                     <li class="nav-item dropdown">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            <img src="images/avatar.png" style="width: 40px" class="rounded-circle">
+                                            <img src="{{ asset('' . Auth::user()->avatar_image) }}" style="width: 40px" class="rounded-circle">
+                                    
                                             {{ Auth::user()->name }}
                                             {{-- //get id of logged in user --}}
                                             {{-- {{ Auth::user()->user_id}} --}}
