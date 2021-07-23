@@ -2,9 +2,9 @@
 @section('titleweb', 'Blog')
 
 @section('bodycode')
-
 <div class="container">
     <div class="row">
+
         @foreach($data as $row)
         <div class="col-md-6">
             
