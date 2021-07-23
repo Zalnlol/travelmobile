@@ -15,6 +15,7 @@ use App\Http\Controllers\FbController;
 use App\Http\Controllers\GoogleLogin;
 use App\Http\Controllers\RentalContract;
 use App\Http\Controllers\RentalController;
+use App\Http\Controllers\BlogController;
 
 
 /*
@@ -173,3 +174,12 @@ Route::get('/refund','CheckoutController@checkout');
 Route::get('/test', function(){
     return view('refund');
 });
+
+//blog
+Route::get('/blog', [BlogController::class,"blog"]);
+Route::get('/admin/blog', [BlogController::class,"get"]);
+Route::get('/admin/blog/createBlog',[BlogController::class,'createBlog']);
+Route::post('/admin/blog/postCreateBlog',[BlogController::class,'postCreateBlog']);
+Route::get('/admin/blog/editBlog/{blog_id}',[BlogController::class,'editBlog']);
+Route::post('/admin/blog/editPostBlog',[BlogController::class,'editPostBlog']);
+Route::get('/admin/blog/delete/{blog_id}',[BlogController::class,'deleteBlog']);
