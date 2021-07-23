@@ -110,7 +110,7 @@ Route::get('/email', function(){
     return new NewUserWelcomeMail();
 });
 //----------------------------------------------------------------------------------------------------------
-Route::get('mycar', 'MyCarController@index');
+Route::get('mycar', 'MyCarController@index')->name('rental.index');
 Route::get('mycar/rental', 'MyCarController@create')->name('rental.create');
 Route::get('mycar/newrental', 'MyCarController@create1');
 Route::post('mycar/checkRental', 'MyCarController@store')->name('rental.store');

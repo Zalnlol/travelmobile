@@ -62,7 +62,7 @@
                               </li>
 
                               <li class="nav-item">
-                                <a class="nav-link" href="#tm-section-4">Trang Blog</a>
+                                <a class="nav-link" href="{{url('blog')}}">Trang Blog</a>
                               </li>
 
                                 <!-- Authentication Links -->

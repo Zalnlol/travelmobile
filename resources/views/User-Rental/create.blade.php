@@ -270,8 +270,7 @@
 
       <form action="{{ route('rental.store') }}" method="post">
           @csrf
-          <input type="hidden" id="input_5" name="user_id" data-type="input-textbox" class="form-textbox" size="20" value="1" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
-          <input type="hidden" id="input_5" name="type_id" data-type="input-textbox" class="form-textbox" size="20" value="1" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
+          <input type="hidden" id="input_5" name="user_id" data-type="input-textbox" class="form-textbox" size="20" value="{{ $data }}" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
           <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_5">
             <label class="form-label form-label-top" id="label_5" for="input_5"> Biển số xe </label>
             <div id="cid_5" class="form-input-wide">
@@ -694,9 +693,7 @@
           <li class="form-line" data-type="control_button" id="id_2" >
               <div id="cid_2" class="form-input-wide" style="margin-left: auto" style="margin-right: auto" >
                 <div style="text-align:center"  data-align="left" class="form-buttons-wrapper form-buttons-left   jsTest-button-wrapperField" style="width: 100px">
-                  <button  style="margin-right: 32px"  type="submit" disabled class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
-                    Quay lại
-                  </button>
+        
                   <button  style="text-align: center" type="submit" class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
                     Đăng ký
                     </button>

@@ -33,19 +33,19 @@ class BlogController extends Controller
         // nhận tất cả tham số vào mảng product
         $blog = $request->all();
         // xử lý upload hình vào thư mục
-        if ($request->hasFile('img')) {
-            $file = $request->file('img');
+        if ($request->hasFile('blog_pic')) {
+            $file = $request->file('blog_pic');
             $extension = $file->getClientOriginalExtension();
             if ($extension != 'jpg' && $extension != 'png' && $extension != 'jpeg') {
                 return redirect('admin/blog/create')->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
             }
             $imageName = $file->getClientOriginalName();
-            $file->move("images", $imageName);
+            $file->move("img/blog", $imageName);
         } else {
             $imageName = null;
         }
         $p = new Blog($blog);
-        $p->image = $imageName;
+        $p->blog_pic = $imageName;
         $p->save();
 
         return redirect("/admin/blog");
@@ -76,24 +76,25 @@ class BlogController extends Controller
         $blog = $request->all();
 
         $imageName = '';
-        if ($request->hasFile('img')) {
-            $file = $request->file('img');
+        if ($request->hasFile('blog_pic')) {
+            $file = $request->file('blog_pic');
             $extension = $file->getClientOriginalExtension();
             if ($extension != 'jpg' && $extension != 'png' && $extension != 'jpeg') {
                 return redirect('admin/blog/editBlog')->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
             }
             $imageName = $file->getClientOriginalName();
-            $file->move("img", $imageName);
+            $file->move("img/blog", $imageName);
         } else {
-            $b = Blog::find($request->id);
+            $b = Blog::find($request->blog_id);
             $imageName = $b->blog_pic;
         }
         $b = new Blog($blog);
 
-        $b->picture = $imageName;
+        $b->blog_pic = $imageName;
+        // dd($b);
         $b->exists = true;
         $b->save(); //insert $b vo bang tbbook
 
-        return redirect('/admin/book'); //quay ve trang book index
+        return redirect('/admin/blog'); //quay ve trang book index
     }
 }
