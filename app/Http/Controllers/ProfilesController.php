@@ -34,16 +34,18 @@ class ProfilesController extends Controller
     
     
 
-    public function edit(User $user)
-    {
-        // $this->authorize('update', $user->profile);
+    public function edit(Request  $request ,User $user)
+    {   
 
-        return view('profiles.edit', compact('user'));
+        $user_id=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+
+        return view('profiles.edit', compact('user', 'user_id'));
     }
 
-    public function update(User $user)
+    public function update(Request  $request ,User $user)
     {
         // $this->authorize('update', $user->profile);
+        $user_id=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
 
         $data = request()->validate([
             'name' => 'required',

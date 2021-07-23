@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\MGFCarController;
 use App\Http\Controllers\SearchCar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,6 +14,7 @@ use App\Mail\NewUserWelcomeMail;
 use App\Http\Controllers\FbController;
 use App\Http\Controllers\GoogleLogin;
 use App\Http\Controllers\RentalContract;
+use App\Http\Controllers\RentalController;
 
 
 /*
@@ -35,10 +37,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', [AccountController::class, "login"]);
-Route::post('/checklogin', [AccountController::class, "checkLogin"]);
-Route::get('/logout', [AccountController::class, "logout"]);
-Route::get('/register', [AccountController::class, "register"]);
+
+Route::get('user/index',[AccountController::class,"index"]);
+Route::get('user/create',[AccountController::class,"create"]);
+Route::post('user/postCreate', [AccountController::class, "postCreate"]);
+Route::get('user/update/{id}', [AccountController::class, "update"]);
+Route::post('user/postUpdate/{id}', [AccountController::class, "postUpdate"]);
+Route::get('user/delete/{id}', [AccountController::class, "delete"]);
 
 
 
@@ -46,12 +51,12 @@ Route::get('/register', [AccountController::class, "register"]);
 Route::get('/admin', function () {
     return view('AdminHome');
 });
-Route::get('user/index', [UserController::class, "index"]);
-Route::get('user/create', [UserController::class, "create"]);
-Route::post('user/postCreate', [UserController::class, "postCreate"]);
-Route::get('user/update/{id}', [UserController::class, "update"]);
-Route::post('user/postUpdate/{id}', [UserController::class, "postUpdate"]);
-Route::get('user/delete/{id}', [UserController::class, "delete"]);
+// Route::get('user/index', [UserController::class, "index"]);
+// Route::get('user/create', [UserController::class, "create"]);
+// Route::post('user/postCreate', [UserController::class, "postCreate"]);
+// Route::get('user/update/{id}', [UserController::class, "update"]);
+// Route::post('user/postUpdate/{id}', [UserController::class, "postUpdate"]);
+// Route::get('user/delete/{id}', [UserController::class, "delete"]);
 
 
 //Route cho user
@@ -61,7 +66,7 @@ Route::get('user/delete/{id}', [UserController::class, "delete"]);
 
 
 //Route cho admin
-Route::prefix('admin')->name('admin.')->middleware('checkLogin:admin')->group(function(){
+// Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
     Route::get('users', [AccountController::class,"index"])->name('userlist');
     Route::get('create', [AccountController::class, "create"]);
     Route::post('post', [AccountController::class, "postCreate"]);
@@ -74,7 +79,7 @@ Route::prefix('admin')->name('admin.')->middleware('checkLogin:admin')->group(fu
     Route::post('rental/approval/{car_id}', 'RentalController@approval')->name('rental.approval');
     Route::get('rental/delete/{car_id}', 'RentalController@delete')->name('rental.delete');
 
-    Route::get('mfg','MGFCarController@index')->name('mfg-index');
+    Route::get('mfg',[MGFCarController::class, "index"])->name('mfg-index');
     Route::get('mfg/create','MGFCarController@create')->name('mfg-create');
     Route::post('mfg/postCreate','MGFCarController@postCreate')->name('mfg-post-create');
     Route::get('mfg/update/{mfg_id}', 'MGFCarController@update')->name('mfg-update');
@@ -87,7 +92,7 @@ Route::prefix('admin')->name('admin.')->middleware('checkLogin:admin')->group(fu
     Route::get('model/update/{type_id}', 'ModelcarController@update')->name('model-update');
     Route::post('model/postUpdate/{type_id}','ModelcarController@postUpdate');
     Route::get('model/delete/{type_id}', 'ModelcarController@delete')->name('model-delete');
-});
+// });
 
 //----------------------------------------------------------------------------------------------------------
 Auth::routes();
