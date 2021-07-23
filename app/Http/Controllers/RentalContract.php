@@ -9,6 +9,8 @@ use App\Models\RentalSchedule;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
+use PDO;
+use phpDocumentor\Reflection\Element;
 
 class RentalContract extends Controller
 {
@@ -97,7 +99,7 @@ class RentalContract extends Controller
     }
 
 
-    function mytrips(Request $request){
+    function mytrip(Request $request){
         $data=$request->session()->get('inforcontract');
         $data['status']='Đang liên hệ';
         
@@ -112,15 +114,184 @@ class RentalContract extends Controller
         $ss['car_id']=$data['car_id'];
         $ss['start_date']=$data['pickup_date'];
         $ss['end_date']=$data['return_date'];
-        $ss['status']='Đang liên hệ';
+        $ss['status']='Chờ xác nhận';
 
         // dd($ss);
 
         $s = new RentalSchedule($ss);
         $s->save();
-        dd($data);
+        return redirect()->route('mytrips');
+    }
+
+    function mytrips(Request $request){
+
+        $i=0;
+        $data1= RentalSchedule::all();
+        $id_contract=[];
+        if(count($data1)>0){
+            foreach($data1 as $element){
+                $id_contract[$i] =  $element['id_rental_contract'];
+                $i+=1;
+            }
+        };
+
+        $i=0;
+        $data3=[];
+       foreach($id_contract as $id){
+                $tmp= ModelsRentalContract::where('contract_id',$id)->get()->first();
+               if($tmp['user_id']==$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d')){
+                    $data3[$i]['contract_id']=$tmp['contract_id'];
+                    $data3[$i]['pickup_date']= substr($tmp['pickup_date'],0,10) ;
+                    $data3[$i]['return_date']= substr($tmp['return_date'],0,10) ;
+                    $data3[$i]['pickup_address']=$tmp['pickup_address'];
+                    $data3[$i]['contract_value']=$tmp['contract_value'];
+                    $data3[$i]['status']=$tmp['status'];
+                    $data4= CarRental::where('car_id',$tmp['car_id'])->get()->first();
+                    $data3[$i]['name']=$data4['name'];
+                    $data4=[];
+                    $data4= CarPic::where('car_id',$tmp['car_id'])->get()->first();
+                    $data3[$i]['image']=$data4['image'];
+
+                    $i+=1;
+               }
+       
+       }
+       $i=0;
+       foreach($data3 as $element){
+           if(($element['status']=='Đã hủy chuyến')||($element['status']=='Đã hoàn thành')){
+                 array_splice($listscan,$i,1);
+                 $i-=1;
+           }
+           $i+=1;
+       }
+       
+       
+        return view('profiles.mytrips',compact('data3'));
+    }
+
+    function historytrip(Request $request){
+        $data = ModelsRentalContract::all();
+        $data1=[];
+        $data3=[];
+        $i=0;
+        foreach($data as $element){
+            if(($element['user_id']==$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d')
+            )&&(
+                (($element['status']=='Đã hủy chuyến'))||
+                ($element['status']=='Đã hoàn thành'))
+                ){
+                    $data1[$i]=$element;
+                    $i+=1;
+                }
+        }
+
+        foreach($data1 as $element){
+            $data3[$i]['contract_id']=$element['contract_id'];
+            $data3[$i]['pickup_date']= substr($element['pickup_date'],0,10) ;
+            $data3[$i]['return_date']= substr($element['return_date'],0,10) ;
+            $data3[$i]['pickup_address']=$element['pickup_address'];
+            $data3[$i]['contract_value']=$element['contract_value'];
+            $data3[$i]['status']=$element['status'];
+            $data4= CarRental::where('car_id',$element['car_id'])->get()->first();
+            $data3[$i]['name']=$data4['name'];
+            $data4=[];
+            $data4= CarPic::where('car_id',$element['car_id'])->get()->first();
+            $data3[$i]['image']=$data4['image'];
+
+            $i+=1;
+        }
+
+
+
+        return view('profiles.historytrips',compact('data3'));
 
     }
+
+    function cencelform(Request $request){
+        $data= $request->all();
+       
+
+        $post= ModelsRentalContract::where('contract_id',$data['contract_id'])->get()->first();
+
+        $post['status']="Đã hủy chuyến";
+        $post->save();
+
+        RentalSchedule::where('id_rental_contract', $data['contract_id'])->delete();
+        return redirect()->route('triphistory');
+    }
+
+    function delete( Request $request ,$id){
+         $data = ModelsRentalContract::where('contract_id',$id)->get()->first();
+        //  $data = ModelsRentalContract::all();
+
+
+ 
+         if($data['user_id'] == $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'))
+         {
+            ModelsRentalContract::where('contract_id', $id)->delete();
+         }
+    
+ 
+ 
+     return redirect()->route('triphistory');
+    }
+
+    function triplist(Request $request){
+
+
+        $danhsachxe=CarRental::where('user_id',$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'))->get();
+        $data=RentalSchedule::all();    
+        $i=0;
+        $id_contract=[];
+
+
+        foreach($data as $element){
+            foreach($danhsachxe as $element2){
+                if(($element['car_id']==$element2['car_id'])
+                &&(
+                    ($element['status']=="Chờ xác nhận")||
+                    ($element['status']=="Đang giao xe")||
+                    ($element['status']=="Đang cho thuê")||
+                    ($element['status']=="Đã nhận xe")
+                    )
+                ){
+                    $id_contract[$i]['id_contract']=$element['id_rental_contract'];
+                    $id_contract[$i]['status']=$element['status'];
+                    $i+=1;
+                }
+            }
+        }
+
+        
+        $data3=[];
+        $i=0;
+       foreach($id_contract as $id){
+                $tmp= ModelsRentalContract::where('contract_id',$id['id_contract'])->get()->first();
+                    $data3[$i]['contract_id']=$tmp['contract_id'];
+                    $data3[$i]['pickup_date']= substr($tmp['pickup_date'],0,13) ;
+                    $data3[$i]['return_date']= substr($tmp['return_date'],0,13) ;
+                    $data3[$i]['pickup_address']=$tmp['pickup_address'];
+                    $data3[$i]['contract_value']=$tmp['contract_value'];
+                    $data3[$i]['status']=$id['status'];
+                    $data4= CarRental::where('car_id',$tmp['car_id'])->get()->first();
+                    $data3[$i]['name']=$data4['name'];
+                    $data4=[];
+                    $data4= CarPic::where('car_id',$tmp['car_id'])->get()->first();
+                    $data3[$i]['image']=$data4['image'];
+                    $tmp2=User::where('user_id',$tmp['user_id'])->get()->first();
+                    $data3[$i]['phone']=$tmp2['phone'];
+                    $i+=1;
+       
+       }
+
+
+
+       return view('profiles.triplist',compact('data3'));
+
+    }
+
+
+    
 
 
 }
