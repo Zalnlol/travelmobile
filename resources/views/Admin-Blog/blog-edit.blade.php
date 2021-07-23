@@ -12,13 +12,13 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ url('admin/blog/postEditBlog') }}" method="post"
+                        <form role="form" action="{{ url('admin/blog/editPostBlog') }}" method="post"
                             enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="txt-id">ID</label>
-                                    <input type="number" class="form-control" id="id" name="id" readonly value="{{ $blog->blog_id }}">
+                                    <input type="number" class="form-control" id="blog_id" name="blog_id" readonly value="{{ $blog->blog_id }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-name">Tiêu đề</label>
@@ -37,7 +37,7 @@
                                     <img class="img-fluid" src="{{ url("img/$blog->blog_pic") }}" alt="">
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="picture" name="picture" multiple
+                                            <input type="file" class="custom-file-input" id="blog_pic" name="blog_pic" multiple
                                                 accept="img/" value="{{ $blog->blog_pic }}">
                                             <label class="custom-file-label" for="">Choose file</label>
                                         </div>
