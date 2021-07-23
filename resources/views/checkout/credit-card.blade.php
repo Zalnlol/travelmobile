@@ -16,7 +16,7 @@
                     <p>Số tiền cần thanh toán là ${{$amount}}</p>
                 </div>
                 <div class="card">
-                    <form action="{{ route('checkout.credit-card') }}" method="post" id="payment-form">
+                    <form action="{{url('/mytrips')}}" method="post" id="payment-form">
                         @csrf
                         <div class="form-group">
                             <div class="card-header">

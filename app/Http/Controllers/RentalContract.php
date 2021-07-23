@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CarPic;
 use App\Models\CarRental;
 use App\Models\RentalContract as ModelsRentalContract;
+use App\Models\RentalSchedule;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -62,7 +63,7 @@ class RentalContract extends Controller
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $data=$request->all();
         $data['user_id']=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
-        $data['contract_date'] = date("Y-m-d H:00:00");
+        $data['contract_date'] = date("Y-m-d H:i:s");
         $request->session()->put('inforcontract', $data);
 
         \Stripe\Stripe::setApiKey('sk_test_51JFgZ6H6AZEb7dRzxGOrHcoqmMspkZ7ODHdOZqXOSYic5TMoY7Fx64K0fbMzd3a6Rqd6jU6MuiVcjuuXwhYHGDea00bQcRSAsz');
@@ -77,21 +78,47 @@ class RentalContract extends Controller
 			'description' => 'Thanh toán phí cọc dịch vụ thuê xe TravelMobile',
 			'payment_method_types' => ['card'],
 		]);
-		// $intent = $payment_intent->client_secret;
+                // $intent = $payment_intent->client_secret;
 
-        // $payment_intent= \Stripe\Refund::create([
-        //     'charge' => 'ch_1JFgyWH6AZEb7dRzABsDP5mt'
-        // ]);
-    //   $transfers=   \Stripe\transfer::create([
-    //         'amount' => 400,
-    //         'currency' => 'usd',
-    //         'destination' => 'acct_1JFgZ6H6AZEb7dRz',
-    //         'transfer_group' => 'ORDER_95',
-    //       ]);
+                // $payment_intent= \Stripe\Refund::create([
+                //     'charge' => 'ch_1JFgyWH6AZEb7dRzABsDP5mt'
+                // ]);
+            //   $transfers=   \Stripe\transfer::create([
+            //         'amount' => 400,
+            //         'currency' => 'usd',
+            //         'destination' => 'acct_1JFgZ6H6AZEb7dRz',
+            //         'transfer_group' => 'ORDER_95',
+            //       ]);
         $amount/=100;
         $intent = $payment_intent->client_secret;
 
 		return view('checkout.credit-card',compact('intent','amount'));
+
+    }
+
+
+    function mytrips(Request $request){
+        $data=$request->session()->get('inforcontract');
+        $data['status']='Đang liên hệ';
+        
+        $p = new ModelsRentalContract($data);
+   
+        $p->save();
+        
+        $rental= ModelsRentalContract::where('contract_date',$data['contract_date'])->get()->first();
+        $contractid=$rental['contract_id'];
+
+        $ss['id_rental_contract']= $contractid;
+        $ss['car_id']=$data['car_id'];
+        $ss['start_date']=$data['pickup_date'];
+        $ss['end_date']=$data['return_date'];
+        $ss['status']='Đang liên hệ';
+
+        // dd($ss);
+
+        $s = new RentalSchedule($ss);
+        $s->save();
+        dd($data);
 
     }
 

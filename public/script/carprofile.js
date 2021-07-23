@@ -61,6 +61,7 @@ function complatedata(){
     document.getElementById('shipping_cost').value=document.getElementById('giaoxe').innerText ;
     document.getElementById('contract_value').value= document.getElementById('tongphithuexe').innerText
     document.getElementById('deposit').value= document.getElementById('datcoc').innerText
+    document.getElementById('service_cost').value= document.getElementById('phidichvu').innerText
 }
 
 

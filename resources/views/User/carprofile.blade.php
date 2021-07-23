@@ -294,7 +294,7 @@
                                 <span style=" font-size: 12pt;font-weight: bold;">/ngày</span>
                             </div>
                         </div>
-                        <form action="{{url('/searchcar/profile/checkout')}}" >
+                        <form action="{{url('/searchcar/profile/checkout')}}" method="POST">
                             <span id="start-end-day">
                                 Ngày bắt đầu
                             </span>
@@ -519,12 +519,15 @@
                                     <span>đ</span>
                                 </div>
                             </div>
+                            @csrf
+                            <input type="input" hidden readonly name="contract_id" id="contract_id" value="0">
                             <input type="input" hidden readonly name="user_id" id="user_id" value="">
                             <input type="input" hidden readonly name="car_id" id="car_id" value="">
                             <input type="input" hidden readonly name="contract_date" id="contract_date" value="" >
                             <input type="input" hidden readonly name="pickup_date" id="pickup_date" value=""  >
                             <input type="input" hidden readonly name="return_date" id="return_date" value=""  >
                             <input type="input" hidden readonly name="rental_price" id="rental_price" value=""  >
+                            <input type="input" hidden readonly name="service_cost" id="service_cost" value=""  >
                             <input type="input" hidden readonly name="pickup_address" id="pickup_address" value=""  >
                             <input type="input" hidden readonly name="shipping_cost" id="shipping_cost"  value="" >
                             <input type="input" hidden readonly name="contract_value" id="contract_value" value=""  >

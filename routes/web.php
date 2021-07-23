@@ -157,13 +157,16 @@ Route::get('/searchcar/filter', [SearchCar::class, "filter"])->name("filter");
 
 
 Route::get('/searchcar/profile', [RentalContract::class, "carprofile"])->name("carprofile");
-Route::get('/searchcar/profile/checkout', [RentalContract::class, "checkout"])->name("carprofile");
+Route::post('/searchcar/profile/checkout', [RentalContract::class, "checkout"])->name("carprofile");
+
+
+//mytrip
+Route::post('/mytrips', [RentalContract::class, "mytrips"])->name("mytrips");
 
 
 //Test 
 
-Route::get('checkout','CheckoutController@checkout');
-Route::post('checkout','CheckoutController@afterpayment')->name('checkout.credit-card');
+
 Route::get('/refund','CheckoutController@checkout');
 Route::get('/test', function(){
     return view('refund');
