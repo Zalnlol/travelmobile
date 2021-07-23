@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfilesController extends Controller
 {
+    // public function viewSelfProfile(){
+    //     return view();
+    // }
     public function index(Request  $request ,User $user)
     {   
      
