@@ -88,7 +88,7 @@
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" id="dropdown-list" href="#">Trang cá nhân</a>
-                                            <a class="dropdown-item" id="dropdown-list" href="#">Xe của tôi</a>
+                                            <a class="dropdown-item" id="dropdown-list" href="{{ route('rental.index') }}">Xe của tôi</a>
                                             <a class="dropdown-item" id="dropdown-list" href="#">Chuyến của tôi</a>
                                             <a class="dropdown-item" id="dropdown-list" href="#">Đổi mật khẩu</a>
                                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Đăng xuất') }}</a>

@@ -12,15 +12,16 @@ use App\Http\Requests\RentalRequest;
 
 class MyCarController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $mycar = CarRental::all();
+        $data = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        $mycar = CarRental::where('user_id', $data)->get();
         return view('User-Rental.index', compact('mycar'));
     }
 
     public function create(Request $request)
     {
-        $data = $request->session()->get('user')->user_id;
+        $data = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
         return view('User-Rental.create', compact('data'));
     }
 
@@ -89,15 +90,17 @@ class MyCarController extends Controller
     }
 
     public function store(RentalRequest $req)
-    {
+    {    
         $crentals = $req->all();      
         CarRental::create($crentals);
-        //dd(session('user'), session('user')->user_id);
-        // dd($data = $req->session()->get('user')->user_id);
-        dd($req->session()->all()); 
-        
+        $user_id = $req->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        //$getid = CarRental::where('user_id', $data)->get('car_id');
+        //dd($data = CarRental::where('user_id', $user_id)->get('car_id'));
+        $plate_id = $req->plate_id;
+        dd($data = CarRental::where('plate_id', $plate_id)->get('car_id'));
+        // dd($car_id = $req->session()->get('car_id'));
 
-        return redirect()->route('rental.upload', compact('id'));
+        return redirect()->route('rental.upload', compact('data'));
     }
 
     public function delete($car_id)
