@@ -41,7 +41,7 @@
             
                     <nav class="navbar navbar-expand-lg narbar-light">
                         <div class="logo-team">
-                          <a  href="{{url('/')}}"  >
+                          <a  href="{{url('/')}}">
                             <div >
                                 <img src="{{asset('images/travel-mobile-logo.png') }}" style="width: 100%" alt="Site logo">
                             </div>
@@ -83,9 +83,7 @@
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             <img src="{{ asset('' . Auth::user()->avatar_image) }}" style="width: 40px" class="rounded-circle">
                                     
-                                           <span >{{ Auth::user()->name }}</span> 
-                                            {{-- //get id of logged in user --}}
-                                            {{-- {{ Auth::user()->user_id}} --}}
+                                           <span >{{ Auth::user()->name }}</span>
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
