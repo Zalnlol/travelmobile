@@ -56,11 +56,12 @@ function complatedata(){
     document.getElementById('car_id').value=carlist['car_id'];
     document.getElementById('pickup_date').value=xulyngay(checkin,hourstart)
     document.getElementById('return_date').value=xulyngay(checkout,hourend)
-
+    document.getElementById('rental_price').value= parseInt(document.getElementById('dongiathue').innerText) *parseInt(document.getElementById('days').innerText);
     document.getElementById('pickup_address').value= document.getElementById('diadiemgiaoxe').innerText ;
     document.getElementById('shipping_cost').value=document.getElementById('giaoxe').innerText ;
     document.getElementById('contract_value').value= document.getElementById('tongphithuexe').innerText
     document.getElementById('deposit').value= document.getElementById('datcoc').innerText
+    document.getElementById('service_cost').value= document.getElementById('phidichvu').innerText
 }
 
 

@@ -5,20 +5,72 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AccountController extends Controller
-{
-    //Mở trang login
-    public function login(Request $request){
-        dd($request);
-        return view("login");
+{   
+    //tra ve view listing danh sach users
+    public function index(){
+        // dd('1231245');
+        $ds = DB::table('tb_user')->get();
+        return view("Admin-User.index",compact('ds'));
+        
     }
-    //kiem tra tai khoan dang nhap user
-    public function checkLogin(Request $request){
+
+    //tra ve view tao 1 tai khoan user moi
+    public function create(){
+        return view("Admin-User.create");
+    }
+
+    //luu du lieu input tu form create-user vo database
+    public function createPost(Request $request){
+        //lay du lieu tren form nhap tu bien $request
+        $name = $request->name;
         $email = $request->email;
         $password = $request->password;
+        $role = $request->role;
+
+        //insert vo bang tbuser
+        DB::table('tb_user')->insert([
+            "name"=>$name,
+            "email"=>$email,
+            "password"=>$password,
+            "role"=>$role,
+            "active"=>'1'
+        ]);
+
+        //tro ve trang admin.index
+        return redirect()->action([AccountController::class, 'index']);
+        // return redirect()->route("userlist");
+        // return route("userlist");
+    }
+
+    //reset password theo ma so duoc truyen
+    public function resetPassword($id){
+        DB::table('tbuser')->where('id',$id)->update(["password"=>'123']);
+        return redirect("admin/users");
+    }
+
+
+    //xem thong tin profile cua user khi biet id
+    public function details($id){
+        $user = DB::table('tbuser')->find($id);
+        return view("user.profile", compact('user'));
+    }
+
+
+    //mo trang login
+    public function login(){
+        return view("login");
+    }
+
+    
+    //kiem tra tai khoan dang nhap
+    public function checkLogin(Request $request){
+        $username = $request->username;
+        $password = $request->password;
         
-        $user = DB::table('tb_user')->where("email",$email)->first();
+        $user = DB::table('tbuser')->where("username",$username)->first();
         if($user!=null && $user->password == $password){
             //tao bien session de luu thong tin TK dang nhap thanh cong
             $request->session()->put('user', $user);
@@ -26,30 +78,11 @@ class AccountController extends Controller
             if($user->role == 1){
                 return redirect("admin/users");
             }else{
-                return redirect("user".$user->id);
+                return redirect("user/profile/".$user->id);
             }
         }
         else{
             return redirect("login")->with("message","Login fail, try again !");
-        }
-    }
-
-    //kiểm tra tài khoản đăng nhập admin
-    public function checkAdminLogin(Request $request){
-        $username = $request->username;
-        $password = $request->password;
-        $admin = DB::table('tb_admin')->where("username",$username)->first();
-        if($admin != null && $admin->password == $password){
-            //Tạo biến sesssion để lưu thông tin TK đăng nhập thành công
-            $request->session()->put('admin', $admin);
-            if($admin->role == 1){
-                return redirect("user/index");
-            } else {
-                return redirect("user/index");
-            }
-        }
-        else{
-            return redirect("login")->with("message", 'Login fail, try again!');
         }
     }
     
@@ -60,10 +93,5 @@ class AccountController extends Controller
         // $request->session()->forget('user');
         // $request->session()->regenerateToken();          //Bảo mật
         return redirect('login');
-    }
-
-    //Mở trang register (đăng ký)
-    public function register(){
-        return view("register");
     }
 }

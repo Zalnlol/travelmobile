@@ -41,7 +41,7 @@
             
                     <nav class="navbar navbar-expand-lg narbar-light">
                         <div class="logo-team">
-                          <a  href="{{url('/')}}"  >
+                          <a  href="{{url('/')}}">
                             <div >
                                 <img src="{{asset('images/travel-mobile-logo.png') }}" style="width: 100%" alt="Site logo">
                             </div>
@@ -60,8 +60,9 @@
                               <li class="nav-item">
                                 <a class="nav-link" href="#tm-section-4">Hướng dẫn</a>
                               </li>
+
                               <li class="nav-item">
-                                <a class="nav-link" href="#tm-section-4">Blog </a>
+                                <a class="nav-link" href="{{url('blog')}}">Trang Blog</a>
                               </li>
 
                                 <!-- Authentication Links -->
@@ -78,12 +79,11 @@
                                         </li>
                                     @endif
                                 @else
-                                    <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown" style="width:20rem">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            <img src="images/avatar.png" style="width: 40px" class="rounded-circle">
-                                            {{ Auth::user()->name }}
-                                            {{-- //get id of logged in user --}}
-                                            {{-- {{ Auth::user()->user_id}} --}}
+                                            <img src="{{ asset('' . Auth::user()->avatar_image) }}" style="width: 40px" class="rounded-circle">
+                                    
+                                           <span >{{ Auth::user()->name }}</span>
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

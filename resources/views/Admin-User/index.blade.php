@@ -30,49 +30,43 @@
                 </div>
                 <!-- card-header -->
                 <div class="card-body">
-                    <table id="user" class="table table-bordered table-hover">
+                    <table id="user" class="table">
                         <thead>
                             <tr>
                                 <th>User ID</th>
-                                <th>Full name</th>
+                                <th>Họ tên</th>
                                 <th>Email</th>
-                                <th>Password</th>
-                                <th>Facebook</th>
-                                <th>Mobile</th>
-                                <th>Gender</th>
-                                <th>Date of Birth</th>
-                                <th>Driver ID</th>
-                                <th>Driver ID image</th>
-                                <th>joined_date</th>
-                                <th>status</th>
+                                <th>Số điện thoại</th>
+                                <th>Giới tính</th>
+                                <th>Ngày sinh</th>
+                                <th>GPLX</th>
+                                <th>Ngày tham gia</th>
+                                <th>Trạng thái</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach($users as $user)
+                            @foreach($ds as $user)
                             <tr>
                                 <td>{{$user->user_id}}</td>
-                                <td>{{$user->fullname}}</td>
+                                <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->password}}</td>
-                                <td>{{$user->facebook}}</td>
                                 <td>{{$user->mobile}}</td>
-                                <td>{{$user->gender}}</td>
+                                <td>{{$user->gender ? "Nam" : "Nữ"}}</td>
                                 <td>{{$user->dob}}</td>
-                                <td>{{$user->driver_id}}</td>
-                                <td><img width="100px" src="{{ url('images/'.$user->driver_id_image) }}"></td>
-                                <td>{{$user->joined_date}}</td>
+                                <td>{{$user->driver_id ? "Có" : "Chưa đăng ký"}}</td>
+                                <td>{{$user->created_at}}</td>
                                 <td>{{$user->status}}</td>
 
                                 <td class="text-right">
                                     <a href="#" class="btn btn-primary btn-sm" >
-                                        <i class="fas fa-folder">View</i>
+                                        <i class="fas fa-folder">Xem</i>
                                     </a>
                                     <a href="{{ url('user/update'.$user->user_id) }}" class="btn btn-primary btn-sm" >
-                                        <i class="fas fa-pencil-alt">Edit</i>
+                                        <i class="fas fa-pencil-alt">Sửa</i>
                                     </a>
                                     <a href="{{ url('user/delete'.$user->user_id) }}" class="btn btn-primary btn-sm" >
-                                        <i class="fas fa-trash">Delete</i>
+                                        <i class="fas fa-trash">Xóa</i>
                                     </a>
                                 </td>
                             </tr>
