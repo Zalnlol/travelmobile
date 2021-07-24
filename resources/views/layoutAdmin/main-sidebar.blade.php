@@ -114,19 +114,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('rental') }}" class="nav-link">
+                <a href="{{ route('admin.rental') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> Xe đăng ký </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('active-rental')}}" class="nav-link">
+                <a href="{{route('admin.active-rental')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách xe đang hoạt động</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('deny-rental')}}" class="nav-link">
+                <a href="{{route('admin.deny-rental')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách xe đã từ chối</p>
                 </a>

@@ -97,10 +97,10 @@ class MyCarController extends Controller
         //$getid = CarRental::where('user_id', $data)->get('car_id');
         //dd($data = CarRental::where('user_id', $user_id)->get('car_id'));
         $plate_id = $req->plate_id;
-        dd($data = CarRental::where('plate_id', $plate_id)->get('car_id'));
-        // dd($car_id = $req->session()->get('car_id'));
+        $data = CarRental::where('plate_id', $plate_id)->get('car_id')->first()->car_id;
 
-        return redirect()->route('rental.upload', compact('data'));
+        // return redirect()->route('rental.upload', compact('data'));
+        return view('Rental-image.create', compact('data'));
     }
 
     public function delete($car_id)
@@ -110,37 +110,51 @@ class MyCarController extends Controller
         return redirect('mycar');
     }
 
-    public function image()
+    public function image($car_id)
     { 
-        // $images = CarPic::where('car_id', intval($car_id))->get()->first();
-        return view('Rental-image.index');
+        $data = CarPic::where('car_id', $car_id)->first();
+        return view('Rental-image.index', compact('data'));
     }
 
-    public function upload(Request $request)
-    {   
-        return view('Rental-image.create');
-    }
+    //  public function upload(Request $request)
+    // {   
+    //     $plate_id = $request->plate_id;
+    //     dd($data = CarRental::where('plate_id', $plate_id)->get('car_id')->first()->car_id);
+    //      return view('Rental-image.create');
+    // }
 
     public function checkUpload(Request $request)
     {
         $uploads = $request->all();
         if($request->hasFile('image', 'image_left', 'image_right', 'image_behind')){
-            $file = $request->file('image', 'image_left', 'image_right', 'image_behind');
+            $file = $request->file('image');
+            $file1 = $request->file('image_left');
+            $file2 = $request->file('image_right');
+            $file3 = $request->file('image_behind');
             $extension = $file->getClientOriginalExtension();
+            $extension = $file1->getClientOriginalExtension();
+            $extension = $file2->getClientOriginalExtension();
+            $extension = $file3->getClientOriginalExtension();
             if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
                 return redirect('mycar/image/upload');
             }
                 $imgName = $file->getClientOriginalName();
+                $imgName1 = $file1->getClientOriginalName();
+                $imgName2 = $file2->getClientOriginalName();
+                $imgName3 = $file3->getClientOriginalName();
                 $file->move('images/carimg', $imgName);
+                $file1->move('images/carimg', $imgName1);
+                $file2->move('images/carimg', $imgName2);
+                $file3->move('images/carimg', $imgName3);
                 $uploads['image'] = $imgName;
-                $uploads['image_left'] = $imgName;
-                $uploads['image_right'] = $imgName;
-                $uploads['image_behind'] = $imgName;
+                $uploads['image_left'] = $imgName1;
+                $uploads['image_right'] = $imgName2;
+                $uploads['image_behind'] = $imgName3;
         }
 
         $up = new CarPic($uploads);
         $up->save();
-        return redirect('mycar/image');
+        return redirect('mycar');
     }
 
 }
