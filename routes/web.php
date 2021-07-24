@@ -67,7 +67,7 @@ Route::get('/admin', function () {
 
 
 //Route cho admin
-// Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
+//  Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
     Route::get('users', [AccountController::class,"index"])->name('userlist');
     Route::get('create', [AccountController::class, "create"]);
     Route::post('post', [AccountController::class, "postCreate"]);
@@ -93,7 +93,7 @@ Route::get('/admin', function () {
     Route::get('model/update/{type_id}', 'ModelcarController@update')->name('model-update');
     Route::post('model/postUpdate/{type_id}','ModelcarController@postUpdate');
     Route::get('model/delete/{type_id}', 'ModelcarController@delete')->name('model-delete');
-// });
+//  });
 
 //----------------------------------------------------------------------------------------------------------
 Auth::routes();
@@ -111,14 +111,12 @@ Route::get('/email', function(){
 //----------------------------------------------------------------------------------------------------------
 Route::get('mycar', 'MyCarController@index')->name('rental.index');
 Route::get('mycar/rental', 'MyCarController@create')->name('rental.create');
-Route::get('mycar/newrental', 'MyCarController@create1');
 Route::post('mycar/checkRental', 'MyCarController@store')->name('rental.store');
 Route::get('mycar/update/{car_id}', 'MyCarController@update')->name('rental.update');
 
 Route::post('mycar/edit', 'MyCarController@edit')->name('rental.edit');
 Route::get('mycar/delete/{car_id}', 'MyCarController@delete')->name('rental.delete');
-Route::get('mycar/image', 'MyCarController@image')->name('rental.image');
-Route::get('mycar/image/upload', 'MyCarController@upload')->name('rental.upload');
+Route::get('mycar/rental/image/{car_id}', 'MyCarController@image')->name('rental.image');
 Route::post('mycar/image/checkUpload', 'MyCarController@checkUpload')->name('rental.checkUpload');
 
 Route::get('review', 'ReviewController@index')->name('review');

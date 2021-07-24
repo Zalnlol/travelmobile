@@ -199,7 +199,7 @@ font-weight: bolder;}
 
 <form class="jotform-form" action="{{ route('rental.checkUpload') }}" method="post" enctype="multipart/form-data" >
     @csrf
-    <input type="hidden" name="car_id" value="{{ $data->car_id }}">
+    <input type="hidden" name="car_id" value="{{ $data }}">
   <div role="main" class="form-all" style="margin-top: 5%">
     <ul class="form-section page-section">
       <li id="cid_47" class="form-input-wide" data-type="control_head">
