@@ -9,9 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfilesController extends Controller
 {
-    // public function viewSelfProfile(){
-    //     return view();
-    // }
+    public function viewSelfProfile(Request  $request){
+        $data = user::where('user_id',$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'))->get()->first();
+        $user = $data;
+        $user_id = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        return view('profiles.index', compact('user','user_id'));
+
+    }
     public function index(Request  $request ,User $user)
     {   
      
@@ -25,11 +29,7 @@ class ProfilesController extends Controller
         
         $user_id=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
 
-        // return view('profiles.index', compact('user','user_id'));   //working
-        // return view('home', [
-        //     'user'=> $user
-        // ]);    
-        return view('profiles.index', compact('user','user_id'));   //testing
+        return view('profiles.index', compact('user','user_id'));  
         }
         
     
