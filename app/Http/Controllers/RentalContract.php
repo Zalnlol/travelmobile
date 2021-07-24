@@ -344,8 +344,36 @@ class RentalContract extends Controller
 
     function detailsrental($id , Request $request){
         $data = ModelsRentalContract::where('contract_id',$id)->get()->first();
+        $data2= CarRental::where('car_id',$data['car_id'])->get()->first();
+        $data4= User::where('user_id',$data2['user_id'])->get()->first();
+
+        $data3['contract_id']=$data['contract_id'];
+        $data3['user_name']= $data4['name'];
+        $data3['car_name']= $data2['name'];
+        $data3['plate_id']= $data2['plate_id'];
+        $data3['max_travel_distance']= $data2['max_travel_distance'];
+        $data3['over_max_travel_cost']= $data2['over_max_travel_cost'].'000';
+        $data3['rent_price']= $data2['rent_price'];
+        $data3['customer_name']= (User::where('user_id',$data['user_id'])->get()->first())['name'];
+        $data3['customer_mobile']= (User::where('user_id',$data['user_id'])->get()->first())['mobile'];
         
-        dd($data);
+        if(count(RentalSchedule::where('id_rental_contract',$id)->get())>0){
+            $data3['status']= (RentalSchedule::where('id_rental_contract',$id)->get()->first())['status'];
+        }else{
+            $data3['status']='';
+        }
+        $data3['pickup_date']= $data['pickup_date'];
+        $data3['return_date']= $data['return_date'];
+        $data3['pickup_address']= $data['pickup_address'];
+        $data3['rental_price']= $data['rental_price'];
+        $data3['shipping_cost']= $data['shipping_cost'];
+        $data3['customer_deposit']= '';
+        $data3['service_cost']= $data['rental_price']*0.15;
+        $data3['deposit_after_rental']= $data['deposit']-$data['service_cost'] -($data['rental_price']*0.15);
+        $data3['remaining']=  $data['contract_value']-$data['deposit'];
+        
+        return view('profiles.pagerental',compact('data3'));
+
     }
 
 
