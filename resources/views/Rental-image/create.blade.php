@@ -218,7 +218,7 @@ font-weight: bolder;}
       <li class="form-line" data-type="control_text" id="id_55">
         <div id="cid_55" class="form-input-wide">
           <div id="text_55" class="form-html" data-component="text">
-            <h6><strong><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif;">Ảnh chính giữa</span></strong></h6>
+            <h6><strong><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif;">Ảnh 1</span></strong></h6>
             <div id="eJOY__extension_root" class="eJOY__extension_root_class" style="all: unset;">
               <span style="font-size: 14pt;">
                  
@@ -252,7 +252,7 @@ font-weight: bolder;}
       <li class="form-line" data-type="control_text" id="id_52">
         <div id="cid_52" class="form-input-wide">
           <div id="text_52" class="form-html" data-component="text">
-            <h6><strong>Ảnh bên trái</strong></h6>
+            <h6><strong>Ảnh 2</strong></h6>
             <div id="eJOY__extension_root" class="eJOY__extension_root_class" style="all: unset;">
                
             </div>
@@ -281,7 +281,7 @@ font-weight: bolder;}
       <li class="form-line" data-type="control_text" id="id_56">
         <div id="cid_56" class="form-input-wide">
           <div id="text_56" class="form-html" data-component="text">
-            <h6><strong>Ảnh bên phải</strong></h6>
+            <h6><strong>Ảnh 3</strong></h6>
             <div class="ddict_btn" style="top: 28px; left: 94.8px;">
                
             </div>
@@ -310,7 +310,7 @@ font-weight: bolder;}
       <li class="form-line" data-type="control_text" id="id_57">
         <div id="cid_57" class="form-input-wide">
           <div id="text_57" class="form-html" data-component="text">
-            <h6><strong>Ảnh đằng sau</strong></h6>
+            <h6><strong>Ảnh 4</strong></h6>
             <div id="eJOY__extension_root" class="eJOY__extension_root_class" style="all: unset;">
                
             </div>
@@ -339,9 +339,12 @@ font-weight: bolder;}
 
       <li class="form-line" data-type="control_button" id="id_2">
         <div id="cid_2" class="form-input-wide">
+          {{-- <button id="input_2" type="submit"  class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+            Quay lại
+          </button> --}}
           <div style="text-align:center" data-align="center" class="form-buttons-wrapper form-buttons-center   jsTest-button-wrapperField">
             <button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
-              Submit
+              Đăng ký
             </button>
           </div>
         </div>

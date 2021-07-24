@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
     <link rel="stylesheet" href="{{ asset('font-awesome-4.7.0/css/font-awesome.min.css') }}">                <!-- Font Awesome -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"> 
-
+    <link rel="stylesheet" href="/path/to/dist/css/image-zoom.css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('travelmobile-css/travelmobile.css') }}"> <!--custom project css-->
     <!-- Template 2095 Level -->
     <!-- http://www.tooplate.com/view/2095-level -->
@@ -80,13 +80,12 @@
                                     @endif
                                 @else
                                     <li class="nav-item dropdown" style="width:20rem">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <img src="{{ asset('/img/' . Auth::user()->avatar_image) }}" style="width: 40px" class="rounded-circle">
-                                        <span >{{ Auth::user()->name }}</span>
+                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <img src="{{ asset('/img/' . Auth::user()->avatar_image) }}" style="width: 40px" class="rounded-circle"><span >{{ Auth::user()->name }}</span>
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" id="dropdown-list" href="{{ url('/profile/{user}') }}">Trang cá nhân</a>
+                                            <a class="dropdown-item" id="dropdown-list" href="{{ url('/profile') }}">Trang cá nhân</a>
                                             <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/mycars')}}">Xe của tôi</a>
                                             <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/mytrips')}}">Chuyến của tôi</a>
                                             <a class="dropdown-item" id="dropdown-list" href="#">Đổi mật khẩu</a>
