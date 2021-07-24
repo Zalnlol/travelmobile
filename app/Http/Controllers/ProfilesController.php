@@ -59,7 +59,7 @@ class ProfilesController extends Controller
         ]);
         // $this->authorize('update', $user->profile);
         $user_id = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
-        dd($user_id);
+        // dd($user_id);
         $user->update($data);
         return redirect("/profile/{$user_id}");
 
