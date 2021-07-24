@@ -1,5 +1,5 @@
 @extends('layoutUser.layout')
-@section('titleweb','Rental upload')
+@section('titleweb','Rental update image')
     
 @section('bodycode')
 <script src="https://cdn02.jotfor.ms/js/vendor/imageinfo.js?v=3.3.26452" type="text/javascript"></script>
@@ -197,9 +197,9 @@ font-weight: bolder;}
     /* Injected CSS Code */
 </style>
 
-<form class="jotform-form" action="{{ route('rental.checkUpload') }}" method="post" enctype="multipart/form-data" >
+<form class="jotform-form" action="{{ route('rental.image.checkupdate', $data->car_id) }}" method="post" enctype="multipart/form-data" >
     @csrf
-    <input type="hidden" name="car_id" value="{{ $data }}">
+    <input type="hidden" name="car_id" value="{{ $data->car_id }}">
   <div role="main" class="form-all" style="margin-top: 5%">
     <ul class="form-section page-section">
       <li id="cid_47" class="form-input-wide" data-type="control_head">
@@ -235,9 +235,13 @@ font-weight: bolder;}
         <div id="cid_59" class="form-input-wide">
           <div data-wrapper-react="true">
             <div data-wrapper-react="true">
-              <div class="qq-uploader-buttonText-value">
-                Browse Files
-              </div>
+              
+              <img class="img-fluid" src="{{ url('images/carimg/'.$data->image) }}"/>
+              <div class="input-group">
+              <div class="custom-file">
+                <div class="qq-uploader-buttonText-value">
+                    Browse Files
+                  </div>
               <input type="file" id="input_59" name="image" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
             </div>
             <span style="display:none" class="cancelText">
@@ -264,9 +268,13 @@ font-weight: bolder;}
         <div id="cid_66" class="form-input-wide">
           <div data-wrapper-react="true">
             <div data-wrapper-react="true">
-              <div class="qq-uploader-buttonText-value">
-                Browse Files
-              </div>
+              
+              <img class="img-fluid" src="{{ url('images/carimg/'.$data->image_left) }}"/>
+              <div class="input-group">
+              <div class="custom-file">
+                <div class="qq-uploader-buttonText-value">
+                    Browse Files
+                  </div>
               <input type="file" id="input_66" name="image_left" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
             </div>
             <span style="display:none" class="cancelText">
@@ -293,9 +301,13 @@ font-weight: bolder;}
         <div id="cid_67" class="form-input-wide">
           <div data-wrapper-react="true">
             <div data-wrapper-react="true">
-              <div class="qq-uploader-buttonText-value">
-                Browse Files
-              </div>
+             
+              <img class="img-fluid" src="{{ url('images/carimg/'.$data->image_right) }}"/>
+              <div class="input-group">
+              <div class="custom-file">
+                <div class="qq-uploader-buttonText-value">
+                    Browse Files
+                  </div>
               <input type="file" id="input_67" name="image_right" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
             </div>
             <span style="display:none" class="cancelText">
@@ -322,9 +334,13 @@ font-weight: bolder;}
         <div id="cid_68" class="form-input-wide">
           <div data-wrapper-react="true">
             <div data-wrapper-react="true">
-              <div class="qq-uploader-buttonText-value">
-                Browse Files
-              </div>
+             
+              <img class="img-fluid" src="{{ url('images/carimg/'.$data->image_behind) }}"/>
+              <div class="input-group">
+              <div class="custom-file">
+                <div class="qq-uploader-buttonText-value">
+                    Browse Files
+                  </div>
               <input type="file" id="input_68" name="image_behind" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
             </div>
             <span style="display:none" class="cancelText">
@@ -337,16 +353,20 @@ font-weight: bolder;}
         </div>
       </li>
 
-      <li class="form-line" data-type="control_button" id="id_2">
-        <div id="cid_2" class="form-input-wide">
-          {{-- <button id="input_2" type="submit"  class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
-            Quay lại
-          </button> --}}
-          <div style="text-align:center" data-align="center" class="form-buttons-wrapper form-buttons-center   jsTest-button-wrapperField">
-            <button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
-              Đăng ký
+      <li class="form-line" data-type="control_button" id="id_2" >
+        <div id="cid_2" class="form-input-wide" style="margin-left: auto" style="margin-right: auto" >
+          <div style="text-align:center"  data-align="left" class="form-buttons-wrapper form-buttons-left   jsTest-button-wrapperField" style="width: 100px">
+            <button  style="margin-right: 32px"  type="submit" onclick="{{ redirect()->back() }}" class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+              Quay lại
             </button>
-          </div>
+          
+                <button  style="text-align: center" type="submit" class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+                  Cập nhật
+                  </button>
+              </div>
+
+        
+       
         </div>
       </li>
 

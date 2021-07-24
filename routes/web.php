@@ -18,6 +18,12 @@ use App\Http\Controllers\RentalController;
 use App\Http\Controllers\BlogController;
 use App\Models\RentalContract as ModelsRentalContract;
 use App\Models\RentalSchedule;
+use App\Models\CarRental;
+use App\Models\CarPic;
+use App\Models\CarMFG;
+use App\Models\CarType;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\RentalRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,7 +74,7 @@ Route::get('/admin', function () {
 
 
 //Route cho admin
-//  Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
+  Route::prefix('admin')->name('admin.')/*->middleware('isAdmin')*/->group(function(){
     Route::get('users', [AccountController::class,"index"])->name('userlist');
     Route::get('create', [AccountController::class, "create"]);
     Route::post('post', [AccountController::class, "postCreate"]);
@@ -94,7 +100,7 @@ Route::get('/admin', function () {
     Route::get('model/update/{type_id}', 'ModelcarController@update')->name('model-update');
     Route::post('model/postUpdate/{type_id}','ModelcarController@postUpdate');
     Route::get('model/delete/{type_id}', 'ModelcarController@delete')->name('model-delete');
-//  });
+  });
 
 //----------------------------------------------------------------------------------------------------------
 Auth::routes();
@@ -119,6 +125,8 @@ Route::post('mycar/edit', 'MyCarController@edit')->name('rental.edit');
 Route::get('mycar/delete/{car_id}', 'MyCarController@delete')->name('rental.delete');
 Route::get('mycar/rental/image/{car_id}', 'MyCarController@image')->name('rental.image');
 Route::post('mycar/image/checkUpload', 'MyCarController@checkUpload')->name('rental.checkUpload');
+Route::get('mycar/rental/image/update/{car_id}', 'MyCarController@updateImage')->name('rental.image.update');
+Route::post('mycar/rental/image/checkUpdate/{car_id}', 'MyCarController@checkupdateImage')->name('rental.image.checkupdate');
 
 Route::get('review', 'ReviewController@index')->name('review');
 Route::post('review/post', 'ReviewController@store')->name('review.post');
@@ -188,12 +196,19 @@ Route::get('/user/mycars/triplist',[RentalContract::class, "triplist"])->name("t
 
 //Mycars
 
-Route::get('/user/mycars', function () {
-    return view('profiles.Mycars');
+Route::get('/user/mycars', function (Request $request) {
+
+    $data = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+    $mycar = CarRental::where('user_id', $data)->get();
+    return view('profiles.Mycars', compact('mycar'));
+
 });
 
-Route::get('/user/mycars/register', function () {
-    return view('profiles.registercar');
+Route::get('/user/mycars/register', function (Request $request) {
+
+    $data = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+    return view('profiles.registercar', compact('data'));
+
 });
 
 

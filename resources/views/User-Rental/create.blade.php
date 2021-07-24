@@ -691,18 +691,21 @@
         <input type="hidden" name="status" value="1"/>
 
           <li class="form-line" data-type="control_button" id="id_2" >
-              <div id="cid_2" class="form-input-wide" style="margin-left: auto" style="margin-right: auto" >
-                <div style="text-align:center"  data-align="left" class="form-buttons-wrapper form-buttons-left   jsTest-button-wrapperField" style="width: 100px">
-        
-                  <button  style="text-align: center" type="submit" class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
-                    Đăng ký
-                    </button>
-                </div>
-        
-              </div>
-            </li>
-          </div>
-          </div>
+            <div id="cid_2" class="form-input-wide" style="margin-left: auto" style="margin-right: auto" >
+              <div style="text-align:center"  data-align="left" class="form-buttons-wrapper form-buttons-left   jsTest-button-wrapperField" style="width: 100px">
+                <button  style="margin-right: 32px"  type="submit" disabled class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+                  Quay lại
+                </button>
+              
+                    <button  style="text-align: center" type="submit" class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+                      Cập nhật
+                      </button>
+                  </div>
+
+            
+           
+            </div>
+          </li>
     </form>
   </div>
 @endsection
