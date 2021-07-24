@@ -19,9 +19,15 @@
                 </a>
             </div>
 
-            <div class="col-sm-3" style="text-align: left; margin-left:1% ">
-                <a href="{{url('/user/mycars/register')}}">
-                    <span id="title-nav2" >Đăng ký xe</span>
+            <div class="col-sm-2" style="text-align: left; margin-left:1% ">
+                <a href="{{ url('/user/mycars/register') }}">
+                    <span id="title-nav2">Đăng ký xe</span>
+                </a>
+            </div>
+
+            <div class="col-sm-2" style="text-align: left; margin-left:1% ">
+                <a href="{{ url('/user/mycars/history') }}">
+                    <span id="title-nav2">Lịch sử cho thuê</span>
                 </a>
             </div>
 

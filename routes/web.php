@@ -231,7 +231,7 @@ Route::get('/user/mycars/triplist/dagiaoxe/{id}', function ($id) {
 
 Route::get('/user/mycars/triplist/danhanxe/{id}', function ($id) {
 
-    // Đang liên hệ
+
 
     $post= ModelsRentalContract::where('contract_id',$id)->get()->first();
     $post['status']="Đã hoàn thành";
@@ -245,6 +245,11 @@ Route::get('/user/mycars/triplist/danhanxe/{id}', function ($id) {
 
 
 
+//Lịch sử cho thuê 
+Route::get('/user/mycars/history',[RentalContract::class, "historyforrental"])->name("historyforrental");
+Route::get('/user/mycars/triplist/xemchitiet/{id}', [RentalContract::class, "detailsrental"]);
+
+
 
 //Test 
 
@@ -252,6 +257,11 @@ Route::get('/user/mycars/triplist/danhanxe/{id}', function ($id) {
 Route::get('/refund','CheckoutController@checkout');
 Route::get('/test', function(){
     return view('refund');
+});
+
+
+Route::get('/user/mycars/rental', function(){
+    return view('profiles.pagerental');
 });
 
 //blog
