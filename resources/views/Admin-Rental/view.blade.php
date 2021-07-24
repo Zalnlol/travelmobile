@@ -293,7 +293,7 @@ font-weight: bolder;}
 
 
      
-      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
+      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10" style="margin-left: 140px">
         <label class="form-label form-label-top" id="label_10" for="model_year"> Năm sản xuất </label>
         <div id="cid_10" class="form-input-wide">
           <select class="form-dropdown" id="input_10" disabled name="model_year" style="width:150px" data-component="dropdown">
@@ -364,7 +364,7 @@ font-weight: bolder;}
         </div>
       </li>
 
-      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
+      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10" style="margin-top: -74px">
         <label class="form-label form-label-top" id="label_10" for="auto"> Truyền động </label>
         <div id="cid_10" class="form-input-wide">
           <select class="form-dropdown" id="input_10" disabled name="auto" style="width:150px" data-component="dropdown">
@@ -380,7 +380,7 @@ font-weight: bolder;}
         </div>
       </li>
 
-      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
+      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10" style="margin-top: -74px">
         <label class="form-label form-label-top" id="label_10" for="fuel"> Loại nhiên liệu </label>
         <div id="cid_10" class="form-input-wide">
           <select class="form-dropdown" id="input_10" name="fuel" disabled style="width:150px" data-component="dropdown">
@@ -752,9 +752,6 @@ font-weight: bolder;}
         <li class="form-line" data-type="control_button" id="id_2" >
             <div id="cid_2" class="form-input-wide" style="margin-left: auto" style="margin-right: auto" >
               <div style="text-align:center"  data-align="left" class="form-buttons-wrapper form-buttons-left   jsTest-button-wrapperField" style="width: 100px">
-                <button  style="margin-right: 32px"  type="submit" disabled class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
-                  Quay lại
-                </button>
               
                     <button  style="text-align: center" type="submit" class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
                       Cập nhật

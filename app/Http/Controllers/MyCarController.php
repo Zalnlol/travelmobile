@@ -12,15 +12,17 @@ use App\Http\Requests\RentalRequest;
 
 class MyCarController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $mycar = CarRental::all();
+        $data = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        $mycar = CarRental::where('user_id', $data)->get();
         return view('User-Rental.index', compact('mycar'));
     }
 
     public function create(Request $request)
     {
-        return view('User-Rental.create');
+        $data = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        return view('User-Rental.create', compact('data'));
     }
 
     public function update($car_id, Request $req)
@@ -69,29 +71,36 @@ class MyCarController extends Controller
         if($approval == 1){
             $up = DB::table('tb_car_rental')
                 ->where('car_id', intval($car_id))
-                 ->update(['status' => 4]);
+                ->update(['status' => 4]);
         }else if($approval == null){
             $up = DB::table('tb_car_rental')
                 ->where('car_id', intval($car_id))
-                 ->update(['status' => 2]);
+                ->update(['status' => 2]);
         }
         else{
             $ostatus = DB::table('tb_car_rental')
-                    ->where('car_id', intval($car_id))
-                    ->first();
+                ->where('car_id', intval($car_id))
+                ->first();
             $status = $ostatus->status;
             $up = DB::table('tb_car_rental')
                 ->where('car_id', intval($car_id))
-                 ->update(['status' => $status]);
+                ->update(['status' => $status]);
         }
         return redirect('mycar');   
     }
 
     public function store(RentalRequest $req)
-    {
-        $crentals = $req->all();
+    {    
+        $crentals = $req->all();      
         CarRental::create($crentals);
-        return redirect()->route('rental.upload');
+        $user_id = $req->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        //$getid = CarRental::where('user_id', $data)->get('car_id');
+        //dd($data = CarRental::where('user_id', $user_id)->get('car_id'));
+        $plate_id = $req->plate_id;
+        $data = CarRental::where('plate_id', $plate_id)->get('car_id')->first()->car_id;
+
+        // return redirect()->route('rental.upload', compact('data'));
+        return view('Rental-image.create', compact('data'));
     }
 
     public function delete($car_id)
@@ -101,37 +110,51 @@ class MyCarController extends Controller
         return redirect('mycar');
     }
 
-    public function image()
+    public function image($car_id)
     { 
-        // $images = CarPic::where('car_id', intval($car_id))->get()->first();
-        return view('Rental-image.index');
+        $data = CarPic::where('car_id', $car_id)->first();
+        return view('Rental-image.index', compact('data'));
     }
 
-    public function upload(Request $request)
-    {   
-        return view('Rental-image.create');
-    }
-
-    // public function checkUpload(Request $request)
-    // {
-    //     $uploads = $request->all();
-    //     if($request->hasFile('image', 'image_left', 'image_right', 'image_behind')){
-    //         $file = $request->file('image', 'image_left', 'image_right', 'image_behind');
-    //         $extension = $file->getClientOriginalExtension();
-    //         if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
-    //             return redirect('mycar/image/upload');
-    //         }
-    //             $imgName = $file->getClientOriginalName();
-    //             $file->move('images/carimg', $imgName);
-    //             $uploads['image'] = $imgName;
-    //             $uploads['image_left'] = $imgName;
-    //             $uploads['image_right'] = $imgName;
-    //             $uploads['image_behind'] = $imgName;
-    //     }
-
-    //     $up = new CarPic($uploads);
-    //     $up->save();
-    //     return redirect('mycar/image');
+    //  public function upload(Request $request)
+    // {   
+    //     $plate_id = $request->plate_id;
+    //     dd($data = CarRental::where('plate_id', $plate_id)->get('car_id')->first()->car_id);
+    //      return view('Rental-image.create');
     // }
+
+    public function checkUpload(Request $request)
+    {
+        $uploads = $request->all();
+        if($request->hasFile('image', 'image_left', 'image_right', 'image_behind')){
+            $file = $request->file('image');
+            $file1 = $request->file('image_left');
+            $file2 = $request->file('image_right');
+            $file3 = $request->file('image_behind');
+            $extension = $file->getClientOriginalExtension();
+            $extension = $file1->getClientOriginalExtension();
+            $extension = $file2->getClientOriginalExtension();
+            $extension = $file3->getClientOriginalExtension();
+            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
+                return redirect('mycar/image/upload');
+            }
+                $imgName = $file->getClientOriginalName();
+                $imgName1 = $file1->getClientOriginalName();
+                $imgName2 = $file2->getClientOriginalName();
+                $imgName3 = $file3->getClientOriginalName();
+                $file->move('images/carimg', $imgName);
+                $file1->move('images/carimg', $imgName1);
+                $file2->move('images/carimg', $imgName2);
+                $file3->move('images/carimg', $imgName3);
+                $uploads['image'] = $imgName;
+                $uploads['image_left'] = $imgName1;
+                $uploads['image_right'] = $imgName2;
+                $uploads['image_behind'] = $imgName3;
+        }
+
+        $up = new CarPic($uploads);
+        $up->save();
+        return redirect('mycar');
+    }
 
 }

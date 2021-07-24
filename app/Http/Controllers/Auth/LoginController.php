@@ -55,7 +55,8 @@ class LoginController extends Controller
         ]);
    
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
-        {
+        {   
+            $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
             if (auth()->user()->is_admin == 1) {
                 return redirect()->route('admin.home');
             }else{
