@@ -26,7 +26,7 @@
                             {{-- @can('update', $user->profile)
                                 {{-- <a href="/profile/{{ $user->user_id }}/edit">Edit Profile</a> --}}
                             {{-- @endcan --}} 
-                            <div class="d-flex"><span class="join">Tham gia: {{ $user->created_at->format('d/m/Y') }}</span>
+                            <div class="d-flex"><span class="join">Tham gia: {{ $user->created_at }}</span>
                             </div>
                         </div>
                     </div>

@@ -25,15 +25,13 @@ class ProfilesController extends Controller
         
         $user_id=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
 
-
-        // return view('home',['user'=>$user]);
-        // return view('index', compact('user'));
-        return view('profiles.index', compact('user','user_id'));
+        // return view('profiles.index', compact('user','user_id'));   //working
         // return view('home', [
         //     'user'=> $user
         // ]);    
-    }
-    
+        return view('profiles.index', compact('user','user_id'));   //testing
+        }
+        
     
     
 

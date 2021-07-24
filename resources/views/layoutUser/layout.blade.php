@@ -81,13 +81,12 @@
                                 @else
                                     <li class="nav-item dropdown" style="width:20rem">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            <img src="{{ asset('' . Auth::user()->avatar_image) }}" style="width: 40px" class="rounded-circle">
-                                    
-                                           <span >{{ Auth::user()->name }}</span>
+                                        <img src="{{ asset('/img/' . Auth::user()->avatar_image) }}" style="width: 40px" class="rounded-circle">
+                                        <span >{{ Auth::user()->name }}</span>
                                         </a>
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" id="dropdown-list" href="#">Trang cá nhân</a>
+                                            <a class="dropdown-item" id="dropdown-list" href="{{ url('/profile/{user}') }}">Trang cá nhân</a>
                                             <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/mycars')}}">Xe của tôi</a>
                                             <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/mytrips')}}">Chuyến của tôi</a>
                                             <a class="dropdown-item" id="dropdown-list" href="#">Đổi mật khẩu</a>
