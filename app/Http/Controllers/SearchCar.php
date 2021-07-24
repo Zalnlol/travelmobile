@@ -154,6 +154,7 @@ function search(Request $request){
                         foreach(checkschedule($listscan,$searchinfo) as $element2){
                             if($element['car_id']==$element2['car_id']){
                                 array_splice($listscan,$i,1);
+                                $i-=1;
                             }
                         }
                         $i+=1;
@@ -171,7 +172,7 @@ function search(Request $request){
             $arrays[$i]['free_ship_distance'] = $element['free_ship_distance'];
             $arrays[$i]['address'] = $element['address'];
                     // so chuyen
-                $sochuyen=RentalContract::where('car_id',$element['car_id'])->get();
+                $sochuyen=RentalContract::where('car_id',$element['car_id'])->where('status','Đã hoàn thành')->get();
                 $arrays[$i]['trip_number']=$sochuyen->count();
                 
                 //so sao
@@ -260,6 +261,7 @@ function filter(Request $request){
                         foreach(checkschedule($listscan,$searchinfo) as $element2){
                             if($element['car_id']==$element2['car_id']){
                                 array_splice($listscan,$i,1);
+                                $i-=1;
                             }
                         }
                         $i+=1;
@@ -437,7 +439,7 @@ function filter(Request $request){
                 $arrays[$i]['free_ship_distance'] = $element['free_ship_distance'];
                 $arrays[$i]['address'] = $element['address'];
                         // so chuyen
-                    $sochuyen=RentalContract::where('car_id',$element['car_id'])->get();
+                    $sochuyen=RentalContract::where('car_id',$element['car_id'])->where('status','Đã hoàn thành')->get();
                     $arrays[$i]['trip_number']=$sochuyen->count();
                     
                     //so sao
