@@ -271,7 +271,8 @@ class RentalContract extends Controller
                     $data3[$i]['pickup_date']= substr($tmp['pickup_date'],0,13) ;
                     $data3[$i]['return_date']= substr($tmp['return_date'],0,13) ;
                     $data3[$i]['pickup_address']=$tmp['pickup_address'];
-                    $data3[$i]['contract_value']=$tmp['contract_value'];
+                    $data3[$i]['deposit']=$tmp['deposit'] - $tmp['service_cost']- ($tmp['rental_price']*0.15);
+                    $data3[$i]['remaining']=$tmp['contract_value']-$tmp['deposit'];
                     $data3[$i]['status']=$id['status'];
                     $data4= CarRental::where('car_id',$tmp['car_id'])->get()->first();
                     $data3[$i]['name']=$data4['name'];
@@ -279,7 +280,7 @@ class RentalContract extends Controller
                     $data4= CarPic::where('car_id',$tmp['car_id'])->get()->first();
                     $data3[$i]['image']=$data4['image'];
                     $tmp2=User::where('user_id',$tmp['user_id'])->get()->first();
-                    $data3[$i]['phone']=$tmp2['phone'];
+                    $data3[$i]['phone']=$tmp2['mobile'];
                     $i+=1;
        
        }
@@ -289,6 +290,66 @@ class RentalContract extends Controller
        return view('profiles.triplist',compact('data3'));
 
     }
+
+
+    function historyforrental(Request $request){
+
+        $danhsachxe=CarRental::where('user_id',$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'))->get();
+        $data=ModelsRentalContract::all();    
+        $i=0;
+        $id_contract=[];
+
+
+        foreach($data as $element){
+            foreach($danhsachxe as $element2){
+                if(($element['car_id']==$element2['car_id'])
+                && ($element['status']=="Đã hoàn thành")
+                    
+                ){
+                    $id_contract[$i]['id_contract']=$element['contract_id'];
+                    $id_contract[$i]['status']=$element['status'];
+                    $i+=1;
+                }
+            }
+        }
+
+
+        $data3=[];
+        $i=0;
+       foreach($id_contract as $id){
+                $tmp= ModelsRentalContract::where('contract_id',$id['id_contract'])->get()->first();
+                    $data3[$i]['contract_id']=$tmp['contract_id'];
+                    $data3[$i]['pickup_date']= substr($tmp['pickup_date'],0,13) ;
+                    $data3[$i]['return_date']= substr($tmp['return_date'],0,13) ;
+                    $data3[$i]['pickup_address']=$tmp['pickup_address'];
+                    $data3[$i]['deposit']=$tmp['deposit'] - $tmp['service_cost']- ($tmp['rental_price']*0.15);
+                    $data3[$i]['remaining']=$tmp['contract_value']-$tmp['deposit'];
+                    $data3[$i]['status']=$id['status'];
+                    $data4= CarRental::where('car_id',$tmp['car_id'])->get()->first();
+                    $data3[$i]['name']=$data4['name'];
+                    $data4=[];
+                    $data4= CarPic::where('car_id',$tmp['car_id'])->get()->first();
+                    $data3[$i]['image']=$data4['image'];
+                    $tmp2=User::where('user_id',$tmp['user_id'])->get()->first();
+                    $data3[$i]['phone']=$tmp2['mobile'];
+                    $i+=1;
+       
+       }
+
+
+
+       return view('profiles.historyforrental',compact('data3'));
+
+    }
+
+    function detailsrental($id , Request $request){
+        $data = ModelsRentalContract::where('contract_id',$id)->get()->first();
+        
+        dd($data);
+    }
+
+
+
 
 
     

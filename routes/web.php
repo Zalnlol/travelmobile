@@ -108,9 +108,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 //Route user view profile or edit profile
-Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profiles.show');
+Route::get('/profile/{user_id}',[ProfilesController::class,"index"]); 
 Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profiles.edit');
-Route::patch('/profile/{user}',[ProfilesController::class,"update"])->name('profiles.update');
+Route::post('/profile/{user}',[ProfilesController::class,"update"])->name('profiles.update');
 
 Route::get('/email', function(){
     return new NewUserWelcomeMail();
@@ -244,7 +244,7 @@ Route::get('/user/mycars/triplist/dagiaoxe/{id}', function ($id) {
 
 Route::get('/user/mycars/triplist/danhanxe/{id}', function ($id) {
 
-    // Đang liên hệ
+
 
     $post= ModelsRentalContract::where('contract_id',$id)->get()->first();
     $post['status']="Đã hoàn thành";
@@ -258,6 +258,11 @@ Route::get('/user/mycars/triplist/danhanxe/{id}', function ($id) {
 
 
 
+//Lịch sử cho thuê 
+Route::get('/user/mycars/history',[RentalContract::class, "historyforrental"])->name("historyforrental");
+Route::get('/user/mycars/triplist/xemchitiet/{id}', [RentalContract::class, "detailsrental"]);
+
+
 
 //Test 
 
@@ -265,6 +270,11 @@ Route::get('/user/mycars/triplist/danhanxe/{id}', function ($id) {
 Route::get('/refund','CheckoutController@checkout');
 Route::get('/test', function(){
     return view('refund');
+});
+
+
+Route::get('/user/mycars/rental', function(){
+    return view('profiles.pagerental');
 });
 
 //blog

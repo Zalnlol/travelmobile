@@ -25,15 +25,13 @@ class ProfilesController extends Controller
         
         $user_id=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
 
-
-        // return view('home',['user'=>$user]);
-        // return view('index', compact('user'));
-        return view('profiles.index', compact('user','user_id'));
+        // return view('profiles.index', compact('user','user_id'));   //working
         // return view('home', [
         //     'user'=> $user
         // ]);    
-    }
-    
+        return view('profiles.index', compact('user','user_id'));   //testing
+        }
+        
     
     
 
@@ -47,22 +45,23 @@ class ProfilesController extends Controller
 
     public function update(Request  $request ,User $user)
     {
-        // $this->authorize('update', $user->profile);
-        $user_id=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+
 
         $data = request()->validate([
-            'name' => 'required',
+            'name' => ['required', 'string', 'max:255'],
             'image' => '',
-            'mobile' => '',
+            'mobile' => 'required',
             'dob' => '',
             'gender' => 'required',
-            'email' => 'email',
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:tb_user'],
             'driver_id' => '',
             'driver_id_image' => '',
         ]);
-
+        // $this->authorize('update', $user->profile);
+        $user_id = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        dd($user_id);
         $user->update($data);
-        return redirect("/profile/{$user->id}");
+        return redirect("/profile/{$user_id}");
 
     //     if (request('image')) {
     //         $imagePath = request('image')->store('profile', 'public');

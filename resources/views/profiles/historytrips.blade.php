@@ -41,6 +41,12 @@
                                     <div class="col-sm-8" style="margin-left:3%">
                                         <div class="row">
                                             <div class="col">
+                                                <span id="content"><b>Mã hợp đồng:</b> #{{ $rental['contract_id'] }}</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
                                                 <span id="content"><b>Bắt đầu:</b> {{ $rental['pickup_date'] }}</span>
                                             </div>
                                         </div>
