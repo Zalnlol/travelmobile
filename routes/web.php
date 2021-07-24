@@ -17,6 +17,14 @@ use App\Http\Controllers\RentalContract;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\BlogController;
 
+use App\Models\RentalContract as ModelsRentalContract;
+use App\Models\RentalSchedule;
+use App\Models\CarRental;
+use App\Models\CarPic;
+use App\Models\CarMFG;
+use App\Models\CarType;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\RentalRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +76,7 @@ Route::get('/admin', function () {
 
 //Route cho admin
 // Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
+  Route::prefix('admin')->name('admin.')/*->middleware('isAdmin')*/->group(function(){
     Route::get('users', [AccountController::class,"index"])->name('userlist');
     Route::get('create', [AccountController::class, "create"]);
     Route::post('post', [AccountController::class, "postCreate"]);
@@ -94,6 +103,7 @@ Route::get('/admin', function () {
     Route::post('model/postUpdate/{type_id}','ModelcarController@postUpdate');
     Route::get('model/delete/{type_id}', 'ModelcarController@delete')->name('model-delete');
 // });
+  });
 
 //----------------------------------------------------------------------------------------------------------
 Auth::routes();
@@ -121,6 +131,8 @@ Route::get('mycar/delete/{car_id}', 'MyCarController@delete')->name('rental.dele
 Route::get('mycar/image', 'MyCarController@image')->name('rental.image');
 Route::get('mycar/image/upload', 'MyCarController@upload')->name('rental.upload');
 Route::post('mycar/image/checkUpload', 'MyCarController@checkUpload')->name('rental.checkUpload');
+Route::get('mycar/rental/image/update/{car_id}', 'MyCarController@updateImage')->name('rental.image.update');
+Route::post('mycar/rental/image/checkUpdate/{car_id}', 'MyCarController@checkupdateImage')->name('rental.image.checkupdate');
 
 Route::get('review', 'ReviewController@index')->name('review');
 Route::post('review/post', 'ReviewController@store')->name('review.post');
@@ -169,6 +181,95 @@ Route::post('/searchcar/profile/checkout', [RentalContract::class, "checkout"])-
 
 //mytrip
 Route::post('/mytrips', [RentalContract::class, "mytrips"])->name("mytrips");
+//mytrip sau khi thanh toán
+Route::post('/user/mytrip', [RentalContract::class, "mytrip"])->name("mytrip");
+
+//mytrip bình thường
+Route::get('/user/mytrips', [RentalContract::class, "mytrips"])->name("mytrips");
+
+
+//Form hủy chuyến
+Route::get('/user/mytrips/cancell/{id}', function ($id) {
+
+    return view('profiles.formreport',compact('id'));
+})->name("formcancell");
+Route::post('/user/mytrips/cancell',  [RentalContract::class, "cencelform"])->name("formcancell");
+
+//Lich sử chuyến đi
+Route::get('/user/triphistory', [RentalContract::class, "historytrip"])->name("triphistory");
+//Xóa lịch sử
+Route::get('/user/triphistory/delete/{id}',[RentalContract::class, "delete"]);
+//Danh sách chuyến
+Route::get('/user/mycars/triplist',[RentalContract::class, "triplist"])->name("triplist");
+
+//Mycars
+
+Route::get('/user/mycars', function (Request $request) {
+
+    $data = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+    $mycar = CarRental::where('user_id', $data)->get();
+    return view('profiles.Mycars', compact('mycar'));
+
+});
+
+Route::get('/user/mycars/register', function (Request $request) {
+
+    $data = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+    return view('profiles.registercar', compact('data'));
+
+});
+
+
+Route::get('/user/mycars/triplist/xacnhan/{id}', function ($id) {
+
+    // Đang liên hệ
+
+    $post= ModelsRentalContract::where('contract_id',$id)->get()->first();
+    $post['status']="Đang liên hệ";
+    $post->save();
+
+    $post= RentalSchedule::where('id_rental_contract',$id)->get()->first();
+    $post['status']="Đang giao xe";
+    $post->save();
+
+    return redirect()->route('triplist');
+});
+
+Route::get('/user/mycars/triplist/dagiaoxe/{id}', function ($id) {
+
+    // Đang liên hệ
+
+    $post= ModelsRentalContract::where('contract_id',$id)->get()->first();
+    $post['status']="Đang trong chuyến";
+    $post->save();
+
+    $post= RentalSchedule::where('id_rental_contract',$id)->get()->first();
+    $post['status']="Đang cho thuê";
+    $post->save();
+
+    return redirect()->route('triplist');
+});
+
+Route::get('/user/mycars/triplist/danhanxe/{id}', function ($id) {
+
+
+
+    $post= ModelsRentalContract::where('contract_id',$id)->get()->first();
+    $post['status']="Đã hoàn thành";
+    $post->save();
+
+     RentalSchedule::where('id_rental_contract',$id)->delete();
+
+
+    return redirect()->route('triplist');
+});
+
+
+
+//Lịch sử cho thuê 
+Route::get('/user/mycars/history',[RentalContract::class, "historyforrental"])->name("historyforrental");
+Route::get('/user/mycars/triplist/xemchitiet/{id}', [RentalContract::class, "detailsrental"]);
+
 
 
 //Test 
@@ -177,6 +278,11 @@ Route::post('/mytrips', [RentalContract::class, "mytrips"])->name("mytrips");
 Route::get('/refund','CheckoutController@checkout');
 Route::get('/test', function(){
     return view('refund');
+});
+
+
+Route::get('/user/mycars/rental', function(){
+    return view('profiles.pagerental');
 });
 
 //blog

@@ -50,8 +50,27 @@
 }
 
 
+.profile__sect .avatar-box span.host-stars:before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: hsla(0, 0%, 100%, .8);
+    z-index: -1
+}
 
+.gallery{
+    margin: 10px 50px;
+}
 
+.gallery img{
+    transition: 1s;
+    padding: 15px;
+    width: 200px;
+}
 
-
-
+.gallery img:hover{
+    filter: grayscale(100%);
+    transform: scale(1.1);
+}

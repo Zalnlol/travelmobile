@@ -1,5 +1,5 @@
 @extends('layoutUser.layout')
-@section('titleweb', 'Trip List')
+@section('titleweb', 'History for  rental')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/mytrip.css') }}">
 @section('bodycode')
     <div style="padding: 8% 0%; ">
@@ -15,7 +15,7 @@
 
             <div class="col-sm-2" style="text-align: left; margin-left:5% ">
                 <a href="{{ url('/user/mycars/triplist') }}">
-                    <span id="title-nav2" style="color: #2E7093; border-bottom: solid #2E7093; ">Danh sách chuyến</span>
+                    <span id="title-nav2" >Danh sách chuyến</span>
                 </a>
             </div>
 
@@ -27,9 +27,10 @@
 
             <div class="col-sm-2" style="text-align: left; margin-left:1% ">
                 <a href="{{ url('/user/mycars/history') }}">
-                    <span id="title-nav2">Lịch sử cho thuê</span>
+                    <span id="title-nav2" style="color: #2E7093; border-bottom: solid #2E7093; ">Lịch sử cho thuê</span>
                 </a>
             </div>
+
 
         </div>
 
@@ -110,14 +111,7 @@
                                             </span>
                                         </div>
                                     </div>
-
-
-
                                 @endif
-
-
-
-
 
                             </div>
                         </div>
@@ -128,23 +122,11 @@
                             <div class="col" style="font-size:12pt">
 
                                 @switch($rental['status'])
-                                    @case('Chờ xác nhận')
+                                    @case('Đã hoàn thành')
                                         <i class="fa fa-circle" style="color: rgb(0, 255, 0)"></i>
-                                        Chờ xác nhận
+                                        Đã hoàn thành
                                     @break
-                                    @case('Đang giao xe')
-                                        <i class="fa fa-circle" style="color: rgb(0, 255, 0)"></i>
-                                        Đang giao xe
-                                    @break
-                                    @case('Đang cho thuê')
-                                        <i class="fa fa-circle" style="color: rgb(0, 255, 0)"></i>
-                                        Đang cho thuê
-                                    @break
-
-                                    @case('Đã nhận xe"')
-                                            <i class="fa fa-circle" style="color: rgb(0, 140, 255)"></i>
-                                            Đã nhận xe"
-                                        @break
+                                  
 
                                 @endswitch
 
@@ -158,22 +140,12 @@
                                 id="action1">Hành động</span>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item"
-                                    href="{{ url('/user/mycars/triplist/xemchitiet/' . $rental['contract_id']) }}">Xem chi tiết</a>
-                                @if ($rental['status']=='Chờ xác nhận' )
+                                @if ($rental['status']=='Đã hoàn thành' )
                                     <a class="dropdown-item"
-                                        href="{{ url('/user/mycars/triplist/xacnhan/' . $rental['contract_id']) }}">Xác
-                                        nhận</a>
+                                        href="{{ url('/user/mycars/triplist/xemchitiet/' . $rental['contract_id']) }}">Xem chi tiết</a>
                                 @endif
-                                @if ($rental['status'] == 'Đang giao xe')
-                                    <a class="dropdown-item"
-                                        href="{{ url('/user/mycars/triplist/dagiaoxe/' . $rental['contract_id']) }}">Đã
-                                        giao xe</a>
-                                @endif
-                                @if ($rental['status'] == 'Đang cho thuê')
-                                <a class="dropdown-item"
-                                    href="{{ url('/user/mycars/triplist/danhanxe/' . $rental['contract_id']) }}">Đã nhận xe</a>
-                            @endif
+              
+                      
 
 
                             </div>

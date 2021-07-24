@@ -16,7 +16,7 @@ class MyCarController extends Controller
     {
         $data = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
         $mycar = CarRental::where('user_id', $data)->get();
-        return view('User-Rental.index', compact('mycar'));
+        return view('profiles.Mycars', compact('mycar'));
     }
 
     public function create(Request $request)
@@ -62,10 +62,12 @@ class MyCarController extends Controller
 
         $up = DB::table('tb_car_rental')
         ->where('car_id', intval($car_id))
-        ->update(['brand'=> $brand, 'name'=>$name, 'seatnum' => $seatnum, 'model_year' => $model_year, 'auto'=>$auto, 'fuel'=>$fuel,
-        'consumption'=>$consumption, 'rent_price'=> $rent_price, 'description'=>$description, 'convertible' => $convertible, 'bluetooth' => $bluetooth, 'gps'=>$gps, 'usb'=>$usb,
-        'kid_chair'=>$kid_chair, 'map'=> $map, 'camera'=>$camera, 'discount_weekly' => $discount_weekly, 'discount_monthly' => $discount_monthly, 'address'=>$address, 'max_ship_distance'=>$max_ship_distance,
-        'shipping_price_km'=>$shipping_price_km, 'free_ship_distance'=> $free_ship_distance, 'max_travel_distance'=>$max_travel_distance, 'over_max_travel_cost' => $over_max_travel_cost, 'rules' => $rules]);  
+        ->update(['brand'=> $brand, 'name'=>$name, 'auto'=>$auto, 'fuel'=>$fuel, 'consumption'=>$consumption, 'rent_price'=> $rent_price, 
+        'description'=>$description, 'convertible' => $convertible, 'bluetooth' => $bluetooth, 'gps'=>$gps, 'usb'=>$usb,
+        'kid_chair'=>$kid_chair, 'map'=> $map, 'camera'=>$camera, 'discount_weekly' => $discount_weekly,
+        'discount_monthly' => $discount_monthly, 'address'=>$address, 'max_ship_distance'=>$max_ship_distance,
+        'shipping_price_km'=>$shipping_price_km, 'free_ship_distance'=> $free_ship_distance, 'max_travel_distance'=>$max_travel_distance,
+        'over_max_travel_cost' => $over_max_travel_cost, 'rules' => $rules]);  
         
         $approval = $req->approval;
         if($approval == 1){
@@ -116,13 +118,6 @@ class MyCarController extends Controller
         return view('Rental-image.index', compact('data'));
     }
 
-    //  public function upload(Request $request)
-    // {   
-    //     $plate_id = $request->plate_id;
-    //     dd($data = CarRental::where('plate_id', $plate_id)->get('car_id')->first()->car_id);
-    //      return view('Rental-image.create');
-    // }
-
     public function checkUpload(Request $request)
     {
         $uploads = $request->all();
@@ -156,5 +151,84 @@ class MyCarController extends Controller
         $up->save();
         return redirect('mycar');
     }
+
+    public function updateImage($car_id, Request $request)
+    {
+        $data = CarPic::where('car_id', $car_id)->first();
+        return view('Rental-image.update', compact('data'));
+    }
+
+    public function checkupdateImage(Request $request, $car_id)
+    {
+        $file = $request->image;
+        $file1 = $request->image_left;
+        $file2 = $request->image_right;
+        $file3 = $request->image_behind;
+        if($request->hasFile('image')){
+            $extension = $file->getClientOriginalExtension();
+            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
+                return redirect()->route('rental.image.update', $data->car_id);
+            }
+            $imgName = $file->getClientOriginalName();
+            $file->move('images/carimg', $imgName);
+            $car_pic['image'] = $imgName;
+        }else{
+            $oldimg = DB::table('tb_car_pic')
+                ->where('car_id', intval($car_id))
+                ->first();
+            $imgName = $oldimg->image;
+        }
+
+        if($request->hasFile('image_left')){
+            $extension = $file1->getClientOriginalExtension();
+            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
+                return redirect()->route('rental.image.update', $data->car_id);
+            }
+            $imgName1 = $file1->getClientOriginalName();
+            $file1->move('images/carimg', $imgName1);
+            $car_pic['image_left'] = $imgName1;
+        }else{
+            $oldimg = DB::table('tb_car_pic')
+                ->where('car_id', intval($car_id))
+                ->first();
+            $imgName1 = $oldimg->image_left;
+        }
+
+        if($request->hasFile('image_right')){
+            $extension = $file2->getClientOriginalExtension();
+            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
+                return redirect()->route('rental.image.update', $data->car_id);
+            }
+            $imgName2 = $file2->getClientOriginalName();
+            $file2->move('images/carimg', $imgName2);
+            $car_pic['image_left'] = $imgName2;
+        }else{
+            $oldimg = DB::table('tb_car_pic')
+                ->where('car_id', intval($car_id))
+                ->first();
+            $imgName2 = $oldimg->image_right;
+        }
+
+        if($request->hasFile('image_behind')){
+            $extension = $file3->getClientOriginalExtension();
+            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
+                return redirect()->route('rental.image.update', $data->car_id);
+            }
+            $imgName3 = $file3->getClientOriginalName();
+            $file3->move('images/carimg', $imgName3);
+            $car_pic['image_left'] = $imgName3;
+        }else{
+            $oldimg = DB::table('tb_car_pic')
+                ->where('car_id', intval($car_id))
+                ->first();
+            $imgName3 = $oldimg->image_right;
+        }
+        
+        $update = DB::table('tb_car_pic')
+                ->where('car_id', intval($car_id))
+                ->update(['image' => $imgName, 'image_left' => $imgName1, 'image_right' => $imgName2, 'image_behind' => $imgName3]);
+        return redirect()->route('rental.image', $car_id);
+    }
+
 
 }
