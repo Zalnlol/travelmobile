@@ -9,7 +9,7 @@
             <div class="desc-profile desc-account">
                 <div class="avatar-box">
                     <div class="avatar avatar--xl has-edit">
-                        <img src="{{ $user->avatar_image }}">
+                        <img src="{{ asset("/img/$user->avatar_image") }}">
                     </div>
                 </div>
                 <div class="snippet">
@@ -48,8 +48,8 @@
                             <li><span class="label">Điện thoại</span><span>{{ $user->mobile }}</span></li>
                             <li><span class="label">GPLX</span><span>{{ $user->driver_id ? "Đã đăng ký": "N/A"}}</span></li>
                             <li><span class="label">Email</span><span class="ctn">{{ $user->email }}</span></li>
-                            <li><span class="label">Facebook</span><span class="ctn"><span>{{ $user->facebook_id ? "Đã đăng ký" : "N/A" }}
-                            <li><span class="label">Google</span><span class="ctn"><span>{{ $user->google_id ? "Đã đăng ký" : "N/A" }}
+                            <li><span class="label">Facebook</span><span class="ctn"><span>{{ $user->facebook_id ? "Đã kết nối" : "N/A" }}
+                            <li><span class="label">Google</span><span class="ctn"><span>{{ $user->google_id ? "Đã kết nối" : "N/A" }}
                         </ul>
                     </div>
                 </div>
