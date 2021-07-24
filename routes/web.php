@@ -271,6 +271,16 @@ Route::get('/user/mycars/history',[RentalContract::class, "historyforrental"])->
 Route::get('/user/mycars/triplist/xemchitiet/{id}', [RentalContract::class, "detailsrental"]);
 
 
+//Xem chi tiết
+Route::get('/user/mycars/rental', function(){
+    return view('profiles.pagerental');
+});
+
+
+Route::get('/user/mytrips/rental', function(){
+    return view('profiles.pagerental');
+});
+
 
 //Test 
 
@@ -281,9 +291,7 @@ Route::get('/test', function(){
 });
 
 
-Route::get('/user/mycars/rental', function(){
-    return view('profiles.pagerental');
-});
+
 
 //blog
 Route::get('/blog', [BlogController::class,"blog"]);
