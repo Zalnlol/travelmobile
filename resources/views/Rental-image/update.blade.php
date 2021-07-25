@@ -194,6 +194,7 @@ font-weight: bolder;}
       width: 100%;
     
       }
+      div img { max-width: 100%; }
     /* Injected CSS Code */
 </style>
 
@@ -254,6 +255,7 @@ font-weight: bolder;}
                     Browse Files
                   </div>
               <input type="file" id="input_59" name="image" />
+              <img id="image" />
             </div>
             <span style="display:none" class="cancelText">
               Cancel
@@ -287,6 +289,7 @@ font-weight: bolder;}
                     Browse Files
                   </div>
               <input type="file" id="input_66" name="image_left" />
+              <img id="image1" />
             </div>
             <span style="display:none" class="cancelText">
               Cancel
@@ -320,6 +323,7 @@ font-weight: bolder;}
                     Browse Files
                   </div>
               <input type="file" id="input_67" name="image_right" />
+              <img id="image2" />
             </div>
             <span style="display:none" class="cancelText">
               Cancel
@@ -353,6 +357,7 @@ font-weight: bolder;}
                     Browse Files
                   </div>
               <input type="file" id="input_68" name="image_behind" />
+              < <img id="image3" />
             </div>
             <span style="display:none" class="cancelText">
               Cancel
@@ -493,5 +498,79 @@ font-weight: bolder;}
       }
       return true;
   }
+</script>
+
+<script>
+  document.getElementById("files").onchange = function () {
+  var reader = new FileReader();
+
+  reader.onload = function (e) {
+      // get loaded data and render thumbnail.
+      document.getElementById("image").src = e.target.result;
+  };
+
+  // read the image file as a data URL.
+  reader.readAsDataURL(this.files[0]);
+};
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+          bsCustomFileInput.init();
+      });
+</script>
+
+<script>
+document.getElementById("files1").onchange = function () {
+var reader = new FileReader();
+
+reader.onload = function (e) {
+    // get loaded data and render thumbnail.
+    document.getElementById("image1").src = e.target.result;
+};
+
+// read the image file as a data URL.
+reader.readAsDataURL(this.files[0]);
+};
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+          bsCustomFileInput.init();
+      });
+</script>
+
+<script>
+document.getElementById("files2").onchange = function () {
+var reader = new FileReader();
+
+reader.onload = function (e) {
+    // get loaded data and render thumbnail.
+    document.getElementById("image2").src = e.target.result;
+};
+
+// read the image file as a data URL.
+reader.readAsDataURL(this.files[0]);
+};
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+          bsCustomFileInput.init();
+      });
+</script>
+
+<script>
+document.getElementById("files3").onchange = function () {
+var reader = new FileReader();
+
+reader.onload = function (e) {
+    // get loaded data and render thumbnail.
+    document.getElementById("image3").src = e.target.result;
+};
+
+// read the image file as a data URL.
+reader.readAsDataURL(this.files[0]);
+};
 </script>
 @endsection

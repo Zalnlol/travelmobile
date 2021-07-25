@@ -20,10 +20,7 @@
     }
   }
 
-  .img{
-    height: auto;
-    width: 100%;
-  }
+  div img { max-width: 100%; }
 </style>
 
 <section class="ftco-section" style="margin-top: 100px">

@@ -4,7 +4,6 @@
 
 <link rel="stylesheet" type="text/css" href="{{ asset('lightbox2-2.11.3/lightbox.min.css') }}">
 <script src="{{ asset('lightbox2-2.11.3/lightbox-plus-jquery.min.js') }}"></script>
-
 <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
@@ -51,19 +50,22 @@
             <tbody>
                 @foreach ($img as $item)
                 <tr>
+                  <div class="w3-content w3-display-container">
+                    
                     <div class="gallery">
                     <td>
-                        <a href="../../../images/carimg/{{ $item->image }}" data-lightbox="{{ $item->image }}"><img src="../../../images/carimg/{{ $item->image }}" class="img-fluid img-thumbnail gallery-image" alt="" style="width: 300px"></a>
+                        <a href="../../../images/carimg/{{ $item->image }}" data-lightbox="{{ $item->image }}"><img src="../../../images/carimg/{{ $item->image }}" class="img-fluid img-thumbnail gallery-image mySlides" alt="" style="width: 300px"></a>
                     </td>
                     <td>
-                        <a href="../../../images/carimg/{{ $item->image_left }}" data-lightbox="{{ $item->image_left }}"><img src="../../../images/carimg/{{ $item->image_left }}" class="img-fluid img-thumbnail gallery-image" alt="" style="width: 300px"></a>
+                        <a href="../../../images/carimg/{{ $item->image_left }}" data-lightbox="{{ $item->image_left }}"><img src="../../../images/carimg/{{ $item->image_left }}" class="img-fluid img-thumbnail gallery-image mySlides" alt="" style="width: 300px"></a>
                     </td>
                     <td>
-                        <a href="../../../images/carimg/{{ $item->image_right }}" data-lightbox="{{ $item->image_right }}"><img src="../../../images/carimg/{{ $item->image_right }}" class="img-fluid img-thumbnail gallery-image" alt="" style="width: 300px"></a>
+                        <a href="../../../images/carimg/{{ $item->image_right }}" data-lightbox="{{ $item->image_right }}"><img src="../../../images/carimg/{{ $item->image_right }}" class="img-fluid img-thumbnail gallery-image mySlides" alt="" style="width: 300px"></a>
                     </td>
                     <td>
-                        <a href="../../../images/carimg/{{ $item->image_behind }}" data-lightbox="{{ $item->image_behind }}"><img src="../../../images/carimg/{{ $item->image_behind }}" class="img-fluid img-thumbnail gallery-image" alt="" style="width: 300px"></a>
+                        <a href="../../../images/carimg/{{ $item->image_behind }}" data-lightbox="{{ $item->image_behind }}"><img src="../../../images/carimg/{{ $item->image_behind }}" class="img-fluid img-thumbnail gallery-image mySlides" alt="" style="width: 300px"></a>
                     </td>
+              
                     <td>{{ $item->created_at }}</td>
                     {{-- <td class="project-actions text-right">
                         <a class="btn btn-primary btn-sm" href="{{ route('admin.rental.view', $item->car_id) }}">
@@ -73,6 +75,8 @@
                           </a>
                     </td> --}}
                     </div>
+
+                  </div>
                 </tr>
                                      
                 @endforeach
