@@ -14,7 +14,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ url('Admin-User/postUpdate/' .$user->user_id) }}" method="POST"
+                        <form role="form" action="{{ url('admin/postUpdate/' .$user->user_id) }}" method="POST"
                             enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="card-body">

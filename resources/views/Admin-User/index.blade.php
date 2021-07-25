@@ -71,10 +71,10 @@
                         <td>{{$user->status ? "Khóa" : "Hoạt động"}}</td>
 
                         <td class="project-actions text-right">
-                            <a class="btn btn-primary btn-sm" href="{{ url('Admin-User/update/'.$user->user_id) }}" >
+                            <a class="btn btn-primary btn-sm" href="{{ url('admin/update/'.$user->user_id) }}" >
                                 <i class="fas fa-pencil-alt">Sửa</i>
                             </a>
-                            <a class="btn btn-danger btn-sm" href="{{ url('user/delete/'.$user->user_id) }}" onclick="javascript:return confirm('Bạn có chắc chắn ?')">
+                            <a class="btn btn-danger btn-sm" href="{{ url('admin/delete/'.$user->user_id) }}" onclick="javascript:return confirm('Bạn có chắc chắn ?')">
                                 <i class="fas fa-trash">
                                 </i>
                                 Xóa

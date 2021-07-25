@@ -103,16 +103,6 @@ Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
 
 
     //Phần anh Thiện
-
-            Route::get('/index',[AccountController::class,"index"]);
-            Route::get('/create',[AccountController::class,"create"]);
-            Route::post('/postCreate', [AccountController::class, "postCreate"]);
-            Route::get('/update/{id}', [AccountController::class, "update"]);
-            Route::post('/postUpdate/{id}', [AccountController::class, "postUpdate"]);
-            Route::get('/delete/{id}', [AccountController::class, "delete"]);
-
-
-
             //Route user view profile or edit profile
             Route::get('/profile',[ProfilesController::class,"viewSelfProfile"])->name('profiles.show');
             Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profiles.edit');
@@ -312,10 +302,12 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
     });
 
    //Của A Thiện 
-    Route::get('users', [AccountController::class,"index"])->name('userlist');
-    Route::get('create', [AccountController::class, "create"]);
-    Route::post('post', [AccountController::class, "postCreate"]);
-    Route::get('resetPass/{id}', [AccountController::class, "resetPassword"]);
+    Route::get('/index',[AccountController::class,"index"]);
+    Route::get('/create',[AccountController::class,"create"]);
+    Route::post('/postCreate', [AccountController::class, "postCreate"]);
+    Route::get('/update/{id}', [AccountController::class, "update"]);
+    Route::post('/postUpdate/{id}', [AccountController::class, "postUpdate"]);
+    Route::get('/delete/{id}', [AccountController::class, "delete"]);
 
 
 

@@ -21,13 +21,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('user/index')}}" class="nav-link">
+                <a href="{{url('admin/index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách người dùng</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('user/create')}}" class="nav-link">
+                <a href="{{url('admin/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo admin</p>
                 </a>
