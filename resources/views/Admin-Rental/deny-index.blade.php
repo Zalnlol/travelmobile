@@ -166,11 +166,11 @@
                             </i>
                             Xem
                         </a>
-                        {{-- <a class="btn btn-info btn-sm" href="#">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Duyệt
-                        </a> --}}
+                        <a class="btn btn-info btn-sm" href="{{ route('admin.rental.image', $item->car_id) }}">
+                          <i class="fas fa-pencil-alt">
+                          </i>
+                          Xem ảnh
+                      </a>
                         <a class="btn btn-danger btn-sm" href="{{ route('admin.rental.delete', $item->car_id) }}" onclick="javascript:return confirm('Are you sure ?')">
                             <i class="fas fa-trash">
                             </i>

@@ -20,10 +20,7 @@
     }
   }
 
-  .img{
-    height: auto;
-    width: 100%;
-  }
+  div img { max-width: 100%; }
 </style>
 
 <section class="ftco-section" style="margin-top: 100px">
@@ -41,10 +38,10 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Ảnh chính giữa</th>
-                <th scope="col">Ảnh bên trái</th>
-                <th scope="col">Ảnh bên phải</th>
-                <th scope="col">Ảnh đằng sau</th>
+                <th scope="col">Ảnh 1</th>
+                <th scope="col">Ảnh 2</th>
+                <th scope="col">Ảnh 3</th>
+                <th scope="col">Ảnh 4</th>
                 <th scope="col"></th>
               </tr>
             </thead>
@@ -73,7 +70,7 @@
               </div>
                     <a href="#" class="close" data-dismiss="alert" >
                       <td class="project-actions text-right" style="padding-top: 30px">
-                          <a class="btn btn-info btn-sm"  href="{{ route('rental.image.update', $data->car_id) }}" style="margin-top: 56px; margin-right: 10px">
+                          <a class="btn btn-info btn-sm"  href="{{ route('rental.image.update', $data->car_id) }}" style="margin-top: 40px; margin-right: 10px">
                               <i class="fas fa-pencil-alt">
                               </i>
                               Sửa

@@ -99,7 +99,7 @@ Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profile
 //Quyền user 
 
 
-Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
+Route::prefix('user')->middleware('is_admin:admin,user')->group(function() {
 
 
     //Phần anh Thiện
@@ -143,7 +143,7 @@ Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
 
             Route::post('/mycars/edit', 'MyCarController@edit')->name('rental.edit');
             Route::get('/mycars/delete/{car_id}', 'MyCarController@delete')->name('rental.delete');
-            Route::get('/mycars/image?{car_id}', 'MyCarController@image')->name('rental.image');
+            Route::get('/mycars/image/{car_id}', 'MyCarController@image')->name('rental.image');
             Route::get('/mycars/image/upload', 'MyCarController@upload')->name('rental.upload');
             Route::post('/mycars/image/checkUpload', 'MyCarController@checkUpload')->name('rental.checkUpload');
             Route::get('/mycars/rental/image/update/{car_id}', 'MyCarController@updateImage')->name('rental.image.update');
@@ -309,7 +309,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Quyền admin
 
-  Route::prefix('admin')->name('admin.')->middleware('checklogin:admin')->group(function(){
+  Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function(){
     Route::get('/', function () {
         return view('AdminHome');
     });
@@ -323,6 +323,62 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 
+
+
+
+
+
+
+
+
+
+
+    //   Phần của toàn      
+          
+
+    
+});
+
+
+
+
+
+
+
+
+Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Quyền admin
+
+  Route::prefix('admin')->name('admin.')->middleware('is_admin:admin')->group(function(){
+    Route::get('/', function () {
+        return view('AdminHome');
+    });
+
+   //Của A Thiện 
+    Route::get('/index',[AccountController::class,"index"]);
+    Route::get('/create',[AccountController::class,"create"]);
+    Route::post('/postCreate', [AccountController::class, "postCreate"]);
+    Route::get('/update/{id}', [AccountController::class, "update"]);
+    Route::post('/postUpdate/{id}', [AccountController::class, "postUpdate"]);
+    Route::get('/delete/{id}', [AccountController::class, "delete"]);
+
+
+
+
   
 
    //Admin của a Vương 
@@ -332,6 +388,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('rental/view/{car_id}', 'RentalController@view')->name('rental.view');
     Route::post('rental/approval/{car_id}', 'RentalController@approval')->name('rental.approval');
     Route::get('rental/delete/{car_id}', 'RentalController@delete')->name('rental.delete');
+    Route::get('rental/image/{car_id}', 'RentalController@carimg')->name('rental.image');
 
 
 
@@ -366,6 +423,13 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 
+    //Admin của Toàn
+        Route::get('/admin/blog', [BlogController::class,"get"]);
+        Route::get('/admin/blog/createBlog',[BlogController::class,'createBlog']);
+        Route::post('/admin/blog/postCreateBlog',[BlogController::class,'postCreateBlog']);
+        Route::get('/admin/blog/editBlog/{blog_id}',[BlogController::class,'editBlog']);
+        Route::post('/admin/blog/editPostBlog',[BlogController::class,'editPostBlog']);
+        Route::get('/admin/blog/delete/{blog_id}',[BlogController::class,'deleteBlog']);
 
 
 

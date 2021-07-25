@@ -297,7 +297,7 @@
                   @endif
                 </div>
             
-                  <form action="{{ route('rental.store') }}" method="post">
+                  <form action="{{ route('rental.store') }}" method="post" enctype="multipart/form-data">
                       @csrf
                       <input type="hidden" id="input_5" name="user_id" data-type="input-textbox" class="form-textbox" size="20" value="{{ $data }}" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
                       <input type="hidden" id="type_id" name="type_id" data-type="input-textbox" class="form-textbox" size="20" value="{{ $data }}" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
@@ -729,8 +729,8 @@
                     <input type="hidden" name="status" value="1"/>
             
                       <li class="form-line" data-type="control_button" id="id_2" >
-                          <div id="cid_2" class="form-input-wide" style="margin-left: auto" style="margin-right: auto" >
-                            <div style="text-align:center"  data-align="left" class="form-buttons-wrapper form-buttons-left   jsTest-button-wrapperField" style="width: 100px">
+                          <div id="cid_2" class="form-input-wide" >
+                            <div style="text-align:center"  data-align="left" class="form-buttons-wrapper form-buttons-left   jsTest-button-wrapperField">
                     
                               <button style="margin-right: 32px"  type="submit" onclick="{{ route('rental.index') }}"  class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
                                 Quay lại

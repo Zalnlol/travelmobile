@@ -21,13 +21,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('user/index')}}" class="nav-link">
+                <a href="{{url('admin/index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách người dùng</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('user/create')}}" class="nav-link">
+                <a href="{{url('admin/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tạo admin</p>
                 </a>
@@ -39,7 +39,7 @@
     </nav>
 
   <!-- Danh sách hãng xe trong hệ thống-->
-  <nav class="mt-2">
+  {{-- <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
       <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
@@ -96,7 +96,7 @@
       </ul>
     </li>
   </ul>
-</nav>
+</nav> --}}
 
     
      <!-- Danh sách xe trong hệ thống-->

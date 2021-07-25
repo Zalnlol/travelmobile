@@ -74,7 +74,7 @@ class AccountController extends Controller
             $user = DB::table('tb_user')
                     ->where('user_id',intval($id))
                     ->first();
-                    $imageName = $user->image;
+                    $imageName = $user->driver_id_image;
         }
         $user = DB::table('tb_user')
             ->where('user_id',intval($id))

@@ -69,6 +69,7 @@ class User extends Authenticatable
         $id = Auth::id();
         return $this->id;
     }
+
     
 
 

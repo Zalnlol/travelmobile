@@ -9,6 +9,7 @@ use App\Models\CarMFG;
 use App\Models\CarType;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\RentalRequest;
+use App\Http\Requests\ImageRequest;
 
 class MyCarController extends Controller
 {
@@ -130,9 +131,7 @@ class MyCarController extends Controller
             $extension = $file1->getClientOriginalExtension();
             $extension = $file2->getClientOriginalExtension();
             $extension = $file3->getClientOriginalExtension();
-            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
-                return redirect('mycar/image/upload');
-            }
+
                 $imgName = $file->getClientOriginalName();
                 $imgName1 = $file1->getClientOriginalName();
                 $imgName2 = $file2->getClientOriginalName();
@@ -146,7 +145,7 @@ class MyCarController extends Controller
                 $uploads['image_right'] = $imgName2;
                 $uploads['image_behind'] = $imgName3;
         }
-
+        
         $up = new CarPic($uploads);
         $up->save();
         return redirect('mycar');
@@ -166,8 +165,9 @@ class MyCarController extends Controller
         $file3 = $request->image_behind;
         if($request->hasFile('image')){
             $extension = $file->getClientOriginalExtension();
-            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
-                return redirect()->route('rental.image.update', $data->car_id);
+            if($extension != 'jpg' && $extension != 'jpeg' && $extension !='png'){
+                $errs[404] = 'Bạn chỉ được upload file hình';
+                return redirect()->route('rental.image.update', $car_id)->with('errors', $errs);
             }
             $imgName = $file->getClientOriginalName();
             $file->move('images/carimg', $imgName);
@@ -181,8 +181,9 @@ class MyCarController extends Controller
 
         if($request->hasFile('image_left')){
             $extension = $file1->getClientOriginalExtension();
-            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
-                return redirect()->route('rental.image.update', $data->car_id);
+            if($extension != 'jpg' && $extension != 'jpeg' && $extension !='png'){
+                $errs[404] = 'Bạn chỉ được upload file hình';
+                return redirect()->route('rental.image.update', $car_id)->with('errors', $errs);
             }
             $imgName1 = $file1->getClientOriginalName();
             $file1->move('images/carimg', $imgName1);
@@ -196,8 +197,9 @@ class MyCarController extends Controller
 
         if($request->hasFile('image_right')){
             $extension = $file2->getClientOriginalExtension();
-            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
-                return redirect()->route('rental.image.update', $data->car_id);
+            if($extension != 'jpg' && $extension != 'jpeg' && $extension !='png'){
+                $errs[404] = 'Bạn chỉ được upload file hình';
+                return redirect()->route('rental.image.update', $car_id)->with('errors', $errs);
             }
             $imgName2 = $file2->getClientOriginalName();
             $file2->move('images/carimg', $imgName2);
@@ -211,8 +213,9 @@ class MyCarController extends Controller
 
         if($request->hasFile('image_behind')){
             $extension = $file3->getClientOriginalExtension();
-            if($extension != 'jpg' && $extension != 'jpeg' && $extension != 'png'){
-                return redirect()->route('rental.image.update', $data->car_id);
+            if($extension != 'jpg' && $extension != 'jpeg' && $extension !='png'){
+                $errs[404] = 'Bạn chỉ được upload file hình';
+                return redirect()->route('rental.image.update', $car_id)->with('errors', $errs);
             }
             $imgName3 = $file3->getClientOriginalName();
             $file3->move('images/carimg', $imgName3);
@@ -221,7 +224,7 @@ class MyCarController extends Controller
             $oldimg = DB::table('tb_car_pic')
                 ->where('car_id', intval($car_id))
                 ->first();
-            $imgName3 = $oldimg->image_right;
+            $imgName3 = $oldimg->image_behind;
         }
         
         $update = DB::table('tb_car_pic')

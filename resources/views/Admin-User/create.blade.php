@@ -23,7 +23,7 @@
                     </div> --}}
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{ url('user/postCreate') }}" method="post" enctype="multipart/form-data"> 
+                    <form role="form" action="{{ url('admin/postCreate') }}" method="post" enctype="multipart/form-data"> 
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
