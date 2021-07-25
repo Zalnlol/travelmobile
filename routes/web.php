@@ -46,21 +46,11 @@ Route::get('/', function () {
 });
 
 
-
-Route::get('user/index',[AccountController::class,"index"]);
-Route::get('user/create',[AccountController::class,"create"]);
-Route::post('user/postCreate', [AccountController::class, "postCreate"]);
-Route::get('user/update/{id}', [AccountController::class, "update"]);
-Route::post('user/postUpdate/{id}', [AccountController::class, "postUpdate"]);
-Route::get('user/delete/{id}', [AccountController::class, "delete"]);
-
-
-
-
 Route::get('/admin', function () {
     return view('AdminHome');
 });
-// Route::get('user/index', [UserController::class, "index"]);
+
+
 // Route::get('user/create', [UserController::class, "create"]);
 // Route::post('user/postCreate', [UserController::class, "postCreate"]);
 // Route::get('user/update/{id}', [UserController::class, "update"]);
@@ -68,19 +58,21 @@ Route::get('/admin', function () {
 // Route::get('user/delete/{id}', [UserController::class, "delete"]);
 
 
-//Route cho user
-// Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(function(){
-//     Route::get('profile/{id}',[AccountController::class,"details"]);    
-// });
+
+
+Route::get('user/index',[AccountController::class,"index"]);
+Route::get('user/create',[AccountController::class,"create"]);
+Route::post('user/postCreate', [AccountController::class, "postCreate"]);
+Route::get('Admin-User/update/{id}', [AccountController::class, "update"]);
+Route::post('Admin-User/postUpdate/{id}', [AccountController::class, "postUpdate"]);
+Route::get('user/delete/{user_id}', [AccountController::class, "delete"]);
+
+
+
 
 
 //Route cho admin
-// Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
   Route::prefix('admin')->name('admin.')/*->middleware('isAdmin')*/->group(function(){
-    Route::get('users', [AccountController::class,"index"])->name('userlist');
-    Route::get('create', [AccountController::class, "create"]);
-    Route::post('post', [AccountController::class, "postCreate"]);
-    Route::get('resetPass/{id}', [AccountController::class, "resetPassword"]);
 
     Route::get('rental', 'RentalController@index')->name('rental');
     Route::get('active-rental', 'RentalController@active')->name('active-rental');
@@ -107,7 +99,6 @@ Route::get('/admin', function () {
     Route::get('rentalcontract/',[RentalContract::class,"getlist"])->name('rentalcontract');
     Route::get('rentalcontract/xemchitiet/{id}', [RentalContract::class, "detailsrentaladmin"]);
 
-// });
   });
 
 //----------------------------------------------------------------------------------------------------------
@@ -166,12 +157,6 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 
 
 //----------------------------------------------------------------------------------------------------------
-
-// Route::get('/user-profile', function () {
-//     return view('user-profile');
-// });
-
-
 
 
 //Search car

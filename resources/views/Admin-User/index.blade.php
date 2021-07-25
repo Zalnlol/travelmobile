@@ -7,13 +7,13 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>DataTables</h1>
+                <h1>Tài khoản</h1>
             </div>
 
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">DataTables</li>
+                    <li class="breadcrumb-item active">Bảng dữ liệu</li>
                 </ol>
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                    <h3 class="card-title">Bảng dữ liệu tất cả tài khoản người dùng</h3>
                 </div>
                 <!-- card-header -->
                 <div class="card-body">
@@ -62,10 +62,10 @@
                                     <a href="#" class="btn btn-primary btn-sm" >
                                         <i class="fas fa-folder">Xem</i>
                                     </a>
-                                    <a href="{{ url('user/update'.$user->user_id) }}" class="btn btn-primary btn-sm" >
+                                    <a href="{{ url('Admin-User/update/'.$user->user_id) }}" class="btn btn-primary btn-sm" >
                                         <i class="fas fa-pencil-alt">Sửa</i>
                                     </a>
-                                    <a href="{{ url('user/delete'.$user->user_id) }}" class="btn btn-primary btn-sm" >
+                                    <a href="{{ url('user/delete/'.$user->user_id) }}" class="btn btn-primary btn-sm" >
                                         <i class="fas fa-trash">Xóa</i>
                                     </a>
                                 </td>
