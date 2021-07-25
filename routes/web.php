@@ -86,6 +86,7 @@ Route::get('/admin', function () {
     Route::get('rental/view/{car_id}', 'RentalController@view')->name('rental.view');
     Route::post('rental/approval/{car_id}', 'RentalController@approval')->name('rental.approval');
     Route::get('rental/delete/{car_id}', 'RentalController@delete')->name('rental.delete');
+    Route::get('rental/image/{car_id}', 'RentalController@carimg')->name('rental.image');
 
     Route::get('mfg',[MGFCarController::class, "index"])->name('mfg-index');
     Route::get('mfg/create','MGFCarController@create')->name('mfg-create');
@@ -131,7 +132,6 @@ Route::post('mycar/rental/image/checkUpdate/{car_id}', 'MyCarController@checkupd
 Route::get('review', 'ReviewController@index')->name('review');
 Route::post('review/post', 'ReviewController@store')->name('review.post');
 
-
 Route::get('/searchcar', function () {
     return view('user/searchcar');
 });
@@ -151,7 +151,6 @@ Route::get('auth/google/callback', [GoogleLogin::class, 'handleGoogleCallback'])
 //Phân chia login admin
 
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
-
 
 
 //----------------------------------------------------------------------------------------------------------
