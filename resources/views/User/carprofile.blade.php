@@ -282,6 +282,7 @@
                     <div class="col" style="font-weight:bold; font-size:15pt">ĐÁNH GIÁ</div>
                 </div>
 
+                
             </div>
 
 
@@ -294,7 +295,7 @@
                                 <span style=" font-size: 12pt;font-weight: bold;">/ngày</span>
                             </div>
                         </div>
-                        <form action="{{url('/searchcar/profile/checkout')}}" method="POST">
+                        <form action="{{url('user/searchcar/profile/checkout')}}" method="POST">
                             <span id="start-end-day">
                                 Ngày bắt đầu
                             </span>

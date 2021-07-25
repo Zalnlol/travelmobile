@@ -12,6 +12,9 @@ function tinhngay() {
     ngaykethuc = ngaykethuc.getTime()
 
     songay = Math.ceil((ngaykethuc - ngaybatdau) / 86400000)
+    if(songay==0){
+        songay=1;
+    }
     return songay;
 
 }

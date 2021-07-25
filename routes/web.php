@@ -176,7 +176,7 @@ Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
 
 
             //mytrip sau khi thanh toán
-            Route::get('/mytrip', [RentalContract::class, "mytrip"])->name("mytrip");
+            Route::post('/mytrip', [RentalContract::class, "mytrip"])->name("mytrip");
 
             //mytrip bình thường
             Route::get('/mytrips', [RentalContract::class, "mytrips"])->name("mytrips");
@@ -208,8 +208,11 @@ Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
 
             Route::get('/mycars/register', function (Request $request) {
 
+                $hangxe=CarMFG::all();
+                $tenxe=CarType::all();
+
                 $data = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
-                return view('profiles.registercar', compact('data'));
+                return view('profiles.registercar', compact('data','hangxe','tenxe'));
 
             });
 

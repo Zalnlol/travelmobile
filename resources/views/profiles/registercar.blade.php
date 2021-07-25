@@ -300,6 +300,7 @@
                   <form action="{{ route('rental.store') }}" method="post">
                       @csrf
                       <input type="hidden" id="input_5" name="user_id" data-type="input-textbox" class="form-textbox" size="20" value="{{ $data }}" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
+                      <input type="hidden" id="type_id" name="type_id" data-type="input-textbox" class="form-textbox" size="20" value="{{ $data }}" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
                       <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_5">
                         <label class="form-label form-label-top" id="label_5" for="input_5"> Biển số xe </label>
                         <div id="cid_5" class="form-input-wide">
@@ -309,13 +310,21 @@
                     <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_6">
                       <label class="form-label form-label-top" id="label_6" for="input_6"> Hãng xe </label>
                       <div id="cid_6" class="form-input-wide">
-                        <input type="text" id="input_6" name="brand" data-type="input-textbox" class="form-textbox" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_6" />
+                        
+                        <select id="input_6" name="brand" onchange="return check()">
+                          <option value="0">Vui lòng chọn hãng xe</option>
+                            @foreach ($hangxe as $element)
+                            <option value="{{$element['mfg_id']}}">{{$element['name']}}</option>
+                            @endforeach
+                        </select>
                       </div>
                     </li>
                     <li class="form-line form-line-column form-col-3" data-type="control_textbox" id="id_7">
                       <label class="form-label form-label-top" id="label_7" for="input_7"> Mẫu xe </label>
                       <div id="cid_7" class="form-input-wide">
-                        <input type="text" id="input_7" name="name" data-type="input-textbox" class="form-textbox" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_7" />
+                        <select id="input_7" name="name" disabled onchange="return checkgia()">
+                          <option value="">Vui lòng chọn xe</option>
+                        </select>
                       </div>
                     </li>
             
@@ -448,7 +457,7 @@
                     </br>
                   </br>
                 
-                      <span style="opacity: 0.6">Giá đề xuất: 500K/ngày</span>
+                      <span style="opacity: 0.6">Giá đề xuất: <span id="giadexuat">500</span> K/ngày</span>
                     </br>
                   </br>
                       <div id="cid_13" class="form-input-wide">
@@ -758,4 +767,50 @@
 @endsection
 @section('Script')
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+
+    <script>
+      car = {!! json_encode($tenxe->toArray(), JSON_HEX_TAG) !!};
+      function check(){
+        mfg_id = document.getElementById('input_6').value;
+        
+        car_list=[];
+        i=0;
+        car.forEach(element => {
+          if(element['mfg_id']==mfg_id){
+            car_list[i]=element;
+            i+=1;
+          }
+        });
+
+        str = '<option value="0">Vui lòng chọn xe</option>';
+        car_list.forEach(element => {
+            str += `<option value="` + element['model'] + `">` + element['model'] + `</option>`
+        });
+
+        if (mfg_id == '0') {
+            hangxe = document.getElementById('input_7').disabled = true;
+            hangxe = document.getElementById('input_7').innerHTML = `<option >Vui lòng chọn mẫu xe</option>`;
+        } else {
+            hangxe = document.getElementById('input_7').innerHTML = str;
+            hangxe = document.getElementById('input_7').disabled = false;
+        }
+      }
+
+
+      function checkgia(){
+          name= document.getElementById('input_7').value;
+        car.forEach(element =>{
+          if(element['model']==name){
+            // giadexuat
+            document.getElementById('giadexuat').innerText=element['suggest_price'];
+            document.getElementById('type_id').value=element['type_id '];
+          }
+        });
+      }
+
+    </script>
+
+
+
+
 @endsection
