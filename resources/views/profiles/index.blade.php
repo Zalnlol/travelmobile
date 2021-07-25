@@ -21,7 +21,7 @@
                             
                         @if ($user_id == $user->user_id)
                             
-                                <a href="/profile/{{ $user->user_id }}/edit"><button type="button" class="btn btn-success">Chỉnh sửa</button></a> 
+                                <a href="{{ url('user/profile/'.$user->user_id.'/edit') }}"><button type="button" class="btn btn-success">Chỉnh sửa</button></a> 
                         @endif
                             <div class="d-flex"><span class="join">
                                 Tham gia: {{ $user->created_at->format('d/m/Y') }}</span>
