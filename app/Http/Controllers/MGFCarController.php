@@ -11,10 +11,12 @@ class MGFCarController extends Controller
         $mfg = CarMFG::all();
         return view('Admin-MFG.mfg-index', compact('mfg'));
     }
+
     public function create()
     {
         return view('Admin-MFG.mfg-create');
     }
+
     public function postCreate(Request $request) {
         // nhận tất cả tham số vào mảng product
         $mfg = $request->all();
@@ -39,6 +41,7 @@ class MGFCarController extends Controller
         $p->save();
         return redirect()->action('MGFCarController@index');
     }
+    
     public function update($mfg_id) {
         $p = CarMFG::find($mfg_id);
         return view('Admin-MFG.mfg-update', ['p'=>$p]);

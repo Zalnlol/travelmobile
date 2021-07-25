@@ -11,7 +11,6 @@ class AccountController extends Controller
 {   
     //tra ve view listing danh sach users
     public function index(){
-        // dd('1231245');
         $ds = DB::table('tb_user')->get();
         return view("Admin-User.index",compact('ds'));
         
@@ -23,27 +22,72 @@ class AccountController extends Controller
     }
 
     //luu du lieu input tu form create-user vo database
-    public function createPost(Request $request){
-        //lay du lieu tren form nhap tu bien $request
-        $name = $request->name;
-        $email = $request->email;
-        $password = $request->password;
-        $role = $request->role;
+    public function postCreate(Request $request){
+        //Nhận tất cả tham số vào mảng user
+        $user = $request->all();
+        //Xử lý upload hình
+        if($request->hasFile('image')){
+            $file=$request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            if($extension!='jpg' && $extension != 'png' && $extension != 'jpeg'){
+                return redirect('product/create')->with('Lỗi', 'Bạn chỉ được chọn file có đuôi jpg, png, jpeg');
+            }
+            $imageName = $file->getClientOriginalName();
+            $file->move("images", $imageName);
+        }
+        else{
+            $imageName = null;
+        }
 
-        //insert vo bang tbuser
         DB::table('tb_user')->insert([
-            "name"=>$name,
-            "email"=>$email,
-            "password"=>$password,
-            "role"=>$role,
-            "active"=>'1'
+            'user_id'=>intval($user['user_id']),
+            'name'=>$user['name'],
+            'email'=>$user['email'],
+            'password'=>$user['password'],
+            'is_admin'=>'1',
         ]);
-
-        //tro ve trang admin.index
         return redirect()->action([AccountController::class, 'index']);
-        // return redirect()->route("userlist");
-        // return route("userlist");
     }
+
+    public function update($user_id){
+        $user = User::find($user_id);
+        return view('Admin-User.update',['user'=>$user]);
+    }
+
+    public function postUpdate(Request $request, $id){
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $mobile = $request->input('mobile');
+        $gender = $request->input('gender');
+        $status = $request->input('status');
+        $driver_id = $request->input('driver_id');
+        //Xử lý upload hình vào thư mục
+        if($request->hasFile('image')){
+            $file=$request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            if($extension != 'jpg' && $extension != 'png' && $extension != 'jpeg'){
+                return redirect('user/update')->width('Lỗi', ' Bạn chỉ được chọn file có đuôi jpg, png, jpeg');
+            }
+            $imageName = $file->getClientOriginalName();
+            $file->move("public/images",$imageName);
+        } else {//Không upload hình mới => giữ lại hình cũ
+            $user = DB::table('tb_user')
+                    ->where('user_id',intval($id))
+                    ->first();
+                    $imageName = $user->driver_id_image;
+        }
+        $user = DB::table('tb_user')
+            ->where('user_id',intval($id))
+            ->update(['name'=>$name, 'email'=>$email, 'mobile'=>$mobile, 'gender'=>$gender, 'status'=>$status, 'driver_id'=>$driver_id, 'driver_id_image'=>$imageName]);
+            return redirect()->action([AccountController::class, 'index']);
+    }
+
+    public function delete($user_id){
+        $user = User::find($user_id);
+        $user->delete();
+        return redirect()->action([AccountController::class, 'index']);
+    }
+
 
     //reset password theo ma so duoc truyen
     public function resetPassword($id){

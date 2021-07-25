@@ -320,6 +320,62 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 
+
+
+
+
+
+
+
+
+
+
+    //   Phần của toàn      
+          
+
+    
+});
+
+
+
+
+
+
+
+
+Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Quyền admin
+
+  Route::prefix('admin')->name('admin.')->middleware('is_admin:admin')->group(function(){
+    Route::get('/', function () {
+        return view('AdminHome');
+    });
+
+   //Của A Thiện 
+    Route::get('/index',[AccountController::class,"index"]);
+    Route::get('/create',[AccountController::class,"create"]);
+    Route::post('/postCreate', [AccountController::class, "postCreate"]);
+    Route::get('/update/{id}', [AccountController::class, "update"]);
+    Route::post('/postUpdate/{id}', [AccountController::class, "postUpdate"]);
+    Route::get('/delete/{id}', [AccountController::class, "delete"]);
+
+
+
+
   
 
    //Admin của a Vương 
@@ -364,6 +420,13 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 
+    //Admin của Toàn
+        Route::get('/admin/blog', [BlogController::class,"get"]);
+        Route::get('/admin/blog/createBlog',[BlogController::class,'createBlog']);
+        Route::post('/admin/blog/postCreateBlog',[BlogController::class,'postCreateBlog']);
+        Route::get('/admin/blog/editBlog/{blog_id}',[BlogController::class,'editBlog']);
+        Route::post('/admin/blog/editPostBlog',[BlogController::class,'editPostBlog']);
+        Route::get('/admin/blog/delete/{blog_id}',[BlogController::class,'deleteBlog']);
 
 
 

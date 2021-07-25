@@ -9,6 +9,7 @@ use App\Models\RentalSchedule;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use PDO;
 use phpDocumentor\Reflection\Element;
 
@@ -64,6 +65,8 @@ class RentalContract extends Controller
     function checkout(Request $request){
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $data=$request->all();
+        $data['service_cost']=$data['contract_value']-$data['rental_price']-$data['shipping_cost'];
+
         $data['user_id']=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
         $data['contract_date'] = date("Y-m-d H:i:s");
         $request->session()->put('inforcontract', $data);
@@ -109,17 +112,56 @@ class RentalContract extends Controller
         
         $rental= ModelsRentalContract::where('contract_date',$data['contract_date'])->get()->first();
         $contractid=$rental['contract_id'];
-
         $ss['id_rental_contract']= $contractid;
         $ss['car_id']=$data['car_id'];
         $ss['start_date']=$data['pickup_date'];
         $ss['end_date']=$data['return_date'];
         $ss['status']='Chờ xác nhận';
 
-        // dd($ss);
+     //Khách hàng
+        $id_user= $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        $data123= User::where('user_id',$id_user)->get()->first();
+        define('mail',$data123['email']);
+        $datamail['mail']=$data123['email'];
+        $datamail['name']=$data123['name'];
+        $datamail['image']=(CarPic::where('car_id',$ss['car_id'])->get()->first())['image'];
+        $datamail['carname']=(CarRental::where('car_id',$ss['car_id'])->get()->first())['name'];
+        $datamail['start_date']= substr($ss['start_date'],0,13) ;
+        $datamail['end_date']= substr($ss['end_date'],0,13) ;
+        $datamail['rental_price']= (ModelsRentalContract::where('contract_id',$contractid)->get()->first())['rental_price'];
+        $datamail['deposit']= (ModelsRentalContract::where('contract_id',$contractid)->get()->first())['deposit'];
+
+        
+        Mail::send('rental-contract-mail.thanhtoan', compact('datamail'), 
+        function($message){
+            $message->to(mail)
+            ->subject('Thư xác nhận');
+        });
+
+        //Chủ xe
+
+        
+        $data123= CarRental::where('car_id',$ss['car_id'])->get()->first();
+        $data1234= User::where('user_id',$data123['user_id'])->get()->first();
+        define('mail1',$data1234['email']);
+
+        $datamail1['name']=$data1234['name'];
+        $datamail1['link']= 'http://localhost:8080/travelmobile/public/user/mycars/triplist'    ;
+
+   
+        Mail::send('rental-contract-mail.booking', compact('datamail1'), 
+        function($message){
+            $message->to(mail1)
+            ->subject('Khách đặt xe kìa chủ xe ơi');
+        });
+
+
+
 
         $s = new RentalSchedule($ss);
         $s->save();
+
+
         return redirect()->route('mytrips');
     }
 
@@ -216,6 +258,17 @@ class RentalContract extends Controller
         $post['status']="Đã hủy chuyến";
         $post->save();
 
+        $name[0]= (User::where('user_id', $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'))->get()->first())['name'];
+        $mail= (User::where('user_id', $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'))->get()->first())['email'];
+        define('mail2',$mail);
+
+        Mail::send('rental-contract-mail.mailcacell', compact('name'), 
+        function($message){
+            $message->to(mail2)
+            ->subject('Bạn đã hủy thành cônng');
+        });
+        
+
         RentalSchedule::where('id_rental_contract', $data['contract_id'])->delete();
         return redirect()->route('triphistory');
     }
@@ -290,7 +343,43 @@ class RentalContract extends Controller
        return view('profiles.triplist',compact('data3'));
 
     }
+    function danhanxe($id,Request $request){
+        
+            $post= ModelsRentalContract::where('contract_id',$id)->get()->first();
+            $post['status']="Đã hoàn thành";
+            $post->save();
 
+            RentalSchedule::where('id_rental_contract',$id)->delete();
+
+
+            //  mail khach
+            $name[0]= (User::where('user_id',((ModelsRentalContract::where('contract_id',$id)->get()->first())['user_id']))->get()->first())['name'];
+            $mail=(User::where('user_id',((ModelsRentalContract::where('contract_id',$id)->get()->first())['user_id']))->get()->first())['email'];
+            define('mail3',$mail);
+
+            Mail::send('rental-contract-mail.mailcamonkhach', compact('name'), 
+            function($message){
+                $message->to(mail3)
+                ->subject('Cảm ơn bạn đã sử dụng dịch vụ');
+            });
+
+            //mall cảm ơn chủ xe
+
+            $data= (User::where('user_id',((CarRental::where('car_id',((ModelsRentalContract::where('contract_id',$id)->get()->first())['car_id']))->get()->first())['user_id']))->get()->first()) ;
+            
+            $name[0]= $data['name'];
+            define('mail4',$data['email']);
+
+            Mail::send('rental-contract-mail.mailcamonchuxe', compact('name'), 
+            function($message){
+                $message->to(mail4)
+                ->subject('Cảm ơn bạn đã sử dụng dịch vụ');
+            });
+
+
+            return redirect()->route('historyforrental');
+
+    }
 
     function historyforrental(Request $request){
 
@@ -343,11 +432,154 @@ class RentalContract extends Controller
     }
 
     function detailsrental($id , Request $request){
+        $data3['tmp']= '1';
         $data = ModelsRentalContract::where('contract_id',$id)->get()->first();
+        $data2= CarRental::where('car_id',$data['car_id'])->get()->first();
+        $data4= User::where('user_id',$data2['user_id'])->get()->first();
+        $data3['contract_id']=$data['contract_id'];
+        $data3['image']=(CarPic::where('car_id',$data['car_id'])->get()->first())['image'];
+        $data3['user_name']= $data4['name'];
+        $data3['car_name']= $data2['name'];
+        $data3['plate_id']= $data2['plate_id'];
+        $data3['max_travel_distance']= $data2['max_travel_distance'];
+        $data3['over_max_travel_cost']= $data2['over_max_travel_cost'].'000';
+        $data3['rent_price']= $data2['rent_price'];
+        $data3['customer_name']= (User::where('user_id',$data['user_id'])->get()->first())['name'];
+        $data3['customer_mobile']= (User::where('user_id',$data['user_id'])->get()->first())['mobile'];
         
-        dd($data);
+        if(count(RentalSchedule::where('id_rental_contract',$id)->get())>0){
+            $data3['status']= (RentalSchedule::where('id_rental_contract',$id)->get()->first())['status'];
+        }else{
+            $data3['status']='';
+        }
+        $data3['pickup_date']=  substr($data['pickup_date'],0,13);
+        $data3['return_date']= substr($data['return_date'],0,13);
+        $data3['pickup_address']= $data['pickup_address'];
+        $data3['rental_price']= $data['rental_price'];
+        $data3['shipping_cost']= $data['shipping_cost'];
+        
+        $data3['customer_deposit']= '';
+        $data3['service_cost']= $data['rental_price']*0.15;
+        $data3['deposit_after_rental']= $data['deposit']-$data['service_cost']-($data['rental_price']*0.15);
+        $data3['remaining']=  $data['contract_value']-$data['deposit'];
+        
+        return view('profiles.pagerental',compact('data3'));
+
     }
 
+    function detailsrentaluser($id , Request $request){
+        $data = ModelsRentalContract::where('contract_id',$id)->get()->first();
+        $data2= CarRental::where('car_id',$data['car_id'])->get()->first();
+        $data4= User::where('user_id',$data2['user_id'])->get()->first();
+
+
+        $data3['contract_id']=$data['contract_id'];
+        $data3['image']=(CarPic::where('car_id',$data['car_id'])->get()->first())['image'];
+        $data3['user_name']= $data4['name'];
+        $data3['car_name']= $data2['name'];
+        $data3['plate_id']= $data2['plate_id'];
+        $data3['max_travel_distance']= $data2['max_travel_distance'];
+        $data3['over_max_travel_cost']= $data2['over_max_travel_cost'].'000';
+        $data3['rent_price']= $data2['rent_price'];
+        $data3['customer_name']= (User::where('user_id',$data['user_id'])->get()->first())['name'];
+        $data3['customer_mobile']= (User::where('user_id',$data['user_id'])->get()->first())['mobile'];
+        
+        if(count(RentalSchedule::where('id_rental_contract',$id)->get())>0){
+            $data3['status']= (RentalSchedule::where('id_rental_contract',$id)->get()->first())['status'];
+        }else{
+            $data3['status']='';
+        }
+        $data3['pickup_date']=  substr($data['pickup_date'],0,13);
+        $data3['return_date']= substr($data['return_date'],0,13);
+        $data3['pickup_address']= $data['pickup_address'];
+        $data3['rental_price']= $data['contract_value'];
+        $data3['shipping_cost']= $data['shipping_cost'];
+        $data3['tmp']= '2';
+        $data3['customer_deposit']= $data['deposit'];
+        $data3['service_cost']=  $data['service_cost'] ;
+        $data3['deposit_after_rental']= $data['deposit']-$data['service_cost'] -($data['rental_price']*0.15);
+        $data3['remaining']=  $data['contract_value']-$data['deposit'];
+        
+        return view('profiles.pagerental',compact('data3'));
+
+    }
+
+
+    function detailsrentaladmin($id , Request $request){
+        $data = ModelsRentalContract::where('contract_id',$id)->get()->first();
+        $data2= CarRental::where('car_id',$data['car_id'])->get()->first();
+        $data4= User::where('user_id',$data2['user_id'])->get()->first();
+
+
+        $data3['contract_id']=$data['contract_id'];
+        $data3['image']=(CarPic::where('car_id',$data['car_id'])->get()->first())['image'];
+        $data3['user_name']= $data4['name'];
+        $data3['car_name']= $data2['name'];
+        $data3['plate_id']= $data2['plate_id'];
+        $data3['max_travel_distance']= $data2['max_travel_distance'];
+        $data3['over_max_travel_cost']= $data2['over_max_travel_cost'].'000';
+        $data3['rent_price']= $data2['rent_price'];
+        $data3['customer_name']= (User::where('user_id',$data['user_id'])->get()->first())['name'];
+        $data3['customer_mobile']= (User::where('user_id',$data['user_id'])->get()->first())['mobile'];
+        
+        if(count(RentalSchedule::where('id_rental_contract',$id)->get())>0){
+            $data3['status']= (RentalSchedule::where('id_rental_contract',$id)->get()->first())['status'];
+        }else{
+            $data3['status']='';
+        }
+        $data3['pickup_date']=  substr($data['pickup_date'],0,13);
+        $data3['return_date']= substr($data['return_date'],0,13);
+        $data3['pickup_address']= $data['pickup_address'];
+        $data3['rental_price']= $data['contract_value'];
+        $data3['shipping_cost']= $data['shipping_cost'];
+        $data3['tmp']= '3';
+        $data3['customer_deposit']= $data['deposit'];
+        $data3['service_cost']= $data['service_cost'] + ($data['rental_price']*0.15);
+        $data3['deposit_after_rental']= $data['deposit']-$data['service_cost'] -($data['rental_price']*0.15);
+        $data3['remaining']=  $data['contract_value']-$data['deposit'];
+        
+        return view('admin-rental-contract.details',compact('data3'));
+
+    }
+
+
+    function getlist(){
+       $data=ModelsRentalContract::all();
+       $data1=[];
+       $data3=[];
+       $i=0;
+       foreach($data as $element){
+           if($element['status']!='Đã hủy chuyến'){
+            $data1[$i]['contract_id']=$element['contract_id'];
+            $data1[$i]['car_name']=(CarRental::where('car_id',$element['car_id'])->get()->first())['name'];
+            $data1[$i]['pickup_date']=$element['pickup_date'];
+            $data1[$i]['return_date']=$element['return_date'];
+            $data1[$i]['contract_value']=$element['contract_value'];
+            $data1[$i]['service_cost']=$element['service_cost']+($element['rental_price']*0.15) ;
+            $data1[$i]['status']=$element['status'];
+
+            $i+=1;
+           }
+           
+       }
+       return view('admin-rental-contract.index',compact('data1'));
+
+
+    }
+
+
+    function testmail(){
+        $name=[];
+        $name[1]="nhan";
+
+        Mail::send('rental-contract-mail.thanhtoan',$name, 
+        function($message){
+            $message->to('lengthanhnhan123@gmail.com','Demo tets')
+            ->subject('Test gửi mail');
+        });
+        // dd('Nhan');
+
+    }
 
 
 
