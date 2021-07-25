@@ -88,7 +88,7 @@ class MyCarController extends Controller
                 ->where('car_id', intval($car_id))
                 ->update(['status' => $status]);
         }
-        return redirect('mycar');   
+        return redirect()->route('rental.index');   
     }
 
     public function store(RentalRequest $req)
