@@ -99,7 +99,7 @@ Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profile
 //Quyền user 
 
 
-Route::prefix('user')->middleware('is_admin:admin,user')->group(function() {
+Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
 
 
     //Phần anh Thiện
@@ -309,7 +309,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Quyền admin
 
-  Route::prefix('admin')->name('admin.')->middleware('is_admin')->group(function(){
+  Route::prefix('admin')->name('admin.')->middleware('checklogin:admin')->group(function(){
+      
     Route::get('/', function () {
         return view('AdminHome');
     });
@@ -434,12 +435,12 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
     //Admin của Toàn
-        Route::get('/admin/blog', [BlogController::class,"get"]);
-        Route::get('/admin/blog/createBlog',[BlogController::class,'createBlog']);
-        Route::post('/admin/blog/postCreateBlog',[BlogController::class,'postCreateBlog']);
-        Route::get('/admin/blog/editBlog/{blog_id}',[BlogController::class,'editBlog']);
-        Route::post('/admin/blog/editPostBlog',[BlogController::class,'editPostBlog']);
-        Route::get('/admin/blog/delete/{blog_id}',[BlogController::class,'deleteBlog']);
+        Route::get('/blog', [BlogController::class,"get"]);
+        Route::get('/blog/createBlog',[BlogController::class,'createBlog']);
+        Route::post('/blog/postCreateBlog',[BlogController::class,'postCreateBlog']);
+        Route::get('/blog/editBlog/{blog_id}',[BlogController::class,'editBlog']);
+        Route::post('/blog/editPostBlog',[BlogController::class,'editPostBlog']);
+        Route::get('/blog/delete/{blog_id}',[BlogController::class,'deleteBlog']);
 
 
   });
