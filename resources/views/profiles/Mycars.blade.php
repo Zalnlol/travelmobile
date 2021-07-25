@@ -11,7 +11,7 @@
         <div class="row" style="box-shadow: 0px 0px 20px rgb(233, 227, 227); height:auto">
 
             <div class="col-sm-3" style="text-align: right ; ">
-                <a href="{{ route('rental.index') }}">
+                <a href="{{url('/user/mycars')}}">
                     <span id="title-nav2" style="color: #2E7093; border-bottom: solid #2E7093; ">Danh sách xe</span>
                 </a>
             </div>
