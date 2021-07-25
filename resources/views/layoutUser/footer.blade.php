@@ -117,7 +117,7 @@
                     <div class="col ">
                         Địa chỉ:
                         <a id="tel-and-mail" href="https://www.google.com/maps/place/FPT-Aptech+Computer+Education+HCM/@10.7868348,106.6653867,18z/data=!3m1!4b1!4m5!3m4!1s0x31752ed2392c44df:0xd2ecb62e0d050fe9!8m2!3d10.786852!4d106.666243?hl=vi-VN" target="_blank" rel="noopener noreferrer">
-                             590,Cách Mạng Tháng 8 , Phường 11, Quận 3, Thành phố Hồ Chí Minh.
+                             590 Cách Mạng Tháng 8, Phường 11, Quận 3, Thành phố Hồ Chí Minh.
                         </a>
                        
                     </div>
