@@ -29,7 +29,7 @@
               <li class="nav-item">
                 <a href="{{url('user/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Tạo người dùng</p>
+                  <p>Tạo admin</p>
                 </a>
               </li>
             
