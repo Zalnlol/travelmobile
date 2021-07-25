@@ -1,10 +1,10 @@
 @extends('layoutUser.layout')
-@section('titleweb', 'History for rental')
+@section('titleweb', 'Rental Deitals')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/rental.css') }}">
 @section('bodycode')
 
     <div style="margin-top: 10%; margin-bottom:5%" class="container">
-        <h3 style="text-align: center">Thông tin chi tiết hợp đồng {{ $data3['contract_id'] }}</h3>
+        <h3 style="text-align: center">Thông tin chi tiết hợp đồng #{{ $data3['contract_id'] }}</h3>
 
         <div class="row" style="margin-top: 2%">
 
@@ -63,7 +63,7 @@
             <div class="col-sm-6" style="text-align: right">
                 <span id="title-span"> <b>Số điện thoại:</b></span>
             </div>
-            @if ($data3['status'] != 'Chờ xác nhận')
+            @if (($data3['status'] != 'Chờ xác nhận')||($data3['tmp'] != '1'))
                 <div class="col-sm-6">
                     <span id="title-span" style="text-align: left">{{ $data3['customer_mobile'] }}</span>
                 </div>

@@ -111,7 +111,7 @@
                                         @if ($rental['status'] == 'Đã hủy chuyến')
                                             <a class="dropdown-item" href="{{ url('/user/triphistory/delete/'.$rental['contract_id']) }}">Xóa</a>
                                         @endif
-                                        @if ($rental['status'] == 'Thuê xe hoàn tất')
+                                        @if ($rental['status'] == 'Đã hoàn thành')
                                             <a class="dropdown-item" href="#">Đánh giá</a>
                                         @endif
 

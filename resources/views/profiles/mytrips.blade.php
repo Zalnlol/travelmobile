@@ -104,6 +104,9 @@
                                                 động</span>
 
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                                <a class="dropdown-item" href="{{url('/user/mycars/mytrips/xemchitiet/'.$rental['contract_id'])}}">Xem chi tiết</a>
+                                                
                                                 @if ($rental['status'] == 'Đang liên hệ' || $rental['status'] == 'Đang xác nhận')
                                                     <a class="dropdown-item" href="{{url('/user/mytrips/cancell/'.$rental['contract_id'])}}">Hủy chuyến</a>
                                                 @endif

@@ -102,6 +102,11 @@ Route::get('/admin', function () {
     Route::get('model/update/{type_id}', 'ModelcarController@update')->name('model-update');
     Route::post('model/postUpdate/{type_id}','ModelcarController@postUpdate');
     Route::get('model/delete/{type_id}', 'ModelcarController@delete')->name('model-delete');
+
+    
+    Route::get('rentalcontract/',[RentalContract::class,"getlist"])->name('rentalcontract');
+    Route::get('rentalcontract/xemchitiet/{id}', [RentalContract::class, "detailsrentaladmin"]);
+
 // });
   });
 
@@ -250,19 +255,7 @@ Route::get('/user/mycars/triplist/dagiaoxe/{id}', function ($id) {
     return redirect()->route('triplist');
 });
 
-Route::get('/user/mycars/triplist/danhanxe/{id}', function ($id) {
-
-
-
-    $post= ModelsRentalContract::where('contract_id',$id)->get()->first();
-    $post['status']="Đã hoàn thành";
-    $post->save();
-
-     RentalSchedule::where('id_rental_contract',$id)->delete();
-
-
-    return redirect()->route('triplist');
-});
+Route::get('/user/mycars/triplist/danhanxe/{id}',[RentalContract::class, "danhanxe"]);
 
 
 
@@ -272,9 +265,7 @@ Route::get('/user/mycars/triplist/xemchitiet/{id}', [RentalContract::class, "det
 
 
 //Xem chi tiết
-Route::get('/user/mycars/rental', function(){
-    return view('profiles.pagerental');
-});
+Route::get('/user/mycars/mytrips/xemchitiet/{id}', [RentalContract::class, "detailsrentaluser"]);
 
 
 Route::get('/user/mytrips/rental', function(){
@@ -290,7 +281,11 @@ Route::get('/test', function(){
     return view('refund');
 });
 
+// Route::get('/testmail',[RentalContract::class, "testmail"]);
 
+Route::get('/testmail',function(){
+    return view('rental-contract-mail.booking');
+});
 
 
 //blog

@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ url('/') }}" class="brand-link">
+    <a href="{{ url('/admin') }}" class="brand-link">
         <img src="{{ asset('images/travel-mobile-logo-footer.png')}}"  alt="Product Demo" style="opacity .8;width:200px">
         
     </a>
@@ -53,12 +53,12 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{ route('mfg-index') }}" class="nav-link">
+            <a href="{{ route('admin.mfg-index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Danh sách hãng xe </p>
             </a>
           </li><li class="nav-item">
-            <a href="{{ route('mfg-create') }}" class="nav-link">
+            <a href="{{ route('admin.mfg-create') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Thêm mới hãng xe </p>
             </a>
@@ -82,13 +82,13 @@
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="{{ route('model-index') }}" class="nav-link">
+          <a href="{{ route('admin.model-index') }}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Danh sách model xe </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('model-create') }}" class="nav-link">
+          <a href="{{ route('admin.model-create') }}" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Thêm mới model xe </p>
           </a>
@@ -152,7 +152,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin/user')}}" class="nav-link">
+                <a href="{{ route('admin.rentalcontract') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách hợp đồng</p>
                 </a>
