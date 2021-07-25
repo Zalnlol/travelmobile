@@ -35,12 +35,19 @@ class UserController extends Controller
 
         DB::table('tb_user')->insert([
             'user_id'=>intval($user['user_id']),
-            'name'=>$user['name'],
+            'fullname'=>$user['fullname'],
             'email'=>$user['email'],
             'password'=>$user['password'],
-            'is_admin'=>'1',
+            'facebook'=>$user['facebook'],
+            'mobile'=>$user['mobile'],
+            'gender'=>$user['gender'],
+            'dob'=>$user['dob'],
+            'driver_id'=>$user['driver_id'],
+            'driver_id_image'=>$imageName,
+            'joined_date'=>$user['joined_date'],
+            'status'=>$user['status'],
         ]);
-        return redirect()->action([UserController::class, 'index']);
+        return redirect()->action('UserController@index');
     }
     public function update($id){
         $user = DB::table('tb_user')
@@ -78,13 +85,13 @@ class UserController extends Controller
         $user = DB::table('tb_user')
             ->where('user_id',intval($id))
             ->update(['fullname'=>$fullname, 'email'=>$email, 'password'=>$password, 'facebook'=>$facebook, 'mobile'=>$mobile, 'gender'=>$gender, 'dob'=>$dob, 'driver_id'=>$driver_id, 'driver_id_image'=>$imageName, 'joined_date'=>$joined_date, 'status'=>$status]);
-            return redirect()->action([UserController::class, 'index']);
+            return redirect()->action('UserController@index');
     }
 
     public function delete($id){
         $user = DB::table('tb_user')
         ->where('user_id', intval($id))
         ->delete();
-        return redirect()->action([UserController::class, 'index']);
+        return redirect()->action('UserController@index');
     }
 }

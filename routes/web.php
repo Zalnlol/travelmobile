@@ -51,11 +51,11 @@ Route::get('/admin', function () {
 });
 
 
-// Route::get('user/create', [UserController::class, "create"]);
-// Route::post('user/postCreate', [UserController::class, "postCreate"]);
-// Route::get('user/update/{id}', [UserController::class, "update"]);
-// Route::post('user/postUpdate/{id}', [UserController::class, "postUpdate"]);
-// Route::get('user/delete/{id}', [UserController::class, "delete"]);
+Route::get('user/create', [UserController::class, "create"]);
+Route::post('user/postCreate', [UserController::class, "postCreate"]);
+Route::get('user/update/{id}', [UserController::class, "update"]);
+Route::post('user/postUpdate/{id}', [UserController::class, "postUpdate"]);
+Route::get('user/delete/{id}', [UserController::class, "delete"]);
 
 
 
