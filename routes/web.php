@@ -16,6 +16,7 @@ use App\Http\Controllers\GoogleLogin;
 use App\Http\Controllers\RentalContract;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ChangePasswordController;
 
 use App\Models\RentalContract as ModelsRentalContract;
 use App\Models\RentalSchedule;
@@ -118,7 +119,9 @@ Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
             Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profiles.edit');
             Route::patch('/profile/{user}',[ProfilesController::class,"update"])->name('profiles.update');
 
-
+            //Changing password
+            Route::get('change-password', [ChangePasswordController::class, 'index']);
+            Route::post('change-password', [ChangePasswordController::class, 'store'])->name('change.password');
 
 
 

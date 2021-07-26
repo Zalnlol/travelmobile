@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProfilesController extends Controller
 {
@@ -43,40 +44,46 @@ class ProfilesController extends Controller
         return view('profiles.edit', compact('user', 'user_id'));
     }
 
-    public function update(Request  $request ,User $user)
-    {
-
-
-        $data = request()->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'image' => '',
-            'mobile' => 'required',
-            'dob' => '',
-            'gender' => 'required',
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:tb_user'],
-            'driver_id' => '',
-            'driver_id_image' => '',
-        ]);
-        // $this->authorize('update', $user->profile);
-        $user_id = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
-        // dd($user_id);
-        $user->update($data);
-        return redirect("/profile/{$user_id}");
-
-    //     if (request('image')) {
-    //         $imagePath = request('image')->store('profile', 'public');
-
-    //         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
-    //         $image->save();
-
-    //         $imageArray = ['image' => $imagePath];
+    //WIP
+    // public function update(Request  $request ,User $user)
+    // {   
+    //     $name = $request->input('name');
+    //     $email = $request->input('email');
+    //     $mobile = $request->input('mobile');
+    //     $gender = $request->input('gender');
+    //     $status = $request->input('status');
+    //     $driver_id = $request->input('driver_id');
+    //     $data = request()->validate([
+    //         'name' => ['required', 'string', 'max:255'],
+    //         'image' => '',
+    //         'mobile' => 'required',
+    //         'dob' => '',
+    //         'gender' => 'required',
+    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:tb_user'],
+    //         'driver_id' => '',
+    //         'driver_id_image' => '',
+    //     ]);
+    //     $user_id = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+    //     // dd($user_id);
+    //     //Xử lý upload hình vào thư mục
+    //     if($request->hasFile('image')){
+    //         $file=$request->file('image');
+    //         $extension = $file->getClientOriginalExtension();
+    //         if($extension != 'jpg' && $extension != 'png' && $extension != 'jpeg'){
+    //             return redirect('user/update')->width('Lỗi', ' Bạn chỉ được chọn file có đuôi jpg, png, jpeg');
+    //         }
+    //         $imageName = $file->getClientOriginalName();
+    //         $file->move("public/images",$imageName);
+    //     } else {//Không upload hình mới => giữ lại hình cũ
+    //         $user = DB::table('tb_user')
+    //                 ->where('user_id',intval($id))
+    //                 ->first();
+    //                 $imageName = $user->driver_id_image;
     //     }
-
-    //     auth()->user()->profile->update(array_merge(
-    //         $data,
-    //         $imageArray ?? []
-    //     ));
-
-    //     return redirect("/profile/{$user->id}");
-    }
+    //     $user = DB::table('tb_user')
+    //         ->where('user_id',intval($id))
+    //         ->update(['name'=>$name, 'email'=>$email, 'mobile'=>$mobile, 'gender'=>$gender, 'status'=>$status, 'driver_id'=>$driver_id, 'driver_id_image'=>$imageName]);
+    //         return redirect()->action([AccountController::class, 'index']);
+    //     return redirect('profiles.index', compact('user','user_id'));
+    // }
 }
