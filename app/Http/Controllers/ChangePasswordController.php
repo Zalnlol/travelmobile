@@ -24,12 +24,12 @@ class ChangePasswordController extends Controller
         $user_id = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
         $request->validate([
             'current_password' => ['required', new MatchOldPassword],
-            'new_password' => ['required'],
+            'new_password' => ['required', 'string', 'min:8'],
             'new_confirm_password' => ['same:new_password'],
         ]);
    
-        User::find(auth()->user()->$user_id)->update(['password'=> Hash::make($request->new_password)]);
-   
-        dd('Password change successfully.');
+        User::find($user_id)->update(['password'=> Hash::make($request->new_password)]);
+        
+        return redirect()->action([ProfilesController::class, 'viewSelfProfile']);
     }
 }
