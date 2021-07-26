@@ -12,14 +12,13 @@ class CreateMFGCarsTable extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('tb_car_mfg', function (Blueprint $table) {
-            $table->id();
-            $table->string('mfg_id')->nullable();
-            $table->string('name')->nullable();
-            $table->string('logo')->nullable();
-            $table->string('nation')->nullable();
-            $table->string('website')->nullable();
+    {   
+        Schema::create('tb_car_mfg', function (Blueprint $table) {          
+            $table->string('mfg_id',20)->primary();
+            $table->string('name',30);
+            $table->string('logo',50);
+            $table->string('nation',30);
+            $table->string('website',50);
             $table->timestamps();
             
         });

@@ -9,44 +9,59 @@
                     <div class="card card-primary">
                         
                         <div class="card-header">
-                            <h3 class="card-title">Update </h3>
+                            <h3 class="card-title">Update Hãng xe {{$mfg->name}}</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="" method="post"
-                            enctype="multipart/form-data">
+                        <form role="form" action="{{ url('admin/mfg/postUpdate/' .$mfg->mfg_id) }}" method="post"enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="txt-id">Mã hãng xe</label>
-                                    <input type="text" class="form-control" id="txt-id" name="mfg_id" placeholder="{{$p->mfg_id}}"
-                                    value="{{ $p->mfg_id }}" readonly>
+                                    <input type="text" class="form-control" id="txt-id" name="mfg_id" placeholder="{{$mfg->mfg_id}} " value="{{$mfg->mfg_id}}"
+                                     readonly>
+                                    <p class="help is-danger">{{ $errors->first('mfg_id') }}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-name">Tên hãng xe</label>
-                                    <input type="text" class="form-control" id="txt-name" name="name" placeholder="{{$p->name}}"
-                                    value="{{ $p->name }}">
+                                    <input type="text" class="form-control" id="txt-name" name="name" placeholder="{{$mfg->name}}" value="{{$mfg->name}}"
+                                    readonly>
+                                    
                                 </div>
 
                                 <div class="form-group">
                                     <label for="image">Logo</label>
-                                    <img class="img-fluid" src=""/>
+                                    <img class="img-fluid" src="{{ url('/img/logo/' .$mfg->logo ) }}"><br><br>
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="image" name="logo">
-                                            <label class="custom-file-label" for="image">Choose Image</label>
+                                            <label class="custom-file-label" for="image"></label>
                                         </div>
                                     </div>
+                                    <p class="help is-danger">{{ $errors->first('logo') }}</p>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txt-name">Nơi sản xuất</label>
-                                    <input type="text" class="form-control" id="txt-name" name="nation" placeholder="{{$p->name}}"
-                                    value="{{ $p->nation }}">
+                                    <label for="txt-name">Chọn Xuất xứ:</label>
+                                    <select name="nation" class="form-control" id="txt-name" >
+                                        <option value="">-----  Chọn xuất xứ  -----</option>
+                                        <option value="England">Anh ( England )</option>
+                                        <option value="Germary">Đức ( Germary )</option>
+                                        <option value="Korea">Hàn Quốc ( Korea )</option>
+                                        <option value="Italia">Italia</option>
+                                        <option value="USA">Mỹ ( USA )</option>
+                                        <option value="Japan">Nhật Bản ( Japan )</option>
+                                        <option value="France">Pháp ( France )</option>
+                                        <option value="China">Trung Quốc ( China ) </option>
+                                        <option value="Vietnam">Việt Nam</option>
+                                        <option value="Orther Where">Các Nước Khác</option>
+                                    </select>
+                                    <p class="help is-danger">{{ $errors->first('nation') }}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-name">Website</label>
-                                    <input type="text" class="form-control" id="txt-name" name="website" placeholder="{{$p->name}}"
-                                    value="{{ $p->website }}">
+                                    <input type="text" class="form-control" id="txt-name" name="website" placeholder="{{$mfg->wedsite}}"
+                                    value="{{ $mfg->website }}">
+                                    <p class="help is-danger">{{ $errors->first('website') }}</p>
                                 </div>
 
                             </div>

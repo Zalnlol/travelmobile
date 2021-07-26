@@ -36,53 +36,53 @@
         </div>
       </div>
       <div class="card-body p-0">
-        <table class="table table-striped projects" style="text-align: center">
-            <thead>
-                <tr>
-                    <th style="width: 1%">#</th>
-                    <th>Mã hãng xe</th>
-                    <th>Tên hãng xe</th>
-                    <th>Logo</th>
-                    <th>Xuất xứ</th>
-                    <th>Wedsite</th>
-                    <th></th>
-                   
-                </tr>
-            </thead>
-            <?php
-            $count = 1;
-            ?>
-            <tbody>
-                <tr>
-                  @foreach ($mfg as $items)
-
-                    <td></td>
-                    <td>{{ $items->mfg_id }}</td>
-                    <td>{{ $items->name }}</td>
-                    <td><img width="100px" src="{{ url('/img/logo/	' .$items->logo ) }}"/></td>
-                    {{-- <td>{{ $items->logo }}</td> --}}
-                    <td>{{ $items->nation }}</td>
-                    <td>{{ $items->website }}</td>
+          <table class="table table-striped projects" style="text-align: center">
+              <thead>
+                  <tr>
+                      <th style="width: 1%">#</th>
+                      <th>Mã hãng xe</th>
+                      <th>Tên hãng xe</th>
+                      <th>Logo</th>
+                      <th>Xuất xứ</th>
+                      <th>Wedsite</th>
+                      <th></th>
                     
-                    <td>{{ $items->created_at }}</td>
-                    <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="{{ url('admin/mfg/update/' .$items->mfg_id) }}">
-                            <i class="fas fa-folder">
-                            </i>
-                            Chỉnh sửa
-                        </a>
-                        
-                        <a class="btn btn-danger btn-sm" href="" onclick="javascript:return confirm('Are you sure ?')">
-                            <i class="fas fa-trash">
-                            </i>
-                            Xóa
-                        </a>
-                    </td>
-                </tr>
-                                     
-                @endforeach
-            </tbody>
-        </table>
+                  </tr>
+              </thead>
+              <?php
+              $count = 1;
+              ?>
+              <tbody>
+                  <tr>
+                    @foreach ($mfg as $items)
+
+                      <td></td>
+                      <td>{{ $items->mfg_id }}</td>
+                      <td>{{ $items->name }}</td>
+                      <td><img width="100px" src="{{ url('/img/logo/	' .$items->logo ) }}"/></td>
+                      {{-- <td>{{ $items->logo }}</td> --}}
+                      <td>{{ $items->nation }}</td>
+                      <td>{{ $items->website }}</td>
+                      
+                      <td>{{ $items->created_at }}</td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="{{ url('admin/mfg/update/' .$items->mfg_id) }}" method="post">
+                              <i class="fas fa-folder">
+                              </i>
+                              Chỉnh sửa
+                          </a>
+                          
+                          <a class="btn btn-danger btn-sm" href="{{ url('admin/mfg/delete/' .$items->mfg_id) }}" onclick="javascript:return confirm('Are you sure ?')">
+                              <i class="fas fa-trash">
+                              </i>
+                              Xóa
+                          </a>
+                      </td>
+                  </tr>
+                                      
+                  @endforeach
+              </tbody>
+          </table>
       </div>
       <!-- /.card-body -->
     <!-- /.card -->
