@@ -711,4 +711,6 @@
 @endsection
 @section('Script')
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+
+    
 @endsection
