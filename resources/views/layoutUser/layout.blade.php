@@ -87,7 +87,7 @@
                                             <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/profile') }}">Trang cá nhân</a>
                                             <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/mycars')}}">Xe của tôi</a>
                                             <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/mytrips')}}">Chuyến của tôi</a>
-                                            <a class="dropdown-item" id="dropdown-list" href="#">Đổi mật khẩu</a>
+                                            <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/change-password')}}">Đổi mật khẩu</a>
                                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Đăng xuất') }}</a>
 
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
