@@ -906,8 +906,8 @@
 
                     </div>
                 </li>
-                {{-- <input type="text" name="lat" id="lat" >
-                <input type="text" name="lng" id="lng" > --}}
+                <input type="text" hidden name="lat" id="lat" >
+                <input type="text" hidden name="lng" id="lng" >
 
                 <ul class="form-section">
 
@@ -1080,7 +1080,7 @@
                 if (element['model'] == name) {
                     // giadexuat
                     document.getElementById('giadexuat').innerText = element['suggest_price'];
-                    document.getElementById('type_id').value = element['type_id '];
+                    document.getElementById('type_id').value = element['type_id'];
                 }
             });
         }

@@ -91,11 +91,6 @@ Route::get('/blog', [BlogController::class,"blog"]);
 
 
 
-Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profiles.show');
-
-
-
-
 
 //Quyền user 
 
@@ -117,18 +112,12 @@ Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
             //Route user view profile or edit profile
             Route::get('/profile',[ProfilesController::class,"viewSelfProfile"])->name('profiles.show');
             Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profiles.edit');
+            Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profiles.show');
             Route::patch('/profile/{user}',[ProfilesController::class,"update"])->name('profiles.update');
 
             //Changing password
             Route::get('change-password', [ChangePasswordController::class, 'index']);
             Route::post('change-password', [ChangePasswordController::class, 'store'])->name('change.password');
-
-
-
-
-
-
-
 
 
 

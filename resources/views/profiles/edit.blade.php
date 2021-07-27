@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form action="/profile/{{ $user->id }}" enctype="multipart/form-data" method="POST">
+    <form action="/profile/{{ $user->user_id }}" enctype="multipart/form-data" method="POST">
         @csrf
         @method('POST')
         <div class="row">
@@ -37,8 +37,6 @@
                         @endif
                     </div>
                 </div>
-
-
 
                 <div class="form-group row">
                     <div class="col-md-6 col-form-label">
