@@ -121,8 +121,23 @@ class SearchCar extends Controller
     
 function search(Request $request){
 
+
             $i=0;
             $searchinfo= $request->all();
+
+            $stu= convertS($searchinfo['checkin'], $searchinfo['hourstart'],0);
+            $etu= convertS($searchinfo['checkout'], $searchinfo['hourend'],0);
+
+            if($stu>$etu){
+                $tmp1=$searchinfo['checkin'];
+                $searchinfo['checkin']=$searchinfo['checkout'];
+                $searchinfo['checkout']=$tmp1;
+
+                $tmp2=$searchinfo['hourstart'];
+                $searchinfo['hourstart']=$searchinfo['hourend'];
+                $searchinfo['hourend']=$tmp2;
+
+            }
 
             if(count($searchinfo)==0){
                 $searchinfo['city']='Hồ Chí Minh, Thành phố Hồ Chí Minh';
