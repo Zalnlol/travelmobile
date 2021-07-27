@@ -112,16 +112,20 @@ function checktoado() {
 function checksubmit(){
 
     diachi = document.getElementById('search_input').value;
-
-    toado= ConvertAdd(diachi);
+    if(diachi!=''){
+        toado= ConvertAdd(diachi);
  
-    lang=toado.lng;
-
-     
-    document.getElementById('lat').value=toado.lat
-    document.getElementById('lng').value=lang
+        lang=toado.lng;
     
+         
+        document.getElementById('lat').value=toado.lat
+        document.getElementById('lng').value=lang
+       
+    }
     document.getElementById('nutsubmit1').click() = true;
+
+    
+  
 }
 
 
