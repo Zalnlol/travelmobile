@@ -109,23 +109,19 @@ function checktoado() {
 }
 
 
-function checksubmit(){
+function checksubmit1(){
 
     diachi = document.getElementById('search_input').value;
-    if(diachi!=''){
-        toado= ConvertAdd(diachi);
- 
-        lang=toado.lng;
-    
-         
-        document.getElementById('lat').value=toado.lat
-        document.getElementById('lng').value=lang
-       
-    }
-    document.getElementById('nutsubmit1').click() = true;
 
+    toado= ConvertAdd(diachi);
+ 
+    lang=toado.lng;
+
+     
+    document.getElementById('lat').value=toado.lat
+    document.getElementById('lng').value=lang
     
-  
+    document.getElementById('nutsubmit1').click() = true;
 }
 
 

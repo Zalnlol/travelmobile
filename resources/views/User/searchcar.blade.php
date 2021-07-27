@@ -99,7 +99,7 @@
 
 
                                 <div class="col-lg-2">
-                                    <input type="button"  onclick="return checksubmit()" name="sb" id="sb"  value="Áp dụng">
+                                    <input type="button"  onclick="return checksubmit1()" name="sb" id="sb"  value="Áp dụng">
                                     <button type="submit" id="nutsubmit1"   hidden >Áp dụng</button>
                                 </div>
                             </div>

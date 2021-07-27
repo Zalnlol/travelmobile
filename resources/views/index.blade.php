@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group tm-form-element tm-form-element-100">
-                                    <button type="button"  onclick="return checksubmit()" class="btn btn-primary tm-btn-search">Tìm xe ngay</button>
+                                    <button type="button"  onclick="return checksubmit1()" class="btn btn-primary tm-btn-search">Tìm xe ngay</button>
                                 </div>
                                 
                                     <button type="submit" id="nutsubmit1" hidden >Tìm xe ngay</button>
