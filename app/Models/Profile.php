@@ -7,15 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Profile extends Model
 {
-    use HasFactory;
+    // use HasFactory;
     protected $guarded = [];
-    public function avatar_image(){
-        $imagePath = ($this->image) ? $this->image : 'img/default-user-icon.jpg';
-        return '/storage'.$imagePath;
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function avatar_image(){
+        $imagePath = ($this->image) ? $this->image : 'img/default-user-icon.jpg';
+        return '/storage'.$imagePath;
     }
 }

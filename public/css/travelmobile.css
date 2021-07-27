@@ -1,5 +1,6 @@
 #body {
     background-color:  #1f3646;
+    /* font-family: 'Open Sans', sans-serif; */
 }
 #login-card{
     width:350px;
@@ -34,9 +35,9 @@
     align-items: center;
     border-radius: 5px
 }
-#container{
+/* #container{
     margin-top:25px;
-}
+} */
 
 .btn-circle.btn-sm { 
     width: 40px; 
@@ -46,4 +47,30 @@
     font-size: 14px; 
     text-align: center;
     margin: 8px;
+}
+
+
+.profile__sect .avatar-box span.host-stars:before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: hsla(0, 0%, 100%, .8);
+    z-index: -1
+}
+
+.gallery{
+    margin: 10px 50px;
+}
+
+.gallery img{
+    transition: 1s;
+    padding: 15px;
+    width: 200px;
+}
+
+.gallery img:hover{
+    filter: grayscale(100%);
+    transform: scale(1.1);
 }

@@ -55,16 +55,15 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown" style="width:20rem">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="images/avatar.png" style="width: 40px" class="rounded-circle">
-                                    {{ Auth::user()->name }}
+                                <img src="{{ asset('/img/' . Auth::user()->avatar_image) }}" style="width: 40px" class="rounded-circle"><span >{{ Auth::user()->name }}</span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" id="dropdown-list" href="#">Trang cá nhân</a>
-                                    <a class="dropdown-item" id="dropdown-list" href="#">Xe của tôi</a>
-                                    <a class="dropdown-item" id="dropdown-list" href="#">Chuyến của tôi</a>
+                                    <a class="dropdown-item" id="dropdown-list" href="{{ url('/profile') }}">Trang cá nhân</a>
+                                    <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/mycars')}}">Xe của tôi</a>
+                                    <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/mytrips')}}">Chuyến của tôi</a>
                                     <a class="dropdown-item" id="dropdown-list" href="#">Đổi mật khẩu</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Đăng xuất') }}</a>
 

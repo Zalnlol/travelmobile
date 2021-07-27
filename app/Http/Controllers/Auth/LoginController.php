@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -36,12 +37,17 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        session(['url.intended' => url()->previous()]);
+        $this->redirectTo = session()->get('url.intended');
         $this->middleware('guest')->except('logout');
     }
 
     public function login(Request $request)
     {   
+
+        
         $input = $request->all();
+        
    
         $this->validate($request, [
             'email' => 'required|email',
@@ -49,11 +55,12 @@ class LoginController extends Controller
         ]);
    
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
-        {
+        {   
+            $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
             if (auth()->user()->is_admin == 1) {
                 return redirect()->route('admin.home');
             }else{
-                return redirect()->route('home');
+                return redirect()->intended('/');
             }
         }else{
             return redirect()->route('login')

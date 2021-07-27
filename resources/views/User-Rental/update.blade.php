@@ -235,7 +235,7 @@ font-weight: bolder;}
             <h2 id="header_1" class="form-header" data-component="header">
                <strong> Cập nhật </strong>
             </h2>
-
+            <h6 style="color: red">Lưu ý không thể thay đổi những thông tin về xe</h6>
           </div>
         </div>
       </li>
@@ -271,21 +271,21 @@ font-weight: bolder;}
       <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_6">
         <label class="form-label form-label-top" id="label_6" for="input_6"> Hãng xe </label>
         <div id="cid_6" class="form-input-wide">
-          <input type="text" id="input_6" name="brand" data-type="input-textbox" class="form-textbox" size="20" value="{{ $crentals->brand }}" placeholder=" " data-component="textbox" aria-labelledby="label_6" />
+          <input type="text" id="input_6" name="brand" data-type="input-textbox" readonly class="form-textbox" size="20" value="{{ $crentals->brand }}" placeholder=" " data-component="textbox" aria-labelledby="label_6" />
         </div>
       </li>
       <li class="form-line form-line-column form-col-3" data-type="control_textbox" id="id_7">
         <label class="form-label form-label-top" id="label_7" for="input_7"> Mẫu xe </label>
         <div id="cid_7" class="form-input-wide">
-          <input type="text" id="input_7" name="name" data-type="input-textbox" class="form-textbox" size="20" value="{{ $crentals->name }}" placeholder=" " data-component="textbox" aria-labelledby="label_7" />
+          <input type="text" id="input_7" name="name" data-type="input-textbox" readonly class="form-textbox" size="20" value="{{ $crentals->name }}" placeholder=" " data-component="textbox" aria-labelledby="label_7" />
         </div>
       </li>
 
       <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
         <label class="form-label form-label-top" id="label_10" for="seatnum"> Số ghế </label>
         <div id="cid_10" class="form-input-wide">
-          <select class="form-dropdown" id="input_10" name="seatnum" style="width:150px" data-component="dropdown">
-            <option value="{{ $crentals->seatnum }}">{{ $crentals->seatnum }}</option>
+          <select class="form-dropdown" id="input_10" disabled name="" style="width:150px" data-component="dropdown">
+            <option value="{{ $crentals->seatnum }}" >{{ $crentals->seatnum }}</option>
             <option value="4"> 4 </option>
             <option value="5"> 5 </option>
             <option value="6"> 6 </option>
@@ -312,8 +312,8 @@ font-weight: bolder;}
       <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
         <label class="form-label form-label-top" id="label_10" for="model_year"> Năm sản xuất </label>
         <div id="cid_10" class="form-input-wide">
-          <select class="form-dropdown" id="input_10" name="model_year" style="width:150px" data-component="dropdown">
-            <option value="{{ $crentals->model_year }}">{{ $crentals->model_year }}</option>
+          <select class="form-dropdown" id="input_10" disabled name="" style="width:150px" data-component="dropdown">
+            <option value="{{ $crentals->model_year }}" >{{ $crentals->model_year }}</option>
             <option value="1960"> 1960 </option>
             <option value="1961"> 1961 </option>
             <option value="1962"> 1962 </option>
@@ -383,7 +383,7 @@ font-weight: bolder;}
       <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
         <label class="form-label form-label-top" id="label_10" for="auto"> Truyền động </label>
         <div id="cid_10" class="form-input-wide">
-          <select class="form-dropdown" id="input_10" name="auto" style="width:150px" data-component="dropdown">
+          <select class="form-dropdown" id="input_10" disabled name="auto" style="width:150px" data-component="dropdown">
             @if ($crentals->auto == 1)
             <option value="1"> Số tự động </option>
             <option value="2">Số sàn</option>
@@ -399,7 +399,7 @@ font-weight: bolder;}
       <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
         <label class="form-label form-label-top" id="label_10" for="fuel"> Loại nhiên liệu </label>
         <div id="cid_10" class="form-input-wide">
-          <select class="form-dropdown" id="input_10" name="fuel" style="width:150px" data-component="dropdown">
+          <select class="form-dropdown" id="input_10" disabled name="fuel" style="width:150px" data-component="dropdown">
             @if ($crentals->fuel == 1)
             <option value="1"> Xăng </option>
             <option value="2"> Dầu diesel </option>
@@ -436,8 +436,7 @@ font-weight: bolder;}
       <li class="form-line" data-type="control_textarea" id="id_36">
         <label class="form-label form-label-top" id="label_36" for="description">Mô tả</label>
         <div id="cid_36" class="form-input-wide">
-          <textarea rows="4" id="description" class="form-textarea" name="description" placeholder="        Huyndai Elantra số tự động đăng kí tháng 06/2018. Xe gia đình mới đẹp, nội thất nguyên bản, sạch sẽ, bảo dưỡng thường xuyên, rửa xe miễn phí cho khách.
-          Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch. Xe trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, camera hành trình, hệ thống giải trí AV cùng nhiều tiện nghi khác..." cols="40" rows="6" data-component="textarea" aria-labelledby="label_36">{{ $crentals->description }}</textarea>
+          <textarea class="form-control ckeditor" rows="4" id="description" name="description" placeholder="" cols="40" rows="6">{{ $crentals->description }}</textarea>
         </div>
       </li>
 
@@ -831,4 +830,7 @@ font-weight: bolder;}
       </li>
       </div>
 
+@endsection
+@section('Script')
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 @endsection

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\CarRental;
+use App\Models\CarPic;
 use Illuminate\Support\Facades\DB;
 
 class RentalController extends Controller
@@ -49,5 +51,24 @@ class RentalController extends Controller
         $rentals->delete();
         return redirect('admin/rental');
     }
+
+    public function active()
+    {
+        $rental = CarRental::where('status', 2)->get();
+        return view('Admin-Rental.active-index', compact('rental'));
+    }
+
+    public function deny()
+    {
+        $rental = CarRental::where('status', 3)->get();
+        return view('Admin-Rental.deny-index', compact('rental'));
+    }
+
+    public function carimg($car_id)
+    {
+        $img = CarPic::where('car_id', $car_id)->get();
+        return view('Admin-Rental.carimg', compact('img'));
+    }
+
 
 }

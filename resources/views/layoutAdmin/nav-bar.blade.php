@@ -26,12 +26,16 @@
    
 
     <ul class="navbar-nav ml-auto" style="width:auto">
-      <li class="nav-item">Xin chào! Lê Nguyễn Thành Nhân</li>
-  
-      <li class="nav-item">
-        <a class="nav-link" href="{{url('logout')}}">
-          <input type="button" class="btn btn-success" value="Log Out">
+      <li class="nav-item">Xin chào! {{ Auth::user()->name }}</li>
+      <li>
+
+
+        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+          <input type="button" class="btn btn-success" value="Đăng xuất">  
         </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
       </li>
     </ul>
   </nav>

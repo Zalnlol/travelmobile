@@ -9,12 +9,14 @@ class MGFCarController extends Controller
     public function index()
     {
         $mfg = CarMFG::all();
-        return view('Admin-Rental.mfg-index', compact('mfg'));
+        return view('Admin-MFG.mfg-index', compact('mfg'));
     }
+
     public function create()
     {
-        return view('Admin-Rental.mfg-create');
+        return view('Admin-MFG.mfg-create');
     }
+
     public function postCreate(Request $request) {
         
         // nhận tất cả tham số vào mảng product
@@ -47,9 +49,15 @@ class MGFCarController extends Controller
         $p->save();
         return redirect()->action('MGFCarController@index');
     }
+    
     public function update($mfg_id) {
+<<<<<<< HEAD
         $mfg = CarMFG::find($mfg_id);
         return view('Admin-Rental.mfg-update', ['mfg'=>$mfg]);
+=======
+        $p = CarMFG::find($mfg_id);
+        return view('Admin-MFG.mfg-update', ['p'=>$p]);
+>>>>>>> 7e2ecc762558d554e5bb40ad7114f6be0f2d2ea2
     }
     public function postUpdate(Request $request, $mfg_id) {
         

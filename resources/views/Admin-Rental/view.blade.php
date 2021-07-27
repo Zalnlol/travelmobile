@@ -230,7 +230,7 @@ font-weight: bolder;}
         <div class="form-header-group  header-default">
           <div class="header-text httal htvam">
             <h2 id="header_1" class="form-header" data-component="header">
-               <strong> Cập nhật </strong>
+               <strong> Phê duyệt </strong>
             </h2>
 
           </div>
@@ -293,7 +293,7 @@ font-weight: bolder;}
 
 
      
-      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
+      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10" style="margin-left: 140px">
         <label class="form-label form-label-top" id="label_10" for="model_year"> Năm sản xuất </label>
         <div id="cid_10" class="form-input-wide">
           <select class="form-dropdown" id="input_10" disabled name="model_year" style="width:150px" data-component="dropdown">
@@ -364,7 +364,7 @@ font-weight: bolder;}
         </div>
       </li>
 
-      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
+      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10" style="margin-top: -74px">
         <label class="form-label form-label-top" id="label_10" for="auto"> Truyền động </label>
         <div id="cid_10" class="form-input-wide">
           <select class="form-dropdown" id="input_10" disabled name="auto" style="width:150px" data-component="dropdown">
@@ -380,7 +380,7 @@ font-weight: bolder;}
         </div>
       </li>
 
-      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
+      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10" style="margin-top: -74px">
         <label class="form-label form-label-top" id="label_10" for="fuel"> Loại nhiên liệu </label>
         <div id="cid_10" class="form-input-wide">
           <select class="form-dropdown" id="input_10" name="fuel" disabled style="width:150px" data-component="dropdown">
@@ -420,14 +420,10 @@ font-weight: bolder;}
       <li class="form-line" data-type="control_textarea" id="id_36">
         <label class="form-label form-label-top" id="label_36" for="description">Mô tả</label>
         <div id="cid_36" class="form-input-wide">
-          <textarea rows="4" id="description" class="form-textarea" name="description" readonly placeholder="        Huyndai Elantra số tự động đăng kí tháng 06/2018. Xe gia đình mới đẹp, nội thất nguyên bản, sạch sẽ, bảo dưỡng thường xuyên, rửa xe miễn phí cho khách.
-          Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch. Xe trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, camera hành trình, hệ thống giải trí AV cùng nhiều tiện nghi khác..." cols="40" rows="6" data-component="textarea" aria-labelledby="label_36">{{ $rentalview->description }}</textarea>
+          <textarea class="form-control ckeditor" rows="4" id="description" name="description" disabled cols="40" rows="6">{{ $rentalview->description }}</textarea>
         </div>
       </li>
 
-
-     
-       
      
         <li class="form-line" data-type="control_image" id="id_25">
           <div id="cid_25" class="form-input-wide">
@@ -756,9 +752,6 @@ font-weight: bolder;}
         <li class="form-line" data-type="control_button" id="id_2" >
             <div id="cid_2" class="form-input-wide" style="margin-left: auto" style="margin-right: auto" >
               <div style="text-align:center"  data-align="left" class="form-buttons-wrapper form-buttons-left   jsTest-button-wrapperField" style="width: 100px">
-                <button  style="margin-right: 32px"  type="submit" disabled class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
-                  Quay lại
-                </button>
               
                     <button  style="text-align: center" type="submit" class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
                       Cập nhật
@@ -771,4 +764,7 @@ font-weight: bolder;}
           </li>
         </form>
 
+@endsection
+@section('script-section')
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 @endsection

@@ -12,11 +12,15 @@ class ModelcarController extends Controller
     public function index()
     {
         $model = ModelCar::all();
-        return view('Admin-Rental.model-index', compact('model'));
+        return view('Admin-Model.model-index', compact('model'));
     }
     public function create() {
+<<<<<<< HEAD
         $mfg = CarMFG::all();
         return view('Admin-Rental.model-create',compact('mfg'));
+=======
+        return view('Admin-Model.model-create');
+>>>>>>> 7e2ecc762558d554e5bb40ad7114f6be0f2d2ea2
     }
 //     public function store(Request $request)
 // {
@@ -49,6 +53,7 @@ class ModelcarController extends Controller
         $p->save();
         return redirect()->action('ModelcarController@index');
         }
+<<<<<<< HEAD
 //         public function messages()
 // {
 //     return [
@@ -69,6 +74,11 @@ class ModelcarController extends Controller
             $mfg = CarMFG::all();
             $m = ModelCar::find($type_id);
             return view('Admin-Rental.model-update', ['m'=> $m,'mfg'=>$mfg]);
+=======
+        public function update($type_id) {
+            $p = ModelCar::find($type_id);
+            return view('Admin-Model.model-update', ['p'=>$p]);
+>>>>>>> 7e2ecc762558d554e5bb40ad7114f6be0f2d2ea2
         }
     public function postUpdate(Request $request,$type_id) {
         

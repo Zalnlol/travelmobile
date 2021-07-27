@@ -195,10 +195,9 @@ font-weight: bolder;}
     
       }
     /* Injected CSS Code */
+    div img { max-width: 100%; }
 </style>
 
-<form class="jotform-form" action="{{ route('rental.checkUpload') }}" method="post" enctype="multipart/form-data" >
-    @csrf
 
   <div role="main" class="form-all" style="margin-top: 5%">
     <ul class="form-section page-section">
@@ -206,7 +205,7 @@ font-weight: bolder;}
         <div class="form-header-group  header-default">
           <div class="header-text httal htvam">
             <h2 id="header_47" class="form-header" data-component="header">
-              Ảnh xe
+              Ảnh xe <h5>(Phải đủ 4 hình)</h5>
             </h2>
             <div id="subHeader_47" class="form-subHeader">
               Đăng nhiều hình ở các góc độ khác nhau để tăng thông tin cho xe của bạn.
@@ -215,10 +214,23 @@ font-weight: bolder;}
         </div>
       </li>
 
+      @if (count($errors) > 0)
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors as $item)
+                  <li>{{ $item }}</li>
+              @endforeach
+          </ul>
+      </div>
+      @endif
+
+      <form name="myform" class="jotform-form" action="{{ route('rental.checkUpload') }}" method="post" enctype="multipart/form-data" onsubmit="return validation()">
+        @csrf
+        <input type="hidden" name="car_id" value="{{ $data }}">
       <li class="form-line" data-type="control_text" id="id_55">
         <div id="cid_55" class="form-input-wide">
           <div id="text_55" class="form-html" data-component="text">
-            <h6><strong><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif;">Ảnh chính giữa</span></strong></h6>
+            <h6><strong><span style="font-size: 12pt; font-family: arial, helvetica, sans-serif;">Ảnh 1</span></strong></h6>
             <div id="eJOY__extension_root" class="eJOY__extension_root_class" style="all: unset;">
               <span style="font-size: 14pt;">
                  
@@ -230,6 +242,7 @@ font-weight: bolder;}
           </div>
         </div>
       </li>
+      
       <li class="form-line" data-type="control_fileupload" id="id_59">
         <label class="form-label form-label-top form-label-auto" id="label_59" for="input_59">  </label>
         <div id="cid_59" class="form-input-wide">
@@ -238,7 +251,9 @@ font-weight: bolder;}
               <div class="qq-uploader-buttonText-value">
                 Browse Files
               </div>
-              <input type="file" id="input_59" name="image1" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
+              
+              <input type="file" id="files" name="image"/>
+              <img id="image" style="widows: 500px"/>
             </div>
             <span style="display:none" class="cancelText">
               Cancel
@@ -252,7 +267,7 @@ font-weight: bolder;}
       <li class="form-line" data-type="control_text" id="id_52">
         <div id="cid_52" class="form-input-wide">
           <div id="text_52" class="form-html" data-component="text">
-            <h6><strong>Ảnh bên trái</strong></h6>
+            <h6><strong>Ảnh 2</strong></h6>
             <div id="eJOY__extension_root" class="eJOY__extension_root_class" style="all: unset;">
                
             </div>
@@ -267,7 +282,8 @@ font-weight: bolder;}
               <div class="qq-uploader-buttonText-value">
                 Browse Files
               </div>
-              <input type="file" id="input_66" name="image2" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
+              <input type="file" id="files1" name="image_left" />
+              <img id="image1" />
             </div>
             <span style="display:none" class="cancelText">
               Cancel
@@ -281,7 +297,7 @@ font-weight: bolder;}
       <li class="form-line" data-type="control_text" id="id_56">
         <div id="cid_56" class="form-input-wide">
           <div id="text_56" class="form-html" data-component="text">
-            <h6><strong>Ảnh bên phải</strong></h6>
+            <h6><strong>Ảnh 3</strong></h6>
             <div class="ddict_btn" style="top: 28px; left: 94.8px;">
                
             </div>
@@ -296,7 +312,8 @@ font-weight: bolder;}
               <div class="qq-uploader-buttonText-value">
                 Browse Files
               </div>
-              <input type="file" id="input_67" name="image3" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
+              <input type="file" id="files2" name="image_right" />
+              <img id="image2" />
             </div>
             <span style="display:none" class="cancelText">
               Cancel
@@ -310,7 +327,7 @@ font-weight: bolder;}
       <li class="form-line" data-type="control_text" id="id_57">
         <div id="cid_57" class="form-input-wide">
           <div id="text_57" class="form-html" data-component="text">
-            <h6><strong>Ảnh đằng sau</strong></h6>
+            <h6><strong>Ảnh 4</strong></h6>
             <div id="eJOY__extension_root" class="eJOY__extension_root_class" style="all: unset;">
                
             </div>
@@ -325,7 +342,8 @@ font-weight: bolder;}
               <div class="qq-uploader-buttonText-value">
                 Browse Files
               </div>
-              <input type="file" id="input_68" name="image4" multiple="" class="form-upload-multiple" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10854" data-file-minsize="0" data-file-limit="" data-component="fileupload" />
+              <input type="file" id="files3" name="image_behind" />
+              <img id="image3" />
             </div>
             <span style="display:none" class="cancelText">
               Cancel
@@ -339,13 +357,208 @@ font-weight: bolder;}
 
       <li class="form-line" data-type="control_button" id="id_2">
         <div id="cid_2" class="form-input-wide">
+          {{-- <button id="input_2" type="submit"  class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+            Quay lại
+          </button> --}}
           <div style="text-align:center" data-align="center" class="form-buttons-wrapper form-buttons-center   jsTest-button-wrapperField">
             <button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
-              Submit
+              Đăng ký
             </button>
           </div>
         </div>
       </li>
 
 </form>
+<script>
+  var div = document.getElementById("form-input-wide");
+var width = div.style.height;
+yourImg.style.width = width;
+</script>
+<script>
+  var img = document.forms['myform']['image'];
+  var img1 = document.forms['myform']['image_left'];
+  var img2 = document.forms['myform']['image_right'];
+  var img3 = document.forms['myform']['image_behind'];
+  
+  var validExt = ["jpeg", "png", "jpg"];
+
+  function validation()
+  {
+      if(img.value != '')
+      {
+          var img_ext=img.value.substring(img.value.lastIndexOf('.')+1);
+
+          var result = validExt.includes(img_ext);
+
+          if(result == false)
+          {
+              alert('File ảnh 1 bạn chọn không phải là file hình!');
+              return false;
+          }
+          else
+          {
+              if(parseFloat(img.files[0].size/(1024*1024))>=3)
+              {
+                  alert('File có kích thước tối đa là 3MB. File hiện tại: ' + parseFloat(img.files[0].size/(1024*1024)) );
+                  return false;
+              }
+          }
+
+      }else{
+          alert('Bạn chưa chọn ảnh 1');
+          return false;
+      }
+      // return true;
+      if(img1.value != '')
+      {
+          var img1_ext=img1.value.substring(img1.value.lastIndexOf('.')+1);
+
+          var result = validExt.includes(img1_ext);
+
+          if(result == false)
+          {
+              alert('File ảnh 2 bạn chọn không phải là file hình!');
+              return false;
+          }
+          else
+          {
+              if(parseFloat(img1.files[0].size/(1024*1024))>=3)
+              {
+                  alert('File có kích thước tối đa là 3MB. File hiện tại: ' + parseFloat(img1.files[0].size/(1024*1024)) );
+                  return false;
+              }
+          }
+
+      }else{
+          alert('Bạn chưa chọn ảnh 2');
+          return false;
+      }
+
+      if(img2.value != '')
+      {
+          var img2_ext=img2.value.substring(img2.value.lastIndexOf('.')+1);
+
+          var result = validExt.includes(img2_ext);
+
+          if(result == false)
+          {
+              alert('File ảnh 3 bạn chọn không phải là file hình!');
+              return false;
+          }
+          else
+          {
+              if(parseFloat(img2.files[0].size/(1024*1024))>=3)
+              {
+                  alert('File có kích thước tối đa là 3MB. File hiện tại: ' + parseFloat(img2.files[0].size/(1024*1024)) );
+                  return false;
+              }
+          }
+
+      }else{
+          alert('Bạn chưa chọn ảnh 3');
+          return false;
+      }
+
+      if(img3.value != '')
+      {
+          var img3_ext=img3.value.substring(img3.value.lastIndexOf('.')+1);
+
+          var result = validExt.includes(img3_ext);
+
+          if(result == false)
+          {
+              alert('File ảnh 4 bạn chọn không phải là file hình!');
+              return false;
+          }
+          else
+          {
+              if(parseFloat(img3.files[0].size/(1024*1024))>=3)
+              {
+                  alert('File có kích thước tối đa là 3MB. File hiện tại: ' + parseFloat(img3.files[0].size/(1024*1024)) );
+                  return false;
+              }
+          }
+
+      }else{
+          alert('Bạn chưa chọn ảnh 4');
+          return false;
+      }
+      return true;
+  }
+</script>
+
+<script>
+  document.getElementById("files").onchange = function () {
+  var reader = new FileReader();
+
+  reader.onload = function (e) {
+      // get loaded data and render thumbnail.
+      document.getElementById("image").src = e.target.result;
+  };
+
+  // read the image file as a data URL.
+  reader.readAsDataURL(this.files[0]);
+};
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+          bsCustomFileInput.init();
+      });
+</script>
+
+<script>
+document.getElementById("files1").onchange = function () {
+var reader = new FileReader();
+
+reader.onload = function (e) {
+    // get loaded data and render thumbnail.
+    document.getElementById("image1").src = e.target.result;
+};
+
+// read the image file as a data URL.
+reader.readAsDataURL(this.files[0]);
+};
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+          bsCustomFileInput.init();
+      });
+</script>
+
+<script>
+document.getElementById("files2").onchange = function () {
+var reader = new FileReader();
+
+reader.onload = function (e) {
+    // get loaded data and render thumbnail.
+    document.getElementById("image2").src = e.target.result;
+};
+
+// read the image file as a data URL.
+reader.readAsDataURL(this.files[0]);
+};
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+          bsCustomFileInput.init();
+      });
+</script>
+
+<script>
+document.getElementById("files3").onchange = function () {
+var reader = new FileReader();
+
+reader.onload = function (e) {
+    // get loaded data and render thumbnail.
+    document.getElementById("image3").src = e.target.result;
+};
+
+// read the image file as a data URL.
+reader.readAsDataURL(this.files[0]);
+};
+</script>
+
 @endsection

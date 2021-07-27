@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ url('/') }}" class="brand-link">
+    <a href="{{ url('/admin') }}" class="brand-link">
         <img src="{{ asset('images/travel-mobile-logo-footer.png')}}"  alt="Product Demo" style="opacity .8;width:200px">
         
     </a>
@@ -21,51 +21,18 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin/user')}}" class="nav-link">
+                <a href="{{url('admin/index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách người dùng</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin/book')}}" class="nav-link">
+                <a href="{{url('admin/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Tạo người dùng</p>
+                  <p>Tạo admin</p>
                 </a>
               </li>
             
-            </ul>
-          </li>
-        </ul>
-    </nav>
-
-  
-  
-     <!-- admin-->
-    <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
-            <a href="#"class="nav-link">
-                <i class="fas fa-users-cog"></i>
-              <p>
-                Quản trị viên
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('admin/user')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Danh sách quản trị viên</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('admin/book')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Thêm quản trị viên</p>
-                </a>
-              </li>
             </ul>
           </li>
         </ul>
@@ -141,7 +108,7 @@
             <a href="#"class="nav-link">
                 <i class="fas fa-car-side"></i>
               <p>
-                Dữ liệu về xe
+                Danh sách xe đăng ký
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -149,19 +116,19 @@
               <li class="nav-item">
                 <a href="{{ route('admin.rental') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh sách xe </p>
+                  <p> Xe đăng ký </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin/book')}}" class="nav-link">
+                <a href="{{route('admin.active-rental')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh sách xe chưa duyệt</p>
+                  <p>Danh sách xe đang hoạt động</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin/book')}}" class="nav-link">
+                <a href="{{route('admin.deny-rental')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh sách xe mẫu</p>
+                  <p>Danh sách xe đã từ chối</p>
                 </a>
               </li>
             </ul>
@@ -185,7 +152,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin/user')}}" class="nav-link">
+                <a href="{{ route('admin.rentalcontract') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách hợp đồng</p>
                 </a>
@@ -248,7 +215,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin/user')}}" class="nav-link">
+                <a href="{{url('admin/blog')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Doanh sách bài blog </p>
                 </a>
