@@ -890,8 +890,8 @@
                             <output id="range_weight_disp2"></output> %
                         </div>
                     </li>
-
                 </ul>
+
                 <li class="form-line" data-type="control_checkbox" id="id_26">
                     <label class="form-label form-label-top" id="label_24" for="input_24"> Địa chỉ xe </label>
                 </li>
@@ -911,6 +911,7 @@
 
                     </div>
                 </li>
+                
                 <input type="text" hidden name="lat" id="lat">
                 <input type="text" hidden name="lng" id="lng">
 
@@ -1007,12 +1008,12 @@
                     <div id="cid_2" class="form-input-wide">
                         <div style="text-align:center" data-align="left"
                             class="form-buttons-wrapper form-buttons-left   jsTest-button-wrapperField">
-
+{{-- 
                             <button style="margin-right: 32px" type="submit" onclick="{{ route('rental.index') }}"
                                 class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField"
                                 data-component="button" data-content="">
                                 Quay lại
-                            </button>
+                            </button> --}}
 
                             <input style="text-align: center" type="button" onclick="return checksubmit()"
                                 class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField"

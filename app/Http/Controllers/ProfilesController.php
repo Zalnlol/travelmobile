@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
@@ -14,6 +16,7 @@ class ProfilesController extends Controller
         $data = user::where('user_id',$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'))->get()->first();
         $user = $data;
         $user_id = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+
         return view('profiles.index', compact('user','user_id'));
 
     }
@@ -33,11 +36,15 @@ class ProfilesController extends Controller
         return view('profiles.index', compact('user','user_id'));  
         }
 
-        
-    public function edit(Request  $request ,User $user)
+
+    public function edit(Request  $request, User $user)
     {   
 
         $user_id=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+
+        if($user['user_id']!= $user_id){
+            return redirect()->action([ProfilesController::class, 'viewSelfProfile']);
+        }
 
         return view('profiles.edit', compact('user', 'user_id'));
     }
@@ -45,33 +52,50 @@ class ProfilesController extends Controller
     // WIP
     public function update(Request  $request ,User $user)
     {   
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $mobile = $request->input('mobile');
-        $gender = $request->input('gender');
-        $status = $request->input('status');
-        $driver_id = $request->input('driver_id');
+        $user_id = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        $searchinfo= $request->all();
+        // dd($searchinfo);
         $data = request()->validate([
             'name' => ['required', 'string', 'max:255'],
-            'image' => '',
+            'avatar_image' => '',
             'mobile' => 'required',
             'dob' => '',
             'gender' => 'required',
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:tb_user'],
             'driver_id' => '',
             'driver_id_image' => '',
         ]);
-        $user_id = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $avatar_image = $request->input('avatar_image');
+        $mobile = $request->input('mobile');
+        $gender = $request->input('gender');
+        $driver_id = $request->input('driver_id');
+
         // dd($user_id);
-        //Xử lý upload hình vào thư mục
-        if($request->hasFile('image')){
-            $file=$request->file('image');
+        //Xử lý upload ảnh đại diện hình vào thư mục
+        if($request->hasFile('avatar_image')){
+            $file=$request->file('avatar_image');
+            $extension = $file->getClientOriginalExtension();
+            if($extension != 'jpg' && $extension != 'png' && $extension != 'jpeg'){
+                return redirect()->action([AccountController::class, 'edit'])->width('Lỗi', ' Bạn chỉ được chọn file có đuôi jpg, png, jpeg');
+            }
+            $avatar_image = $file->getClientOriginalName();
+            $file->move("img",$avatar_image);
+        } else {//Không upload hình mới => giữ lại hình cũ
+            $user = DB::table('tb_user')
+                    ->where('user_id',intval($user_id))
+                    ->first();
+                    $avatar_image = $user->avatar_image;
+        }
+        //Xử lý upload ảnh GPLX hình vào thư mục
+        if($request->hasFile('driver_id_image')){
+            $file=$request->file('driver_id_image');
             $extension = $file->getClientOriginalExtension();
             if($extension != 'jpg' && $extension != 'png' && $extension != 'jpeg'){
                 return redirect()->action([AccountController::class, 'edit'])->width('Lỗi', ' Bạn chỉ được chọn file có đuôi jpg, png, jpeg');
             }
             $imageName = $file->getClientOriginalName();
-            $file->move("public/images",$imageName);
+            $file->move("public/img",$imageName);
         } else {//Không upload hình mới => giữ lại hình cũ
             $user = DB::table('tb_user')
                     ->where('user_id',intval($user_id))
@@ -80,7 +104,7 @@ class ProfilesController extends Controller
         }
         $user = DB::table('tb_user')
             ->where('user_id',intval($user_id))
-            ->update(['name'=>$name, 'email'=>$email, 'mobile'=>$mobile, 'gender'=>$gender, 'status'=>$status, 'driver_id'=>$driver_id, 'driver_id_image'=>$imageName]);
+            ->update(['name'=>$name, 'email'=>$email,'avatar_image'=>$avatar_image, 'mobile'=>$mobile, 'gender'=>$gender,  'driver_id'=>$driver_id, 'driver_id_image'=>$imageName]);
             return redirect()->action([AccountController::class, 'index']);
         return redirect('profiles.index', compact('user','user_id'));
     }
