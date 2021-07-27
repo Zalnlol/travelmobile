@@ -35,8 +35,6 @@ class MyCarController extends Controller
     public function edit(Request $req)
     {
         $car_id = $req->car_id;
-        $brand = $req->brand;
-        $name = $req->name;
         $seatnum = $req->seatnum;
         $model_year = $req->model_year;
         $auto = $req->auto;
@@ -63,12 +61,11 @@ class MyCarController extends Controller
 
         $up = DB::table('tb_car_rental')
         ->where('car_id', intval($car_id))
-        ->update(['brand'=> $brand, 'name'=>$name, 'auto'=>$auto, 'fuel'=>$fuel, 'consumption'=>$consumption, 'rent_price'=> $rent_price, 
-        'description'=>$description, 'convertible' => $convertible, 'bluetooth' => $bluetooth, 'gps'=>$gps, 'usb'=>$usb,
-        'kid_chair'=>$kid_chair, 'map'=> $map, 'camera'=>$camera, 'discount_weekly' => $discount_weekly,
-        'discount_monthly' => $discount_monthly, 'address'=>$address, 'max_ship_distance'=>$max_ship_distance,
-        'shipping_price_km'=>$shipping_price_km, 'free_ship_distance'=> $free_ship_distance, 'max_travel_distance'=>$max_travel_distance,
-        'over_max_travel_cost' => $over_max_travel_cost, 'rules' => $rules]);  
+        ->update(['consumption'=>$consumption, 'rent_price'=> $rent_price, 'description'=>$description, 'convertible' => $convertible,
+        'bluetooth' => $bluetooth, 'gps'=>$gps, 'usb'=>$usb,'kid_chair'=>$kid_chair, 'map'=> $map, 'camera'=>$camera,
+        'discount_weekly' => $discount_weekly, 'discount_monthly' => $discount_monthly, 'address'=>$address,
+        'max_ship_distance'=>$max_ship_distance, 'shipping_price_km'=>$shipping_price_km, 'free_ship_distance'=> $free_ship_distance,
+        'max_travel_distance'=>$max_travel_distance, 'over_max_travel_cost' => $over_max_travel_cost, 'rules' => $rules]);  
         
         $approval = $req->approval;
         if($approval == 1){
@@ -96,12 +93,6 @@ class MyCarController extends Controller
     {    
         $crentals = $req->all();  
         
-        // dd(
-        //     $crentals
-        // );
-
-
-
         CarRental::create($crentals);
         $user_id = $req->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
 
@@ -119,7 +110,7 @@ class MyCarController extends Controller
     {
         $rentals = CarRental::where('car_id', $car_id)->first();
         $rentals->delete();
-        return redirect('mycar');
+        return redirect('user/mycars');
     }
 
     public function image($car_id)
@@ -140,7 +131,6 @@ class MyCarController extends Controller
             $extension = $file1->getClientOriginalExtension();
             $extension = $file2->getClientOriginalExtension();
             $extension = $file3->getClientOriginalExtension();
-
                 $imgName = $file->getClientOriginalName();
                 $imgName1 = $file1->getClientOriginalName();
                 $imgName2 = $file2->getClientOriginalName();
@@ -157,7 +147,7 @@ class MyCarController extends Controller
         
         $up = new CarPic($uploads);
         $up->save();
-        return redirect('mycar');
+        return redirect('user/mycars');
     }
 
     public function updateImage($car_id, Request $request)

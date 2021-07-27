@@ -368,156 +368,161 @@
                         <li class="form-line" data-type="control_image" id="id_25">
                             <div id="cid_25" class="form-input-wide">
                                 <img alt="" class="form-image" style="border:0"
-                                    src="//www.jotform.com/uploads/pinoytech/form_files/shadow.png" height="50px" width="618px"
-                                    data-component="image" />
+                                    src="//www.jotform.com/uploads/pinoytech/form_files/shadow.png" height="50px"
+                                    width="618px" data-component="image" />
                             </div>
                         </li>
-                        
+
                         <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
                             <label class="form-label form-label-top" id="label_32" for="input_32"> Hãng xe </label>
                             <div id="cid_32" class="form-input-wide">
-                              <select class="form-dropdown" id="input_6" name="brand" onchange="return check()" style="width:150px" data-component="dropdown">
-     
+                                <select class="form-dropdown" id="input_6" name="brand" onchange="return check()"
+                                    style="width:150px" data-component="dropdown">
+
                                     <option value="0">Vui lòng chọn hãng xe</option>
                                     @foreach ($hangxe as $element)
                                         <option value="{{ $element['mfg_id'] }}">{{ $element['name'] }}</option>
                                     @endforeach
-        
-                          
-                              </select>
-                            </div>
-                          </li>
 
-                          <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
+
+                                </select>
+                            </div>
+                        </li>
+
+                        <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
                             <label class="form-label form-label-top" id="label_32" for="input_32"> Mẫu xe </label>
                             <div id="cid_32" class="form-input-wide">
-                              <select class="form-dropdown" id="input_7" name="name" style="width:150px" disabled onchange="return checkgia()" data-component="dropdown">
+                                <select class="form-dropdown" id="input_7" name="name" style="width:150px" disabled
+                                    onchange="return checkgia()" data-component="dropdown">
                                     <option value="">Vui lòng chọn xe</option>
                                 </select>
                             </div>
-                          </li>
+                        </li>
 
-                          <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
+                        <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
                             <label class="form-label form-label-top" id="label_32" for="input_32"> Số ghế </label>
                             <div id="cid_32" class="form-input-wide">
-                              <select class="form-dropdown" id="input_10" name="seatnum" style="width:150px" data-component="dropdown">
-                                <option value="4"> 4 </option>
-                                <option value="5"> 5 </option>
-                                <option value="6"> 6 </option>
-                                <option value="7"> 7 </option>
-                                <option value="8"> 8 </option>
-                                <option value="9"> 9 </option>
-                                <option value="10"> 10 </option>
-                                <option value="11"> 11 </option>
-                                <option value="12"> 12 </option>
-                                <option value="13"> 13 </option>
-                                <option value="14"> 14 </option>
-                                <option value="15"> 15 </option>
-                                <option value="16"> 16 </option>
-                                <option value="17"> 17 </option>
-                                <option value="18"> 18 </option>
-                                <option value="19"> 19 </option>
-                                <option value="20"> 20 </option>
-                              </select>
+                                <select class="form-dropdown" id="input_10" name="seatnum" style="width:150px"
+                                    data-component="dropdown">
+                                    <option value="4"> 4 </option>
+                                    <option value="5"> 5 </option>
+                                    <option value="6"> 6 </option>
+                                    <option value="7"> 7 </option>
+                                    <option value="8"> 8 </option>
+                                    <option value="9"> 9 </option>
+                                    <option value="10"> 10 </option>
+                                    <option value="11"> 11 </option>
+                                    <option value="12"> 12 </option>
+                                    <option value="13"> 13 </option>
+                                    <option value="14"> 14 </option>
+                                    <option value="15"> 15 </option>
+                                    <option value="16"> 16 </option>
+                                    <option value="17"> 17 </option>
+                                    <option value="18"> 18 </option>
+                                    <option value="19"> 19 </option>
+                                    <option value="20"> 20 </option>
+                                </select>
                             </div>
-                          </li>
+                        </li>
 
-                          <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
+                        <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
                             <label class="form-label form-label-top" id="label_32" for="model_year"> Năm sản xuất </label>
                             <div id="cid_32" class="form-input-wide">
-                              <select class="form-dropdown" id="input_10" name="model_year" style="width:150px" data-component="dropdown">
-                            
-                                <option value="1960"> 1960 </option>
-                                <option value="1961"> 1961 </option>
-                                <option value="1962"> 1962 </option>
-                                <option value="1963"> 1963 </option>
-                                <option value="1964"> 1964 </option>
-                                <option value="1965"> 1965 </option>
-                                <option value="1966"> 1966 </option>
-                                <option value="1967"> 1967 </option>
-                                <option value="1968"> 1968 </option>
-                                <option value="1969"> 1969 </option>
-                                <option value="1970"> 1970 </option>
-                                <option value="1971"> 1971 </option>
-                                <option value="1972"> 1972 </option>
-                                <option value="1973"> 1973 </option>
-                                <option value="1974"> 1974 </option>
-                                <option value="1975"> 1975 </option>
-                                <option value="1976"> 1976 </option>
-                                <option value="1977"> 1977 </option>
-                                <option value="1978"> 1978 </option>
-                                <option value="1979"> 1979 </option>
-                                <option value="1980"> 1980 </option>
-                                <option value="1981"> 1981 </option>
-                                <option value="1982"> 1982 </option>
-                                <option value="1983"> 1983 </option>
-                                <option value="1984"> 1984 </option>
-                                <option value="1985"> 1985 </option>
-                                <option value="1986"> 1986 </option>
-                                <option value="1987"> 1987 </option>
-                                <option value="1988"> 1988 </option>
-                                <option value="1989"> 1989 </option>
-                                <option value="1990"> 1990 </option>
-                                <option value="1991"> 1991 </option>
-                                <option value="1992"> 1992 </option>
-                                <option value="1993"> 1993 </option>
-                                <option value="1994"> 1994 </option>
-                                <option value="1995"> 1995 </option>
-                                <option value="1996"> 1996 </option>
-                                <option value="1997"> 1997 </option>
-                                <option value="1998"> 1998 </option>
-                                <option value="1999"> 1999 </option>
-                                <option value="2000"> 2000 </option>
-                                <option value="2001"> 2001 </option>
-                                <option value="2002"> 2002 </option>
-                                <option value="2003"> 2003 </option>
-                                <option value="2004"> 2004 </option>
-                                <option value="2005"> 2005 </option>
-                                <option value="2006"> 2006 </option>
-                                <option value="2007"> 2007 </option>
-                                <option value="2008"> 2008 </option>
-                                <option value="2009"> 2009 </option>
-                                <option value="2010"> 2010 </option>
-                                <option value="2011"> 2011 </option>
-                                <option value="2012"> 2012 </option>
-                                <option value="2013"> 2013 </option>
-                                <option value="2014"> 2014 </option>
-                                <option value="2015"> 2015 </option>
-                                <option value="2016"> 2016 </option>
-                                <option value="2017"> 2017 </option>
-                                <option value="2018"> 2018 </option>
-                                <option value="2019"> 2019 </option>
-                                <option value="2020"> 2020 </option>
-                                <option value="2021"> 2021 </option>
-                     
-                              </select>
-                            </div>
-                          </li>
+                                <select class="form-dropdown" id="input_10" name="model_year" style="width:150px"
+                                    data-component="dropdown">
 
-                          <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
+                                    <option value="1960"> 1960 </option>
+                                    <option value="1961"> 1961 </option>
+                                    <option value="1962"> 1962 </option>
+                                    <option value="1963"> 1963 </option>
+                                    <option value="1964"> 1964 </option>
+                                    <option value="1965"> 1965 </option>
+                                    <option value="1966"> 1966 </option>
+                                    <option value="1967"> 1967 </option>
+                                    <option value="1968"> 1968 </option>
+                                    <option value="1969"> 1969 </option>
+                                    <option value="1970"> 1970 </option>
+                                    <option value="1971"> 1971 </option>
+                                    <option value="1972"> 1972 </option>
+                                    <option value="1973"> 1973 </option>
+                                    <option value="1974"> 1974 </option>
+                                    <option value="1975"> 1975 </option>
+                                    <option value="1976"> 1976 </option>
+                                    <option value="1977"> 1977 </option>
+                                    <option value="1978"> 1978 </option>
+                                    <option value="1979"> 1979 </option>
+                                    <option value="1980"> 1980 </option>
+                                    <option value="1981"> 1981 </option>
+                                    <option value="1982"> 1982 </option>
+                                    <option value="1983"> 1983 </option>
+                                    <option value="1984"> 1984 </option>
+                                    <option value="1985"> 1985 </option>
+                                    <option value="1986"> 1986 </option>
+                                    <option value="1987"> 1987 </option>
+                                    <option value="1988"> 1988 </option>
+                                    <option value="1989"> 1989 </option>
+                                    <option value="1990"> 1990 </option>
+                                    <option value="1991"> 1991 </option>
+                                    <option value="1992"> 1992 </option>
+                                    <option value="1993"> 1993 </option>
+                                    <option value="1994"> 1994 </option>
+                                    <option value="1995"> 1995 </option>
+                                    <option value="1996"> 1996 </option>
+                                    <option value="1997"> 1997 </option>
+                                    <option value="1998"> 1998 </option>
+                                    <option value="1999"> 1999 </option>
+                                    <option value="2000"> 2000 </option>
+                                    <option value="2001"> 2001 </option>
+                                    <option value="2002"> 2002 </option>
+                                    <option value="2003"> 2003 </option>
+                                    <option value="2004"> 2004 </option>
+                                    <option value="2005"> 2005 </option>
+                                    <option value="2006"> 2006 </option>
+                                    <option value="2007"> 2007 </option>
+                                    <option value="2008"> 2008 </option>
+                                    <option value="2009"> 2009 </option>
+                                    <option value="2010"> 2010 </option>
+                                    <option value="2011"> 2011 </option>
+                                    <option value="2012"> 2012 </option>
+                                    <option value="2013"> 2013 </option>
+                                    <option value="2014"> 2014 </option>
+                                    <option value="2015"> 2015 </option>
+                                    <option value="2016"> 2016 </option>
+                                    <option value="2017"> 2017 </option>
+                                    <option value="2018"> 2018 </option>
+                                    <option value="2019"> 2019 </option>
+                                    <option value="2020"> 2020 </option>
+                                    <option value="2021"> 2021 </option>
+
+                                </select>
+                            </div>
+                        </li>
+
+                        <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
                             <label class="form-label form-label-top" id="label_32" for="input_32"> Truyền động </label>
                             <div id="cid_32" class="form-input-wide">
-                              <select class="form-dropdown" id="input_10" name="auto" style="width:150px" data-component="dropdown">
-                               
-                                <option value="1"> Số tự động </option>
-                                <option value="2"> Số sàn </option>
-           
-                              </select>
-                            </div>
-                          </li>
+                                <select class="form-dropdown" id="input_10" name="auto" style="width:150px"
+                                    data-component="dropdown">
 
-                          <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
+                                    <option value="1"> Số tự động </option>
+                                    <option value="2"> Số sàn </option>
+
+                                </select>
+                            </div>
+                        </li>
+
+                        <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
                             <label class="form-label form-label-top" id="label_32" for="input_32"> Nhiên liệu </label>
                             <div id="cid_32" class="form-input-wide">
-                          
+
                                 <select class="form-dropdown" id="input_10" name="fuel" style="width:150px"
-                                data-component="dropdown">
-                                <option value="1"> Xăng </option>
-                                <option value="2"> Dầu diesel </option>
-                    
-                              </select>
+                                    data-component="dropdown">
+                                    <option value="1"> Xăng </option>
+                                    <option value="2"> Dầu diesel </option>
+
+                                </select>
                             </div>
-                          </li>
+                        </li>
                         {{-- <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_6">
                             <label class="form-label form-label-top" id="label_6" for="input_6"> Hãng xe </label>
                             <div id="cid_6" class="form-input-wide">
@@ -695,7 +700,7 @@
                                 <textarea class="form-control ckeditor" rows="4" id="description" name="description"
                                     placeholder="" cols="40"
                                     rows="6">Huyndai Elantra số tự động đăng kí tháng 06/2018. Xe gia đình mới đẹp, nội thất nguyên bản, sạch sẽ, bảo dưỡng thường xuyên, rửa xe miễn phí cho khách.
-                                  Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch. Xe trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, camera hành trình, hệ thống giải trí AV cùng nhiều tiện nghi khác...</textarea>
+                                      Xe rộng rãi, an toàn, tiện nghi, phù hợp cho gia đình du lịch. Xe trang bị hệ thống cảm biến lùi, gạt mưa tự động, đèn pha tự động, camera hành trình, hệ thống giải trí AV cùng nhiều tiện nghi khác...</textarea>
                             </div>
                         </li>
 
@@ -885,8 +890,8 @@
                             <output id="range_weight_disp2"></output> %
                         </div>
                     </li>
-
                 </ul>
+
                 <li class="form-line" data-type="control_checkbox" id="id_26">
                     <label class="form-label form-label-top" id="label_24" for="input_24"> Địa chỉ xe </label>
                 </li>
@@ -906,8 +911,9 @@
 
                     </div>
                 </li>
-                <input type="text" hidden name="lat" id="lat" >
-                <input type="text" hidden name="lng" id="lng" >
+                
+                <input type="text" hidden name="lat" id="lat">
+                <input type="text" hidden name="lng" id="lng">
 
                 <ul class="form-section">
 
@@ -1002,12 +1008,12 @@
                     <div id="cid_2" class="form-input-wide">
                         <div style="text-align:center" data-align="left"
                             class="form-buttons-wrapper form-buttons-left   jsTest-button-wrapperField">
-
+{{-- 
                             <button style="margin-right: 32px" type="submit" onclick="{{ route('rental.index') }}"
                                 class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField"
                                 data-component="button" data-content="">
                                 Quay lại
-                            </button>
+                            </button> --}}
 
                             <input style="text-align: center" type="button" onclick="return checksubmit()"
                                 class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField"
@@ -1037,11 +1043,32 @@
     </div>
 
     <script src="{{ asset('script/map.js') }}"></script>
+    <script>
+        function checksubmit() {
+
+
+            diachi = document.getElementById('search_input').value;
+            if (diachi != '') {
+                toado = ConvertAdd(diachi);
+
+                lang = toado.lng;
+
+
+                document.getElementById('lat').value = toado.lat
+                document.getElementById('lng').value = lang
+
+            }
+            document.getElementById('nutsubmit1').click() = true;
+
+
+
+        }
+    </script>
 
 
 @endsection
 @section('Script')
-  
+
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
     <script>
@@ -1084,9 +1111,6 @@
                 }
             });
         }
-
-
-        
     </script>
 
 

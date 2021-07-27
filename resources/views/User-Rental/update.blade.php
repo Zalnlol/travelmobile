@@ -265,21 +265,45 @@ font-weight: bolder;}
         <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_5">
           <label class="form-label form-label-top" id="label_5" for="input_5"> Biển số xe </label>
           <div id="cid_5" class="form-input-wide">
-            <input type="text" id="input_5" name="plate_id" data-type="input-textbox" readonly class="form-textbox" size="20" value="{{ $crentals->plate_id  }}" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
+              <input type="text" id="input_5" name="plate_id" data-type="input-textbox"
+                  class="form-textbox" size="20" value="{{ $crentals->plate_id }}" placeholder="" readonly data-component="textbox"
+                  aria-labelledby="label_5" />
           </div>
-        </li>
-      <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_6">
-        <label class="form-label form-label-top" id="label_6" for="input_6"> Hãng xe </label>
-        <div id="cid_6" class="form-input-wide">
-          <input type="text" id="input_6" name="brand" data-type="input-textbox" readonly class="form-textbox" size="20" value="{{ $crentals->brand }}" placeholder=" " data-component="textbox" aria-labelledby="label_6" />
-        </div>
       </li>
-      <li class="form-line form-line-column form-col-3" data-type="control_textbox" id="id_7">
-        <label class="form-label form-label-top" id="label_7" for="input_7"> Mẫu xe </label>
-        <div id="cid_7" class="form-input-wide">
-          <input type="text" id="input_7" name="name" data-type="input-textbox" readonly class="form-textbox" size="20" value="{{ $crentals->name }}" placeholder=" " data-component="textbox" aria-labelledby="label_7" />
+
+      <li class="form-line" data-type="control_image" id="id_25">
+        <div id="cid_25" class="form-input-wide">
+            <img alt="" class="form-image" style="border:0"
+                src="//www.jotform.com/uploads/pinoytech/form_files/shadow.png" height="50px"
+                width="618px" data-component="image" />
         </div>
-      </li>
+    </li>
+    
+    <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
+      <label class="form-label form-label-top" id="label_32" for="input_32"> Hãng xe </label>
+      <div id="cid_32" class="form-input-wide">
+          <select class="form-dropdown" id="input_6" name="brand" disabled onchange="return check()"
+              style="width:150px" data-component="dropdown">
+
+    
+            
+                  <option value="{{ $crentals->brand }}">{{ $crentals->brand }}</option>
+
+
+
+          </select>
+      </div>
+  </li>
+
+      <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
+                            <label class="form-label form-label-top" id="label_32" for="input_32"> Mẫu xe </label>
+                            <div id="cid_32" class="form-input-wide">
+                                <select class="form-dropdown" id="input_7" name="name" style="width:150px" disabled
+                                    onchange="return checkgia()" data-component="dropdown">
+                                    <option value="{{ $crentals->name }}">{{ $crentals->name }}</option>
+                                </select>
+                            </div>
+                        </li>
 
       <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
         <label class="form-label form-label-top" id="label_10" for="seatnum"> Số ghế </label>
@@ -383,7 +407,7 @@ font-weight: bolder;}
       <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
         <label class="form-label form-label-top" id="label_10" for="auto"> Truyền động </label>
         <div id="cid_10" class="form-input-wide">
-          <select class="form-dropdown" id="input_10" disabled name="auto" style="width:150px" data-component="dropdown">
+          <select class="form-dropdown" id="input_10" disabled name="" style="width:150px" data-component="dropdown">
             @if ($crentals->auto == 1)
             <option value="1"> Số tự động </option>
             <option value="2">Số sàn</option>
@@ -399,7 +423,7 @@ font-weight: bolder;}
       <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
         <label class="form-label form-label-top" id="label_10" for="fuel"> Loại nhiên liệu </label>
         <div id="cid_10" class="form-input-wide">
-          <select class="form-dropdown" id="input_10" disabled name="fuel" style="width:150px" data-component="dropdown">
+          <select class="form-dropdown" id="input_10" disabled name="" style="width:150px" data-component="dropdown">
             @if ($crentals->fuel == 1)
             <option value="1"> Xăng </option>
             <option value="2"> Dầu diesel </option>
@@ -634,17 +658,29 @@ font-weight: bolder;}
         </li>
 
       </ul>
-        <li class="form-line" data-type="control_checkbox" id="id_26">
-          <label class="form-label form-label-top" id="label_24" for="input_24"> Địa chỉ xe </label>
-          </li>
+      
+      <li class="form-line" data-type="control_checkbox" id="id_26">
+        <label class="form-label form-label-top" id="label_24" for="input_24"> Địa chỉ xe </label>
+    </li>
 
-        <li class="form-line form-line-column form-col-3" data-type="control_textbox" id="id_7">
-          <label class="form-label form-label-top" id="label_7" for="address"> Địa chỉ mặc định giao nhận xe </label>
-          <span style="opacity: 0.6;">Lưu ý điền đầy đủ thông tin địa chỉ để khách hàng giao nhận xe.</span>
-          <div id="cid_7" class="form-input-wide">
-            <input type="text" id="label_7" name="address" value="{{ $crentals->address }}" data-type="input-textbox" class="form-textbox" size="20"/>
-          </div>
-        </li>
+    <li class="form-line form-line-column form-col-3" data-type="control_textbox" id="id_7">
+        <label class="form-label form-label-top" id="label_7" for="address"> Địa chỉ mặc định giao nhận xe
+        </label>
+        <span style="opacity: 0.6;">Lưu ý điền đầy đủ thông tin địa chỉ để khách hàng giao nhận xe.</span>
+        <div id="cid_7" class="form-input-wide">
+            <input type="text" name="address" id="search_input" list="geoname" onchange="return checktoado()"
+                placeholder="Nhập thành phố, quận, địa chỉ..." value=" {{ $crentals->address }}">
+            <datalist id="geoname">
+                <option>
+                    Sử dụng vị trí của bạn
+                </option>
+            </datalist>
+
+        </div>
+    </li>
+    
+    <input type="text" hidden name="lat" id="lat">
+    <input type="text" hidden name="lng" id="lng">
 
       
       <ul class="form-section">  
@@ -813,7 +849,7 @@ font-weight: bolder;}
         <li class="form-line" data-type="control_button" id="id_2" >
             <div id="cid_2" class="form-input-wide" style="margin-left: auto" style="margin-right: auto" >
               <div style="text-align:center"  data-align="left" class="form-buttons-wrapper form-buttons-left   jsTest-button-wrapperField" style="width: 100px">
-                <button  style="margin-right: 32px"  type="submit" disabled class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+                <button  style="margin-right: 32px"  type="submit" onclick="return redirect()->back()" class="form-submit-button form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
                   Quay lại
                 </button>
               
@@ -829,7 +865,28 @@ font-weight: bolder;}
         </form>
       </li>
       </div>
-
+      <script src="{{ asset('script/map.js') }}"></script>
+      <script>
+          function checksubmit() {
+  
+  
+              diachi = document.getElementById('search_input').value;
+              if (diachi != '') {
+                  toado = ConvertAdd(diachi);
+  
+                  lang = toado.lng;
+  
+  
+                  document.getElementById('lat').value = toado.lat
+                  document.getElementById('lng').value = lang
+  
+              }
+              document.getElementById('nutsubmit1').click() = true;
+  
+  
+  
+          }
+      </script>
 @endsection
 @section('Script')
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
