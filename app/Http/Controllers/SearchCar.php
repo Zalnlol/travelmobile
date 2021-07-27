@@ -149,7 +149,7 @@ function search(Request $request){
                 $searchinfo['hourend']='11';
             }
 
-                $carlist=CarRental::all();
+                $carlist=CarRental::where("status","2")->get();
                 $arrays=[];
                 $listcardiplay=[];
                 
@@ -181,11 +181,11 @@ function search(Request $request){
             $i=0;
             foreach($listscan as $element){
                 $arrays[$i]['car_id'] = $element['car_id'];
-            $arrays[$i]['name'] = $element['name'];
-            $arrays[$i]['auto'] = $element['auto'];
-            $arrays[$i]['rent_price'] = $element['rent_price'];
-            $arrays[$i]['free_ship_distance'] = $element['free_ship_distance'];
-            $arrays[$i]['address'] = $element['address'];
+                $arrays[$i]['name'] = $element['name'];
+                $arrays[$i]['auto'] = $element['auto'];
+                $arrays[$i]['rent_price'] = $element['rent_price'];
+                $arrays[$i]['free_ship_distance'] = $element['free_ship_distance'];
+                $arrays[$i]['address'] = $element['address'];
                     // so chuyen
                 $sochuyen=RentalContract::where('car_id',$element['car_id'])->where('status','Đã hoàn thành')->get();
                 $arrays[$i]['trip_number']=$sochuyen->count();

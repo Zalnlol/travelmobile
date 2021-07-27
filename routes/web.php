@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admincontroller;
 use App\Http\Controllers\MGFCarController;
 use App\Http\Controllers\SearchCar;
 use Illuminate\Http\Request;
@@ -357,9 +358,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 //Quyền admin
 
   Route::prefix('admin')->name('admin.')->middleware('is_admin:admin')->group(function(){
-    Route::get('/', function () {
-        return view('AdminHome');
-    });
+
+
+    Route::get('/', [Admincontroller::class,"viewadmin"])->name('home');
 
    //Của A Thiện 
     Route::get('/index',[AccountController::class,"index"]);

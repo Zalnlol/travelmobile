@@ -9,7 +9,7 @@
             <div class="desc-profile desc-account">
                 <div class="avatar-box">
                     <div class="avatar avatar--xl has-edit">
-                        <img src="{{ asset("/img/$user->avatar_image") }}">
+                        <img style="width:100%" src="{{ asset("/img/$user->avatar_image") }}">
                     </div>
                 </div>
                 <div class="snippet">
