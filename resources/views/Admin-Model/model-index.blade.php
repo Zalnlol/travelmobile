@@ -62,7 +62,11 @@
                     <td>{{ $items->mfg_id }}</td>
                     <td>{{ $items->model }}</td>
                     <td>{{ $items->suggest_price }}</td>
-                    <td>{{ $items->fuel_type }}</td>
+                    @if ( $items->fuel_type == 0)
+                    <td>Xăng</td>
+                    @else
+                    <td>Dầu</td>
+                    @endif
                     <td>{{ $items->seatnum }}</td>
                     <td>{{ $items->car_style }}</td>
                     
