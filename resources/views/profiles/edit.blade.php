@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    <form action="/profile/{{ $user->user_id }}" enctype="multipart/form-data" method="POST">
+    <form action="{{url('user/profile/'.$user->user_id.'/update')}}" enctype="multipart/form-data" method="POST">
         @csrf
-        @method('POST')
+        @method('PATCH')
         <div class="row">
             <div class="col-8 offset-2">
                 <div class="row">
@@ -16,7 +16,7 @@
                 <div class="form-group row">
                     <div class="col-md-6 col-form-label">
                         <label for="name">Họ tên</label>
-                        <input id="name" type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : ''}}" value="{{ old('name' ) ?? $user->name }}" autofocus>
+                        <input id="name" type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : ''}}" value="{{ old('name' ) ?? $user->name }}" autofocus>
 
                         @if ($errors->has('name'))
                         <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                     <div class="col-md-6 col-form-label">
                         <label for="image">Ảnh đại diện</label>
     
-                        <input type="file" class="form-control-file" id="image" name="image">
+                        <input type="file" class="form-control-file" id="image" name="avatar_image">
     
                         @if ($errors->has('image'))
                             <span class="invalid-feedback" role="alert">
@@ -52,7 +52,7 @@
 
                     <div class="col-md-6 col-form-label">
                         <label class="labels">Ngày sinh</label>
-                        <input type="date" class="form-control {{ $errors->has('date') ? 'is-invalid' : ''}}" name="date" value="{{ old('date' ) ?? $user->dob}}" >
+                        <input type="date" class="form-control {{ $errors->has('date') ? 'is-invalid' : ''}}" name="dob" value="{{ old('date' ) ?? $user->dob}}" >
 
                         @if ($errors->has('dob'))
                         <span class="invalid-feedback" role="alert">
@@ -71,20 +71,14 @@
                 <div class="form-group row">
                     <div class="col-md-6 col-form-label">
                         <label for="email">Địa chỉ email</label>
-                        <input type="text" class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}" name="email" value="{{ old('email' ) ?? $user->email }}" autocomplete="email">
-
-                        @if ($errors->has('email'))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                        @endif
+                        <input type="text" class="form-control {{ $errors->has('email') ? 'is-invalid' : ''}}" name="email" value="{{ old('email' ) ?? $user->email }}" autocomplete="email" readonly>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <div class="col-md-6 col-form-label">
                         <label for="driver_id">Giấy phép lái xe</label>
-                        <input id="driver_id" type="text" class="form-control {{ $errors->has('driver_id') ? 'is-invalid' : ''}}" value="{{ old('driver_id' ) ?? $user->driver_id }}" >
+                        <input id="driver_id" type="text" class="form-control {{ $errors->has('driver_id') ? 'is-invalid' : ''}}" name="driver_id" value="{{ old('driver_id' ) ?? $user->driver_id }}" >
 
                         @if ($errors->has('driver_id'))
                         <span class="invalid-feedback" role="alert">
@@ -96,7 +90,7 @@
                     <div class="col-md-6 col-form-label">
                         <label for="driver_id_image">Ảnh GPLX</label>
     
-                        <input type="file" class="form-control-file" id="image" name="image">
+                        <input type="file" class="form-control-file" id="image" name="driver_id_image">
     
                         @if ($errors->has('driver_id_image'))
                             <span class="invalid-feedback" role="alert">
@@ -109,7 +103,7 @@
 
                 <div class="form-group row">
                     <div class="col-md-6 col-form-label">
-                        <button class="btn btn-primary">Cập nhật</button>
+                        <button type="submit" class="btn btn-primary">Cập nhật</button>
                     </div>
                 </div>
                 

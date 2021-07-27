@@ -110,10 +110,10 @@ Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
 
 
             //Route user view profile or edit profile
-            Route::get('/profile',[ProfilesController::class,"viewSelfProfile"])->name('profiles.show');
+            Route::get('/profile',[ProfilesController::class,"viewSelfProfile"]);
             Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profiles.edit');
-            Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profiles.show');
-            Route::patch('/profile/{user}',[ProfilesController::class,"update"])->name('profiles.update');
+            Route::get('/profile/{user}',[ProfilesController::class,"index"]);
+            Route::patch('/profile/{user}/update',[ProfilesController::class,"update"]);
 
             //Changing password
             Route::get('change-password', [ChangePasswordController::class, 'index']);
