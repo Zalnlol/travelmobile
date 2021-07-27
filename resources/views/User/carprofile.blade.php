@@ -19,16 +19,16 @@
             <div class="col">
                 <div class="regular slider">
                     <div>
-                        <img src="{{ asset('' . $img->image) }}">
+                        <img src="{{ asset('/images/carimg/' . $img->image) }}">
                     </div>
                     <div>
-                        <img src="{{ asset('' . $img->image_left) }}">
+                        <img src="{{ asset('/images/carimg/' . $img->image_left) }}">
                     </div>
                     <div>
-                        <img src="{{ asset('' . $img->image_right) }}">
+                        <img src="{{ asset('/images/carimg/' . $img->image_right) }}">
                     </div>
                     <div>
-                        <img src="{{ asset('' . $img->image_behind) }}">
+                        <img src="{{ asset('/images/carimg/' . $img->image_behind) }}">
                     </div>
                 </div>
             </div>

@@ -354,7 +354,7 @@
                             size="20" value="{{ $data }}" placeholder=" " data-component="textbox"
                             aria-labelledby="label_5" />
                         <input type="hidden" id="type_id" name="type_id" data-type="input-textbox" class="form-textbox"
-                            size="20" value="{{ $data }}" placeholder=" " data-component="textbox"
+                            size="20" placeholder=" " data-component="textbox"
                             aria-labelledby="label_5" />
                         <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_5">
                             <label class="form-label form-label-top" id="label_5" for="input_5"> Biển số xe </label>

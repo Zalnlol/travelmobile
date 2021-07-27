@@ -10,7 +10,7 @@
                     <div class="col-lg-6" style="margin-top: 20px">
                         <a href="{{ url('/searchcar/profile?car_id='.$chiecxe->car_id.'&city='.$searchinfo['city'].'&lat='.$searchinfo['lat'].'&lng='.$searchinfo['lat'].'&checkin='.$searchinfo['checkin'].'&hourstart='.$searchinfo['hourstart'].'&checkout='.$searchinfo['checkout'].'&hourend='.$searchinfo['hourend']) }}" style="color:black">
                             <div class="card">
-                                <img src="{{ asset(''.$chiecxe->car_image) }}" class="card-img-top" alt="Card image cap">
+                                <img src="{{ asset('/images/carimg/'.$chiecxe->car_image) }}" class="card-img-top" alt="Card image cap">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-8">
