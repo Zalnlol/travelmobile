@@ -100,8 +100,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group tm-form-element tm-form-element-100">
-                                    <button type="submit" class="btn btn-primary tm-btn-search">Tìm xe ngay</button>
+                                    <button type="button"  onclick="return checksubmit()" class="btn btn-primary tm-btn-search">Tìm xe ngay</button>
                                 </div>
+                                
+                                    <button type="submit" id="nutsubmit1" hidden >Tìm xe ngay</button>
+                              
                                 <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
                                     <p class="tm-margin-b-0">Lựa thông tin trên để tìm kiếm xe phù hợp.</p>
                                 </div>

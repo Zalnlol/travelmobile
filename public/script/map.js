@@ -104,19 +104,25 @@ function checktoado() {
         gps()
     }
     
-    diachi = document.getElementById('search_input').value;
-   toado= ConvertAdd(diachi);
-
-   lang=toado.lng;
-    
-   document.getElementById('lat').value=toado.lat
-   document.getElementById('lng').value=lang
-   return true;
+  
    
 }
 
 
-function checksubmit(){}
+function checksubmit(){
+
+    diachi = document.getElementById('search_input').value;
+
+    toado= ConvertAdd(diachi);
+ 
+    lang=toado.lng;
+
+     
+    document.getElementById('lat').value=toado.lat
+    document.getElementById('lng').value=lang
+    
+    document.getElementById('nutsubmit1').click() = true;
+}
 
 
 
