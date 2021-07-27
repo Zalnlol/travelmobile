@@ -87,6 +87,7 @@ Route::get('/email', function(){
     return new NewUserWelcomeMail();
 });
 
+Route::get('user/profile/{user}',[ProfilesController::class,"index"]);
 
 Route::get('/blog', [BlogController::class,"blog"]);
 
@@ -113,7 +114,6 @@ Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
             //Route user view profile or edit profile
             Route::get('/profile',[ProfilesController::class,"viewSelfProfile"]);
             Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profiles.edit');
-            Route::get('/profile/{user}',[ProfilesController::class,"index"]);
             Route::patch('/profile/{user}/update',[ProfilesController::class,"update"]);
 
             //Changing password

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class AccountController extends Controller
@@ -43,7 +44,7 @@ class AccountController extends Controller
             'user_id'=>intval($user['user_id']),
             'name'=>$user['name'],
             'email'=>$user['email'],
-            'password'=>$user['password'],
+            'password'=> Hash::make($user['password']),
             'is_admin'=>'1',
         ]);
         return redirect()->action([AccountController::class, 'index']);

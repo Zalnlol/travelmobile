@@ -263,17 +263,22 @@
                         <span id="title-left"> Chủ xe</span>
                     </div>
                     <div class="col-sm-9">
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <img src="{{ asset('' . $chuxe['avatar_image']) }}"
-                                    style="width: 80px; background-size: cover;" class="rounded-circle">
+                        <a href="{{url('/user/profile/'.$chuxe['user_id'])}}" style="color: black">
+
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <img src="{{ asset('img/' . $chuxe['avatar_image']) }}"
+                                        style="width: 80px; background-size: cover;" class="rounded-circle">
+                                </div>
+                                <div class="col-sm-8">
+                                    <span style="font-weight: bold">{{ $chuxe['name'] }}</span>
+                                    <br>
+                                    <span>Lưu ý: Số điện thoại của chủ xe sẽ được hiển thị sau khi đặt cọc.</span>
+                                </div>
                             </div>
-                            <div class="col-sm-8">
-                                <span style="font-weight: bold">{{ $chuxe['name'] }}</span>
-                                <br>
-                                <span>Lưu ý: Số điện thoại của chủ xe sẽ được hiển thị sau khi đặt cọc.</span>
-                            </div>
-                        </div>
+
+                        </a>
+
                     </div>
                 </div>
 
@@ -282,7 +287,7 @@
                     <div class="col" style="font-weight:bold; font-size:15pt">ĐÁNH GIÁ</div>
                 </div>
 
-                
+
             </div>
 
 
@@ -295,19 +300,18 @@
                                 <span style=" font-size: 12pt;font-weight: bold;">/ngày</span>
                             </div>
                         </div>
-                        <form action="{{url('user/searchcar/profile/checkout')}}" method="POST">
+                        <form action="{{ url('user/searchcar/profile/checkout') }}" method="POST">
                             <span id="start-end-day">
                                 Ngày bắt đầu
                             </span>
                             <br>
                             <div class="row" style="margin-top: 3%">
                                 <div class="col-sm-7">
-                                    <input  type="text" class="form-control" id="inputCheckIn"
-                                        placeholder="Bắt đầu" value="{{ $searchinfo['checkin'] }}"
-                                        onchange="return onselect()">
+                                    <input type="text" class="form-control" id="inputCheckIn" placeholder="Bắt đầu"
+                                        value="{{ $searchinfo['checkin'] }}" onchange="return onselect()">
                                 </div>
                                 <div class="col-sm-5">
-                                    <select  id="hourstart" class="form-control tm-select" id="children1"
+                                    <select id="hourstart" class="form-control tm-select" id="children1"
                                         onchange="return tinhtien()">
                                         <option value="0">0:00 am</option>
                                         <option value="1">1:00 am</option>
@@ -344,12 +348,11 @@
                             <br>
                             <div class="row" style="margin-top: 3%">
                                 <div class="col-sm-7">
-                                    <input  type="text" class="form-control" id="inputCheckOut"
-                                        placeholder="Kết thúc" value="{{ $searchinfo['checkout'] }}"
-                                        onchange="return tinhtien()">
+                                    <input type="text" class="form-control" id="inputCheckOut" placeholder="Kết thúc"
+                                        value="{{ $searchinfo['checkout'] }}" onchange="return tinhtien()">
                                 </div>
                                 <div class="col-sm-5">
-                                    <select  id="hourend" class="form-control tm-select" id="children1"
+                                    <select id="hourend" class="form-control tm-select" id="children1"
                                         onchange="return tinhtien()">
                                         <option value="0">0:00 am</option>
                                         <option value="1">1:00 am</option>
@@ -524,22 +527,22 @@
                             <input type="input" hidden readonly name="contract_id" id="contract_id" value="0">
                             <input type="input" hidden readonly name="user_id" id="user_id" value="">
                             <input type="input" hidden readonly name="car_id" id="car_id" value="">
-                            <input type="input" hidden readonly name="contract_date" id="contract_date" value="" >
-                            <input type="input" hidden readonly name="pickup_date" id="pickup_date" value=""  >
-                            <input type="input" hidden readonly name="return_date" id="return_date" value=""  >
-                            <input type="input" hidden readonly name="rental_price" id="rental_price" value=""  >
-                            <input type="input" hidden readonly name="service_cost" id="service_cost" value=""  >
-                            <input type="input" hidden readonly name="pickup_address" id="pickup_address" value=""  >
-                            <input type="input" hidden readonly name="shipping_cost" id="shipping_cost"  value="" >
-                            <input type="input" hidden readonly name="contract_value" id="contract_value" value=""  >
-                            <input type="input" hidden readonly name="deposit" id="deposit"  value="" >
+                            <input type="input" hidden readonly name="contract_date" id="contract_date" value="">
+                            <input type="input" hidden readonly name="pickup_date" id="pickup_date" value="">
+                            <input type="input" hidden readonly name="return_date" id="return_date" value="">
+                            <input type="input" hidden readonly name="rental_price" id="rental_price" value="">
+                            <input type="input" hidden readonly name="service_cost" id="service_cost" value="">
+                            <input type="input" hidden readonly name="pickup_address" id="pickup_address" value="">
+                            <input type="input" hidden readonly name="shipping_cost" id="shipping_cost" value="">
+                            <input type="input" hidden readonly name="contract_value" id="contract_value" value="">
+                            <input type="input" hidden readonly name="deposit" id="deposit" value="">
 
                             <div class="row" style="margin: 5% 0%; ">
                                 <div class="col-sm-12">
                                     <input type="button" style="padding:10px ; font-weight: bold; "
-                                        class="form-control btn btn-success" value="ĐẶT XE" onclick="return checkgplx()" >
+                                        class="form-control btn btn-success" value="ĐẶT XE" onclick="return checkgplx()">
 
-                                        <input type="submit" id="nutsubmit" hidden>
+                                    <input type="submit" id="nutsubmit" hidden>
                                 </div>
                             </div>
 
@@ -553,78 +556,78 @@
 
         </div>
 
-        
-{{-- Modal form login anh GPLX --}}
+
+        {{-- Modal form login anh GPLX --}}
 
         <button type="button" hidden id="btn" class="btn btn-primary" data-toggle="modal" data-target="#modelDN">
             Dang Nhap
-          </button>
-        
-          <button type="button" hidden id="btn1" class="btn btn-primary" data-toggle="modal" data-target="#modelGPLX">
+        </button>
+
+        <button type="button" hidden id="btn1" class="btn btn-primary" data-toggle="modal" data-target="#modelGPLX">
             GPLX
-          </button>
-        
-          <!-- Modal -->
-          <div class="modal fade" id="modelDN" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modelDN" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
-              <div class="modal-content" style="margin-top: 50%">
-                <div class="modal-header">
-        
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                <div class="modal-content" style="margin-top: 50%">
+                    <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;">Thông báo</h4>
+                        <br>
+                        <div style="text-align: center;">
+                            <i class="fa fa-exclamation-triangle fa-2x" style="color: red"></i>
+
+                            <span style="font-size: 13pt"> Bạn cần đăng nhập để tiếp tục</span>
+                        </div>
+
+                        <br>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ url('/login') }}">
+                            <button type="button" class="btn btn-primary">Đăng nhập</button>
+                        </a>
+
+                    </div>
                 </div>
-                <div class="modal-body">
-                  <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;">Thông báo</h4>
-                  <br>
-                  <div style="text-align: center;">
-                    <i class="fa fa-exclamation-triangle fa-2x" style="color: red"></i>
-                    
-                    <span style="font-size: 13pt"> Bạn cần đăng nhập để tiếp tục</span> 
-                  </div>
-        
-                  <br>
-                </div>
-                <div class="modal-footer">
-                  <a href="{{url('/login')}}">
-                    <button type="button" class="btn btn-primary">Đăng nhập</button>
-                  </a>
-                  
-                </div>
-              </div>
             </div>
-          </div>
-        
-          <div class="modal fade" id="modelGPLX" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        </div>
+
+        <div class="modal fade" id="modelGPLX" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
-              <div class="modal-content" style="margin-top: 50%">
-                <div class="modal-header">
-        
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                <div class="modal-content" style="margin-top: 50%">
+                    <div class="modal-header">
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;">Thông báo</h4>
+                        <br>
+                        <div style="text-align: center;">
+                            <i class="fa fa-exclamation-triangle fa-2x" style="color: red"></i>
+                            <span style="font-size: 13pt"> Bạn cần xác thực GPLX để có thể đặt xe</span>
+                        </div>
+
+                        <br>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="">
+                            <button type="button" class="btn btn-primary">Đồng ý</button>
+                        </a>
+
+                    </div>
                 </div>
-                <div class="modal-body">
-                  <h4 class="modal-title" id="exampleModalLabel" style="text-align: center;">Thông báo</h4>
-                  <br>
-                  <div style="text-align: center;">
-                    <i class="fa fa-exclamation-triangle fa-2x" style="color: red"></i>
-                    <span style="font-size: 13pt"> Bạn cần xác thực GPLX để có thể đặt xe</span> 
-                  </div>
-        
-                  <br>
-                </div>
-                <div class="modal-footer">
-                  <a href="">
-                    <button type="button" class="btn btn-primary">Đồng ý</button>
-                  </a>
-                  
-                </div>
-              </div>
             </div>
-          </div>
+        </div>
 
 
 
@@ -655,27 +658,26 @@
         </script>
         <script>
             let searchinfo = {!! json_encode($searchinfo, JSON_HEX_TAG) !!};
-            let carlist = {!! json_encode($carlist, JSON_HEX_TAG) !!};  
+            let carlist = {!! json_encode($carlist, JSON_HEX_TAG) !!};
 
-            function  checkgplx(){
-                    
+            function checkgplx() {
+
                 let id = {!! json_encode($user_id, JSON_HEX_TAG) !!};
-                
-                let gplx = {!! json_encode($gplx, JSON_HEX_TAG) !!};  
-                if(id==null){
+
+                let gplx = {!! json_encode($gplx, JSON_HEX_TAG) !!};
+                if (id == null) {
                     document.getElementById('btn').click() = true;
-                }else{
+                } else {
                     document.getElementById('nutsubmit').click() = true;
                 }
-                if(gplx==null){
+                if (gplx == null) {
                     document.getElementById('btn1').click() = true;
-                }{
+                } {
                     // document.getElementById('nutsubmit').click() = true;
-                } 
+                }
             }
-            
         </script>
 
-    <script src="{{ asset('script/carprofile.js') }}"></script>
+        <script src="{{ asset('script/carprofile.js') }}"></script>
 
     @endsection
