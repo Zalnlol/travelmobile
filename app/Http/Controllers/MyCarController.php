@@ -131,7 +131,6 @@ class MyCarController extends Controller
             $extension = $file1->getClientOriginalExtension();
             $extension = $file2->getClientOriginalExtension();
             $extension = $file3->getClientOriginalExtension();
-
                 $imgName = $file->getClientOriginalName();
                 $imgName1 = $file1->getClientOriginalName();
                 $imgName2 = $file2->getClientOriginalName();
