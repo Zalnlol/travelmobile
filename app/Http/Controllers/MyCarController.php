@@ -94,9 +94,18 @@ class MyCarController extends Controller
 
     public function store(RentalRequest $req)
     {    
-        $crentals = $req->all();      
+        $crentals = $req->all();  
+        
+        // dd(
+        //     $crentals
+        // );
+
+
+
         CarRental::create($crentals);
         $user_id = $req->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
+
+
         //$getid = CarRental::where('user_id', $data)->get('car_id');
         //dd($data = CarRental::where('user_id', $user_id)->get('car_id'));
         $plate_id = $req->plate_id;
