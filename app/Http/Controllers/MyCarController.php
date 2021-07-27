@@ -96,12 +96,6 @@ class MyCarController extends Controller
     {    
         $crentals = $req->all();  
         
-        // dd(
-        //     $crentals
-        // );
-
-
-
         CarRental::create($crentals);
         $user_id = $req->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
 
