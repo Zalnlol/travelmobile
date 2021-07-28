@@ -186,6 +186,47 @@
                 </div>
             </div>
         </div>
+        <div class="tm-section tm-section-pad tm-bg-gray" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        @foreach ($p as $items)
+                        <div class="column-mfg"  >
+                            <div class="card">
+                            <img  src="{{ url('/img/logo/	' .$items->logo ) }}"/>
+                              <a href="{{ $items->website}}"><b>&emsp;{{ $items->name }}</b></a>
+                              <p>&emsp;{{ $items->nation }}</p>
+                            </div>
+                        </div>
+                        @endforeach 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <style>
+                * {
+                  box-sizing: border-box;
+                }
+                .column-mfg {
+                  float: left;
+                  width: 22.5%;
+                  padding: 10px;
+                  margin-top:1.5%;
+                  margin-left:1.5%;
+                }
+                
+                @media screen and (max-width: 900px) {
+                  .column-mfg  {
+                    width: 48%;
+                  }
+                }
+                @media screen and (max-width: 600px) {
+                  .column-mfg  {
+                    width: 100%;
+                  }
+                }
+                </style>
     </div>
 
     <script src="{{ asset('script/map.js') }}"></script>

@@ -13,19 +13,15 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-<<<<<<< HEAD:resources/views/Admin-Rental/mfg-update.blade.php
-                        <form role="form" action="{{ url('admin/mfg/postUpdate/' .$mfg->mfg_id) }}" method="post"enctype="multipart/form-data">
-=======
-                        <form role="form" action="{{ route('admin.checkUpdate', $p->mfg_id) }}" method="post"
+                        <form role="form" action="{{ url('admin/mfg/postUpdate', $mfg->mfg_id) }}" method="post"
                             enctype="multipart/form-data">
->>>>>>> 7e2ecc762558d554e5bb40ad7114f6be0f2d2ea2:resources/views/Admin-MFG/mfg-update.blade.php
                             {{ csrf_field() }}
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="txt-id">Mã hãng xe</label>
                                     <input type="text" class="form-control" id="txt-id" name="mfg_id" placeholder="{{$mfg->mfg_id}} " value="{{$mfg->mfg_id}}"
                                      readonly>
-                                    <p class="help is-danger">{{ $errors->first('mfg_id') }}</p>
+                                    <p class="help is-danger"  forn-color='red'>{{ $errors->first('mfg_id') }}</p>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-name">Tên hãng xe</label>
