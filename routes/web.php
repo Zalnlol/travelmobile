@@ -52,7 +52,7 @@ Route::get('/', function (Request $request) {
 
     $p = CarMFG::all();
     return view('index',compact('p'));
-});
+})->name('homepage');
 
 
 Route::get('/searchcar', function () {

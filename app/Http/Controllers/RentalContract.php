@@ -47,8 +47,9 @@ class RentalContract extends Controller
         //so sao
         $tmp=0;
         $sosao= Review::where('car_id',$car_id)->get()->count();
+        $listsao=Review::where('car_id',$car_id)->get();
         if($sosao>0){
-            foreach($sosao as $element2){
+            foreach($listsao as $element2){
                 $tmp+=$element2['star_num'];
             }
             $tmp= round($tmp/$sosao);
@@ -56,6 +57,8 @@ class RentalContract extends Controller
             $tmp=0;
         }
         $star_num=$tmp;
+
+     
 
         //So chuyen
         $sochuyen=ModelsRentalContract::where('car_id',$car_id)->get();
