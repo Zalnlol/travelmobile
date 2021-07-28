@@ -4,13 +4,13 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="offset-md-3 col-md-6">
+                <div class="offset-md-3 col-md-4">
                     <!-- general form elements -->
                     
                     <div class="card card-primary">
                         
                         <div class="card-header">
-                            <h3 class="card-title">Cập nhật tài khoản của {{ $user->name }}</h3>
+                            <h3 class="card-title">Chi tiết tài khoản của {{ $user->name }}</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -26,22 +26,21 @@
                                 <div class="form-group">
                                     <label for="txt-name">Họ tên</label>
                                     <input type="text" class="form-control" id="txt-name" name="name" placeholder="{{ $user->name }}"
-                                        value="{{ $user->name }}">
+                                        value="{{ $user->name }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-email">Email</label>
                                     <input type="text" class="form-control" id="txt-email" name="email" placeholder="{{ $user->email }}"
-                                        value="{{ $user->email }}">
+                                        value="{{ $user->email }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-mobile">Số điện thoại</label>
                                     <input type="text" class="form-control" id="txt-mobile" name="mobile" placeholder="{{ $user->mobile }}"
-                                        value="{{ $user->mobile }}">
+                                        value="{{ $user->mobile }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-gender">Giới tính: </label>
-                                    <input type="radio" name="gender" value="1" checked value="{{ $user->gender }}"> <span>Nam</span>
-                                    <input type="radio" name="gender" value="0" value="{{ $user->gender }}"> <span>Nữ</span>
+                                    <input type="text" class="form-control" name="gender" value="{{ $user->gender}}" placeholder="{{ $user->gender }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-status">Trạng thái: </label>
@@ -51,16 +50,25 @@
                                 <div class="form-group">
                                     <label for="txt-license">Số giấy phép lái xe</label>
                                     <input type="text" class="form-control" id="txt-license" name="driver_id" placeholder="{{ $user->driver_id }}"
-                                        value="{{ $user->driver_id }}">
+                                        value="{{ $user->driver_id }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-approval">Duyệt GPLX: </label>
-                                    <input type="radio" name="driver_id_image_approval" value="0" checked value="{{ $user->driver_id_image_approval }}"> <span>Chưa duyệt</span>
-                                    <input type="radio" name="driver_id_image_approval" value="1" value="{{ $user->driver_id_image_approval }}"> <span>Duyệt</span>
+
+                                    @if ($user->driver_id == 0)
+                                        <input type="radio" name="driver_id_image_approval" value="0" checked> <span>Chưa duyệt</span>
+                                        <input type="radio" name="driver_id_image_approval" value="1"> <span>Duyệt</span>
+                                    
+                                    @else 
+                                        <input type="radio" name="driver_id_image_approval" value="0"> <span>Chưa duyệt</span>
+                                        <input type="radio" name="driver_id_image_approval" value="1" checked> <span>Duyệt</span>
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-price">Ảnh bằng lái</label>
-                                    <input type="file" class="form-control" id="txt-price" name="car_style" value="{{ $user->driver_id_image }}">
+                                    <div id="image" name="driver_id_image">
+                                        <img width="500px" src="{{ url('img/'.$user->driver_id_image ) }}"/>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->

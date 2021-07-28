@@ -74,7 +74,7 @@
 
                         <td class="project-actions text-right">
                             <a class="btn btn-primary btn-sm" href="{{ url('admin/update/'.$user->user_id) }}" >
-                                <i class="fas fa-pencil-alt">Sửa</i>
+                                <i class="fas fa-pencil-alt">Chi tiết</i>
                             </a>
                             <a class="btn btn-danger btn-sm" href="{{ url('admin/delete/'.$user->user_id) }}" onclick="javascript:return confirm('Bạn có chắc chắn ?')">
                                 <i class="fas fa-trash">
