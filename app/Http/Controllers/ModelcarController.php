@@ -16,7 +16,7 @@ class ModelcarController extends Controller
     }
     public function create() {
         $mfg = CarMFG::all();
-        return view('Admin-Rental.model-create',compact('mfg'));
+        return view('Admin-Model.model-create',compact('mfg'));
     }
 //     public function store(Request $request)
 // {
@@ -68,7 +68,7 @@ class ModelcarController extends Controller
     public function update($type_id) {
             $mfg = CarMFG::all();
             $m = ModelCar::find($type_id);
-            return view('Admin-Rental.model-update', ['m'=> $m,'mfg'=>$mfg]);
+            return view('Admin-Model.model-update', ['m'=> $m,'mfg'=>$mfg]);
         }
     public function postUpdate(Request $request,$type_id) {
         
@@ -105,8 +105,14 @@ class ModelcarController extends Controller
         }
     public function delete($type_id) {
                 $p = ModelCar::find($type_id);
+                $d = DB::table('tb_car_rental')->where('type_id', $p->type_id)->count();
+                if ($d>0) {
+                return redirect()->action('ModelcarController@index');
+                }
+                else{
                 $p->delete();
-            return redirect()->action('ModelcarController@index');
+                return redirect()->action('ModelcarController@index');
+                }
         }
         
 

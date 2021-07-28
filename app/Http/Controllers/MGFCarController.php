@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\CarMFG;
+use App\Models\ModelCar;
 class MGFCarController extends Controller
 {
     public function index()
@@ -49,10 +50,12 @@ class MGFCarController extends Controller
         $p->save();
         return redirect()->action('MGFCarController@index');
     }
-
     public function update($mfg_id) {
-        $p = CarMFG::find($mfg_id);
-        return view('Admin-MFG.mfg-update', ['p'=>$p]);
+        //$p = CarMFG::find($mfg_id);
+       // return view('Admin-MFG.mfg-update', ['p'=>$p]);
+        $mfg = CarMFG::find($mfg_id);
+        return view('Admin-MFG.mfg-update', ['mfg'=>$mfg]);
+        
     }
     public function postUpdate(Request $request, $mfg_id) {
         
@@ -90,8 +93,16 @@ class MGFCarController extends Controller
     }
     public function delete($mfg_id) {
         $p = CarMFG::find($mfg_id);
+        $d = DB::table('tb_car_type')->where('mfg_id',$p->mfg_id)->count();
+        if($d>0){
+        session()->flash('Dữ liệu đã tồn tại ở mục khác, không thể xóa dữ liệu này');
+        return redirect()->action('MGFCarController@index');  
+        }
+        else{
         $p->delete();
         return redirect()->action('MGFCarController@index');
+        }
     }
+
     }
 

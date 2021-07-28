@@ -51,5 +51,10 @@
   
     <!-- page script -->
     @yield('script-section')
+    <style>
+        .help.is-danger{
+            color: red;
+        }
+    </style>
 </body>
 </html>
