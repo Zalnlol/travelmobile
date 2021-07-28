@@ -620,7 +620,7 @@
                         <br>
                     </div>
                     <div class="modal-footer">
-                        <a href="">
+                        <a href="{{ url('user/profile/'.$user_id.'/edit') }}">
                             <button type="button" class="btn btn-primary">Đồng ý</button>
                         </a>
 
@@ -659,6 +659,7 @@
         <script>
             let searchinfo = {!! json_encode($searchinfo, JSON_HEX_TAG) !!};
             let carlist = {!! json_encode($carlist, JSON_HEX_TAG) !!};
+            let status = {!! json_encode($status, JSON_HEX_TAG) !!};
 
             function checkgplx() {
 
@@ -667,13 +668,11 @@
                 let gplx = {!! json_encode($gplx, JSON_HEX_TAG) !!};
                 if (id == null) {
                     document.getElementById('btn').click() = true;
-                } else {
-                    document.getElementById('nutsubmit').click() = true;
                 }
-                if (gplx == null) {
+                if ((gplx == null)||(status==0)) {
                     document.getElementById('btn1').click() = true;
                 } {
-                    // document.getElementById('nutsubmit').click() = true;
+                    document.getElementById('nutsubmit').click() = true;
                 }
             }
         </script>
