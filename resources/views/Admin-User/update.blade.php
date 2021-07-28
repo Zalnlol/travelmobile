@@ -54,6 +54,11 @@
                                         value="{{ $user->driver_id }}">
                                 </div>
                                 <div class="form-group">
+                                    <label for="txt-approval">Duyệt GPLX: </label>
+                                    <input type="radio" name="driver_id_image_approval" value="0" checked value="{{ $user->driver_id_image_approval }}"> <span>Chưa duyệt</span>
+                                    <input type="radio" name="driver_id_image_approval" value="1" value="{{ $user->driver_id_image_approval }}"> <span>Duyệt</span>
+                                </div>
+                                <div class="form-group">
                                     <label for="txt-price">Ảnh bằng lái</label>
                                     <input type="file" class="form-control" id="txt-price" name="car_style" value="{{ $user->driver_id_image }}">
                                 </div>

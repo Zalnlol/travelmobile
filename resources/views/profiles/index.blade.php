@@ -46,7 +46,7 @@
                     <div class="inside">
                         <ul>
                             <li><span class="label">Điện thoại</span><span>{{ $user->mobile ? "Đã đăng ký":"Chưa có" }}</span></li>
-                            <li><span class="label">GPLX</span><span>{{ $user->driver_id ? "Đã đăng ký": "Chưa có"}}</span></li>
+                            <li><span class="label">GPLX</span><span>{{ $user->driver_id_image_approval ? "Đã duyệt": "Chưa duyệt"}}</span></li>
                             <li><span class="label">Email</span><span class="ctn">{{ $user->email }}</span></li>
                             <li><span class="label">Facebook</span><span class="ctn"><span>{{ $user->facebook_id ? "Đã kết nối" : "Chưa kết nối" }}
                             <li><span class="label">Google</span><span class="ctn"><span>{{ $user->google_id ? "Đã kết nối" : "Chưa kết nối" }}

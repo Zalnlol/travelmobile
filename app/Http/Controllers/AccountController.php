@@ -62,6 +62,7 @@ class AccountController extends Controller
         $gender = $request->input('gender');
         $status = $request->input('status');
         $driver_id = $request->input('driver_id');
+        $driver_id_image_approval = $request->input('driver_id_image_approval');
         //Xử lý upload hình vào thư mục
         if($request->hasFile('image')){
             $file=$request->file('image');
@@ -79,7 +80,7 @@ class AccountController extends Controller
         }
         $user = DB::table('tb_user')
             ->where('user_id',intval($id))
-            ->update(['name'=>$name, 'email'=>$email, 'mobile'=>$mobile, 'gender'=>$gender, 'status'=>$status, 'driver_id'=>$driver_id, 'driver_id_image'=>$imageName]);
+            ->update(['name'=>$name, 'email'=>$email, 'mobile'=>$mobile, 'gender'=>$gender, 'status'=>$status, 'driver_id'=>$driver_id, 'driver_id_image'=>$imageName, 'driver_id_image_approval'=>$driver_id_image_approval]);
             return redirect()->action([AccountController::class, 'index']);
     }
 

@@ -48,6 +48,7 @@
                       <th>Giới tính</th>
                       <th>Ngày sinh</th>
                       <th>GPLX</th>
+                      <th>Duyệt GPLX</th>
                       <th>Ngày tham gia</th>
                       <th>Trạng thái</th>
                       <th>Tùy chỉnh</th>
@@ -67,6 +68,7 @@
                         <td>{{$user->gender ? "Nam" : "Nữ"}}</td>
                         <td>{{$user->dob}}</td>
                         <td>{{$user->driver_id ? "Có" : "Chưa đăng ký"}}</td>
+                        <td>{{$user->driver_id_image_approval ? "Đã duyệt" : "Chưa duyệt"}}</td>
                         <td>{{$user->created_at}}</td>
                         <td>{{$user->status ? "Khóa" : "Hoạt động"}}</td>
 

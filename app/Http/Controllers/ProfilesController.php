@@ -69,6 +69,7 @@ class ProfilesController extends Controller
         $avatar_image = $request->input('avatar_image');
         $mobile = $request->input('mobile');
         $gender = $request->input('gender');
+        $dob = $request->input('dob');
         $driver_id = $request->input('driver_id');
 
         // dd($user_id);
@@ -104,7 +105,7 @@ class ProfilesController extends Controller
         }
         $user = DB::table('tb_user')
             ->where('user_id',intval($user_id))
-            ->update(['name'=>$name, 'email'=>$email,'avatar_image'=>$avatar_image, 'mobile'=>$mobile, 'gender'=>$gender,  'driver_id'=>$driver_id, 'driver_id_image'=>$imageName]);
+            ->update(['name'=>$name, 'email'=>$email,'avatar_image'=>$avatar_image, 'dob'=>$dob, 'mobile'=>$mobile, 'gender'=>$gender,  'driver_id'=>$driver_id, 'driver_id_image'=>$imageName]);
             return redirect()->action([AccountController::class, 'index']);
         return redirect('profiles.index', compact('user','user_id'));
     }
