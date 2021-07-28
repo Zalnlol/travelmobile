@@ -61,7 +61,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" id="dropdown-list" href="{{ url('/profile') }}">Trang cá nhân</a>
+                                    <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/profile') }}">Trang cá nhân</a>
                                     <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/mycars')}}">Xe của tôi</a>
                                     <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/mytrips')}}">Chuyến của tôi</a>
                                     <a class="dropdown-item" id="dropdown-list" href="#">Đổi mật khẩu</a>

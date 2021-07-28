@@ -48,6 +48,7 @@
                       <th>Giới tính</th>
                       <th>Ngày sinh</th>
                       <th>GPLX</th>
+                      <th>Duyệt GPLX</th>
                       <th>Ngày tham gia</th>
                       <th>Trạng thái</th>
                       <th>Tùy chỉnh</th>
@@ -67,12 +68,13 @@
                         <td>{{$user->gender ? "Nam" : "Nữ"}}</td>
                         <td>{{$user->dob}}</td>
                         <td>{{$user->driver_id ? "Có" : "Chưa đăng ký"}}</td>
+                        <td>{{$user->driver_id_image_approval ? "Đã duyệt" : "Chưa duyệt"}}</td>
                         <td>{{$user->created_at}}</td>
                         <td>{{$user->status ? "Khóa" : "Hoạt động"}}</td>
 
                         <td class="project-actions text-right">
                             <a class="btn btn-primary btn-sm" href="{{ url('admin/update/'.$user->user_id) }}" >
-                                <i class="fas fa-pencil-alt">Sửa</i>
+                                <i class="fas fa-pencil-alt">Chi tiết</i>
                             </a>
                             <a class="btn btn-danger btn-sm" href="{{ url('admin/delete/'.$user->user_id) }}" onclick="javascript:return confirm('Bạn có chắc chắn ?')">
                                 <i class="fas fa-trash">

@@ -121,8 +121,23 @@ class SearchCar extends Controller
     
 function search(Request $request){
 
+
             $i=0;
             $searchinfo= $request->all();
+
+            $stu= convertS($searchinfo['checkin'], $searchinfo['hourstart'],0);
+            $etu= convertS($searchinfo['checkout'], $searchinfo['hourend'],0);
+
+            if($stu>$etu){
+                $tmp1=$searchinfo['checkin'];
+                $searchinfo['checkin']=$searchinfo['checkout'];
+                $searchinfo['checkout']=$tmp1;
+
+                $tmp2=$searchinfo['hourstart'];
+                $searchinfo['hourstart']=$searchinfo['hourend'];
+                $searchinfo['hourend']=$tmp2;
+
+            }
 
             if(count($searchinfo)==0){
                 $searchinfo['city']='Hồ Chí Minh, Thành phố Hồ Chí Minh';
@@ -134,7 +149,7 @@ function search(Request $request){
                 $searchinfo['hourend']='11';
             }
 
-                $carlist=CarRental::all();
+                $carlist=CarRental::where("status","2")->get();
                 $arrays=[];
                 $listcardiplay=[];
                 
@@ -166,11 +181,11 @@ function search(Request $request){
             $i=0;
             foreach($listscan as $element){
                 $arrays[$i]['car_id'] = $element['car_id'];
-            $arrays[$i]['name'] = $element['name'];
-            $arrays[$i]['auto'] = $element['auto'];
-            $arrays[$i]['rent_price'] = $element['rent_price'];
-            $arrays[$i]['free_ship_distance'] = $element['free_ship_distance'];
-            $arrays[$i]['address'] = $element['address'];
+                $arrays[$i]['name'] = $element['name'];
+                $arrays[$i]['auto'] = $element['auto'];
+                $arrays[$i]['rent_price'] = $element['rent_price'];
+                $arrays[$i]['free_ship_distance'] = $element['free_ship_distance'];
+                $arrays[$i]['address'] = $element['address'];
                     // so chuyen
                 $sochuyen=RentalContract::where('car_id',$element['car_id'])->where('status','Đã hoàn thành')->get();
                 $arrays[$i]['trip_number']=$sochuyen->count();

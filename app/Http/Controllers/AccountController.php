@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class AccountController extends Controller
@@ -43,7 +44,7 @@ class AccountController extends Controller
             'user_id'=>intval($user['user_id']),
             'name'=>$user['name'],
             'email'=>$user['email'],
-            'password'=>$user['password'],
+            'password'=> Hash::make($user['password']),
             'is_admin'=>'1',
         ]);
         return redirect()->action([AccountController::class, 'index']);
@@ -58,9 +59,9 @@ class AccountController extends Controller
         $name = $request->input('name');
         $email = $request->input('email');
         $mobile = $request->input('mobile');
-        $gender = $request->input('gender');
         $status = $request->input('status');
         $driver_id = $request->input('driver_id');
+        $driver_id_image_approval = $request->input('driver_id_image_approval');
         //Xử lý upload hình vào thư mục
         if($request->hasFile('image')){
             $file=$request->file('image');
@@ -78,7 +79,7 @@ class AccountController extends Controller
         }
         $user = DB::table('tb_user')
             ->where('user_id',intval($id))
-            ->update(['name'=>$name, 'email'=>$email, 'mobile'=>$mobile, 'gender'=>$gender, 'status'=>$status, 'driver_id'=>$driver_id, 'driver_id_image'=>$imageName]);
+            ->update(['name'=>$name, 'email'=>$email, 'mobile'=>$mobile, 'status'=>$status, 'driver_id'=>$driver_id, 'driver_id_image'=>$imageName, 'driver_id_image_approval'=>$driver_id_image_approval]);
             return redirect()->action([AccountController::class, 'index']);
     }
 

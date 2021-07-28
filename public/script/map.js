@@ -109,7 +109,7 @@ function checktoado() {
 }
 
 
-function checksubmit(){
+function checksubmit1(){
 
     diachi = document.getElementById('search_input').value;
 

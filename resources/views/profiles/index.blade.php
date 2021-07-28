@@ -3,13 +3,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/userprofile.css') }}">
 @section('bodycode')
 
-    <div class="cover-profile new-profile" style="background-image: url('images/homepage-driving.jpg');"></div>
+    <div class="cover-profile new-profile" style="background-image: url('../images/homepage-driving.jpg');"></div>
     <div class="profile__sect">
         <div class="content-profile--new">
             <div class="desc-profile desc-account">
                 <div class="avatar-box">
                     <div class="avatar avatar--xl has-edit">
-                        <img src="{{ asset("/img/$user->avatar_image") }}">
+                        <img style="width:100%" src="{{ asset("/img/$user->avatar_image") }}">
                     </div>
                 </div>
                 <div class="snippet">
@@ -23,6 +23,8 @@
                             
                                 <a href="{{ url('user/profile/'.$user->user_id.'/edit') }}"><button type="button" class="btn btn-success">Chỉnh sửa</button></a> 
                         @endif
+
+                        
                             <div class="d-flex"><span class="join">
                                 Tham gia: {{ $user->created_at->format('d/m/Y') }}</span>
                             </div>
@@ -43,11 +45,11 @@
                 <div class="information information--acc">
                     <div class="inside">
                         <ul>
-                            <li><span class="label">Điện thoại</span><span>{{ $user->mobile }}</span></li>
-                            <li><span class="label">GPLX</span><span>{{ $user->driver_id ? "Đã đăng ký": "N/A"}}</span></li>
+                            <li><span class="label">Điện thoại</span><span>{{ $user->mobile ? "Đã đăng ký":"Chưa có" }}</span></li>
+                            <li><span class="label">GPLX</span><span>{{ $user->driver_id_image_approval ? "Đã duyệt": "Chưa duyệt"}}</span></li>
                             <li><span class="label">Email</span><span class="ctn">{{ $user->email }}</span></li>
-                            <li><span class="label">Facebook</span><span class="ctn"><span>{{ $user->facebook_id ? "Đã kết nối" : "N/A" }}
-                            <li><span class="label">Google</span><span class="ctn"><span>{{ $user->google_id ? "Đã kết nối" : "N/A" }}
+                            <li><span class="label">Facebook</span><span class="ctn"><span>{{ $user->facebook_id ? "Đã kết nối" : "Chưa kết nối" }}
+                            <li><span class="label">Google</span><span class="ctn"><span>{{ $user->google_id ? "Đã kết nối" : "Chưa kết nối" }}
                         </ul>
                     </div>
                 </div>

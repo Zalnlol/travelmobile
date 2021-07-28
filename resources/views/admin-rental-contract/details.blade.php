@@ -11,7 +11,7 @@
             <div class="row" style="margin-top: 2%">
     
                 <div class="col-sm-6" style="text-align: right">
-                    <img src="{{ asset('/' . $data3['image']) }}" style="height:130px">
+                    <img src="{{ asset('/images/carimg/' . $data3['image']) }}" style="height:130px">
                 </div>
                 <div class="col-sm-6" style="text-align: left">
                     <div class="row">

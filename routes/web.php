@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admincontroller;
 use App\Http\Controllers\MGFCarController;
 use App\Http\Controllers\SearchCar;
 use Illuminate\Http\Request;
@@ -86,13 +87,9 @@ Route::get('/email', function(){
     return new NewUserWelcomeMail();
 });
 
+Route::get('user/profile/{user}',[ProfilesController::class,"index"]);
 
 Route::get('/blog', [BlogController::class,"blog"]);
-
-
-
-Route::get('/profile/{user}',[ProfilesController::class,"index"])->name('profiles.show');
-
 
 
 
@@ -115,20 +112,13 @@ Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
 
 
             //Route user view profile or edit profile
-            Route::get('/profile',[ProfilesController::class,"viewSelfProfile"])->name('profiles.show');
+            Route::get('/profile',[ProfilesController::class,"viewSelfProfile"]);
             Route::get('/profile/{user}/edit',[ProfilesController::class,"edit"])->name('profiles.edit');
-            Route::patch('/profile/{user}',[ProfilesController::class,"update"])->name('profiles.update');
+            Route::patch('/profile/{user}/update',[ProfilesController::class,"update"]);
 
             //Changing password
             Route::get('change-password', [ChangePasswordController::class, 'index']);
             Route::post('change-password', [ChangePasswordController::class, 'store'])->name('change.password');
-
-
-
-
-
-
-
 
 
 
@@ -368,9 +358,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 //Quyền admin
 
   Route::prefix('admin')->name('admin.')->middleware('is_admin:admin')->group(function(){
-    Route::get('/', function () {
-        return view('AdminHome');
-    });
+
+
+    Route::get('/', [Admincontroller::class,"viewadmin"])->name('home');
 
    //Của A Thiện 
     Route::get('/index',[AccountController::class,"index"]);

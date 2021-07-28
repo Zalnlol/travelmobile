@@ -357,7 +357,7 @@ font-weight: bolder;}
                     Browse Files
                   </div>
               <input type="file" id="input_68" name="image_behind" />
-              < <img id="image3" />
+              <img id="image3" />
             </div>
             <span style="display:none" class="cancelText">
               Cancel

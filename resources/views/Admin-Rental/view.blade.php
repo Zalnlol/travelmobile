@@ -246,30 +246,55 @@ font-weight: bolder;}
 
       <form action="{{ route('admin.rental.approval', $rentalview->car_id) }}" method="post">
         @csrf
-      <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_5">
-        <label class="form-label form-label-top" id="label_5" for="input_5"> Biển số xe </label>
-        <div id="cid_5" class="form-input-wide">
-          <input type="text" id="input_5" name="plate_id" data-type="input-textbox" readonly class="form-textbox" size="20" value="{{ $rentalview->plate_id }}" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
-        </div>
+        <input type="hidden" id="input_5" name="car_id" data-type="input-textbox" readonly class="form-textbox" size="20" value="{{ $rentalview->car_id }}" placeholder=" " data-component="textbox" aria-labelledby="label_5" />
+        <li class="form-line form-line-column form-col-1" data-type="control_textbox" id="id_5">
+          <label class="form-label form-label-top" id="label_5" for="input_5"> Biển số xe </label>
+          <div id="cid_5" class="form-input-wide">
+              <input type="text" id="input_5" name="plate_id" data-type="input-textbox"
+                  class="form-textbox" size="20" value="{{ $rentalview->plate_id }}" placeholder="" readonly data-component="textbox"
+                  aria-labelledby="label_5" />
+          </div>
       </li>
-      <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_6">
-        <label class="form-label form-label-top" id="label_6" for="input_6"> Hãng xe </label>
-        <div id="cid_6" class="form-input-wide">
-          <input type="text" id="input_6" name="brand" data-type="input-textbox" readonly class="form-textbox" size="20" value="{{ $rentalview->brand }}" placeholder=" " data-component="textbox" aria-labelledby="label_6" />
+
+      <li class="form-line" data-type="control_image" id="id_25">
+        <div id="cid_25" class="form-input-wide">
+            <img alt="" class="form-image" style="border:0"
+                src="//www.jotform.com/uploads/pinoytech/form_files/shadow.png" height="50px"
+                width="618px" data-component="image" />
         </div>
-      </li>
-      <li class="form-line form-line-column form-col-3" data-type="control_textbox" id="id_7">
-        <label class="form-label form-label-top" id="label_7" for="input_7"> Mẫu xe </label>
-        <div id="cid_7" class="form-input-wide">
-          <input type="text" id="input_7" name="name" data-type="input-textbox" readonly class="form-textbox" size="20" value="{{ $rentalview->name }}" placeholder=" " data-component="textbox" aria-labelledby="label_7" />
-        </div>
-      </li>
+    </li>
+    
+    <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
+      <label class="form-label form-label-top" id="label_32" for="input_32"> Hãng xe </label>
+      <div id="cid_32" class="form-input-wide">
+          <select class="form-dropdown" id="input_6" name="brand" disabled onchange="return check()"
+              style="width:150px" data-component="dropdown">
+
+    
+            
+                  <option value="{{ $rentalview->brand }}">{{ $rentalview->brand }}</option>
+
+
+
+          </select>
+      </div>
+  </li>
+
+      <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
+                            <label class="form-label form-label-top" id="label_32" for="input_32"> Mẫu xe </label>
+                            <div id="cid_32" class="form-input-wide">
+                                <select class="form-dropdown" id="input_7" name="name" style="width:150px" disabled
+                                    onchange="return checkgia()" data-component="dropdown">
+                                    <option value="{{ $rentalview->name }}">{{ $rentalview->name }}</option>
+                                </select>
+                            </div>
+                        </li>
 
       <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
         <label class="form-label form-label-top" id="label_10" for="seatnum"> Số ghế </label>
         <div id="cid_10" class="form-input-wide">
-          <select class="form-dropdown" id="input_10" disabled name="seatnum" style="width:150px" data-component="dropdown">
-            <option value="{{ $rentalview->seatnum }}">{{ $rentalview->seatnum }}</option>
+          <select class="form-dropdown" id="input_10" disabled name="" style="width:150px" data-component="dropdown">
+            <option value="{{ $rentalview->seatnum }}" >{{ $rentalview->seatnum }}</option>
             <option value="4"> 4 </option>
             <option value="5"> 5 </option>
             <option value="6"> 6 </option>
@@ -293,11 +318,11 @@ font-weight: bolder;}
 
 
      
-      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10" style="margin-left: 140px">
+      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
         <label class="form-label form-label-top" id="label_10" for="model_year"> Năm sản xuất </label>
         <div id="cid_10" class="form-input-wide">
-          <select class="form-dropdown" id="input_10" disabled name="model_year" style="width:150px" data-component="dropdown">
-            <option value="{{ $rentalview->model_year }}">{{ $rentalview->model_year }}</option>
+          <select class="form-dropdown" id="input_10" disabled name="" style="width:150px" data-component="dropdown">
+            <option value="{{ $rentalview->model_year }}" >{{ $rentalview->model_year }}</option>
             <option value="1960"> 1960 </option>
             <option value="1961"> 1961 </option>
             <option value="1962"> 1962 </option>
@@ -364,10 +389,10 @@ font-weight: bolder;}
         </div>
       </li>
 
-      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10" style="margin-top: -74px">
+      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
         <label class="form-label form-label-top" id="label_10" for="auto"> Truyền động </label>
         <div id="cid_10" class="form-input-wide">
-          <select class="form-dropdown" id="input_10" disabled name="auto" style="width:150px" data-component="dropdown">
+          <select class="form-dropdown" id="input_10" disabled name="" style="width:150px" data-component="dropdown">
             @if ($rentalview->auto == 1)
             <option value="1"> Số tự động </option>
             <option value="2">Số sàn</option>
@@ -380,10 +405,10 @@ font-weight: bolder;}
         </div>
       </li>
 
-      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10" style="margin-top: -74px">
+      <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
         <label class="form-label form-label-top" id="label_10" for="fuel"> Loại nhiên liệu </label>
         <div id="cid_10" class="form-input-wide">
-          <select class="form-dropdown" id="input_10" name="fuel" disabled style="width:150px" data-component="dropdown">
+          <select class="form-dropdown" id="input_10" disabled name="" style="width:150px" data-component="dropdown">
             @if ($rentalview->fuel == 1)
             <option value="1"> Xăng </option>
             <option value="2"> Dầu diesel </option>
@@ -394,6 +419,7 @@ font-weight: bolder;}
           </select>
         </div>
       </li>
+
 
       <li class="form-line form-line-column form-col-8" data-type="control_textbox" id="id_12">
         <label class="form-label form-label-top" id="label_12" for="consumption"> Mức tiêu thụ </label>
