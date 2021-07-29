@@ -149,7 +149,7 @@ function search(Request $request){
                 $searchinfo['hourend']='11';
             }
 
-                $carlist=CarRental::where("status","2")->get();
+                $carlist=CarRental::where("status","2")->where('user_id','<>',$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'))->get();
                 $arrays=[];
                 $listcardiplay=[];
                 
@@ -193,8 +193,9 @@ function search(Request $request){
                 //so sao
                 $tmp=0;
                 $sosao= Review::where('car_id',$element['car_id'])->get()->count();
+                $listsao=Review::where('car_id',$element['car_id'])->get();
                 if($sosao>0){
-                    foreach($sosao as $element2){
+                    foreach($listsao as $element2){
                         $tmp+=$element2['star_num'];
                     }
                     $tmp= round($tmp/$sosao);
@@ -234,7 +235,7 @@ function search(Request $request){
                 $listcardiplay[$i]=  (object) $element;
                 $i+=1;
             }
-            
+   
             return view('User.searchcar',compact('listcardiplay','idmap','hangxe','searchinfo'));
 
 }
@@ -256,7 +257,7 @@ function filter(Request $request){
 
 
 
-        $carlist=CarRental::all();
+        $carlist=CarRental::where("status","2")->where('user_id','<>',$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'))->get();;
          $arrays=[];
         $listcardiplay=[];
                 
@@ -460,8 +461,9 @@ function filter(Request $request){
                     //so sao
                     $tmp=0;
                     $sosao= Review::where('car_id',$element['car_id'])->get()->count();
+                    $listsao=Review::where('car_id',$element['car_id'])->get();
                     if($sosao>0){
-                        foreach($sosao as $element2){
+                        foreach($listsao as $element2){
                             $tmp+=$element2['star_num'];
                         }
                         $tmp= round($tmp/$sosao);
@@ -469,7 +471,6 @@ function filter(Request $request){
                         $tmp=0;
                     }
                     $arrays[$i]['star_num']=$tmp;
-
                     //lay hinh
 
                     $Carimage=CarPic::where('car_id',$element['car_id'])->get()->first();

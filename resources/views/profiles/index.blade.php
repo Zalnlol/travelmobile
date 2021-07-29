@@ -3,7 +3,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/userprofile.css') }}">
 @section('bodycode')
 
-    <div class="cover-profile new-profile" style="background-image: url('../images/homepage-driving.jpg');"></div>
+    <div class="cover-profile new-profile" style="background-image: url('{{asset('images/homepage-driving.jpg')}}');"></div>
     <div class="profile__sect">
         <div class="content-profile--new">
             <div class="desc-profile desc-account">

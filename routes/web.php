@@ -50,9 +50,9 @@ use App\Models\User;
 
 Route::get('/', function (Request $request) {
 
-
-    return view('index');
-});
+    $p = CarMFG::all();
+    return view('index',compact('p'));
+})->name('homepage');
 
 
 Route::get('/searchcar', function () {
