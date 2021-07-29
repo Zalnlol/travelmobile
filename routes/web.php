@@ -142,8 +142,8 @@ Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
             Route::get('/mycars/rental/image/update/{car_id}', 'MyCarController@updateImage')->name('rental.image.update');
             Route::post('/mycars/rental/image/checkUpdate/{car_id}', 'MyCarController@checkupdateImage')->name('rental.image.checkupdate');
 
-            Route::get('/review', 'ReviewController@index')->name('review');
-            Route::post('/review/post', 'ReviewController@store')->name('review.post');
+            Route::get('triphistory/review/{contract_id}', 'ReviewController@review')->name('review');
+            Route::post('triphistory/postreview', 'ReviewController@postReview')->name('review.post');
 
 
 
