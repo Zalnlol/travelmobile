@@ -92,16 +92,16 @@
             
             <div class="row" style="margin-top: 20px">
                 <div class="col" style="text-align: center">
-                    <input type="submit" class="btn btn-success" style="padding: 10px 30px" name="" id="" value="Áp dụng">
-                    <a href="{{ url('/searchcar') }}">
-                        <button class="btn btn-info"  style="padding: 10px 30px">
-                        <i class="fa fa-undo"></i>
-                        Bỏ lọc
-                    </button>
-                    </a>
+                    <input type="submit" class="btn btn-success" style="padding: 10px 30px" name="" id="ndndnd" value="Áp dụng">
 
-                    
+                        {{-- <button     >
+                        <i class="fa fa-undo"></i>
+                             
+                        </button> --}}
                 
+                       <input type="button" class="btn btn-info" onclick="return boloc()" style="padding: 10px 30px" id="ndndnd" value="Bỏ lọc">
+                    
+        
                 </div>
             </div>
 
@@ -173,6 +173,11 @@
             document.getElementById("bantai").value = 0;
         }
 
+    }
+    function boloc(){
+
+
+        document.getElementById('sb').click()=true;
     }
 
   

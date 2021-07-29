@@ -149,7 +149,7 @@ function search(Request $request){
                 $searchinfo['hourend']='11';
             }
 
-                $carlist=CarRental::where("status","2")->get();
+                $carlist=CarRental::where("status","2")->where('user_id','<>',$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'))->get();
                 $arrays=[];
                 $listcardiplay=[];
                 
@@ -257,7 +257,7 @@ function filter(Request $request){
 
 
 
-        $carlist=CarRental::all();
+        $carlist=CarRental::where("status","2")->where('user_id','<>',$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'))->get();;
          $arrays=[];
         $listcardiplay=[];
                 
