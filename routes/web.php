@@ -52,7 +52,7 @@ Route::get('/', function (Request $request) {
 
     $p = CarMFG::all();
     return view('index',compact('p'));
-});
+})->name('homepage');
 
 
 Route::get('/searchcar', function () {
@@ -66,6 +66,8 @@ Route::get('/searchcar/filter', [SearchCar::class, "filter"])->name("filter");
 
 
 Route::get('/searchcar/profile', [RentalContract::class, "carprofile"])->name("carprofile");
+
+Route::get('/searchcar/profile/checkday', [RentalContract::class, "checkdate"])->name("checkday");
 
 
 //Facebook login
@@ -163,7 +165,7 @@ Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
 
 
             Route::post('/searchcar/profile/checkout', [RentalContract::class, "checkout"])->name("carprofile");
-
+      
 
             //mytrip
 

@@ -9,9 +9,80 @@ use App\Models\RentalSchedule;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use PDO;
 use phpDocumentor\Reflection\Element;
+
+function convertS($date, $hour,$timeday){
+ 
+    if($timeday==0){
+        $time = $date .' '. $hour.':00' ;
+    } else{
+        $time=$timeday;
+    }
+   
+    
+    $convert= new Carbon($time);
+    $h = $convert->format('H');
+    $i = $convert->format('i');
+    $s = $convert->format('s');
+    $m = $convert->format('m');
+    $d = $convert->format('d');
+    $y = $convert->format('Y');
+    $date = mktime($h , $i, $s, $m,$d,$y);
+    return $date;
+}
+
+function checktime($searchinfo, $id){
+    $i=0;
+ 
+
+    // print_r($listcar);
+    if($id=='1'){
+        $starttimeuser= convertS($searchinfo['checkin'], $searchinfo['hourstart'],0);
+        $endtimeuser= convertS($searchinfo['checkout'], $searchinfo['hourend'],0);
+    } else{
+        $starttimeuser= convertS(0,0,$searchinfo['pickup_date']);
+        $endtimeuser= convertS(0,0,$searchinfo['return_date']);
+    }
+
+
+    // dd($searchinfo['car_id']);
+
+    
+    $listime = RentalSchedule::where('car_id',$searchinfo['car_id'])->get();
+    $listime1=[];
+    if (count($listime)>0){
+        foreach($listime as $element){
+            $listime1[$i]['secondstart']=convertS(0,0,$element['start_date']);
+            $listime1[$i]['secondend']=convertS(0,0,$element['end_date']);
+            $i+=1;
+        }
+
+
+    }else{
+        return true;
+    }
+
+
+    $i=0;
+
+
+    foreach($listime1 as $element){
+        if( (($starttimeuser > $element['secondstart'] )  &&  ($starttimeuser > $element['secondend'])) || 
+            (($endtimeuser   < $element['secondstart'] )  &&  ($endtimeuser <   $element['secondend']))
+          ){
+            
+          } else{
+            return false;
+          }
+    }
+    
+    return true;
+}
+
+
 
 class RentalContract extends Controller
 {
@@ -19,9 +90,12 @@ class RentalContract extends Controller
 
         $user_id=$request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
         $gplx=null;
+        $status=0;
        if($user_id!=null){
            $datauser= User::where('user_id',$user_id)->get()->first();
            $gplx=$datauser['driver_id'];
+
+           $status=$datauser['status'];
        }
 
         $data= $request->all();
@@ -36,16 +110,25 @@ class RentalContract extends Controller
 
         $car_id=$data['car_id'];
 
+        
+
         $carlist=CarRental::where('car_id',$car_id)->get()->first();
         $userid=$carlist['user_id'];
         $img= CarPic::where('car_id',$car_id)->get()->first();
         $chuxe=user::where('user_id',$userid)->get()->first();
 
+        //nếu người thuê là chủ xe  thì cho nó về home
+        if ($userid== $user_id){
+            return view('User.eror404');
+
+        }
+
         //so sao
         $tmp=0;
         $sosao= Review::where('car_id',$car_id)->get()->count();
+        $listsao=Review::where('car_id',$car_id)->get();
         if($sosao>0){
-            foreach($sosao as $element2){
+            foreach($listsao as $element2){
                 $tmp+=$element2['star_num'];
             }
             $tmp= round($tmp/$sosao);
@@ -54,15 +137,50 @@ class RentalContract extends Controller
         }
         $star_num=$tmp;
 
+     
+
         //So chuyen
         $sochuyen=ModelsRentalContract::where('car_id',$car_id)->get();
         $trip_number=$sochuyen->count();
 
 
-        return view('User/carprofile',compact('carlist','img','chuxe','searchinfo','star_num','trip_number','user_id','gplx'));
+        return view('User/carprofile',compact('carlist','img','chuxe','searchinfo','star_num','trip_number','user_id','gplx','status'));
     }
 
+    function checkdate(Request $request){
+        $searchinfo = $request->all();
+       
+         if  (checktime($searchinfo,'1')==true){
+            $gt='true';
+         }else{
+            $gt='false';
+         };
+        
+       return $gt;
+
+    }
+
+
     function checkout(Request $request){
+            $dataa1= $request->all();
+            $searchinfo['checkin']= '';
+            $searchinfo['checkout']= '';
+            $searchinfo['hourstart']= '';
+            $searchinfo['hourend']= '';
+
+            $searchinfo['pickup_date']= $dataa1['pickup_date'];
+            $searchinfo['return_date']= $dataa1['return_date'];
+            $searchinfo['car_id']= $dataa1['car_id'];
+          
+            if  (checktime($searchinfo,'2')==true){
+                
+             }else{
+               return view('User.loidatxe');
+             };
+
+
+        
+
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $data=$request->all();
         $data['service_cost']=$data['contract_value']-$data['rental_price']-$data['shipping_cost'];
