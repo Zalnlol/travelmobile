@@ -28,8 +28,17 @@ class ReviewController extends Controller
             'contract_id'=>$review['contract_id'],
             'star_num'=>$review['star_num'],
             'comment'=>$review['comment'],
+            'created_at'=>$review['created_at'],
+            'updated_at'=>$reivew['updated_at'],
         ]);
 
         return redirect()->back();
+    }
+
+    public function index($id)
+    {
+        $car_id = RentalContract::where('car_id', $id)->get();
+        dd($car_id);
+        return view('User.carprofile');
     }
 }
