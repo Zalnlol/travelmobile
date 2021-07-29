@@ -674,7 +674,7 @@
                     <div class="media">
                         <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
                         <div class="media-body">
-                            <h4 class="media-heading">{{ $username }}</h4>
+                            <h4 class="media-heading"></h4>
                             <p>{{ $item->comment }}</p>
                             <ul class="list-unstyled list-inline media-detail pull-left">
                                 <div id="rating">
