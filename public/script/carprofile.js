@@ -57,6 +57,7 @@ function complatedata(){
     hourend = document.getElementById('hourend').value
     document.getElementById('user_id').value='';
     document.getElementById('car_id').value=carlist['car_id'];
+    document.getElementById('car_id1').value=carlist['car_id'];
     document.getElementById('pickup_date').value=xulyngay(checkin,hourstart)
     document.getElementById('return_date').value=xulyngay(checkout,hourend)
     document.getElementById('rental_price').value= parseInt(document.getElementById('dongiathue').innerText) *parseInt(document.getElementById('days').innerText);
@@ -65,6 +66,54 @@ function complatedata(){
     document.getElementById('contract_value').value= document.getElementById('tongphithuexe').innerText
     document.getElementById('deposit').value= document.getElementById('datcoc').innerText
     document.getElementById('service_cost').value= document.getElementById('phidichvu').innerText
+}
+
+
+function giaonhanxe(){
+    hourstart = document.getElementById('hourstart').value;
+    hourend = document.getElementById('hourend').value;
+
+    if(((hourstart>=5)&&(hourstart<=23))&&((hourend>=5)&&(hourend<=23))){
+        document.getElementById('giaonhanxe').hidden=true;
+        document.getElementById('nutao').disabled=false;
+
+    }else{
+        document.getElementById('nutao').disabled=true;
+        document.getElementById('giaonhanxe').hidden=false;
+    }
+
+}
+
+function kiemtrangay(){
+    hientai =(new Date()).getTime();
+    // console.log($hientai);
+
+    checkin = document.getElementById('inputCheckIn').value
+    hourstart = document.getElementById('hourstart').value
+    timestart = checkin + '  ' + hourstart + ':00:00';
+    var ngaybatdau = new Date(timestart);
+    ngaybatdau = ngaybatdau.getTime()
+
+    checkout = document.getElementById('inputCheckOut').value
+    hourend = document.getElementById('hourend').value
+    timestart = checkout + '  ' + hourend + ':00:00';
+    var ngaykethuc = new Date(timestart);
+    ngaykethuc = ngaykethuc.getTime()
+
+    if((ngaybatdau -hientai <0)||(ngaykethuc- hientai<0)){
+
+       
+        document.getElementById('nutao').disabled=true;
+        document.getElementById('thoigianquakhu').hidden=false;
+
+    } else
+    {
+        
+        document.getElementById('thoigianquakhu').hidden=true;
+        document.getElementById('nutao').disabled=false;
+    }
+
+
 }
 
 
@@ -91,3 +140,5 @@ phigiaoxe = parseInt(document.getElementById('giaoxe').innerText)
 document.getElementById('tongphithuexe').innerText = ((dongiathue + phidichvu) * songay )+ phigiaoxe;
 document.getElementById('datcoc').innerText = Math.round(((dongiathue + phidichvu) * songay + phigiaoxe) * 0.3);
 complatedata();
+giaonhanxe();
+kiemtrangay();

@@ -263,7 +263,7 @@
                         <span id="title-left"> Chủ xe</span>
                     </div>
                     <div class="col-sm-9">
-                        <a href="{{url('/user/profile/'.$chuxe['user_id'])}}" style="color: black">
+                        <a href="{{ url('/user/profile/' . $chuxe['user_id']) }}" style="color: black">
 
                             <div class="row">
                                 <div class="col-sm-2">
@@ -300,7 +300,8 @@
                                 <span style=" font-size: 12pt;font-weight: bold;">/ngày</span>
                             </div>
                         </div>
-                        <form action="{{ url('user/searchcar/profile/checkout') }}" method="POST">
+
+                        <form action="{{ url('user/searchcar/profile/checkday') }}" id="updatethoigian">
                             <span id="start-end-day">
                                 Ngày bắt đầu
                             </span>
@@ -308,11 +309,11 @@
                             <div class="row" style="margin-top: 3%">
                                 <div class="col-sm-7">
                                     <input type="text" class="form-control" id="inputCheckIn" placeholder="Bắt đầu"
-                                        value="{{ $searchinfo['checkin'] }}" onchange="return onselect()">
+                                        value="{{ $searchinfo['checkin'] }}" name="checkin">
                                 </div>
                                 <div class="col-sm-5">
-                                    <select id="hourstart" class="form-control tm-select" id="children1"
-                                        onchange="return tinhtien()">
+                                    {{-- onchange="return tinhtien()" --}}
+                                    <select id="hourstart" class="form-control tm-select" id="children1" name="hourstart">
                                         <option value="0">0:00 am</option>
                                         <option value="1">1:00 am</option>
                                         <option value="2">2:00 am</option>
@@ -349,11 +350,10 @@
                             <div class="row" style="margin-top: 3%">
                                 <div class="col-sm-7">
                                     <input type="text" class="form-control" id="inputCheckOut" placeholder="Kết thúc"
-                                        value="{{ $searchinfo['checkout'] }}" onchange="return tinhtien()">
+                                        value="{{ $searchinfo['checkout'] }}" name="checkout">
                                 </div>
                                 <div class="col-sm-5">
-                                    <select id="hourend" class="form-control tm-select" id="children1"
-                                        onchange="return tinhtien()">
+                                    <select id="hourend" class="form-control tm-select" id="children1" name="hourend">
                                         <option value="0">0:00 am</option>
                                         <option value="1">1:00 am</option>
                                         <option value="2">2:00 am</option>
@@ -381,148 +381,175 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row" id="thoi-gian">
-                                <div class="col-sm-7">
-                                    <span style="margin-left:2%">Thời gian giao nhận xe</span>
-                                </div>
-                                <div class="col-sm-5" style="text-align: right">
-                                    <span>5:30-23:30</span>
-                                </div>
-                            </div>
-                            <br>
-                            <span id="start-end-day">
-                                Địa điểm giao xe
-                            </span>
-                            <br>
-
-                            <div class="row" style="margin-top: 3%; ">
-                                <div class="col">
-                                    <i class="fa fa-map-marker fa-2x "></i>
-                                    <span style="font-size: 12pt;" id="diadiemgiaoxe">{{ $searchinfo['city'] }}</span>
+                            <input type="input" hidden readonly name="car_id" id="car_id1" value="">
+                            <div class="row" style="margin-top: 5%">
+                                <div class="col" style="text-align: center">
+                                    <input type="submit" id="capnhatthoigian" class="btn btn-success"
+                                        value="Cập nhật lại thời gian">
                                 </div>
                             </div>
 
-                            <div class="row" style="margin-top: 3%; ">
-                                <div class="col">
-                                    <input type="checkbox" id="checkgiaoxe" checked onclick="return ktcheck()">
-                                    <span style="font-size: 13pt;"> Giao xe tận nơi </span>
-                                </div>
+                        </form>
 
+                        <div class="row" style="margin-top: 5%" hidden id="thongbaothoigian">
+                            <div class="col" style="text-align: center">
+                                <span style="color: red"> Xe có chuyến trong khoảng thời gian bạn chọn, vui lòng chọn
+                                    lại</span>
                             </div>
+                        </div>
+                        <div class="row" style="margin-top: 5%" hidden id="giaonhanxe">
+                            <div class="col" style="text-align: center">
+                                <span style="color: red"> Thời gian giao hoặc nhận xe không đúng</span>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 5%" hidden id="thoigianquakhu">
+                            <div class="col" style="text-align: center">
+                                <span style="color: red"> Khoảng thời gian bắt đầu / kết thúc không hợp lệ</span>
+                            </div>
+                        </div>
+                        <div class="row" id="thoi-gian">
+                            <div class="col-sm-7">
+                                <span style="margin-left:2%">Thời gian giao nhận xe</span>
+                            </div>
+                            <div class="col-sm-5" style="text-align: right">
+                                <span>5:00-23:00</span>
+                            </div>
+                        </div>
+                        <br>
+                        <span id="start-end-day">
+                            Địa điểm giao xe
+                        </span>
+                        <br>
 
+                        <div class="row" style="margin-top: 3%; ">
+                            <div class="col">
+                                <i class="fa fa-map-marker fa-2x "></i>
+                                <span style="font-size: 12pt;" id="diadiemgiaoxe">{{ $searchinfo['city'] }}</span>
+                            </div>
+                        </div>
 
-                            <div class="row" id="thoi-gian">
-                                <div class="col-sm-7">
-                                    <span style="margin-left:2%">Dịch vụ giao xe tận nơi</span>
-                                </div>
-                                <div class="col-sm-5" style="text-align: right">
-                                    <span>Bán kính {{ $carlist['free_ship_distance'] }} km</span>
-                                </div>
-                            </div>
-                            <div class="row" id="thoi-gian1">
-                                <div class="col-sm-7">
-                                    <span style="margin-left:2%">Phí giao nhận xe (2 chiều) </span>
-                                </div>
-                                <div class="col-sm-5" style="text-align: right">
-                                    <span id="phigiaoxe">{{ $carlist['shipping_price_km'] }}000</span>
-                                    <span> đ/km</span>
-                                </div>
-                            </div>
-                            <br>
-
-
-                            <span id="start-end-day">
-                                Giới hạn km
-                            </span>
-                            <br>
-                            <div class="row" style="margin-top: 3%; ">
-                                <div class="col">
-                                    <span style="font-size: 12pt;">Tối đa <span
-                                            style="font-weight: bold;">{{ $carlist['max_travel_distance'] }}</span>km/ngày.
-                                        Phí <span
-                                            style="font-weight: bold;">{{ $carlist['over_max_travel_cost'] }}K</span>/km
-                                        vượt giới hạn.</span>
-                                </div>
-                            </div>
-                            <br>
-                            <span id="start-end-day">
-                                Chi tiết giá
-                            </span>
-                            <br>
-                            <div class="row" id="gia-thue">
-                                <div class="col-sm-7">
-                                    <span style="margin-left:2%">Đơn giá thuê</span>
-                                </div>
-                                <div class="col-sm-5" style="text-align: right">
-                                    <span id="dongiathue" name="dongiathue">880 000 </span>
-                                    <span>đ/ ngày</span>
-                                </div>
-                            </div>
-                            <div class="row" id="gia-thue">
-                                <div class="col-sm-7">
-                                    <span style="margin-left:2%">Phí dịch vụ</span>
-                                </div>
-                                <div class="col-sm-5" style="text-align: right">
-                                    <span id="phidichvu" name="phidichvu">61 600 </span>
-                                    <span>đ/ ngày</span>
-                                </div>
+                        <div class="row" style="margin-top: 3%; ">
+                            <div class="col">
+                                <input type="checkbox" id="checkgiaoxe" checked onclick="return ktcheck()">
+                                <span style="font-size: 13pt;"> Giao xe tận nơi </span>
                             </div>
 
-                            <div class="row">
-                                <div class="col">
-                                    <hr>
-                                </div>
-                            </div>
-                            <div class="row" id="gia-thue1">
-                                <div class="col-sm-6">
-                                    <span style="margin-left:2%">Tổng phí thuê xe</span>
-                                </div>
-                                <div class="col-sm-6" style="text-align: right">
-                                    <span id="tongcong" name="tongcong">941 600 </span>
-                                    x
-                                    <span id="days" name="days" style="font-weight: bold">1</span>
-                                    <span style="font-weight: bold">ngày</span>
-                                </div>
-                            </div>
+                        </div>
 
-                            <br>
-                            <div class="row" id="gia-thue1">
-                                <div class="col-sm-6">
-                                    <span style="margin-left:2%">Phí giao xe</span>
-                                </div>
-                                <div class="col-sm-6" style="text-align: right">
-                                    <span id="giaoxe" name="giaoxe"> </span>
-                                    <span>đ</span>
-                                </div>
+
+                        <div class="row" id="thoi-gian">
+                            <div class="col-sm-7">
+                                <span style="margin-left:2%">Dịch vụ giao xe tận nơi</span>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <hr>
-                                </div>
+                            <div class="col-sm-5" style="text-align: right">
+                                <span>Bán kính {{ $carlist['free_ship_distance'] }} km</span>
                             </div>
-                            <div class="row" id="gia-thue2">
-                                <div class="col-sm-7">
-                                    <span style="margin-left:2%">Tổng cộng</span>
-                                </div>
-                                <div class="col-sm-5" style="text-align: right">
-                                    <span id="tongphithuexe" name="tongphithuexe">941 600 </span>
-                                    <span>đ</span>
-                                </div>
+                        </div>
+                        <div class="row" id="thoi-gian1">
+                            <div class="col-sm-7">
+                                <span style="margin-left:2%">Phí giao nhận xe (2 chiều) </span>
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <hr>
-                                </div>
+                            <div class="col-sm-5" style="text-align: right">
+                                <span id="phigiaoxe">{{ $carlist['shipping_price_km'] }}000</span>
+                                <span> đ/km</span>
                             </div>
-                            <div class="row" id="gia-thue2">
-                                <div class="col-sm-7">
-                                    <span style="margin-left:2%">Đặt cọc</span>
-                                </div>
-                                <div class="col-sm-5" style="text-align: right">
-                                    <span id="datcoc" name="datcoc">941 600 </span>
-                                    <span>đ</span>
-                                </div>
+                        </div>
+                        <br>
+
+
+                        <span id="start-end-day">
+                            Giới hạn km
+                        </span>
+                        <br>
+                        <div class="row" style="margin-top: 3%; ">
+                            <div class="col">
+                                <span style="font-size: 12pt;">Tối đa <span
+                                        style="font-weight: bold;">{{ $carlist['max_travel_distance'] }}</span>km/ngày.
+                                    Phí <span
+                                        style="font-weight: bold;">{{ $carlist['over_max_travel_cost'] }}K</span>/km
+                                    vượt giới hạn.</span>
                             </div>
+                        </div>
+                        <br>
+                        <span id="start-end-day">
+                            Chi tiết giá
+                        </span>
+                        <br>
+                        <div class="row" id="gia-thue">
+                            <div class="col-sm-7">
+                                <span style="margin-left:2%">Đơn giá thuê</span>
+                            </div>
+                            <div class="col-sm-5" style="text-align: right">
+                                <span id="dongiathue" name="dongiathue">880 000 </span>
+                                <span>đ/ ngày</span>
+                            </div>
+                        </div>
+                        <div class="row" id="gia-thue">
+                            <div class="col-sm-7">
+                                <span style="margin-left:2%">Phí dịch vụ</span>
+                            </div>
+                            <div class="col-sm-5" style="text-align: right">
+                                <span id="phidichvu" name="phidichvu">61 600 </span>
+                                <span>đ/ ngày</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row" id="gia-thue1">
+                            <div class="col-sm-6">
+                                <span style="margin-left:2%">Tổng phí thuê xe</span>
+                            </div>
+                            <div class="col-sm-6" style="text-align: right">
+                                <span id="tongcong" name="tongcong">941 600 </span>
+                                x
+                                <span id="days" name="days" style="font-weight: bold">1</span>
+                                <span style="font-weight: bold">ngày</span>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="row" id="gia-thue1">
+                            <div class="col-sm-6">
+                                <span style="margin-left:2%">Phí giao xe</span>
+                            </div>
+                            <div class="col-sm-6" style="text-align: right">
+                                <span id="giaoxe" name="giaoxe"> </span>
+                                <span>đ</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row" id="gia-thue2">
+                            <div class="col-sm-7">
+                                <span style="margin-left:2%">Tổng cộng</span>
+                            </div>
+                            <div class="col-sm-5" style="text-align: right">
+                                <span id="tongphithuexe" name="tongphithuexe">941 600 </span>
+                                <span>đ</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="row" id="gia-thue2">
+                            <div class="col-sm-7">
+                                <span style="margin-left:2%">Đặt cọc</span>
+                            </div>
+                            <div class="col-sm-5" style="text-align: right">
+                                <span id="datcoc" name="datcoc">941 600 </span>
+                                <span>đ</span>
+                            </div>
+                        </div>
+                        <form action="{{ url('user/searchcar/profile/checkout') }}" method="POST">
                             @csrf
                             <input type="input" hidden readonly name="contract_id" id="contract_id" value="0">
                             <input type="input" hidden readonly name="user_id" id="user_id" value="">
@@ -540,7 +567,8 @@
                             <div class="row" style="margin: 5% 0%; ">
                                 <div class="col-sm-12">
                                     <input type="button" style="padding:10px ; font-weight: bold; "
-                                        class="form-control btn btn-success" value="ĐẶT XE" onclick="return checkgplx()">
+                                        class="form-control btn btn-success" id="nutao" value="ĐẶT XE"
+                                        onclick="return checkgplx()">
 
                                     <input type="submit" id="nutsubmit" hidden>
                                 </div>
@@ -620,7 +648,7 @@
                         <br>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ url('user/profile/'.$user_id.'/edit') }}">
+                        <a href="{{ url('user/profile/' . $user_id . '/edit') }}">
                             <button type="button" class="btn btn-primary">Đồng ý</button>
                         </a>
 
@@ -631,6 +659,77 @@
 
 
 
+        {{-- Ajax --}}
+        <script>
+            jQuery(function($) {
+
+                $("#updatethoigian").submit(function(e) {
+                    e.preventDefault();
+                    let checkin = $("#inputCheckIn").val()
+                    let hourstart = $("#hourstart").val()
+                    let checkout = $("#inputCheckOut").val();
+                    let hourend = $("#hourend").val();
+                    let capnhatthoigian = $("#capnhatthoigian").val()
+                    let car_id = $("#car_id1").val()
+
+                  
+                    timestart = checkin + '  ' + hourstart + ':00:00';
+                    var ngaybatdau = new Date(timestart);
+                    ngaybatdau = ngaybatdau.getTime()
+                    timestart = checkout + '  ' + hourend + ':00:00';
+                    var ngaykethuc = new Date(timestart);
+                    ngaykethuc = ngaykethuc.getTime()
+                 
+                    
+                    if(ngaykethuc-ngaybatdau <0){
+                
+                       
+                        document.getElementById('inputCheckIn').value=checkout
+                         document.getElementById('hourstart').value=hourend
+                         document.getElementById('inputCheckOut').value=checkin
+                        document.getElementById('hourend').value=hourstart
+
+
+                    }
+
+
+                    $.ajax({
+                        type: "get",
+                        url: "profile/checkday",
+                        data: {
+
+                            checkin: checkin,
+                            hourstart: hourstart,
+                            checkout: checkout,
+                            hourend: hourend,
+                            car_id: car_id
+                        },
+
+                        dataType: "text",
+                        success: function(response) {
+                            if (response == 'true') {
+                                tinhtien();
+                                document.getElementById('thongbaothoigian').hidden = true;
+                                document.getElementById('nutao').disabled = false;
+                                giaonhanxe();
+                                kiemtrangay();
+                                
+                            } else {
+                                document.getElementById('nutao').disabled = true;
+                                document.getElementById('thongbaothoigian').hidden = false;
+
+                            }
+
+                            // let abc = "Result : " + response;
+                            // console.log(abc);
+                            //    $("#Result").html(abc);
+                        }
+                    });
+
+                });
+
+            })
+        </script>
 
 
         {{-- <script src="{{ asset('script/map.js') }}"></script> --}}
@@ -669,7 +768,7 @@
                 if (id == null) {
                     document.getElementById('btn').click() = true;
                 }
-                if ((gplx == null)||(status==0)) {
+                if ((gplx == null) || (status == 0)) {
                     document.getElementById('btn1').click() = true;
                 } {
                     document.getElementById('nutsubmit').click() = true;
