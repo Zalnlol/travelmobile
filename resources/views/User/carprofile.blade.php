@@ -1,5 +1,6 @@
 @extends('layoutUser.layout')
 @section('titleweb', 'Car Profile')
+<script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8" type="text/javascript"></script>
 @section('bodycode')
     <style>
         #thoi-gian1 {
@@ -430,7 +431,7 @@
 
                         <div class="row" style="margin-top: 3%; ">
                             <div class="col">
-                                <input type="checkbox" id="checkgiaoxe" checked onclick="return ktcheck()">
+                                <input type="checkbox" id="checkgiaoxe"  onclick="return ktcheck()">
                                 <span style="font-size: 13pt;"> Giao xe tận nơi </span>
                             </div>
 
@@ -442,7 +443,7 @@
                                 <span style="margin-left:2%">Dịch vụ giao xe tận nơi</span>
                             </div>
                             <div class="col-sm-5" style="text-align: right">
-                                <span>Bán kính {{ $carlist['free_ship_distance'] }} km</span>
+                                <span>Bán kính <span id="bankinhgiao">{{ $carlist['free_ship_distance'] }}</span> km</span>
                             </div>
                         </div>
                         <div class="row" id="thoi-gian1">
@@ -519,6 +520,8 @@
                             <div class="col-sm-6" style="text-align: right">
                                 <span id="giaoxe" name="giaoxe"> </span>
                                 <span>đ</span>
+                                <span id="hienthikm"> </span>
+
                             </div>
                         </div>
                         <div class="row">
