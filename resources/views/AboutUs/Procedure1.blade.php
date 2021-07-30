@@ -1,4 +1,4 @@
-@extends('layoutUser.layout')
+@extends('layoutUser.layoutstaticpage')
 @section('titleweb', 'Procedure1')
 
 @section('bodycode')
