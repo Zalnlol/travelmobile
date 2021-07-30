@@ -100,11 +100,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group tm-form-element tm-form-element-100">
-                                    <button type="button"  onclick="return checksubmit1()" class="btn btn-primary tm-btn-search">Tìm xe ngay</button>
+                                    <button type="button" onclick="return checksubmit1()"
+                                        class="btn btn-primary tm-btn-search">Tìm xe ngay</button>
                                 </div>
-                                
-                                    <button type="submit" id="nutsubmit1" hidden >Tìm xe ngay</button>
-                              
+
+                                <button type="submit" id="nutsubmit1" hidden>Tìm xe ngay</button>
+
                                 <div class="form-row clearfix pl-2 pr-2 tm-fx-col-xs">
                                     <p class="tm-margin-b-0">Lựa thông tin trên để tìm kiếm xe phù hợp.</p>
                                 </div>
@@ -186,71 +187,78 @@
                 </div>
             </div>
         </div>
-        <div class="tm-section tm-section-pad tm-bg-gray" >
+
+
+
+        {{-- Logo Tâm --}}
+        <div class="tm-section tm-section-pad tm-bg-gray">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         @foreach ($p as $items)
-                        <div class="column-mfg"  >
-                            <div class="card">
-                            <img  src="{{ url('/img/logo/	' .$items->logo ) }}"/>
-                              <a href="{{ $items->website}}"><b>&emsp;{{ $items->name }}</b></a>
-                              <p>&emsp;{{ $items->nation }}</p>
+                            <div class="column-mfg">
+                                <div class="card">
+                                    <img src="{{ url('/img/logo/	' . $items->logo) }}" />
+                                    <a href="{{ $items->website }}"><b>&emsp;{{ $items->name }}</b></a>
+                                    <p>&emsp;{{ $items->nation }}</p>
+                                </div>
                             </div>
-                        </div>
-                        @endforeach 
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
+
+
         <div>
             <style>
                 * {
-                  box-sizing: border-box;
+                    box-sizing: border-box;
                 }
+
                 .column-mfg {
-                  float: left;
-                  width: 22.5%;
-                  padding: 10px;
-                  margin-top:1.5%;
-                  margin-left:1.5%;
+                    float: left;
+                    width: 22.5%;
+                    padding: 10px;
+                    margin-top: 1.5%;
+                    margin-left: 1.5%;
                 }
-                
+
                 @media screen and (max-width: 900px) {
-                  .column-mfg  {
-                    width: 48%;
-                  }
+                    .column-mfg {
+                        width: 48%;
+                    }
                 }
+
                 @media screen and (max-width: 600px) {
-                  .column-mfg  {
-                    width: 100%;
-                  }
+                    .column-mfg {
+                        width: 100%;
+                    }
                 }
-                </style>
-    </div>
 
-    <script src="{{ asset('script/map.js') }}"></script>
-    
-    <script>
-       
+            </style>
+        </div>
 
+        <script src="{{ asset('script/map.js') }}"></script>
 
-        var today = new Date();
-
-
-        document.getElementById('children').value = today.getHours();
-        document.getElementById('children1').value = today.getHours();
-
-        parts = (today.getDate() + '/ ' + (today.getMonth() + 1) + ' /' + today.getFullYear()).split("/");
-        date = new Date(+parts[2], parts[1] - 1, +parts[0]);
-        start = (date.toString()).substr(0, 15);
+        <script>
+           
+            var today = new Date();
 
 
-        document.getElementById('inputCheckIn').value = ((new Date(+parts[2], parts[1] - 1, +parts[0])).toString()).substr(
-            0, 15);
-        document.getElementById('inputCheckOut').value = ((new Date(+parts[2], parts[1] - 1, +parts[0] + 1)).toString())
-            .substr(0, 15);
-    </script>
+            document.getElementById('children').value = today.getHours();
+            document.getElementById('children1').value = today.getHours();
+
+            parts = (today.getDate() + '/ ' + (today.getMonth() + 1) + ' /' + today.getFullYear()).split("/");
+            date = new Date(+parts[2], parts[1] - 1, +parts[0]);
+            start = (date.toString()).substr(0, 15);
 
 
-@endsection
+            document.getElementById('inputCheckIn').value = ((new Date(+parts[2], parts[1] - 1, +parts[0])).toString()).substr(
+                0, 15);
+            document.getElementById('inputCheckOut').value = ((new Date(+parts[2], parts[1] - 1, +parts[0] + 1)).toString())
+                .substr(0, 15);
+        </script>
+
+
+    @endsection

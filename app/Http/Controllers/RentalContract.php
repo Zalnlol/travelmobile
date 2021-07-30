@@ -95,7 +95,7 @@ class RentalContract extends Controller
            $datauser= User::where('user_id',$user_id)->get()->first();
            $gplx=$datauser['driver_id'];
 
-           $status=$datauser['status'];
+           $status=$datauser['driver_id_image_approval'];
        }
 
         $data= $request->all();

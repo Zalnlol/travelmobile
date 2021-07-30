@@ -133,7 +133,7 @@
 
             if($(window).width() < 438){
                 // Slick carousel
-                $('.tm-article-carousel').slick({
+                $('.tm-article-carouse').slick({
                     infinite: false,
                     dots: true,
                     slidesToShow: 1,
