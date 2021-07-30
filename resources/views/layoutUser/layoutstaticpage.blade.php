@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/datepicker.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/tooplate-style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/tutorial.css') }}">
     
     <link rel="stylesheet" type="text/css" href="{{ asset('css/nav-bar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/footer-user.css') }}">
