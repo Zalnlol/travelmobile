@@ -51,7 +51,7 @@
                         </div>
                         <div class="row" style="margin-top: 2%">
                             <div class="col-sm-3">
-                                <img src="{{ asset('/images/carimg/'.$rental['image']) }} style="height:100px" ` alt="">
+                                <img src="{{ asset('/images/carimg/'.$rental['image']) }}" style="height:100px"  alt="">
                             </div>
                             <div class="col-sm-8" style="margin-left:3%">
                                 <div class="row">

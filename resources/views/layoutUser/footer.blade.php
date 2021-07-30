@@ -44,47 +44,47 @@
                     <tbody class="table-body" >
                         <tr>
                             <td id="td-infor" >
-                                <a href="">Giới thiệu về Travel Mobile</a>
+                                <a href="AboutUs">Giới thiệu về Travel Mobile</a>
                             </td>
                             <td id="td-infor1">
-                                <a href="">Hướng dẫn chung</a>
+                                <a href="tutorial1">Hướng dẫn chung</a>
                             </td>
                         </tr>
                         
 
                         <tr>
                             <td id="td-infor">
-                                <a href="">Chính sách và quy định</a>
+                                <a href="PolicieRegulation">Chính sách và quy định</a>
                             </td>
                             <td id="td-infor1">
-                                <a href="">Hướng dẫn đặt xe</a>
+                                <a href="tutorial2">Hướng dẫn đặt xe</a>
                             </td>
                         </tr>
 
                         <tr>
                             <td id="td-infor">
-                                <a href="">Quy chế hoạt động</a>
+                                <a href="Regu">Quy chế hoạt động</a>
                             </td>
                             <td id="td-infor1">
-                                <a href="">Hướng dẫn dành cho chủ xe</a>
+                                <a href="tutorial3">Hướng dẫn dành cho chủ xe</a>
                             </td>
                         </tr>
 
                         <tr>
                             <td id="td-infor">
-                                <a href="">Bảo mật thông tin</a>
+                                <a href="Personalinfo">Bảo mật thông tin</a>
                             </td>
                             <td id="td-infor1">
-                                <a href="">Hướng dẫn thanh toán</a>
+                                <a href="tutorial4">Hướng dẫn thanh toán</a>
                             </td>
                         </tr>
 
                         <tr>
                             <td id="td-infor">
-                                <a href="">Giải quyết tranh chấp</a>
+                                <a href="Resolveconflic">Giải quyết tranh chấp</a>
                             </td>
                             <td id="td-infor1">
-                                <a href="">Hỏi và trả lời</a>
+                                <a href="AQ">Hỏi và trả lời</a>
                             </td>
                         </tr>
 
@@ -92,7 +92,7 @@
                             <td id="td-infor">
                             </td>
                             <td id="td-infor1">
-                                <a href="">Giới thiệu về Travel Mobile</a>
+                                <a href="AboutUs">Giới thiệu về Travel Mobile</a>
                             </td>
                         </tr>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarMFG;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $p = CarMFG::all();
+        return view('index',compact('p'));
     }
 
     public function adminHome()

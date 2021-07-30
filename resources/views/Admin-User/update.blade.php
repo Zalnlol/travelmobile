@@ -67,7 +67,7 @@
                                 <div class="form-group">
                                     <label for="txt-price">Ảnh bằng lái</label>
                                     <div id="image" name="driver_id_image">
-                                        <img width="500px" src="{{ url('img/'.$user->driver_id_image ) }}"/>
+                                        <img style="background-size: cover; width:200px" src="{{ url('img/'.$user->driver_id_image ) }}"/>
                                     </div>
                                 </div>
                             </div>

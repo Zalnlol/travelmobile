@@ -16,62 +16,7 @@
 	<body>
 	<section class="ftco-section" style="margin-top: 10%">
 
-	<section class="ftco-section" style="margin-top: 150px">
 
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Xe của tôi</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="table-wrap">
-						<table class="table" style="text-align: center">
-						  <thead class="thead-dark">
-						    <tr>
-						      <th>Trạng thái xe</th>
-						      <th style="width: 15%;">Biển số</th>
-						      <th>Hãng xe</th>
-						      <th>Mẫu xe</th>
-                              <th>Ngày đăng ký</th>
-                              <th style=""></th>
-						      <th>&nbsp;</th>
-						    </tr>
-						  </thead>
-						  <tbody>
-                              {{-- @foreach ($mycar as $item)
-                
-						    <tr class="alert" role="alert">
-						      <td>
-                                  @if ($item->status == 1)
-                                  <span class="badge badge-success">Đang chờ duyệt</span>
-                                  @endif
-                                  @if ($item->status == 2)
-                                  <span class="badge badge-success">Đang hoạt động</span>
-                                  @endif
-								  @if ($item->status == 3)
-                                  <span class="badge badge-danger">Đã bị từ chối</span>
-                                  @endif
-								  @if ($item->status == 4)
-                                  <span class="badge badge-danger">Đang tạm ngưng</span>
-                                  @endif
-                                </td>
-						      <td>{{ $item->plate_id }}</td>
-						      <td>{{ $item->brand }}</td>
-                              <td>{{ $item->name }}</td>
-                              <td>{{ $item->created_at }}</td>
-					
-						    </tr>
-                                              
-                            @endforeach --}}
-						  </tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
     <section class="content-item" id="comments">
         <div class="container">   
@@ -87,6 +32,9 @@
                                     <img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                    <input type="hidden" name="contract_id" value="{{ $coid }}">
+                                    <input type="hidden" name="user_id" value="{{ $uid }}">
+                                    <input type="hidden" name="car_id" value="{{ $caid }}">
                                     <textarea class="form-control" id="message" name="comment" placeholder="Your message" required=""></textarea>
                                     <div id="rating" class="star-rating">
                                         <input type="radio" id="star5" name="star_num" value="5" />
@@ -110,10 +58,10 @@
                         </fieldset>
                     </form>
                     
-                    <h3>4 Phản hồi</h3>
+                 
                     
                     <!-- COMMENT 1 - START -->
-                    @foreach ($post as $item)
+                    {{-- @foreach ($post as $item)
                        
                     <div class="media">
                         <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
@@ -206,11 +154,11 @@
                             </ul>
                             <ul class="list-unstyled list-inline media-detail pull-right">
                                 <li><i class="fa fa-calendar"></i>{{ $item->created_at }}</li>
-                                {{-- <li><i class="fa fa-thumbs-up"></i>13</li>                         --}}
+                                <li><i class="fa fa-thumbs-up"></i>13</li>         
                             </ul>
                         </div>
                     </div>
-                    @endforeach
+                    @endforeach --}}
                      
                    
                     <!-- COMMENT 1 - END -->
