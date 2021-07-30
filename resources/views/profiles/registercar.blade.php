@@ -667,11 +667,14 @@
 
                         <li class="form-line form-line-column form-col-8" data-type="control_textbox" id="id_12">
                             <label class="form-label form-label-top" id="label_12" for="consumption"> Mức tiêu thụ </label>
+                            <span style="opacity: 0.6;">
+                                Số lít nhiên liệu cho quãng đường 100km.
+                            </span>
                             <div id="cid_12" class="form-input-wide">
                                 <input type="text" id="input_12" name="consumption"
-                                    placeholder="Số lít nhiên liệu cho quãng đường 100km." data-type="input-textbox"
+                                    placeholder="" data-type="input-textbox"
                                     class="form-textbox" size="20" value="" placeholder=" " data-component="textbox"
-                                    aria-labelledby="label_12" />
+                                    aria-labelledby="label_12" /> lít
                             </div>
                         </li>
                         <li class="form-line form-line-column form-col-9" data-type="control_textbox" id="id_13">

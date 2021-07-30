@@ -142,9 +142,11 @@ class RentalContract extends Controller
         //So chuyen
         $sochuyen=ModelsRentalContract::where('car_id',$car_id)->get();
         $trip_number=$sochuyen->count();
+        
+        $review = Review::where('car_id', $car_id)->get();
+        // $uid = Review::select('user_id')->get();
 
-
-        return view('User/carprofile',compact('carlist','img','chuxe','searchinfo','star_num','trip_number','user_id','gplx','status'));
+        return view('User/carprofile',compact('carlist','img','chuxe','searchinfo','star_num','trip_number','user_id','gplx','status', 'review'));
     }
 
     function checkdate(Request $request){
@@ -698,6 +700,7 @@ class RentalContract extends Controller
         // dd('Nhan');
 
     }
+
 
 
 
