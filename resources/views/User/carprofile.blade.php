@@ -825,8 +825,13 @@
                                 tinhtien();
                                 document.getElementById('thongbaothoigian').hidden = true;
                                 document.getElementById('nutao').disabled = false;
-                                giaonhanxe();
-                                kiemtrangay();
+
+                                if( giaonhanxe()=='1' ||  kiemtrangay()=='1'){
+                                    document.getElementById('nutao').disabled = true;
+                                }
+
+                                // giaonhanxe();
+                                // kiemtrangay();
                                 
                             } else {
                                 document.getElementById('nutao').disabled = true;

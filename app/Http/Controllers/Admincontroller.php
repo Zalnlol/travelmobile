@@ -21,11 +21,12 @@ class Admincontroller extends Controller
         $danhsachadmin= count(User::where('is_admin','1')->get());
         $danhsachhangxe= count(CarMFG::all());
         $danhsachmodel= count(CarType::all());
+        $gplxchuaduyet = count(User::where('driver_id_image_approval','0') ->where('driver_id_image','<>',NULL)->get());
 
 
         $blog= count(Blog::all());
         // dd($danhsachadmin);
 
-        return view('AdminHome',compact('xedanghoatdong','xechuaduyet','hopdong','danhsachnguoidung','danhsachadmin','blog','danhsachhangxe','danhsachmodel'));
+        return view('AdminHome',compact('xedanghoatdong','xechuaduyet','hopdong','danhsachnguoidung','danhsachadmin','blog','danhsachhangxe','danhsachmodel','gplxchuaduyet'));
     }
 }

@@ -158,13 +158,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin/book')}}" class="nav-link">
+                <a href="{{url('admin/index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách bằng lái xe</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin/book')}}" class="nav-link">
+                <a href="{{url('admin/gplx')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách bằng lái xe chưa duyệt</p>
                 </a>

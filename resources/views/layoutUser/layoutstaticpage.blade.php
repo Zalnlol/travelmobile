@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"> 
     <link rel="stylesheet" href="/path/to/dist/css/image-zoom.css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('travelmobile-css/travelmobile.css') }}"> <!--custom project css-->
+    <link rel="icon" type="image/png" sizes="114x114" href="{{ asset('images/fav-icon.png') }}">
     <!-- Template 2095 Level -->
     <!-- http://www.tooplate.com/view/2095-level -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

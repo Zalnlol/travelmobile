@@ -308,12 +308,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
   Route::prefix('admin')->name('admin.')->middleware('checklogin:admin')->group(function(){
       
-    Route::get('/', function () {
-        return view('AdminHome');
-    });
-
+ 
    //Của A Thiện 
     Route::get('users', [AccountController::class,"index"])->name('userlist');
+    Route::get('gplx',[AccountController::class,"index1"]);
     Route::get('create', [AccountController::class, "create"]);
     Route::post('post', [AccountController::class, "postCreate"]);
     Route::get('resetPass/{id}', [AccountController::class, "resetPassword"]);

@@ -42,14 +42,14 @@
         <!-- small card -->
         <div class="small-box bg-warning">
             <div class="inner">
-            <h3>44</h3>
+            <h3>{{$gplxchuaduyet}}</h3>
 
             <p>GPLX chờ duyệt</p>
             </div>
             <div class="icon">
                 <i class="fas fa-id-card"></i>
             </div>
-            <a href="#" class="small-box-footer">
+            <a href="{{url('admin/gplx')}}" class="small-box-footer">
                 Xem thêm <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>
