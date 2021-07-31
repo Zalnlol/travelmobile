@@ -17,6 +17,11 @@ class AccountController extends Controller
         
     }
 
+    public function index1(){
+        $ds = User::where('driver_id_image_approval','0')->where('driver_id_image','<>',NULL)->get();
+        return view('Admin-User.gplx')->with(['ds'=>$ds]);
+    }
+
     //tra ve view tao 1 tai khoan user moi
     public function create(){
         return view("Admin-User.create");

@@ -62,12 +62,15 @@ function giaonhanxe() {
     hourend = document.getElementById('hourend').value;
 
     if (((hourstart >= 5) && (hourstart <= 23)) && ((hourend >= 5) && (hourend <= 23))) {
+        
+        document.getElementById('nutao').disabled =  false;
         document.getElementById('giaonhanxe').hidden = true;
-        document.getElementById('nutao').disabled = false;
+        return 0;
 
     } else {
-        document.getElementById('nutao').disabled = true;
         document.getElementById('giaonhanxe').hidden = false;
+        document.getElementById('nutao').disabled = true;
+        return 1;
     }
 
 }
@@ -93,11 +96,13 @@ function kiemtrangay() {
 
         document.getElementById('nutao').disabled = true;
         document.getElementById('thoigianquakhu').hidden = false;
+        return 1;
 
     } else {
 
         document.getElementById('thoigianquakhu').hidden = true;
         document.getElementById('nutao').disabled = false;
+        return 0;
     }
 
 
