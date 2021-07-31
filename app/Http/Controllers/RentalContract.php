@@ -144,7 +144,8 @@ class RentalContract extends Controller
         $trip_number=$sochuyen->count();
         
         $review = Review::where('car_id', $car_id)->get();
-        // $uid = Review::select('user_id')->get();
+        $user = Review::where('car_id', $car_id)->get('user_id');
+        //dd($user);
 
         return view('User/carprofile',compact('carlist','img','chuxe','searchinfo','star_num','trip_number','user_id','gplx','status', 'review'));
     }

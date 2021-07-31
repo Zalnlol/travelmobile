@@ -34,11 +34,4 @@ class ReviewController extends Controller
 
         return redirect()->back();
     }
-
-    public function index($id)
-    {
-        $car_id = RentalContract::where('car_id', $id)->get();
-        dd($car_id);
-        return view('User.carprofile');
-    }
 }

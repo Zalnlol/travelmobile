@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/nav-bar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/footer-user.css') }}">
     
+    
 
     <!--Google Map---->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>

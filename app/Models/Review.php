@@ -13,4 +13,9 @@ class Review extends Model
 
     protected $fillable = ['star_num', 'comment'];
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'review_users');
+    }
+
 }
