@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Đặt lại mật khẩu')
 @section('content')
 <body id="body">
     <div class="container">

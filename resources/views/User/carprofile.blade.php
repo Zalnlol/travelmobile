@@ -1,5 +1,5 @@
 @extends('layoutUser.layout')
-@section('titleweb', 'Car Profile')
+@section('titleweb', 'Thông tin xe')
 <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8" type="text/javascript"></script>
 @section('bodycode')
     <style>

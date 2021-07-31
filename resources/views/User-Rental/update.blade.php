@@ -1,5 +1,5 @@
 @extends('layoutUser.layout')
-@section('titleweb','Update Rental')
+@section('titleweb','Chỉnh sửa xe')
     
 @section('bodycode')
 

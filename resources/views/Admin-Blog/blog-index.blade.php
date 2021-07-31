@@ -1,5 +1,5 @@
 @extends('layoutAdmin.layout')
-@section('title', 'Admin Blog')
+@section('title', 'Quản lý Blog')
 @section('content')
 
 <section class="content-header">

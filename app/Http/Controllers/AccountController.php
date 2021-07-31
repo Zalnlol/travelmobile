@@ -56,6 +56,7 @@ class AccountController extends Controller
     }
 
     public function postUpdate(Request $request, $id){
+        
         $name = $request->input('name');
         $email = $request->input('email');
         $mobile = $request->input('mobile');

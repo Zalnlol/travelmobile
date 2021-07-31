@@ -1,5 +1,5 @@
 @extends('layoutUser.layout')
-@section('titleweb','Rental update image')
+@section('titleweb','Thay đổi ảnh xe')
     
 @section('bodycode')
 <script src="https://cdn02.jotfor.ms/js/vendor/imageinfo.js?v=3.3.26452" type="text/javascript"></script>

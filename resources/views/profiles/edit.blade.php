@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Chỉnh sửa thông tin')
 @section('content')
 <div class="container">
     <form action="{{url('user/profile/'.$user->user_id.'/update')}}" enctype="multipart/form-data" method="POST">

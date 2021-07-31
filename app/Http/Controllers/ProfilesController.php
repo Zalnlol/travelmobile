@@ -78,7 +78,7 @@ class ProfilesController extends Controller
             $file=$request->file('avatar_image');
             $extension = $file->getClientOriginalExtension();
             if($extension != 'jpg' && $extension != 'png' && $extension != 'jpeg'){
-                return redirect()->action([AccountController::class, 'edit'])->width('Lỗi', ' Bạn chỉ được chọn file có đuôi jpg, png, jpeg');
+                return redirect()->action([ProfilesController::class, 'edit'])->width('Lỗi', ' Bạn chỉ được chọn file có đuôi jpg, png, jpeg');
             }
             $avatar_image = $file->getClientOriginalName();
             $file->move("img",$avatar_image);
@@ -93,7 +93,7 @@ class ProfilesController extends Controller
             $file=$request->file('driver_id_image');
             $extension = $file->getClientOriginalExtension();
             if($extension != 'jpg' && $extension != 'png' && $extension != 'jpeg'){
-                return redirect()->action([AccountController::class, 'edit'])->width('Lỗi', ' Bạn chỉ được chọn file có đuôi jpg, png, jpeg');
+                return redirect()->action([ProfilesController::class, 'edit'])->width('Lỗi', ' Bạn chỉ được chọn file có đuôi jpg, png, jpeg');
             }
             $imageName = $file->getClientOriginalName();
             $file->move("public/img",$imageName);
@@ -106,7 +106,7 @@ class ProfilesController extends Controller
         $user = DB::table('tb_user')
             ->where('user_id',intval($user_id))
             ->update(['name'=>$name, 'email'=>$email,'avatar_image'=>$avatar_image, 'dob'=>$dob, 'mobile'=>$mobile, 'gender'=>$gender,  'driver_id'=>$driver_id, 'driver_id_image'=>$imageName]);
-            return redirect()->action([AccountController::class, 'index']);
+            return redirect()->action([ProfilesController::class, 'viewSelfProfile']);
         return redirect('profiles.index', compact('user','user_id'));
     }
 }

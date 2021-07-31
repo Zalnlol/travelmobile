@@ -1,5 +1,5 @@
 @extends('layoutUser.layout')
-@section('titleweb', 'Profile')
+@section('titleweb', 'Trang cá nhân')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/userprofile.css') }}">
 @section('bodycode')
 

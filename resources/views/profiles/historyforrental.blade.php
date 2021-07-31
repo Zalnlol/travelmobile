@@ -1,5 +1,5 @@
 @extends('layoutUser.layout')
-@section('titleweb', 'History for  rental')
+@section('titleweb', 'Lịch sử cho thuê')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/mytrip.css') }}">
 @section('bodycode')
     <div style="padding: 8% 0%; ">

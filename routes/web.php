@@ -18,6 +18,8 @@ use App\Http\Controllers\RentalContract;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\AQController;
+use App\Http\Controllers\TutorialController;
 
 use App\Models\RentalContract as ModelsRentalContract;
 use App\Models\RentalSchedule;
@@ -440,41 +442,68 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
   });
 
+//Tutorial
+Route::get('/tutorial1', [TutorialController::class, "tutorial1"]);
+Route::get('/tutorial2', [TutorialController::class, "tutorial2"]);
+Route::get('/tutorial3', [TutorialController::class, "tutorial3"]);
+Route::get('/tutorial4', [TutorialController::class, "tutorial4"]);
 
+//Terms
+Route::get('/PolicieRegulation', [TutorialController::class, "PolicieRegulation"]);
+Route::get('/Term', [TutorialController::class, "Term"]);
+Route::get('/Regu', [TutorialController::class, "Regu"]);
+Route::get('/Personalinfo', [TutorialController::class, "Personalinfo"]);
+Route::get('/Resolveconflic', [TutorialController::class, "Resolveconflic"]);
 
+//AboutUs
+Route::get('/AboutUs', [TutorialController::class, "AboutUs"]);
+Route::get('/Features', [TutorialController::class, "Features"]);
+Route::get('/Renterbenef', [TutorialController::class, "Renterbenef"]);
+Route::get('/Ownerbenef', [TutorialController::class, "Ownerbenef"]);
+Route::get('/Carregishowto', [TutorialController::class, "Carregishowto"]);
+Route::get('/Procedure1', [TutorialController::class, "Procedure1"]);
+Route::get('/Procedure2', [TutorialController::class, "Procedure2"]);
 
+//AQ
+Route::get('/AQ', [AQController::class, "AQ"]);
 
+//Owner
+Route::get('/AQ/owner/ctgtcxm', [AQController::class, "ctgtcxm"]);
+Route::get('/AQ/owner/cxhc', [AQController::class, "cxhc"]);
+Route::get('/AQ/owner/datxenhanh', [AQController::class, "datxenhanh"]);
+Route::get('/AQ/owner/dgscd', [AQController::class, "dgscd"]);
+Route::get('/AQ/owner/dvtxctx', [AQController::class, "dvtxctx"]);
+Route::get('/AQ/owner/dyctx', [AQController::class, "dyctx"]);
+Route::get('/AQ/owner/gbhcd', [AQController::class, "gbhcd"]);
+Route::get('/AQ/owner/giaonhanxe', [AQController::class, "giaonhanxe"]);
+Route::get('/AQ/owner/gttttx', [AQController::class, "gttttx"]);
+Route::get('/AQ/owner/huongdanchung', [AQController::class, "huongdanchung"]);
+Route::get('/AQ/owner/khc', [AQController::class, "khc"]);
+Route::get('/AQ/owner/lichban', [AQController::class, "lichban"]);
+Route::get('/AQ/owner/phivanhanh', [AQController::class, "phivanhanh"]);
+Route::get('/AQ/owner/rtqvmi', [AQController::class, "rtqvmi"]);
+Route::get('/AQ/owner/thongtinxe', [AQController::class, "thongtinxe"]);
+Route::get('/AQ/owner/thutuc', [AQController::class, "thutuc"]);
+Route::get('/AQ/owner/tngps', [AQController::class, "tngps"]);
+Route::get('/AQ/owner/tphd', [AQController::class, "tphd"]);
+Route::get('/AQ/owner/ttdcx', [AQController::class, "ttdcx"]);
+Route::get('/AQ/owner/xhxtud', [AQController::class, "xhxtud"]);
+Route::get('/AQ/owner/xlsc', [AQController::class, "xlsc"]);
 
-
-
+//traveler
 
 
 //----------------------------------------------------------------------------------------------------------
 
-
-
-
-
-
 //----------------------------------------------------------------------------------------------------------
 
-
-
-
-
-
 //----------------------------------------------------------------------------------------------------------
-
-
-
 
 //----------------------------------------------------------------------------------------------------------
 
 // Route::get('/user-profile', function () {
 //     return view('user-profile');
 // });
-
-
 
 // Route::get('user/index', [UserController::class, "index"]);
 // Route::get('user/create', [UserController::class, "create"]);
@@ -483,17 +512,12 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Route::post('user/postUpdate/{id}', [UserController::class, "postUpdate"]);
 // Route::get('user/delete/{id}', [UserController::class, "delete"]);
 
-
 //Route cho user
 // Route::prefix('user')->name('user')->middleware('checkLogin:admin,user')->group(function(){
-//     Route::get('profile/{id}',[AccountController::class,"details"]);    
+//     Route::get('profile/{id}',[AccountController::class,"details"]);
 // });
-
 
 //Route cho admin
 // Route::prefix('admin')->name('admin.')->middleware('isAdmin')->group(function(){
 
-
-
 //blog
-
