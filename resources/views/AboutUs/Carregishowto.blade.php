@@ -1,5 +1,5 @@
 @extends('layoutUser.layoutstaticpage')
-@section('titleweb', 'Carregishowto')
+@section('titleweb', 'Hướng dẫn đăng ký xe')
 
 @section('bodycode')
 

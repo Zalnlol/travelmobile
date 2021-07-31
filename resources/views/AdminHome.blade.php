@@ -1,5 +1,5 @@
 @extends('layoutAdmin.layout')
-@section('title', 'Admin Home')
+@section('title', 'Trang quản lý')
 
 @section('content')
     

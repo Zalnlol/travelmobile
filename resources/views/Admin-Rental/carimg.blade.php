@@ -1,5 +1,5 @@
 @extends('layoutAdmin.layout')
-@section('title', 'Admin Rental')
+@section('title', 'Ảnh xe')
 @section('content')
 
 <link rel="stylesheet" type="text/css" href="{{ asset('lightbox2-2.11.3/lightbox.min.css') }}">
@@ -12,7 +12,7 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{url('admin')}}">Home</a></li>
             <li class="breadcrumb-item active">Ảnh xe</li>
           </ol>
         </div>

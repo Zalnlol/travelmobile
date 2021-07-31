@@ -1,5 +1,5 @@
 @extends('layoutUser.layoutstaticpage')
-@section('titleweb', 'Term')
+@section('titleweb', 'Nguyên tắc chung')
 
 @section('bodycode')
 

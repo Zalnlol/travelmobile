@@ -1,5 +1,5 @@
 @extends('layoutUser.layout')
-@section('titleweb','Rental upload')
+@section('titleweb','Tải ảnh lên')
     
 @section('bodycode')
 <script src="https://cdn02.jotfor.ms/js/vendor/imageinfo.js?v=3.3.26452" type="text/javascript"></script>

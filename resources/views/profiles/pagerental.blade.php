@@ -1,5 +1,5 @@
 @extends('layoutUser.layout')
-@section('titleweb', 'Rental Deitals')
+@section('titleweb', 'Thông tin hợp đồng')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/rental.css') }}">
 @section('bodycode')
 

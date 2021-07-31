@@ -1,17 +1,17 @@
 @extends('layoutAdmin.layout')
-@section('title', 'Admin Rental')
+@section('title', 'Danh sách hợp đồng')
 @section('content')
 
 <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Danh sách xe đã đăng ký</h1>
+          <h1>Danh sách hợp đồng</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Danh sách xe đang hoạt động</li>
+            <li class="breadcrumb-item"><a href="{{url('admin')}}">Home</a></li>
+            <li class="breadcrumb-item active">Danh sách hợp đồng</li>
           </ol>
         </div>
       </div>
@@ -24,7 +24,7 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Danh sách xe đang hoạt động</h3>
+        <h3 class="card-title">Danh sách hợp đồng</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">

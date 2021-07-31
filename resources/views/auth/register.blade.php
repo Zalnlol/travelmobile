@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Đăng ký')
 @section('content')
 <body id="body">
     <div class="card" id="login-card">

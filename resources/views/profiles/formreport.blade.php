@@ -1,5 +1,5 @@
 @extends('layoutUser.layout')
-@section('titleweb', 'Cancell Form')
+@section('titleweb', 'Hủy đặt xe')
     
 @section('bodycode')
 

@@ -1,5 +1,5 @@
 @extends('layoutUser.layout')
-@section('titleweb', 'Register Car')
+@section('titleweb', 'Đăng ký xe')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/mytrip.css') }}">
     <link href="https://cdn01.jotfor.ms/static/formCss.css?3.3.26399" rel="stylesheet" type="text/css" />
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>

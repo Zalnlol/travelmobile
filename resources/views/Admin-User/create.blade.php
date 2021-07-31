@@ -1,6 +1,6 @@
 <!-- lưu tại /resources/views/user/create.blade.php -->
 @extends('layoutAdmin.layout')
-@section('title', 'user - create new')
+@section('title', 'Tạo tài khoản Admin')
 @section('content')
 <section class="content">
     <div class="container-fluid">
