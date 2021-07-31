@@ -1,24 +1,24 @@
 @extends('layoutUser.layout')
-@section('titleweb','Phản hồi)
+@section('titleweb', 'Car Profile')
+<script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8" type="text/javascript"></script>
 @section('bodycode')
+    <style>
+        #thoi-gian1 {
+            margin-left: 1%;
+            font-size: 12pt;
+            background-color: #f8ede4;
+            width: 98%;
+        }
 
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link rel="stylesheet" href="css/style.css">
+    </style>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-	</head>
-	<body>
-	<section class="ftco-section" style="margin-top: 10%">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/carprofile.css') }}">
 
 
-
-    <section class="content-item" id="comments">
+    <section class="content-item" id="comments" style="margin-top: 130px">
         <div class="container">   
             <div class="row">
                 <div class="col-sm-8">   
@@ -29,7 +29,7 @@
                         <fieldset>
                             <div class="row">
                                 <div class="col-sm-3 col-lg-2 hidden-xs">
-                                    <img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                    <img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" style="width: 100px">
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-9 col-lg-10">
                                     <input type="hidden" name="contract_id" value="{{ $coid }}">
@@ -201,8 +201,16 @@
        
     </section>
     
-    <style type="text/css">
-    body{margin-top:20px;}
+
+
+
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+
+    <script src="{{ asset('script/carprofile.js') }}"></script>
+
+   <style type="text/css">
+
 
 /* div,label{margin:0;padding:0;}
 body{margin:20px;}
@@ -224,178 +232,172 @@ h1{font-size:1.5em;margin:10px;}
 #rating>input:checked~label:hover~label{color:#2E7093;} */
 
 .rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
+float: left;
+height: 46px;
+padding: 0 10px;
 }
 .rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
+position:absolute;
+top:-9999px;
 }
 .rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
+float:right;
+width:1em;
+overflow:hidden;
+white-space:nowrap;
+cursor:pointer;
+font-size:30px;
+color:#ccc;
 }
 .rate:not(:checked) > label:before {
-    content: '★ ';
+content: '★ ';
 }
 .rate > input:checked ~ label {
-    color: #ffc700;    
+color: #ffc700;    
 }
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
+color: #deb217;  
 }
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
 .rate > input:checked ~ label:hover,
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
+color: #c59b08;
 }
 
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
 
-    .content-item {
-        padding:30px 0;
-        background-color:#FFFFFF;
-    }
-    
-    .content-item.grey {
-        background-color:#F0F0F0;
-        padding:50px 0;
-        height:100%;
-    }
-    
-    .content-item h2 {
-        font-weight:700;
-        font-size:35px;
-        line-height:45px;
-        text-transform:uppercase;
-        margin:20px 0;
-    }
-    
-    .content-item h3 {
-        font-weight:400;
-        font-size:20px;
-        color:#555555;
-        margin:10px 0 15px;
-        padding:0;
-    }
-    
-    .content-headline {
-        height:1px;
-        text-align:center;
-        margin:20px 0 70px;
-    }
-    
-    .content-headline h2 {
-        background-color:#FFFFFF;
-        display:inline-block;
-        margin:-20px auto 0;
-        padding:0 20px;
-    }
-    
-    .grey .content-headline h2 {
-        background-color:#F0F0F0;
-    }
-    
-    .content-headline h3 {
-        font-size:14px;
-        color:#AAAAAA;
-        display:block;
-    }
-    
-    
-    #comments {
-        box-shadow: 0 -1px 6px 1px rgba(0,0,0,0.1);
-        background-color:#FFFFFF;
-    }
-    
-    #comments form {
-        margin-bottom:30px;
-    }
-    
-    #comments .btn {
-        margin-top:7px;
-    }
-    
-    #comments form fieldset {
-        clear:both;
-    }
-    
-    #comments form textarea {
-        height:100px;
-    }
-    
-    #comments .media {
-        border-top:1px dashed #DDDDDD;
-        padding:20px 0;
-        margin:0;
-    }
-    
-    #comments .media > .pull-left {
-        margin-right:20px;
-    }
-    
-    #comments .media img {
-        max-width:100px;
-    }
-    
-    #comments .media h4 {
-        margin:0 0 10px;
-    }
-    
-    #comments .media h4 span {
-        font-size:14px;
-        float:right;
-        color:#999999;
-    }
-    
-    #comments .media p {
-        margin-bottom:15px;
-        text-align:justify;
-    }
-    
-    #comments .media-detail {
-        margin:0;
-    }
-    
-    #comments .media-detail li {
-        color:#AAAAAA;
-        font-size:12px;
-        padding-right: 10px;
-        font-weight:600;
-    }
-    
-    #comments .media-detail a:hover {
-        text-decoration:underline;
-    }
-    
-    #comments .media-detail li:last-child {
-        padding-right:0;
-    }
-    
-    #comments .media-detail li i {
-        color:#666666;
-        font-size:15px;
-        margin-right:10px;
-    }
-    
-    </style>
-    <script type="text/javascript">
-    </script>
-	
-		
+.content-item {
+    padding:30px 0;
+    background-color:#FFFFFF;
+}
 
-	<script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+.content-item.grey {
+    background-color:#F0F0F0;
+    padding:50px 0;
+    height:100%;
+}
 
+.content-item h2 {
+    font-weight:700;
+    font-size:35px;
+    line-height:45px;
+    text-transform:uppercase;
+    margin:20px 0;
+}
+
+.content-item h3 {
+    font-weight:400;
+    font-size:20px;
+    color:#555555;
+    margin:10px 0 15px;
+    padding:0;
+}
+
+.content-headline {
+    height:1px;
+    text-align:center;
+    margin:20px 0 70px;
+}
+
+.content-headline h2 {
+    background-color:#FFFFFF;
+    display:inline-block;
+    margin:-20px auto 0;
+    padding:0 20px;
+}
+
+.grey .content-headline h2 {
+    background-color:#F0F0F0;
+}
+
+.content-headline h3 {
+    font-size:14px;
+    color:#AAAAAA;
+    display:block;
+}
+
+
+#comments {
+    box-shadow: 0 -1px 6px 1px rgba(0,0,0,0.1);
+    background-color:#FFFFFF;
+}
+
+#comments form {
+    margin-bottom:30px;
+}
+
+#comments .btn {
+    margin-top:7px;
+}
+
+#comments form fieldset {
+    clear:both;
+}
+
+#comments form textarea {
+    height:100px;
+}
+
+#comments .media {
+    border-top:1px dashed #DDDDDD;
+    padding:20px 0;
+    margin:0;
+}
+
+#comments .media > .pull-left {
+    margin-right:20px;
+}
+
+#comments .media img {
+    max-width:100px;
+}
+
+#comments .media h4 {
+    margin:0 0 10px;
+}
+
+#comments .media h4 span {
+    font-size:14px;
+    float:right;
+    color:#999999;
+}
+
+#comments .media p {
+    margin-bottom:15px;
+    text-align:justify;
+}
+
+#comments .media-detail {
+    margin:0;
+}
+
+#comments .media-detail li {
+    color:#AAAAAA;
+    font-size:12px;
+    padding-right: 10px;
+    font-weight:600;
+}
+
+#comments .media-detail a:hover {
+    text-decoration:underline;
+}
+
+#comments .media-detail li:last-child {
+    padding-right:0;
+}
+
+#comments .media-detail li i {
+    color:#666666;
+    font-size:15px;
+    margin-right:10px;
+}
+
+</style>
+        
+        <script type="text/javascript">
+        
+        </script>
 @endsection

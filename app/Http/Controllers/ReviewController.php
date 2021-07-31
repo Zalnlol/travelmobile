@@ -22,16 +22,7 @@ class ReviewController extends Controller
     function postReview(Request $request)
     {
         $review = $request->all();
-        DB::table('tb_review')->insert([
-            'user_id'=>$review['user_id'],
-            'car_id'=>$review['car_id'],
-            'contract_id'=>$review['contract_id'],
-            'star_num'=>$review['star_num'],
-            'comment'=>$review['comment'],
-            'created_at'=>$review['created_at'],
-            'updated_at'=>$reivew['updated_at'],
-        ]);
-
-        return redirect()->back();
+        Review::create($review);
+        return redirect('/');
     }
 }

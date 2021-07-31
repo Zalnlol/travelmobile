@@ -1,5 +1,5 @@
 @extends('layoutUser.layout')
-@section('titleweb', 'Thông tin xe')
+@section('titleweb', 'Car Profile')
 <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8" type="text/javascript"></script>
 @section('bodycode')
     <style>
@@ -12,7 +12,7 @@
 
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/carprofile.css') }}">
@@ -674,7 +674,7 @@
                     <div class="media">
                         <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
                         <div class="media-body">
-                            <h4 class="media-heading">Name</h4>
+                            <h4 class="media-heading">{{ $item->user->name }}</h4>
                             <p>{{ $item->comment }}</p>
                             <ul class="list-unstyled list-inline media-detail pull-left">
                                 <div id="rating">
@@ -761,8 +761,8 @@
                                 </div>
                             </ul>
                             <ul class="list-unstyled list-inline media-detail pull-right">
-                                <li><i class="fa fa-calendar"></i></li>
-                                <li><i class="fa fa-thumbs-up"></i>13</li>         
+                                <li><i class="fa fa-calendar"></i>{{ $item->created_at }}</li>
+                                <li></li>         
                             </ul>
                         </div>
                     </div>

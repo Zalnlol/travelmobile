@@ -11,11 +11,11 @@ class Review extends Model
 
     protected $table = 'tb_review';
 
-    protected $fillable = ['star_num', 'comment'];
+    protected $fillable = ['user_id', 'car_id', 'contract_id','star_num', 'comment'];
 
-    public function users()
+    public function user()
     {
-        return $this->belongsToMany(User::class, 'review_users');
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
 }
