@@ -17,8 +17,9 @@
 </head>
 <body>
     <form action="">
+        {{-- chiecxe() --}}
     <label>Vui lòng chọn hãng xe</label>
-<select name="hangxe" id="hangxe" class="form-control" onchange="return chiecxe()">
+<select name="hangxe" id="hangxe" class="form-control" onchange="return chiecxe1()">
     <option value="0">Vui lòng chọn hãng xe</option>
     @foreach ($brands as $brand)
         <option value="{{ $brand->mfg_id }}">{{ $brand->name }}</option>
@@ -40,6 +41,7 @@ Price<input type="text" readonly id="price"><br>
 </form>
 
 <script>
+  
     function display(){
         let brands = {!! json_encode($brands->toArray(), JSON_HEX_TAG) !!};
         id = document.getElementById('hangxe').value; 
@@ -64,7 +66,8 @@ Price<input type="text" readonly id="price"><br>
     }
    
 
-    function chiecxe() {
+    
+    function chiecxe1(){
         id = document.getElementById('hangxe').value;
         let xe = [];
         let i = 0;
@@ -95,7 +98,6 @@ Price<input type="text" readonly id="price"><br>
             hangxe = document.getElementById('chiecxe').innerHTML = str;
             hangxe = document.getElementById('chiecxe').disabled = false;
         }
-
     }
 </script>
     

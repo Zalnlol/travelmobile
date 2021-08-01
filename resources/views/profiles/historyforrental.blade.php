@@ -47,7 +47,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <span id="namecar">{{ $rental['name'] }}</span>
+                                <span id="namecar">{{ $rental['name'] }} {{ $rental['model_year'] }}</span>
                             </div>
                         </div>
                         <div class="row" style="margin-top: 2%">

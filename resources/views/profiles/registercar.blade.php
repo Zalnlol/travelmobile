@@ -998,8 +998,10 @@
                 <li class="form-line" data-type="control_textarea" style="margin-top: -20px" id="id_36">
                     <label class="form-label form-label-top" id="label_36" for="rules" style="opacity: 0.6">Ghi rõ các yêu
                         cầu để khách có thể thuê xe.</label>
+
+
                     <div id="cid_36" class="form-input-wide">
-                        <textarea type="text" rows="5" id="rules" class="form-textarea" name="rules"
+                        <textarea type="text" rows="5" id="rules" class="form-control ckeditor" name="rules"
                             placeholder="  Không sử dụng xe vào mục đích phi pháp. Lái xe cẩn thận, giữ xe sạch sẽ, trả xe đúng giờ. Phụ thu 500k nếu có mùi thuốc trong xe."
                             cols="40" rows="6"></textarea>
                     </div>

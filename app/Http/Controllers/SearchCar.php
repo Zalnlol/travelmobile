@@ -182,6 +182,7 @@ function search(Request $request){
             foreach($listscan as $element){
                 $arrays[$i]['car_id'] = $element['car_id'];
                 $arrays[$i]['name'] = $element['name'];
+                $arrays[$i]['model_year'] = $element['model_year'];
                 $arrays[$i]['auto'] = $element['auto'];
                 $arrays[$i]['rent_price'] = $element['rent_price'];
                 $arrays[$i]['free_ship_distance'] = $element['free_ship_distance'];
@@ -408,11 +409,13 @@ function filter(Request $request){
                 }
 
                 $brand=$data['brand'];
+                // dd($data['brand']);
                 
                 if($brand!=null){
                     $i=0;
                     foreach($listscan as $element){
-                       if($element['brand']!=$brand){
+                        $databrand= CarMFG::where('mfg_id',$element['brand'])->get()->first();
+                       if($databrand['name']!=$brand){
                             array_splice($listscan,$i,1);
                             $i-=1;
                        }
@@ -451,6 +454,7 @@ function filter(Request $request){
                 $arrays[$i]['car_id'] = $element['car_id'];
                 $arrays[$i]['name'] = $element['name'];
                 $arrays[$i]['auto'] = $element['auto'];
+                $arrays[$i]['model_year'] = $element['model_year'];
                 $arrays[$i]['rent_price'] = $element['rent_price'];
                 $arrays[$i]['free_ship_distance'] = $element['free_ship_distance'];
                 $arrays[$i]['address'] = $element['address'];

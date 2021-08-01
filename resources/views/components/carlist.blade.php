@@ -14,7 +14,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-8">
-                                            <span id="titleCard">{{$chiecxe->name}}</span>
+                                            <span id="titleCard">{{$chiecxe->name}} {{$chiecxe->model_year}}</span>
                                         </div>
 
                                         <div class="col-sm-4" style="text-align: right">

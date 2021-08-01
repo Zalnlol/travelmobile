@@ -19,7 +19,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <span id="title-span"><b>Tên xe:</b> {{ $data3['car_name'] }}</span>
+                        <span id="title-span"><b>Tên xe:</b> {{ $data3['car_name'] }} {{ $data3['model_year'] }}</span>
                     </div>
                 </div>
                 <div class="row">

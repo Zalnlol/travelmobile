@@ -153,8 +153,8 @@ function save_results(response, status) {
         sotienkm= document.getElementById('phigiaoxe').innerText
         sotien = parseInt(sotienkm) *sokm
 
-        document.getElementById('giaoxe').innerText = sotien;
-        document.getElementById('hienthikm').innerText= '('+sokm+'km)'
+        document.getElementById('giaoxe').innerText = sotien.toFixed(2);
+        document.getElementById('hienthikm').innerText= '('+sokm.toFixed(2)+'km)'
         
         tinhtien();
         complatedata();

@@ -490,6 +490,7 @@ Route::get('/AQ/owner/xlsc', [AQController::class, "xlsc"]);
 
 //traveler
 
+Route::get('test',[SearchCar::class, "testajax1"]);
 
 //----------------------------------------------------------------------------------------------------------
 

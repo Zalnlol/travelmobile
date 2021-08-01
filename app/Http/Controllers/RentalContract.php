@@ -537,6 +537,7 @@ class RentalContract extends Controller
                     $data3[$i]['status']=$id['status'];
                     $data4= CarRental::where('car_id',$tmp['car_id'])->get()->first();
                     $data3[$i]['name']=$data4['name'];
+                    $data3[$i]['model_year']=$data4['model_year'];
                     $data4=[];
                     $data4= CarPic::where('car_id',$tmp['car_id'])->get()->first();
                     $data3[$i]['image']=$data4['image'];
@@ -561,6 +562,7 @@ class RentalContract extends Controller
         $data3['image']=(CarPic::where('car_id',$data['car_id'])->get()->first())['image'];
         $data3['user_name']= $data4['name'];
         $data3['car_name']= $data2['name'];
+        $data3['model_year']= $data2['model_year'];
         $data3['plate_id']= $data2['plate_id'];
         $data3['max_travel_distance']= $data2['max_travel_distance'];
         $data3['over_max_travel_cost']= $data2['over_max_travel_cost'].'000';
@@ -598,6 +600,7 @@ class RentalContract extends Controller
         $data3['image']=(CarPic::where('car_id',$data['car_id'])->get()->first())['image'];
         $data3['user_name']= $data4['name'];
         $data3['car_name']= $data2['name'];
+        $data3['model_year']= $data2['model_year'];
         $data3['plate_id']= $data2['plate_id'];
         $data3['max_travel_distance']= $data2['max_travel_distance'];
         $data3['over_max_travel_cost']= $data2['over_max_travel_cost'].'000';
@@ -636,6 +639,7 @@ class RentalContract extends Controller
         $data3['image']=(CarPic::where('car_id',$data['car_id'])->get()->first())['image'];
         $data3['user_name']= $data4['name'];
         $data3['car_name']= $data2['name'];
+        $data3['model_year']= $data2['model_year'];
         $data3['plate_id']= $data2['plate_id'];
         $data3['max_travel_distance']= $data2['max_travel_distance'];
         $data3['over_max_travel_cost']= $data2['over_max_travel_cost'].'000';
