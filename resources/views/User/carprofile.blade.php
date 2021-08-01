@@ -1,8 +1,6 @@
 @extends('layoutUser.layout')
 @section('titleweb', 'Thông tin xe')
-    <script defer
-        src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8"
-        type="text/javascript"></script>
+<script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyDi2UpnA_1qXGCGZmnqx-UegSOGAmIspD8" type="text/javascript"></script>
 @section('bodycode')
     <style>
         #thoi-gian1 {
@@ -14,8 +12,8 @@
 
     </style>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/carprofile.css') }}">
 
@@ -662,108 +660,109 @@
             </div>
         </div>
 
-        <!-- COMMENT 1 - START -->
-        <section class="content-item" id="comments">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-8">
-                        @foreach ($review as $item)
+                <!-- COMMENT 1 - START -->
+                <section class="content-item" id="comments">
+                    <div class="container">   
+                        <div class="row">
+                            <div class="col-sm-8">   
+                    @foreach ($review as $item)
 
-                            <div class="media">
-                                <a class="pull-left" href="#"><img class="media-object"
-                                        src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
-                                <div class="media-body">
-                                    <h4 class="media-heading">Name</h4>
-                                    <p>{{ $item->comment }}</p>
-                                    <ul class="list-unstyled list-inline media-detail pull-left">
-                                        <div id="rating">
-                                            @if ($item->star_num == 1)
-                                                <input type="radio" id="" name="" read value="5" />
-                                                <label class="full" for="" title="Awesome - 5 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="4" />
-                                                <label class="full" for="" title="Pretty good - 4 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="3" />
-                                                <label class="full" for="" title="Meh - 3 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="2" />
-                                                <label class="full" for="" title="Kinda bad - 2 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="1" checked />
-                                                <label class="full" for="" title="Sucks big time - 1 star"></label>
-                                            @endif
-                                            @if ($item->star_num == 2)
-                                                <input type="radio" id="" name="" read value="5" />
-                                                <label class="full" for="" title="Awesome - 5 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="4" />
-                                                <label class="full" for="" title="Pretty good - 4 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="3" />
-                                                <label class="full" for="" title="Meh - 3 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="2" checked />
-                                                <label class="full" for="" title="Kinda bad - 2 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="1" />
-                                                <label class="full" for="" title="Sucks big time - 1 star"></label>
-                                            @endif
-                                            @if ($item->star_num == 3)
-                                                <input type="radio" id="" name="" read value="5" />
-                                                <label class="full" for="" title="Awesome - 5 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="4" />
-                                                <label class="full" for="" title="Pretty good - 4 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="3" checked />
-                                                <label class="full" for="" title="Meh - 3 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="2" />
-                                                <label class="full" for="" title="Kinda bad - 2 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="1" />
-                                                <label class="full" for="" title="Sucks big time - 1 star"></label>
-                                            @endif
-                                            @if ($item->star_num == 4)
-                                                <input type="radio" id="" name="" read value="5" />
-                                                <label class="full" for="" title="Awesome - 5 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="4" checked />
-                                                <label class="full" for="" title="Pretty good - 4 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="3" />
-                                                <label class="full" for="" title="Meh - 3 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="2" />
-                                                <label class="full" for="" title="Kinda bad - 2 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="1" />
-                                                <label class="full" for="" title="Sucks big time - 1 star"></label>
-                                            @endif
-                                            @if ($item->star_num == 5)
-                                                <input type="radio" id="" name="" read value="5" checked />
-                                                <label class="full" for="" title="Awesome - 5 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="4" />
-                                                <label class="full" for="" title="Pretty good - 4 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="3" />
-                                                <label class="full" for="" title="Meh - 3 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="2" />
-                                                <label class="full" for="" title="Kinda bad - 2 stars"></label>
-
-                                                <input type="radio" id="" name="" read value="1" />
-                                                <label class="full" for="" title="Sucks big time - 1 star"></label>
-                                            @endif
-                                        </div>
-                                    </ul>
-                                    <ul class="list-unstyled list-inline media-detail pull-right">
-                                        <li><i class="fa fa-calendar"></i></li>
-                                        <li><i class="fa fa-thumbs-up"></i>13</li>
-                                    </ul>
+                    <div class="media">
+                        <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+                        <div class="media-body">
+                            <h4 class="media-heading">{{ $item->user->name }}</h4>
+                            <p>{{ $item->comment }}</p>
+                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                <div id="rating">
+                                    @if ($item->star_num == 1) 
+                                        <input type="radio"  id="" name=""read value="5" />
+                                        <label class = "full" for="" title="Awesome - 5 stars"></label>
+                                    
+                                        <input type="radio"  id="" name=""read value="4" />
+                                        <label class = "full" for="" title="Pretty good - 4 stars"></label>
+                                    
+                                        <input type="radio"  id="" name=""read value="3" />
+                                        <label class = "full" for="" title="Meh - 3 stars"></label>
+                                    
+                                        <input type="radio"  id="" name=""read value="2" />
+                                        <label class = "full" for="" title="Kinda bad - 2 stars"></label>
+                                    
+                                        <input type="radio"  id="" name=""read value="1" checked />
+                                        <label class = "full" for="" title="Sucks big time - 1 star"></label>
+                                    @endif
+                                    @if ($item->star_num == 2)
+                                        <input type="radio"  id="" name=""read value="5" />
+                                        <label class = "full" for="" title="Awesome - 5 stars"></label>
+                                    
+                                        <input type="radio"  id="" name=""read value="4" />
+                                        <label class = "full" for="" title="Pretty good - 4 stars"></label>
+                                    
+                                        <input type="radio"  id="" name=""read value="3" />
+                                        <label class = "full" for="" title="Meh - 3 stars"></label>
+                                    
+                                        <input type="radio"  id="" name=""read value="2" checked />
+                                        <label class = "full" for="" title="Kinda bad - 2 stars"></label>
+                                    
+                                        <input type="radio"  id="" name=""read value="1" />
+                                        <label class = "full" for="" title="Sucks big time - 1 star"></label>
+                                     @endif
+                            @if ($item->star_num == 3)
+                                <input type="radio"  id="" name=""read value="5" />
+                                    <label class = "full" for="" title="Awesome - 5 stars"></label>
+                                
+                                    <input type="radio"  id="" name=""read value="4" />
+                                    <label class = "full" for="" title="Pretty good - 4 stars"></label>
+                                
+                                    <input type="radio"  id="" name=""read value="3" checked/>
+                                    <label class = "full" for="" title="Meh - 3 stars"></label>
+                                
+                                    <input type="radio"  id="" name=""read value="2" />
+                                    <label class = "full" for="" title="Kinda bad - 2 stars"></label>
+                                
+                                    <input type="radio"  id="" name=""read value="1"/>
+                                    <label class = "full" for="" title="Sucks big time - 1 star"></label>
+                           @endif
+                            @if ($item->star_num == 4) 
+                               <input type="radio"  id="" name=""read value="5" />
+                                <label class = "full" for="" title="Awesome - 5 stars"></label>
+                            
+                                <input type="radio"  id="" name=""read value="4" checked/>
+                                <label class = "full" for="" title="Pretty good - 4 stars"></label>
+                            
+                                <input type="radio"  id="" name=""read value="3" />
+                                <label class = "full" for="" title="Meh - 3 stars"></label>
+                            
+                                <input type="radio"  id="" name=""read value="2" />
+                                <label class = "full" for="" title="Kinda bad - 2 stars"></label>
+                            
+                                <input type="radio"  id="" name=""read value="1" />
+                                <label class = "full" for="" title="Sucks big time - 1 star"></label> 
+                           @endif
+                            @if ($item->star_num == 5) 
+                                <input type="radio"  id="" name=""read value="5" checked/>
+                                <label class = "full" for="" title="Awesome - 5 stars"></label>
+                            
+                                <input type="radio"  id="" name=""read value="4" />
+                                <label class = "full" for="" title="Pretty good - 4 stars"></label>
+                            
+                                <input type="radio"  id="" name=""read value="3" />
+                                <label class = "full" for="" title="Meh - 3 stars"></label>
+                            
+                                <input type="radio"  id="" name=""read value="2" />
+                                <label class = "full" for="" title="Kinda bad - 2 stars"></label>
+                            
+                                <input type="radio"  id="" name=""read value="1" />
+                                <label class = "full" for="" title="Sucks big time - 1 star"></label>
+                           @endif 
                                 </div>
+                            </ul>
+                            <ul class="list-unstyled list-inline media-detail pull-right">
+                                <li><i class="fa fa-calendar"></i>{{ $item->created_at }}</li>
+                                <li></li>         
+                            </ul>
+                        </div>
+                    </div>
+                   @endforeach 
                             </div>
                         @endforeach
                     </div>

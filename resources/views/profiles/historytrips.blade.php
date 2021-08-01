@@ -112,7 +112,7 @@
                                             <a class="dropdown-item" href="{{ url('/user/triphistory/delete/'.$rental['contract_id']) }}">Xóa</a>
                                         @endif
                                         @if ($rental['status'] == 'Đã hoàn thành')
-                                            <a class="dropdown-item" href="{{ route('review', $rental['contract_id']) }}">Đánh giá</a>
+                                            <a class="dropdown-item" href="{{ route('review.create', $rental['contract_id']) }}">Đánh giá</a>
                                         @endif
 
 
