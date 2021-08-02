@@ -309,6 +309,7 @@ class RentalContract extends Controller
                     $data3[$i]['status']=$tmp['status'];
                     $data4= CarRental::where('car_id',$tmp['car_id'])->get()->first();
                     $data3[$i]['name']=$data4['name'];
+                    $data3[$i]['model_year']=$data4['model_year'];
                     $data4=[];
                     $data4= CarPic::where('car_id',$tmp['car_id'])->get()->first();
                     $data3[$i]['image']=$data4['image'];
@@ -355,6 +356,7 @@ class RentalContract extends Controller
             $data3[$i]['status']=$element['status'];
             $data4= CarRental::where('car_id',$element['car_id'])->get()->first();
             $data3[$i]['name']=$data4['name'];
+            $data3[$i]['model_year']=$data4['model_year'];
             $data4=[];
             $data4= CarPic::where('car_id',$element['car_id'])->get()->first();
             $data3[$i]['image']=$data4['image'];
@@ -448,6 +450,7 @@ class RentalContract extends Controller
                     $data3[$i]['status']=$id['status'];
                     $data4= CarRental::where('car_id',$tmp['car_id'])->get()->first();
                     $data3[$i]['name']=$data4['name'];
+                    $data3[$i]['model_year']=$data4['model_year'];
                     $data4=[];
                     $data4= CarPic::where('car_id',$tmp['car_id'])->get()->first();
                     $data3[$i]['image']=$data4['image'];

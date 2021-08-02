@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --}}
+    <meta name="viewport" content="width=1024">
 
     <link rel="icon" type="image/png" sizes="114x114" href="{{ asset('images/fav-icon.png') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
@@ -83,8 +84,9 @@
                                 @else
                                     <li class="nav-item dropdown" style="width:20rem">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <img src="{{ asset('img/'. Auth::user()->avatar_image) }}" style="width: 40px" class="rounded-circle"><span >{{ Auth::user()->name }}</span>
-                                        </a>
+                                        <img src="{{ asset('img/'. Auth::user()->avatar_image) }}" style="background-size: cover;width:40px; height:40px " class="rounded-circle"><span >{{ Auth::user()->name }}</span>
+                                     
+                                    </a>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/profile') }}">Trang cá nhân</a>
                                             <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/mycars')}}">Xe của tôi</a>
