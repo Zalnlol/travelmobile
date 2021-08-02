@@ -24,7 +24,7 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title"> <a href="{{url('/admin/blog/createBlog')}}">Create new blog</a></h3>
+        <h3 class="card-title"> <a href="{{url('/admin/blog/createBlog')}}">Tạo mới blog</a></h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -40,11 +40,11 @@
             <thead>
                 <tr>
                     
-                    <th>ID</th>
-                    <th>Tiêu đề</th>
-                    <th>Nội dung</th>
-                    <th>Ảnh</th>
-                    <th>Ngày đăng</th>
+                    <th style="width: 1%;">ID</th>
+                    <th style="width: 20%">Tiêu đề</th>
+                    <th style="width: 35%">Nội dung</th>
+                    <th style="width: 10%">Ảnh</th>
+                    <th style="width: 10%">Ngày đăng</th>
                     
                 </tr>
             </thead>
@@ -58,10 +58,24 @@
                     <td>{{ $item->content }}</td>
                     <td><img src="{{asset("img/$item->blog_pic")}}" alt=""  ></td>
                     <td>{{ $item->post_date }}</td>
-                    <td><a href="">View</a> |
-                        <a href="{{url("/admin/blog/editBlog/{$item->blog_id}")}}">Edit</a> |
-                        <a href="{{url("/admin/blog/delete/{$item->blog_id}")}}">Delete</a>
-                    </td>
+                    <td class="project-actions text-right">
+                      <a class="btn btn-primary btn-sm" href="">
+                          <i class="fas fa-folder">
+                          </i>
+                          Xem
+                        </a>
+                        <a class="btn btn-info btn-sm" href="{{url("/admin/blog/editBlog/{$item->blog_id}")}}">
+                          <i class="fas fa-pencil-alt">
+                          </i>
+                          Xem ảnh
+                      </a>
+                      <a class="btn btn-danger btn-sm" href="{{url("/admin/blog/delete/{$item->blog_id}")}}" onclick="javascript:return confirm('Are you sure ?')">
+                          <i class="fas fa-trash">
+                          </i>
+                          Xóa
+                      </a>
+                  </td>
+                  
                     
                 </tr>
                                      

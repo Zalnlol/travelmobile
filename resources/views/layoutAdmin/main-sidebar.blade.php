@@ -120,6 +120,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="{{route('admin.waiting-rental')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Danh sách xe chờ duyệt</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{route('admin.active-rental')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Danh sách xe đang hoạt động</p>
@@ -218,6 +224,14 @@
                 <a href="{{url('admin/blog')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Doanh sách bài blog </p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('/admin/blog/createBlog')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tạo mới blog </p>
                 </a>
               </li>
             </ul>

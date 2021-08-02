@@ -22,14 +22,20 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-name">Tiêu đề</label>
-                                    <input type="text" class="form-control" id="title" name="title"
-                                        placeholder="Nhập tiêu đề" required value="{{ $blog->title }}">
+                                    {{-- <input type="text" class="form-control" id="title" name="title"
+                                        placeholder="Nhập tiêu đề" required value="{{ $blog->title }}"> --}}
+                                        <textarea class="form-control" rows="3" id="description" name="description"
+                                        placeholder="" cols="40"
+                                        rows="6">{{ $blog->title }}</textarea>
                                 </div>
+               
 
                                 <div class="form-group">
                                     <label for="txt-price">Nội dung</label>
-                                    <input type="text" class="form-control" id="content" name="content"
-                                        placeholder="Nhập nội dung" required value="{{ $blog->content }}">
+                                    {{-- <input type="text" class="form-control ckeditor" id="content" name="content"
+                                        placeholder="Nhập nội dung" required value="{{ $blog->content }}"> --}}
+                                        <textarea class="form-control ckeditor" id="description" name="description"
+                                        placeholder="" cols="40" rows="4">{{ $blog->content }}</textarea>
                                 </div>
 
                                 <div class="form-group">
@@ -67,6 +73,7 @@
     </section>
 @endsection
 @section('script-section')
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script> 
     <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-fileinput.min.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {

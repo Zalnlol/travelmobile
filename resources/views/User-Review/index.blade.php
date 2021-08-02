@@ -32,6 +32,7 @@
                                     <img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" style="width: 100px">
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                    <input type="hidden" name="status" value="1">
                                     <input type="hidden" name="contract_id" value="{{ $coid }}">
                                     <input type="hidden" name="user_id" value="{{ $uid }}">
                                     <input type="hidden" name="car_id" value="{{ $caid }}">

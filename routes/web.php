@@ -379,6 +379,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
    //Admin của a Vương 
     Route::get('rental', 'RentalController@index')->name('rental');
+    Route::get('waiting-rental', 'RentalController@waiting')->name('waiting-rental');
     Route::get('active-rental', 'RentalController@active')->name('active-rental');
     Route::get('deny-rental', 'RentalController@deny')->name('deny-rental');
     Route::get('rental/view/{car_id}', 'RentalController@view')->name('rental.view');

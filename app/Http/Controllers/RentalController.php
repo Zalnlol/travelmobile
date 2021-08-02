@@ -70,5 +70,11 @@ class RentalController extends Controller
         return view('Admin-Rental.carimg', compact('img'));
     }
 
+    public function waiting()
+    {
+        $rental = CarRental::where('status', 1)->get();
+        return view('Admin-Rental.waiting', compact('rental'));
+    }
+
 
 }
