@@ -365,7 +365,7 @@ class RentalContract extends Controller
         }
 
         $status = Review::all();
-        dd($status);
+        // dd($status);
 
 
 
