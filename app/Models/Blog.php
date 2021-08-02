@@ -11,6 +11,6 @@ class Blog extends Model
     protected $table='tb_blog';
     protected $primaryKey = 'blog_id';
     protected $fillable = ['blog_id','title','content','blog_pic','post_date'];
-    public $timestamps = false;  // remove update_at, create_at in SQL insert/update query
+ 
 
 }
