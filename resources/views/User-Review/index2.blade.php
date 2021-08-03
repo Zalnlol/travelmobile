@@ -22,9 +22,9 @@
         <div class="container">   
             <div class="row">
                 <div class="col-sm-8">   
-                    <form action="{{ route('review.post') }}" method="POST" enctype="multipart/form-data">
+                    <form action="#" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <h3 class="pull-left">Đánh giá</h3>
+                        <h3 class="pull-left">Bạn muốn sửa đánh giá</h3>
                         <button type="submit" class="btn btn-normal pull-right">Phản hồi</button>
                         <fieldset>
                             <div class="row">
@@ -32,9 +32,9 @@
                                     <img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" style="width: 100px">                    
                                 </div>
                                 <div class="form-group col-xs-12 col-sm-9 col-lg-10">
-                                    <input type="hidden" name="contract_id" value="{{ $coid }}">
-                                    <input type="hidden" name="user_id" value="{{ $uid }}">
-                                    <input type="hidden" name="car_id" value="{{ $caid }}">
+                                    <input type="hidden" name="contract_id" value="">
+                                    <input type="hidden" name="user_id" value="">
+                                    <input type="hidden" name="car_id" value="">
                                     <textarea class="form-control" id="message" name="comment" placeholder="Your message" required=""></textarea>
                                     <div id="rating" class="star-rating">
                                         <input type="radio" id="star5" name="star_num" value="5" />

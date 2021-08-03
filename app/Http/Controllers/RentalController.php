@@ -12,7 +12,7 @@ class RentalController extends Controller
 {
     public function index()
     {
-        $rental = CarRental::all();
+        $rental = CarRental::paginate(10);
         return view('Admin-Rental.index', compact('rental'));
     }
 

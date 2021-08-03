@@ -144,6 +144,7 @@ class RentalContract extends Controller
         $trip_number=$sochuyen->count();
         
         $review = Review::where('car_id', $car_id)->get();
+        //dd($review);
 
         return view('User/carprofile',compact('carlist','img','chuxe','searchinfo','star_num','trip_number','user_id','gplx','status', 'review'));
     }
@@ -364,9 +365,7 @@ class RentalContract extends Controller
             $i+=1;
         }
 
-        $status = Review::all();
-        // dd($status);
-
+        $status = ModelsRentalContract::where('contract_id', $element['contract_id'])->get();
 
 
         return view('profiles.historytrips',compact('data3', 'status'));

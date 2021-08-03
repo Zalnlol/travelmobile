@@ -24,7 +24,7 @@
                                     <label for="txt-name">Tiêu đề</label>
                                     {{-- <input type="text" class="form-control" id="title" name="title"
                                         placeholder="Nhập tiêu đề" required value="{{ $blog->title }}"> --}}
-                                        <textarea class="form-control" rows="3" id="description" name="description"
+                                        <textarea class="form-control" rows="3" id="title" name="title"
                                         placeholder="" cols="40"
                                         rows="6">{{ $blog->title }}</textarea>
                                 </div>
@@ -34,7 +34,7 @@
                                     <label for="txt-price">Nội dung</label>
                                     {{-- <input type="text" class="form-control ckeditor" id="content" name="content"
                                         placeholder="Nhập nội dung" required value="{{ $blog->content }}"> --}}
-                                        <textarea class="form-control ckeditor" id="description" name="description"
+                                        <textarea class="form-control ckeditor" id="content" name="content"
                                         placeholder="" cols="40" rows="4">{{ $blog->content }}</textarea>
                                 </div>
 

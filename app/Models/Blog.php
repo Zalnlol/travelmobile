@@ -10,7 +10,7 @@ class Blog extends Model
     use HasFactory;
     protected $table='tb_blog';
     protected $primaryKey = 'blog_id';
-    protected $fillable = ['blog_id','title','content','blog_pic','post_date'];
+    protected $fillable = ['blog_id','title','content','blog_pic'];
  
 
 }

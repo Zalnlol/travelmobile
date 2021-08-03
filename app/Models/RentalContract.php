@@ -15,4 +15,6 @@ class RentalContract extends Model
 
     protected $fillable = ['contract_id','user_id','car_id','contract_date','pickup_date','return_date','rental_price','service_cost','pickup_address','shipping_cost','contract_value','deposit','status','comment'];
     public $timestamps = false;
+
+
 }

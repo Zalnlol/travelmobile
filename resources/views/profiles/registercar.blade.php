@@ -430,7 +430,6 @@
                             <div id="cid_32" class="form-input-wide">
                                 <select class="form-dropdown" id="input_10" name="model_year" style="width:150px"
                                     data-component="dropdown">
-
                                     <option value="1960"> 1960 </option>
                                     <option value="1961"> 1961 </option>
                                     <option value="1962"> 1962 </option>
@@ -493,7 +492,6 @@
                                     <option value="2019"> 2019 </option>
                                     <option value="2020"> 2020 </option>
                                     <option value="2021"> 2021 </option>
-
                                 </select>
                             </div>
                         </li>
@@ -503,10 +501,8 @@
                             <div id="cid_32" class="form-input-wide">
                                 <select class="form-dropdown" id="input_10" name="auto" style="width:150px"
                                     data-component="dropdown">
-
                                     <option value="1"> Số tự động </option>
                                     <option value="2"> Số sàn </option>
-
                                 </select>
                             </div>
                         </li>
