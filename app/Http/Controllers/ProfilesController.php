@@ -55,15 +55,7 @@ class ProfilesController extends Controller
         $user_id = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
         $searchinfo= $request->all();
         // dd($searchinfo);
-        $data = request()->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'avatar_image' => '',
-            'mobile' => 'required',
-            'dob' => '',
-            'gender' => 'required',
-            'driver_id' => '',
-            'driver_id_image' => '',
-        ]);
+
         $name = $request->input('name');
         $email = $request->input('email');
         $avatar_image = $request->input('avatar_image');
@@ -71,6 +63,16 @@ class ProfilesController extends Controller
         $gender = $request->input('gender');
         $dob = $request->input('dob');
         $driver_id = $request->input('driver_id');
+
+        $data = request()->validate([
+            'name' => ['required', 'alpha', 'max:255'],
+            'avatar_image' => '',
+            'mobile' => ['required', 'digits_between:10,11'],
+            'dob' => 'required|date|before_or_equal:'.\Carbon\Carbon::now()->subYears(18)->format('d-m-Y'),
+            'gender' => 'required',
+            'driver_id' => 'alpha_num',
+            'driver_id_image' => '',
+        ]);
 
         // dd($user_id);
         //Xử lý upload ảnh đại diện hình vào thư mục

@@ -64,8 +64,13 @@
 
                 <div class="form-group row">
                     <label for="gender" class="col-md-3">Giới tính</label>
+                    @if ($user->gender == 1)
                     <div class="px-2"> <label class="radio"> <input type="radio" name="gender" value="1" checked> <span>Nam</span> </label> </div>
                     <div class="px-2"> <label class="radio"> <input type="radio" name="gender" value="0"> <span>Nữ</span> </label> </div>
+                    @else
+                    <div class="px-2"> <label class="radio"> <input type="radio" name="gender" value="1" > <span>Nam</span> </label> </div>
+                    <div class="px-2"> <label class="radio"> <input type="radio" name="gender" value="0" checked> <span>Nữ</span> </label> </div>
+                    @endif
                 </div>
 
                 <div class="form-group row">

@@ -1,5 +1,5 @@
-@extends('layoutUser.layoutstaticpage')
-@section('titleweb', 'Hướng dẫn')
+@extends('layoutUser.layout')
+@section('titleweb', 'Tutorial')
 
 @section('bodycode')
     <section class="body">
@@ -54,12 +54,7 @@
                             <p> <span class="fontWeight-5">d. Hãng xe:</span> Hệ thống đang mặc định hiển thị
                                 tất cả xe của các hãng khác nhau. bạn có thể lựa chọn chỉ xem riêng danh sách xe
                                 của một hãng yêu thích bằng cách bấm vào tên của hãng xe. </p>
-                            <div class="box-classify d-flex">
-                                <div class="center">
-                                    <h4 class="ls-title">WEB </h4><img class="img-fluid" src="">
-                                </div>
-
-                            </div>
+                            
                             <p> <span class="fontWeight-5">Nâng cao: </span>Thể hiện các tính năng tìm kiếm nâng
                                 cao (số ghế ngồi trên xe, năm sản xuất, các xe đang ở chế độ cho phép "Giao xe
                                 tận nhà", hoặc cho phép "Đặt xe nhanh" (không cần chủ xe phê duyệt), truyền động

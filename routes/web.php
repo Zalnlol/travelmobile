@@ -18,8 +18,9 @@ use App\Http\Controllers\RentalContract;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ChangePasswordController;
-use App\Http\Controllers\AQController;
+use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\TutorialController;
+use App\Http\Controllers\TravelerController;
 
 use App\Models\RentalContract as ModelsRentalContract;
 use App\Models\RentalSchedule;
@@ -463,35 +464,61 @@ Route::get('/Carregishowto', [TutorialController::class, "Carregishowto"]);
 Route::get('/Procedure1', [TutorialController::class, "Procedure1"]);
 Route::get('/Procedure2', [TutorialController::class, "Procedure2"]);
 
-//AQ
-Route::get('/AQ', [AQController::class, "AQ"]);
 
-//Owner
-Route::get('/AQ/owner/ctgtcxm', [AQController::class, "ctgtcxm"]);
-Route::get('/AQ/owner/cxhc', [AQController::class, "cxhc"]);
-Route::get('/AQ/owner/datxenhanh', [AQController::class, "datxenhanh"]);
-Route::get('/AQ/owner/dgscd', [AQController::class, "dgscd"]);
-Route::get('/AQ/owner/dvtxctx', [AQController::class, "dvtxctx"]);
-Route::get('/AQ/owner/dyctx', [AQController::class, "dyctx"]);
-Route::get('/AQ/owner/gbhcd', [AQController::class, "gbhcd"]);
-Route::get('/AQ/owner/giaonhanxe', [AQController::class, "giaonhanxe"]);
-Route::get('/AQ/owner/gttttx', [AQController::class, "gttttx"]);
-Route::get('/AQ/owner/huongdanchung', [AQController::class, "huongdanchung"]);
-Route::get('/AQ/owner/khc', [AQController::class, "khc"]);
-Route::get('/AQ/owner/lichban', [AQController::class, "lichban"]);
-Route::get('/AQ/owner/phivanhanh', [AQController::class, "phivanhanh"]);
-Route::get('/AQ/owner/rtqvmi', [AQController::class, "rtqvmi"]);
-Route::get('/AQ/owner/thongtinxe', [AQController::class, "thongtinxe"]);
-Route::get('/AQ/owner/thutuc', [AQController::class, "thutuc"]);
-Route::get('/AQ/owner/tngps', [AQController::class, "tngps"]);
-Route::get('/AQ/owner/tphd', [AQController::class, "tphd"]);
-Route::get('/AQ/owner/ttdcx', [AQController::class, "ttdcx"]);
-Route::get('/AQ/owner/xhxtud', [AQController::class, "xhxtud"]);
-Route::get('/AQ/owner/xlsc', [AQController::class, "xlsc"]);
-
-//traveler
 
 Route::get('test',[SearchCar::class, "testajax1"]);
+
+//AQ
+Route::get('/AQ', [OwnerController::class, "AQ"]);
+
+//Owner
+Route::get('/AQ/owner/ctgtcxm', [OwnerController::class, "ctgtcxm"]);
+Route::get('/AQ/owner/cxhc', [OwnerController::class, "cxhc"]);
+Route::get('/AQ/owner/datxenhanh', [OwnerController::class, "datxenhanh"]);
+Route::get('/AQ/owner/dgscd', [OwnerController::class, "dgscd"]);
+Route::get('/AQ/owner/dvtxctx', [OwnerController::class, "dvtxctx"]);
+Route::get('/AQ/owner/dyctx', [OwnerController::class, "dyctx"]);
+Route::get('/AQ/owner/gbhcd', [OwnerController::class, "gbhcd"]);
+Route::get('/AQ/owner/giaonhanxe', [OwnerController::class, "giaonhanxe"]);
+Route::get('/AQ/owner/gttttx', [OwnerController::class, "gttttx"]);
+Route::get('/AQ/owner/huongdanchung', [OwnerController::class, "huongdanchung"]);
+Route::get('/AQ/owner/khc', [OwnerController::class, "khc"]);
+Route::get('/AQ/owner/lichban', [OwnerController::class, "lichban"]);
+Route::get('/AQ/owner/phivanhanh', [OwnerController::class, "phivanhanh"]);
+Route::get('/AQ/owner/rtqvmi', [OwnerController::class, "rtqvmi"]);
+Route::get('/AQ/owner/thongtinxe', [OwnerController::class, "thongtinxe"]);
+Route::get('/AQ/owner/thutuc', [OwnerController::class, "thutuc"]);
+Route::get('/AQ/owner/tngps', [OwnerController::class, "tngps"]);
+Route::get('/AQ/owner/tphd', [OwnerController::class, "tphd"]);
+Route::get('/AQ/owner/ttdcx', [OwnerController::class, "ttdcx"]);
+Route::get('/AQ/owner/xhxtud', [OwnerController::class, "xhxtud"]);
+Route::get('/AQ/owner/xlsc', [OwnerController::class, "xlsc"]);
+
+//traveler
+Route::get('/AQ/traveler/bh2cktx', [TravelerController::class, "bh2cktx"]);
+Route::get('/AQ/traveler/cxhc', [TravelerController::class, "cxhc"]);
+Route::get('/AQ/traveler/dc', [TravelerController::class, "dc"]);
+Route::get('/AQ/traveler/dgscd', [TravelerController::class, "dgscd"]);
+Route::get('/AQ/traveler/dgscd2', [TravelerController::class, "dgscd2"]);
+Route::get('/AQ/traveler/dx', [TravelerController::class, "dx"]);
+Route::get('/AQ/traveler/gbhcd', [TravelerController::class, "gbhcd"]);
+Route::get('/AQ/traveler/ghqd', [TravelerController::class, "ghqd"]);
+Route::get('/AQ/traveler/gnx', [TravelerController::class, "gnx"]);
+Route::get('/AQ/traveler/gttttx', [TravelerController::class, "gttttx"]);
+Route::get('/AQ/traveler/gxtn', [TravelerController::class, "gxtn"]);
+Route::get('/AQ/traveler/gyctx', [TravelerController::class, "gyctx"]);
+Route::get('/AQ/traveler/hcsdc', [TravelerController::class, "hcsdc"]);
+Route::get('/AQ/traveler/hddx', [TravelerController::class, "hddx"]);
+Route::get('/AQ/traveler/ht', [TravelerController::class, "ht"]);
+Route::get('/AQ/traveler/ktscd', [TravelerController::class, "ktcsd"]);
+Route::get('/AQ/traveler/mihtkcsc', [TravelerController::class, "mihtkcsc"]);
+Route::get('/AQ/traveler/ptx', [TravelerController::class, "ptx"]);
+Route::get('/AQ/traveler/qltx', [TravelerController::class, "qltx"]);
+Route::get('/AQ/traveler/tgtxvtggn', [TravelerController::class, "tgtxvtggn"]);
+Route::get('/AQ/traveler/txtc', [TravelerController::class, "txtc"]);
+Route::get('/AQ/traveler/txthtxcg', [TravelerController::class, "txthtxcg"]);
+Route::get('/AQ/traveler/udkgtbb', [TravelerController::class, "udkgtbb"]);
+Route::get('/AQ/traveler/xtmi', [TravelerController::class, "xtmi"]);
 
 //----------------------------------------------------------------------------------------------------------
 

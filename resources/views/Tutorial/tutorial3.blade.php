@@ -1,5 +1,5 @@
-@extends('layoutUser.layoutstaticpage')
-@section('titleweb', 'Hướng dẫn')
+@extends('layoutUser.layout')
+@section('titleweb', 'Tutorial')
 
 @section('bodycode')
     <section class="body">
@@ -46,12 +46,7 @@
                                             hợp biển số xe bị trùng vì đã có người sử dụng, bạn vui lòng gọi<a
                                                 class="text-primary" href="tel:19009217"> 19009217 (9AM - 6PM
                                                 T2-T7)</a> để thông báo với admin.</p>
-                                        <div class="box-classify d-flex">
-                                            <div class="center">
-                                                <h4 class="ls-title">WEB</h4><img class="img-fluid" src="">
-                                            </div>
-
-                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <p><strong>Thông tin cơ bản:</strong></p>
