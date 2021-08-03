@@ -11,7 +11,7 @@ class ModelcarController extends Controller
 {
     public function index()
     {
-        $model = ModelCar::all();
+        $model = ModelCar::paginate(10);
         return view('Admin-Model.model-index', compact('model'));
     }
     public function create() {

@@ -9,7 +9,7 @@ class MGFCarController extends Controller
 {
     public function index()
     {
-        $mfg = CarMFG::all();
+        $mfg = CarMFG::paginate(10);
         return view('Admin-MFG.mfg-index', compact('mfg'));
     }
 

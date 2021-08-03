@@ -84,6 +84,9 @@
                   @endforeach
               </tbody>
           </table>
+          <div class="pagination-block" style="float: right; padding-right: 24px">
+            {{ $mfg->links('Admin-Rental.layoutpaginationlinks') }}
+          </div>
       </div>
       <!-- /.card-body -->
     <!-- /.card -->

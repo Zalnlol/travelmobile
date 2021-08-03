@@ -54,13 +54,13 @@ class RentalController extends Controller
 
     public function active()
     {
-        $rental = CarRental::where('status', 2)->get();
+        $rental = CarRental::where('status', 2)->paginate(10);
         return view('Admin-Rental.active-index', compact('rental'));
     }
 
     public function deny()
     {
-        $rental = CarRental::where('status', 3)->get();
+        $rental = CarRental::where('status', 3)->paginate(10);
         return view('Admin-Rental.deny-index', compact('rental'));
     }
 
@@ -72,7 +72,7 @@ class RentalController extends Controller
 
     public function waiting()
     {
-        $rental = CarRental::where('status', 1)->get();
+        $rental = CarRental::where('status', 1)->paginate(10);
         return view('Admin-Rental.waiting', compact('rental'));
     }
 

@@ -46,32 +46,7 @@
                     <th>Mẫu xe</th>
                     <th>Ngày đăng ký</th>
                     <th></th>
-                    {{-- <th>Biển số xe</th>
-                    <th>Hãng xe</th>
-                    <th>Mẫu xe</th> --}}
-                    {{-- <th>Số ghế</th>
-                    <th>Năm sản xuất</th>
-                    <th>Truyền động</th>
-                    <th>Nhiên liệu</th>
-                    <th>Mức tiêu thụ</th>
-                    <th style="width: 10%">Mô tả</th>          
-                    <th>Cửa sổ trời</th>
-                    <th>Bluetooth</th>
-                    <th>GPS</th>
-                    <th>USB</th>
-                    <th>Ghế trẻ em</th>
-                    <th>Bản đồ</th>
-                    <th>Camera</th>
-                    <th>Giá thuê</th>
-                    <th>Giảm thuê tuần</th>
-                    <th>Giảm thuê tháng</th>
-                    <th>Địa chỉ</th>
-                    <th>Quãng đường giao xe tối đa</th>
-                    <th>Phí giao xe</th>
-                    <th>Miễn phí giao xe trong</th>
-                    <th>Giới hạn km/ngày</th>
-                    <th>Phí vượt giới hạn</th>
-                    <th>Điều khoản thuê xe</th> --}}
+          
                 </tr>
             </thead>
             <?php
@@ -81,7 +56,7 @@
                 <tr>
                   @foreach ($rental as $item)
 
-                    <td>{{ $count++ }}</td>
+                  <td>{{ $item->car_id }}</td>
                     <td>
                         
                         @if ($item->status == 3)
@@ -93,73 +68,7 @@
                     <td>{{ $item->brand }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->created_at }}</td>
-                    {{-- <td>{{ $item->plate_id }}</td>
-                    <td>{{ $item->brand }}</td>
-                    <td>{{ $item->name }}</td>
-                    <td>{{ $item->seatnum }}</td>
-                    <td>{{ $item->model_year }}</td> --}}
-                    {{-- <td>
-                        @if($item->auto == 1)
-                            <span class="badge badge-success">Số tự động</span>
-                        @endif
-                        @if($item->auto == 2)
-                            <span class="badge badge-success">Số sàn</span>
-                        @endif
-                    </td>
-                    <td> 
-                        @if($item->fuel == 1)
-                            <span class="badge badge-success">Xăng</span>
-                        @endif
-                        @if($item->fuel == 2)
-                        <span class="badge badge-success">Dầu diesel</span>
-                    @endif
-                    </td>
-                    <td>{{ $item->consumption }}</td>
-                    <td>{{ $item->description }}</td>
-                    <td>
-                      @if($item->convertible)
-                        <span class="badge badge-success">Cửa sổ trời</span>
-                      @endif
-                    </td>
-                    <td>
-                      @if($item->bluetooth)
-                        <span class="badge badge-success">Bluetooth</span>
-                      @endif
-                    </td>
-                    <td>
-                        @if($item->gps)
-                          <span class="badge badge-success">GPS</span>
-                       @endif</td>
-                    <td>
-                      @if($item->usb)
-                        <span class="badge badge-success">Usb</span>
-                      @endif
-                    </td>
-                    <td>
-                      @if($item->kid_chair)
-                      <span class="badge badge-success">Ghế trẻ em</span>
-                    @endif
-                    </td>
-                    <td>
-                      @if($item->map)
-                        <span class="badge badge-success">Bản đồ</span>
-                      @endif
-                    </td>
-                    <td>
-                      @if($item->camera)
-                        <span class="badge badge-success">Camera</span>
-                      @endif
-                    </td>
-                    <td>{{ $item->rent_price }}K</td>
-                    <td>{{ $item->discount_weekly }}K</td>
-                    <td>{{ $item->discount_monthly }}K</td>
-                    <td>{{ $item->address }}</td>
-                    <td>{{ $item->max_ship_distance }}km</td>
-                    <td>{{ $item->shipping_price_km }}K</td>
-                    <td>{{ $item->free_ship_distance }}km</td>
-                    <td>{{ $item->max_travel_distance }}km</td>
-                    <td>{{ $item->over_max_travel_cost }}k</td>
-                    <td>{{ $item->rules }}</td> --}}
+             
                     <td class="project-actions text-right">
                         <a class="btn btn-primary btn-sm" href="{{ route('admin.rental.view', $item->car_id) }}">
                             <i class="fas fa-folder">
@@ -171,7 +80,7 @@
                           </i>
                           Xem ảnh
                       </a>
-                        <a class="btn btn-danger btn-sm" href="{{ route('admin.rental.delete', $item->car_id) }}" onclick="javascript:return confirm('Are you sure ?')">
+                        <a class="btn btn-danger btn-sm" href="{{ route('admin.rental.delete', $item->car_id) }}" onclick="javascript:return confirm('Bạn chắc chứ ?')">
                             <i class="fas fa-trash">
                             </i>
                             Xóa
@@ -182,6 +91,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="pagination-block">
+          {{ $rental->links('Admin-Rental.layoutpaginationlinks') }}
+        </div>
       </div>
       <!-- /.card-body -->
     <!-- /.card -->

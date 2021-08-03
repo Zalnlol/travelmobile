@@ -56,7 +56,7 @@
                 <tr>
                   @foreach ($rental as $item)
 
-                    <td>{{ $count++ }}</td>
+                    <td>{{ $item->car_id }}</td>
                     <td>
                       @if ($item->status == 1)
                       <span class="badge badge-success">Đang chờ duyệt</span>
@@ -98,12 +98,15 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="pagination-block" style="float: right; padding-right: 24px">
+          {{ $rental->links('Admin-Rental.layoutpaginationlinks') }}
+        </div>
       </div>
       <!-- /.card-body -->
     <!-- /.card -->
 
   </section>
-  
+
   <!-- /.content -->
 @endsection
 
