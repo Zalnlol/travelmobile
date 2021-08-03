@@ -428,7 +428,7 @@
                         <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
                             <label class="form-label form-label-top" id="label_32" for="model_year"> Năm sản xuất </label>
                             <div id="cid_32" class="form-input-wide">
-                                <select class="form-dropdown" id="input_10" name="model_year" style="width:150px"
+                                <select class="form-dropdown" id="input_11" name="model_year" style="width:150px"
                                     data-component="dropdown">
                                     <option value="1960"> 1960 </option>
                                     <option value="1961"> 1961 </option>
@@ -499,7 +499,7 @@
                         <li class="form-line form-line-column form-col-2" data-type="control_dropdown" id="id_32">
                             <label class="form-label form-label-top" id="label_32" for="input_32"> Truyền động </label>
                             <div id="cid_32" class="form-input-wide">
-                                <select class="form-dropdown" id="input_10" name="auto" style="width:150px"
+                                <select class="form-dropdown" id="input_14" name="auto" style="width:150px"
                                     data-component="dropdown">
                                     <option value="1"> Số tự động </option>
                                     <option value="2"> Số sàn </option>
@@ -511,7 +511,7 @@
                             <label class="form-label form-label-top" id="label_32" for="input_32"> Nhiên liệu </label>
                             <div id="cid_32" class="form-input-wide">
 
-                                <select class="form-dropdown" id="input_10" name="fuel" style="width:150px"
+                                <select class="form-dropdown" id="input_13" name="fuel" style="width:150px"
                                     data-component="dropdown">
                                     <option value="1"> Xăng </option>
                                     <option value="2"> Dầu diesel </option>
@@ -1093,11 +1093,14 @@
             });
 
             if (mfg_id == '0') {
-                hangxe = document.getElementById('input_7').disabled = true;
-                hangxe = document.getElementById('input_7').innerHTML = `<option >Vui lòng chọn mẫu xe</option>`;
+                document.getElementById('input_7').disabled = true;
+                document.getElementById('input_7').innerHTML = `<option >Vui lòng chọn mẫu xe</option>`;
+                
+                
+                
             } else {
-                hangxe = document.getElementById('input_7').innerHTML = str;
-                hangxe = document.getElementById('input_7').disabled = false;
+                 document.getElementById('input_7').innerHTML = str;
+                document.getElementById('input_7').disabled = false;
             }
         }
 
@@ -1108,7 +1111,16 @@
                 if (element['model'] == name) {
                     // giadexuat
                     document.getElementById('giadexuat').innerText = element['suggest_price'];
+                    document.getElementById('rent_price').value = element['suggest_price'];
                     document.getElementById('type_id').value = element['type_id'];
+                    //Chỗ ngồi
+                    document.getElementById('input_10').value = element['seatnum'];
+                    if(element['fuel_type']=='0'){
+
+                        document.getElementById('input_13').value =1
+                    } else{
+                        document.getElementById('input_13').value =2;
+                    }
                 }
             });
         }

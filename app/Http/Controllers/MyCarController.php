@@ -91,6 +91,7 @@ class MyCarController extends Controller
 
     public function store(RentalRequest $req)
     {    
+     
         $crentals = $req->all();  
         
         CarRental::create($crentals);
