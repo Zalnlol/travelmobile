@@ -82,10 +82,9 @@
                                         </li>
                                     @endif
                                 @else
-                                    <li class=" nav-link1 dropdown "  style="width:15rem;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        <a id="navbarDropdown" class="dropdown-toggle" role="button" >
+                                    <li class="  dropdown "  style="margin-top:6.5%;width:15rem; ">
+                                        <a id="navbarDropdown" class="dropdown-toggle nav-link1" style="width:15rem;" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         <img src="{{ asset('img/'. Auth::user()->avatar_image) }}" style="background-size: cover;width:40px; height:40px " class="rounded-circle"><span >{{ Auth::user()->name }}</span>
-                                     
                                     </a>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/profile') }}">Trang cá nhân</a>
