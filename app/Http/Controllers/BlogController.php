@@ -7,19 +7,16 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    
     //Mở trang blog
     public function blog()
     {
-        $data = Blog::OrderBy("created_at","DESC")->get();
-        $data = Blog::paginate(6);
+        $data = Blog::all();
         return view("blog", compact("data"));
     }
 
     public function get()
     {
-        
-        $ds = Blog::paginate(6);
+        $ds = Blog::all();
         return view('Admin-Blog.blog-index', compact('ds'));
     }
 
@@ -42,7 +39,7 @@ class BlogController extends Controller
                 return redirect('admin/blog/create')->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
             }
             $imageName = $file->getClientOriginalName();
-            $file->move("img/Blog", $imageName);
+            $file->move("img/blog", $imageName);
         } else {
             $imageName = null;
         }
@@ -85,7 +82,7 @@ class BlogController extends Controller
                 return redirect('admin/blog/editBlog')->with('loi', 'Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
             }
             $imageName = $file->getClientOriginalName();
-            $file->move("img/Blog", $imageName);
+            $file->move("img/blog", $imageName);
         } else {
             $b = Blog::find($request->blog_id);
             $imageName = $b->blog_pic;

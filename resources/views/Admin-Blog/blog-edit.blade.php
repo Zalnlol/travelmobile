@@ -22,9 +22,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-name">Tiêu đề</label>
-                                    {{-- <input type="text" class="form-control" id="title" name="title"
-                                        placeholder="Nhập tiêu đề" required value="{{ $blog->title }}"> --}}
-                                        <textarea class="form-control" rows="3" id="description" name="description"
+                                        <textarea class="form-control" rows="3" id="title" name="title"
                                         placeholder="" cols="40"
                                         rows="6">{{ $blog->title }}</textarea>
                                 </div>
@@ -32,9 +30,7 @@
 
                                 <div class="form-group">
                                     <label for="txt-price">Nội dung</label>
-                                    {{-- <input type="text" class="form-control ckeditor" id="content" name="content"
-                                        placeholder="Nhập nội dung" required value="{{ $blog->content }}"> --}}
-                                        <textarea class="form-control ckeditor" id="description" name="description"
+                                        <textarea class="form-control ckeditor" id="content" name="content"
                                         placeholder="" cols="40" rows="4">{{ $blog->content }}</textarea>
                                 </div>
 
@@ -53,11 +49,6 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="form-group">
-                                    <label for="txtname">Ngày đăng</label>
-                                    <input type="date" class="form-control" id="post date" name="created_at"
-                                        placeholder="Nhập ngày đăng" required value="{{ $blog->created_at }}">
-                                </div> --}}
 
                             </div>
                             <!-- /.card-body -->
