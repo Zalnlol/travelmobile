@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2021 at 09:12 AM
+-- Generation Time: Aug 04, 2021 at 04:32 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.5
 
@@ -83,7 +83,7 @@ CREATE TABLE `tb_blog` (
   `blog_id` int(11) NOT NULL,
   `title` varchar(150) NOT NULL,
   `content` varchar(500) NOT NULL,
-  `blog_pic` varchar(20) NOT NULL,
+  `blog_pic` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -823,15 +823,15 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`user_id`, `profile_id`, `name`, `email`, `email_verified_at`, `is_admin`, `password`, `mobile`, `gender`, `dob`, `driver_id`, `driver_id_image_approval`, `driver_id_image`, `avatar_image`, `joined_date`, `status`, `remember_token`, `created_at`, `updated_at`, `facebook_id`, `google_id`) VALUES
-(1, NULL, 'Thien', 'nguyenngocthien@gmail.com', NULL, NULL, '$2y$10$1MYidIVayA28LztCizVz.e1d4m1898R9VDgAaajcxkPh7AUTPDI7u', '0989096911', 1, '1993-09-14', '270170002051', 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-07-30 23:58:15', '2021-07-30 23:58:15', NULL, NULL),
-(2, NULL, 'Nguyễn Ngọc Thiện', 'thien@travelmobile.com', NULL, 1, '$2y$10$mNPcQQCy8A4eAZulurU/uuvV3jmuKpT1T8SVHG4fr36b6SB1Bcds.', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-07-31 00:28:08', '2021-07-31 00:28:08', NULL, NULL),
-(3, NULL, 'Lê Nguyễn Thành Nhân', 'lenguyenthanhnhan@gmaill.com', NULL, NULL, '$2y$10$o7LlrsmpCWaDqR2zMvWMsuZNYF9jcNz74pNYPmDRcSgbITJT61VhK', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-07-31 04:02:23', '2021-07-31 04:02:23', NULL, NULL),
-(4, NULL, 'Phạm Viết Vương', 'phamvietvuong@gmail.com', NULL, NULL, '$2y$10$q49XXZoZiHAIWS72IRdvJu6X/OXo20sYG41Y7oqlB3aHp7u8Dkvnm', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-08-01 01:40:07', '2021-08-01 01:40:07', NULL, NULL),
-(5, NULL, 'Lê Hữu Tâm', 'Lehuutam@gmail.com', NULL, NULL, '$2y$10$thTUQWIdghZtHY9UluFVEe37HMdim1vstJJzVBxKrGaOX4MpD5026', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-08-01 02:46:21', '2021-08-01 02:46:21', NULL, NULL),
-(6, NULL, 'Phạm Quốc Toàn', 'phamquoctoan@gmail.com', NULL, NULL, '$2y$10$YhGqWnSTbEinucI0JeN9fO91qliPEVyoBs3IG6PgXFwijqBJ.riAG', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-08-01 09:05:38', '2021-08-01 09:05:38', NULL, NULL),
+(1, NULL, 'Thien', 'nguyenngocthien@gmail.com', NULL, NULL, '$2y$10$1MYidIVayA28LztCizVz.e1d4m1898R9VDgAaajcxkPh7AUTPDI7u', '0989096911', 1, '1993-09-14', '270170002051', 1, '197225839_1169131763566603_3013798318839820731_n.jpg', 'default-user-2.png', NULL, 0, NULL, '2021-07-30 23:58:15', '2021-07-30 23:58:15', NULL, NULL),
+(2, NULL, 'Nguyễn Ngọc Thiện', 'thien@travelmobile.com', NULL, 1, '$2y$10$mNPcQQCy8A4eAZulurU/uuvV3jmuKpT1T8SVHG4fr36b6SB1Bcds.', NULL, NULL, NULL, NULL, 1, '197225839_1169131763566603_3013798318839820731_n.jpg', 'default-user-2.png', NULL, 0, NULL, '2021-07-31 00:28:08', '2021-07-31 00:28:08', NULL, NULL),
+(3, NULL, 'Lê Nguyễn Thành Nhân', 'lenguyenthanhnhan@gmaill.com', NULL, NULL, '$2y$10$o7LlrsmpCWaDqR2zMvWMsuZNYF9jcNz74pNYPmDRcSgbITJT61VhK', NULL, NULL, NULL, NULL, 1, '197225839_1169131763566603_3013798318839820731_n.jpg', 'default-user-2.png', NULL, 0, NULL, '2021-07-31 04:02:23', '2021-07-31 04:02:23', NULL, NULL),
+(4, NULL, 'Phạm Viết Vương', 'phamvietvuong@gmail.com', NULL, NULL, '$2y$10$q49XXZoZiHAIWS72IRdvJu6X/OXo20sYG41Y7oqlB3aHp7u8Dkvnm', NULL, NULL, NULL, NULL, 1, '197225839_1169131763566603_3013798318839820731_n.jpg', 'default-user-2.png', NULL, 0, NULL, '2021-08-01 01:40:07', '2021-08-01 01:40:07', NULL, NULL),
+(5, NULL, 'Lê Hữu Tâm', 'Lehuutam@gmail.com', NULL, NULL, '$2y$10$thTUQWIdghZtHY9UluFVEe37HMdim1vstJJzVBxKrGaOX4MpD5026', NULL, NULL, NULL, NULL, 1, '197225839_1169131763566603_3013798318839820731_n.jpg', 'default-user-2.png', NULL, 0, NULL, '2021-08-01 02:46:21', '2021-08-01 02:46:21', NULL, NULL),
+(6, NULL, 'Phạm Quốc Toàn', 'phamquoctoan@gmail.com', NULL, NULL, '$2y$10$YhGqWnSTbEinucI0JeN9fO91qliPEVyoBs3IG6PgXFwijqBJ.riAG', NULL, NULL, NULL, NULL, 1, '197225839_1169131763566603_3013798318839820731_n.jpg', 'default-user-2.png', NULL, 0, NULL, '2021-08-01 09:05:38', '2021-08-01 09:05:38', NULL, NULL),
 (7, NULL, 'Thành Nhân', 'thanhnhanle@gmail.com', NULL, NULL, '$2y$10$g3GO8seIzlpufwRGdCq72OrvuJVlrsupI5PFxBUM8vro/Txcys9xG', '0375515819', 1, '2002-10-04', '9846785736', 1, '197225839_1169131763566603_3013798318839820731_n.jpg', 'a5d0dfd35d44a11af855.jpg', NULL, 0, NULL, '2021-08-02 08:56:55', '2021-08-02 08:56:55', NULL, NULL),
-(8, NULL, 'Thien', 'khanonline35@yahoo.com', NULL, NULL, '$2y$10$IUBP8/FGznRHRHixukwClusnx/byfHs.A6pRw3BHIHzmnERvsmeMG', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, 'kl41qjDVDaahRQv12KpMDGZhb8SNtRNzFl96L1YeAEv61Or1bGgbbf7itfU1', '2021-08-02 13:48:38', '2021-08-02 13:50:44', NULL, NULL),
-(9, NULL, 'lê nguyễn thành nhân', 'lenhannhan123@gmail.com', NULL, NULL, '$2y$10$Y7KKqJDja5JSILAVpnlwquf6uNNHTs.z3phm3N06vBH11kOMo7WnS', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-08-02 14:04:39', '2021-08-02 14:04:39', NULL, NULL);
+(8, NULL, 'Thien', 'khanonline35@yahoo.com', NULL, NULL, '$2y$10$IUBP8/FGznRHRHixukwClusnx/byfHs.A6pRw3BHIHzmnERvsmeMG', NULL, NULL, NULL, NULL, 1, '197225839_1169131763566603_3013798318839820731_n.jpg', 'default-user-2.png', NULL, 0, 'kl41qjDVDaahRQv12KpMDGZhb8SNtRNzFl96L1YeAEv61Or1bGgbbf7itfU1', '2021-08-02 13:48:38', '2021-08-02 13:50:44', NULL, NULL),
+(9, NULL, 'lê nguyễn thành nhân', 'lenhannhan123@gmail.com', NULL, NULL, '$2y$10$Y7KKqJDja5JSILAVpnlwquf6uNNHTs.z3phm3N06vBH11kOMo7WnS', NULL, NULL, NULL, NULL, 1, '197225839_1169131763566603_3013798318839820731_n.jpg', 'default-user-2.png', NULL, 0, NULL, '2021-08-02 14:04:39', '2021-08-02 14:04:39', NULL, NULL);
 
 --
 -- Indexes for dumped tables

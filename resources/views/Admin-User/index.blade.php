@@ -92,6 +92,13 @@
         </div>
     </div>
 
+    @if (session('status'))
+    <script>
+        let status = {!! json_encode(session('status'), JSON_HEX_TAG) !!};
+        alert(status)
+    </script>
+    @endif
+
 
 </section>
 @endsection
