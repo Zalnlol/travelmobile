@@ -11,15 +11,17 @@ class BlogController extends Controller
     //Mở trang blog
     public function blog()
     {
-        $data = Blog::OrderBy("created_at","DESC")->get();
-
+        
+        $data = Blog::OrderBy("created_at","DESC")->paginate(6);
+        // $data = Blog::;
         return view("blog", compact("data"));
     }
 
     public function get()
     {
         
-        $ds = Blog::paginate(5);
+        $ds = Blog::paginate(6);
+        
         return view('Admin-Blog.blog-index', compact('ds'));
     }
 

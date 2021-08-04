@@ -100,9 +100,20 @@ p {
 	background: #2E7093;	
 	
 }
+.nav-link1.active,
+.nav-link1:hover {
+	cursor: pointer;
+	color: white;
+	background: #2E7093;	
+	
+}
 
-.tm-top-bar .navbar-expand-lg .navbar-nav .nav-link { padding: 40px; }
+.tm-top-bar .navbar-expand-lg .navbar-nav .nav-link { padding: 50px 25px; }
+.nav-link1{
 
+	padding:40px 30px ;
+
+} 
 .tm-top-bar {
     position: fixed;
     top: 0;

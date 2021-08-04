@@ -365,10 +365,7 @@ class RentalContract extends Controller
             $i+=1;
         }
 
-        $status = ModelsRentalContract::where('contract_id', $element['contract_id'])->get();
-
-
-        return view('profiles.historytrips',compact('data3', 'status'));
+        return view('profiles.historytrips',compact('data3'));
 
     }
 

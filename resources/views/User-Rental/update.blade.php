@@ -437,14 +437,24 @@ font-weight: bolder;}
 
       <li class="form-line form-line-column form-col-8" data-type="control_textbox" id="id_12">
         <label class="form-label form-label-top" id="label_12" for="consumption"> Mức tiêu thụ </label>
+        <span style="opacity: 0.6;">
+            Số lít nhiên liệu cho quãng đường 100km(Mức tiêu thụ thấp nhất là 5 và tối đa là 30).
+        </span>
         <div id="cid_12" class="form-input-wide">
-          <input type="text" id="input_12" name="consumption" value="{{ $crentals->consumption }}" placeholder="Số lít nhiên liệu cho quãng đường 100km." data-type="input-textbox" class="form-textbox" size="20" value="" placeholder=" " data-component="textbox" aria-labelledby="label_12" />
+            <input type="text" id="input_12" name="consumption"
+                placeholder="" data-type="input-textbox"
+                class="form-textbox" size="20" value="{{ $crentals->consumption }}" placeholder=" " data-component="textbox"
+                aria-labelledby="label_12" /> lít
         </div>
-      </li>
+    </li>
       <li class="form-line form-line-column form-col-9" data-type="control_textbox" id="id_13">
         <label class="form-label form-label-top" id="label_13" for="rent_price"> Đơn giá thuê mặc định </label>
         <span style="opacity: 0.6;">Đơn giá áp dụng cho tất cả các ngày. Bạn có thuể tuỳ chỉnh giá khác cho các ngày đặc biệt (cuối tuần, lễ, tết...) trong mục quản lý xe sau khi đăng kí.</span>
       </br>
+    </br>
+      <span>
+        Mức giá thấp nhất là 400K và cao nhất là 15000K.
+    </span>
     </br>
   
         <span style="opacity: 0.6">Giá đề xuất: 500K/ngày</span>
@@ -743,7 +753,7 @@ font-weight: bolder;}
       <li class="form-line" data-type="control_textarea" style="margin-top: -20px" id="id_36">
         <label class="form-label form-label-top" id="label_36" for="rules" style="opacity: 0.6">Ghi rõ các yêu cầu để khách có thể thuê xe.</label>
         <div id="cid_36" class="form-input-wide">
-          <textarea type="text" rows="5" id="rules" class="form-textarea" name="rules" placeholder="  Không sử dụng xe vào mục đích phi pháp. Lái xe cẩn thận, giữ xe sạch sẽ, trả xe đúng giờ. Phụ thu 500k nếu có mùi thuốc trong xe." cols="40" rows="6" >{{ $crentals->rules }}</textarea>
+          <textarea type="text" rows="5" id="rules" class="form-textarea ckeditor" name="rules" placeholder="  Không sử dụng xe vào mục đích phi pháp. Lái xe cẩn thận, giữ xe sạch sẽ, trả xe đúng giờ. Phụ thu 500k nếu có mùi thuốc trong xe." cols="40" rows="6" >{{ $crentals->rules }}</textarea>
         </div>
       </li>
 
@@ -818,30 +828,10 @@ font-weight: bolder;}
       @endif
 
       @if ($crentals->status == 3)
-      {{-- <li class="form-line" data-type="control_checkbox" id="id_26">
-      <label class="form-label form-label-top" id="label_24" for="input_24"> Trạng thái  </label>
-      </li>
-
-      <div class="row">
-      <li class="form-line" data-type="control_checkbox" id="id_26">
-      <div class="col col-half">
-     
-        <div id="cid_26" class="form-input-wide">
-          <div class="form-single-column" role="group" aria-labelledby="label_26" data-component="checkbox">
-            <span class="form-checkbox-item" style="clear:left">
-              <span class="dragger-item">
-              </span> --}}
+ 
             
               <input type="hidden"  aria-describedby="label_26" class="form-checkbox" id="input_26_0" name="approval" value="2" />
-              {{-- <label id="label_input_26_0" for="input_26_0"> Tạm ngưng </label>     --}}
-              
 
-            {{-- </span>
-          </div>
-        </div>
-      </div>
-      </li>
-      </div> --}}
       
       @endif
 

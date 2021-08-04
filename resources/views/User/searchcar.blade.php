@@ -118,6 +118,7 @@
                 </div>
             </div>
             <div class="col-sm-8">
+                <span style="color: rgb(141, 132, 132)">Đã tìm thấy {{count($listcardiplay)}} xe</span>
                 <div id="listcard">
                     <x-carlist :danhsachxe1="$listcardiplay" :searchinfo="$searchinfo"></x-carlist>
                 </div>
