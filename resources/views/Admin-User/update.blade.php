@@ -42,11 +42,11 @@
                                     <label for="txt-gender">Giới tính: </label>
                                     <input type="text" class="form-control" name="gender" value="{{ $user->gender}}" placeholder="{{ $user->gender }}" readonly>
                                 </div>
-                                <div class="form-group">
-                                    <label for="txt-status">Trạng thái: </label>
-                                    <input type="radio" name="status" value="0" checked value="{{ $user->status }}"> <span>Hoạt động</span>
-                                    <input type="radio" name="status" value="1" value="{{ $user->status }}"> <span>Khóa</span>
-                                </div>
+                                {{-- <div class="form-group"> --}}
+                                    {{-- <label for="txt-status">Trạng thái: </label> --}}
+                                    <input type="hidden" name="status" value="0" checked value="{{ $user->status }}"> <span>Hoạt động</span>
+                                    <input type="hidden" name="status" value="1" value="{{ $user->status }}"> <span>Khóa</span>
+                                {{-- </div> --}}
                                 <div class="form-group">
                                     <label for="txt-license">Số giấy phép lái xe</label>
                                     <input type="text" class="form-control" id="txt-license" name="driver_id" placeholder="{{ $user->driver_id }}"

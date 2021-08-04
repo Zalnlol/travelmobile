@@ -91,8 +91,15 @@ class AccountController extends Controller
 
     public function delete($user_id){
         $user = User::find($user_id);
-        $user->delete();
-        return redirect()->action([AccountController::class, 'index']);
+        $constraint = DB::table('tb_car_rental')->where('user_id', $user->user_id)->count();
+        if ($constraint>0) {
+            session()->flash('status','Tài khoản người dùng đã từng có hợp đồng thuê xe, không thể xóa tài khoản này');
+            return redirect()->action([AccountController::class, 'index']);
+        }
+        else{
+            $user->delete();
+            return redirect()->action([AccountController::class, 'index']);
+        }
     }
 
 
