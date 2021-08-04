@@ -10,7 +10,7 @@
             <br>
             <br>
             <br><br>
-            <h4 class="blog-title">MIOTO'S BLOG</h4>
+            <h4 class="blog-title">TravelerMobile'S BLOG</h4>
         </div>
         <div class="row">
 
