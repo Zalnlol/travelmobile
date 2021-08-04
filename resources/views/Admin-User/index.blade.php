@@ -86,6 +86,9 @@
                     @endforeach
                 </tbody>
           </table>
+          <div class="pagination-block" style="float: right; padding-right: 24px">
+            {{ $ds->links('Admin-Rental.layoutpaginationlinks') }}
+          </div>
         </div>
     </div>
 

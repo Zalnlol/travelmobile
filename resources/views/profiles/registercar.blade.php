@@ -519,152 +519,12 @@
                                 </select>
                             </div>
                         </li>
-                        {{-- <li class="form-line form-line-column form-col-2" data-type="control_textbox" id="id_6">
-                            <label class="form-label form-label-top" id="label_6" for="input_6"> Hãng xe </label>
-                            <div id="cid_6" class="form-input-wide">
 
-                                <select id="input_6" name="brand" onchange="return check()">
-                                    <option value="0">Vui lòng chọn hãng xe</option>
-                                    @foreach ($hangxe as $element)
-                                        <option value="{{ $element['mfg_id'] }}">{{ $element['name'] }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </li>
-                        <li class="form-line form-line-column form-col-3" data-type="control_textbox" id="id_7">
-                            <label class="form-label form-label-top" id="label_7" for="input_7"> Mẫu xe </label>
-                            <div id="cid_7" class="form-input-wide">
-                                <select id="input_7" name="name" disabled onchange="return checkgia()">
-                                    <option value="">Vui lòng chọn xe</option>
-                                </select>
-                            </div>
-                        </li>
-
-                        <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
-                            <label class="form-label form-label-top" id="label_10" for="seatnum"> Số ghế </label>
-                            <div id="cid_10" class="form-input-wide">
-                                <select class="form-dropdown" id="input_10" name="seatnum" style="width:150px"
-                                    data-component="dropdown">
-                                    <option value="4"> 4 </option>
-                                    <option value="5"> 5 </option>
-                                    <option value="6"> 6 </option>
-                                    <option value="7"> 7 </option>
-                                    <option value="8"> 8 </option>
-                                    <option value="9"> 9 </option>
-                                    <option value="10"> 10 </option>
-                                    <option value="11"> 11 </option>
-                                    <option value="12"> 12 </option>
-                                    <option value="13"> 13 </option>
-                                    <option value="14"> 14 </option>
-                                    <option value="15"> 15 </option>
-                                    <option value="16"> 16 </option>
-                                    <option value="17"> 17 </option>
-                                    <option value="18"> 18 </option>
-                                    <option value="19"> 19 </option>
-                                    <option value="20"> 20 </option>
-                                </select>
-                            </div>
-                        </li>
-
-
-
-                        <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
-                            <label class="form-label form-label-top" id="label_10" for="model_year"> Năm sản xuất </label>
-                            <div id="cid_10" class="form-input-wide">
-                                <select class="form-dropdown" id="input_10" name="model_year" style="width:150px"
-                                    data-component="dropdown">
-                                    <option value="1960"> 1960 </option>
-                                    <option value="1961"> 1961 </option>
-                                    <option value="1962"> 1962 </option>
-                                    <option value="1963"> 1963 </option>
-                                    <option value="1964"> 1964 </option>
-                                    <option value="1965"> 1965 </option>
-                                    <option value="1966"> 1966 </option>
-                                    <option value="1967"> 1967 </option>
-                                    <option value="1968"> 1968 </option>
-                                    <option value="1969"> 1969 </option>
-                                    <option value="1970"> 1970 </option>
-                                    <option value="1971"> 1971 </option>
-                                    <option value="1972"> 1972 </option>
-                                    <option value="1973"> 1973 </option>
-                                    <option value="1974"> 1974 </option>
-                                    <option value="1975"> 1975 </option>
-                                    <option value="1976"> 1976 </option>
-                                    <option value="1977"> 1977 </option>
-                                    <option value="1978"> 1978 </option>
-                                    <option value="1979"> 1979 </option>
-                                    <option value="1980"> 1980 </option>
-                                    <option value="1981"> 1981 </option>
-                                    <option value="1982"> 1982 </option>
-                                    <option value="1983"> 1983 </option>
-                                    <option value="1984"> 1984 </option>
-                                    <option value="1985"> 1985 </option>
-                                    <option value="1986"> 1986 </option>
-                                    <option value="1987"> 1987 </option>
-                                    <option value="1988"> 1988 </option>
-                                    <option value="1989"> 1989 </option>
-                                    <option value="1990"> 1990 </option>
-                                    <option value="1991"> 1991 </option>
-                                    <option value="1992"> 1992 </option>
-                                    <option value="1993"> 1993 </option>
-                                    <option value="1994"> 1994 </option>
-                                    <option value="1995"> 1995 </option>
-                                    <option value="1996"> 1996 </option>
-                                    <option value="1997"> 1997 </option>
-                                    <option value="1998"> 1998 </option>
-                                    <option value="1999"> 1999 </option>
-                                    <option value="2000"> 2000 </option>
-                                    <option value="2001"> 2001 </option>
-                                    <option value="2002"> 2002 </option>
-                                    <option value="2003"> 2003 </option>
-                                    <option value="2004"> 2004 </option>
-                                    <option value="2005"> 2005 </option>
-                                    <option value="2006"> 2006 </option>
-                                    <option value="2007"> 2007 </option>
-                                    <option value="2008"> 2008 </option>
-                                    <option value="2009"> 2009 </option>
-                                    <option value="2010"> 2010 </option>
-                                    <option value="2011"> 2011 </option>
-                                    <option value="2012"> 2012 </option>
-                                    <option value="2013"> 2013 </option>
-                                    <option value="2014"> 2014 </option>
-                                    <option value="2015"> 2015 </option>
-                                    <option value="2016"> 2016 </option>
-                                    <option value="2017"> 2017 </option>
-                                    <option value="2018"> 2018 </option>
-                                    <option value="2019"> 2019 </option>
-                                    <option value="2020"> 2020 </option>
-                                    <option value="2021"> 2021 </option>
-                                </select>
-                            </div>
-                        </li>
-
-                        <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
-                            <label class="form-label form-label-top" id="label_10" for="auto"> Truyền động </label>
-                            <div id="cid_10" class="form-input-wide">
-                                <select class="form-dropdown" id="input_10" name="auto" style="width:150px"
-                                    data-component="dropdown">
-                                    <option value="1"> Số tự động </option>
-                                    <option value="2"> Số sàn </option>
-                                </select>
-                            </div>
-                        </li>
-
-                        <li class="form-line form-line-column form-col-6" data-type="control_dropdown" id="id_10">
-                            <label class="form-label form-label-top" id="label_10" for="fuel"> Loại nhiên liệu </label>
-                            <div id="cid_10" class="form-input-wide">
-                                <select class="form-dropdown" id="input_10" name="fuel" style="width:150px"
-                                    data-component="dropdown">
-                                    <option value="1"> Xăng </option>
-                                    <option value="2"> Dầu diesel </option>
-                                </select>
-                            </div>
-                        </li> --}}
 
                         <li class="form-line form-line-column form-col-8" data-type="control_textbox" id="id_12">
                             <label class="form-label form-label-top" id="label_12" for="consumption"> Mức tiêu thụ </label>
                             <span style="opacity: 0.6;">
-                                Số lít nhiên liệu cho quãng đường 100km.
+                                Số lít nhiên liệu cho quãng đường 100km(Mức tiêu thụ thấp nhất là 5 và tối đa là 30).
                             </span>
                             <div id="cid_12" class="form-input-wide">
                                 <input type="text" id="input_12" name="consumption"
@@ -679,6 +539,10 @@
                             <span style="opacity: 0.6;">Đơn giá áp dụng cho tất cả các ngày. Bạn có thuể tuỳ chỉnh giá khác
                                 cho các ngày đặc biệt (cuối tuần, lễ, tết...) trong mục quản lý xe sau khi đăng kí.</span>
                             </br>
+                        </br>
+                            <span>
+                                Mức giá thấp nhất là 400K và cao nhất là 15000K.
+                            </span>
                             </br>
 
                             <span style="opacity: 0.6">Giá đề xuất: <span id="giadexuat">500</span> K/ngày</span>

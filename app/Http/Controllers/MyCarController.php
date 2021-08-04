@@ -9,14 +9,14 @@ use App\Models\CarMFG;
 use App\Models\CarType;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\RentalRequest;
-use App\Http\Requests\ImageRequest;
+use App\Http\Requests\UpRentalRequest;
 
 class MyCarController extends Controller
 {
     public function index(Request $request)
     {
         $data = $request->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
-        $mycar = CarRental::where('user_id', $data)->get();
+        $mycar = CarRental::OrderBy('created_at', 'DESC')->where('user_id', $data)->get();
         return view('profiles.Mycars', compact('mycar'));
     }
 
@@ -32,7 +32,7 @@ class MyCarController extends Controller
         return view('User-Rental.update', compact('crentals'));
     }
 
-    public function edit(Request $req)
+    public function edit(UpRentalRequest $req)
     {
         $car_id = $req->car_id;
         $seatnum = $req->seatnum;
@@ -59,14 +59,6 @@ class MyCarController extends Controller
         $over_max_travel_cost = $req->over_max_travel_cost;
         $rules = $req->rules;
 
-        $up = DB::table('tb_car_rental')
-        ->where('car_id', intval($car_id))
-        ->update(['consumption'=>$consumption, 'rent_price'=> $rent_price, 'description'=>$description, 'convertible' => $convertible,
-        'bluetooth' => $bluetooth, 'gps'=>$gps, 'usb'=>$usb,'kid_chair'=>$kid_chair, 'map'=> $map, 'camera'=>$camera,
-        'discount_weekly' => $discount_weekly, 'discount_monthly' => $discount_monthly, 'address'=>$address,
-        'max_ship_distance'=>$max_ship_distance, 'shipping_price_km'=>$shipping_price_km, 'free_ship_distance'=> $free_ship_distance,
-        'max_travel_distance'=>$max_travel_distance, 'over_max_travel_cost' => $over_max_travel_cost, 'rules' => $rules]);  
-        
         $approval = $req->approval;
         if($approval == 1){
             $up = DB::table('tb_car_rental')
@@ -86,6 +78,15 @@ class MyCarController extends Controller
                 ->where('car_id', intval($car_id))
                 ->update(['status' => $status]);
         }
+
+        $up = DB::table('tb_car_rental')
+        ->where('car_id', intval($car_id))
+        ->update(['consumption'=>$consumption, 'rent_price'=> $rent_price, 'description'=>$description, 'convertible' => $convertible,
+        'bluetooth' => $bluetooth, 'gps'=>$gps, 'usb'=>$usb,'kid_chair'=>$kid_chair, 'map'=> $map, 'camera'=>$camera,
+        'discount_weekly' => $discount_weekly, 'discount_monthly' => $discount_monthly, 'address'=>$address,
+        'max_ship_distance'=>$max_ship_distance, 'shipping_price_km'=>$shipping_price_km, 'free_ship_distance'=> $free_ship_distance,
+        'max_travel_distance'=>$max_travel_distance, 'over_max_travel_cost' => $over_max_travel_cost, 'rules' => $rules]);  
+        
         return redirect()->route('rental.index');   
     }
 
@@ -95,14 +96,9 @@ class MyCarController extends Controller
         
         CarRental::create($crentals);
         $user_id = $req->session()->get('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d');
-
-
-        //$getid = CarRental::where('user_id', $data)->get('car_id');
-        //dd($data = CarRental::where('user_id', $user_id)->get('car_id'));
         $plate_id = $req->plate_id;
         $data = CarRental::where('plate_id', $plate_id)->get('car_id')->first()->car_id;
 
-        // return redirect()->route('rental.upload', compact('data'));
         return view('Rental-image.create', compact('data'));
     }
 

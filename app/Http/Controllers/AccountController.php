@@ -12,7 +12,7 @@ class AccountController extends Controller
 {   
     //tra ve view listing danh sach users
     public function index(){
-        $ds = DB::table('tb_user')->get();
+        $ds = User::paginate(10);
         return view("Admin-User.index",compact('ds'));
         
     }
