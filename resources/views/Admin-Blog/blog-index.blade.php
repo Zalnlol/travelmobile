@@ -59,11 +59,11 @@
                     
                     <td>{{ $item->created_at }}</td>
                     <td class="project-actions text-right">
-                      <a class="btn btn-primary btn-sm" href="">
+                       <a class="btn btn-primary btn-sm" href="{{url("/admin/blog/detail/{$item->blog_id}")}}">
                           <i class="fas fa-folder">
                           </i>
                           Xem
-                        </a>
+                        </a> 
                         <a class="btn btn-info btn-sm" href="{{url("/admin/blog/editBlog/{$item->blog_id}")}}">
                           <i class="fas fa-pencil-alt">
                           </i>
