@@ -12,14 +12,14 @@ class BlogController extends Controller
     public function blog()
     {
         $data = Blog::OrderBy("created_at","DESC")->get();
-
+        $data = Blog::paginate(6);
         return view("blog", compact("data"));
     }
 
     public function get()
     {
         
-        $ds = Blog::paginate(5);
+        $ds = Blog::paginate(6);
         return view('Admin-Blog.blog-index', compact('ds'));
     }
 
