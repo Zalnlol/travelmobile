@@ -44,7 +44,7 @@
 
         <div class="row">
             <div class="col-sm-2">
-                <img src="{{ url('/images/carimg/'.$datamail['image']) }}" style="height:80px">
+                <img src="{{ asset('/images/carimg/'.$datamail['image']) }}" style="height:80px">
             </div>
             <div class="col">
                 <div class="row">

@@ -55,37 +55,36 @@
                               <span class="navbar-toggler-icon"></span>
                           </button>
                       
-                          <div id="mainNav" class="collapse navbar-collapse tm-bg-white" style="margin-left: 30%">
+                          <div id="mainNav" class="collapse navbar-collapse tm-bg-white" style="margin-left: 32%">
                             <ul class="navbar-nav ml-auto">
-                              <li class="nav-item">
+                              <li class="nav-item" style="width: 8rem"> 
                                 <a class="nav-link" href="{{url('/')}}">Trang chủ <span class="sr-only">(current)</span></a>
                               </li>
-                              <li class="nav-item">
+                              <li class="nav-item" style="width: 8rem">
                                 <a class="nav-link" href="tutorial1">Hướng dẫn</a>
                               </li>
 
-                              <li class="nav-item">
+                              <li class="nav-item" style="width: 8rem">
                                 <a class="nav-link" href="{{url('blog')}}">Trang Blog</a>
                               </li>
 
                                 <!-- Authentication Links -->
                                 @guest
                                     @if (Route::has('login'))
-                                        <li class="nav-item">
+                                        <li class="nav-item" style="width: 8rem">
                                             <a class="nav-link" href="{{ route('login') }}">{{ __('Đăng nhập') }}</a>
                                         </li>
                                     @endif
 
                                     @if (Route::has('register'))
-                                        <li class="nav-item">
+                                        <li class="nav-item" style="width: 8rem">
                                             <a class="nav-link" href="{{ route('register') }}">{{ __('Đăng ký') }}</a>
                                         </li>
                                     @endif
                                 @else
-                                    <li class="nav-item dropdown" style="width:20rem">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <li class="  dropdown "  style="margin-top:6.5%;width:15rem; ">
+                                        <a id="navbarDropdown" class="dropdown-toggle nav-link1" style="width:15rem;" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         <img src="{{ asset('img/'. Auth::user()->avatar_image) }}" style="background-size: cover;width:40px; height:40px " class="rounded-circle"><span >{{ Auth::user()->name }}</span>
-                                     
                                     </a>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" id="dropdown-list" href="{{ url('/user/profile') }}">Trang cá nhân</a>
