@@ -100,7 +100,8 @@ class BlogController extends Controller
 
     public function DetailBlog($blog_id)
     {
-        $blog = DB::table('tb_blog')->find($blog_id);
+        $blog = Blog::find($blog_id);
+        //dd($blog);
         return view("Admin-Blog.blog-view", compact('blog'));
     }
 
