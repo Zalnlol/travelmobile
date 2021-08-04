@@ -22,9 +22,10 @@
                 </div>
 
             @endforeach
+            <div class="pagination-block" style="float: right; padding-right: 24px">
+                {{ $data->links('Admin-Rental.layoutpaginationlinks') }}
+            </div>
         </div>
-        <div class="pagination-block" style="float: right; padding-right: 24px">
-            {{ $data->links('Admin-Rental.layoutpaginationlinks') }}
-        </div>
+
 
     @endsection

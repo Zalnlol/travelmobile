@@ -15,8 +15,13 @@ class ReviewController extends Controller
         $coid = RentalContract::where('contract_id', $id)->first()->contract_id;
         $uid = RentalContract::where('contract_id', $id)->first()->user_id;
         $caid = RentalContract::where('contract_id', $id)->first()->car_id;
+        $data = Review::where('contract_id', $id)->get();
+        dd($data);
         
-        return view('User-review.index', compact('coid', 'uid', 'caid'));
+            return view('User-review.index', compact('coid', 'uid', 'caid'));
+ 
+        
+        
     }
 
     function postReview(Request $request)
