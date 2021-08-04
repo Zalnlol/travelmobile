@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ModelCar;
 use Illuminate\Http\Request;
 use App\Models\CarMFG;
+use App\Models\CarRental;
 use Illuminate\Support\Str;
 
 class ModelcarController extends Controller
@@ -105,8 +106,10 @@ class ModelcarController extends Controller
         }
     public function delete($type_id) {
                 $p = ModelCar::find($type_id);
-                $d = DB::table('tb_car_rental')->where('type_id', $p->type_id)->count();
+                // $d = DB::table('tb_car_rental')->where('type_id', $p->type_id)->count();
+                $d = count(CarRental::where('type_id',$p->type_id)->get());
                 if ($d>0) {
+                session()->flash('status','Dữ liệu đã tồn tại ở mục khác, không thể xóa dữ liệu này');
                 return redirect()->action('ModelcarController@index');
                 }
                 else{

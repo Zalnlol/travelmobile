@@ -43,7 +43,7 @@
                     <th style="width: 1%;">ID</th>
                     <th style="width: 20%">Tiêu đề</th>
                     <th style="width: 35%">Nội dung</th>
-                    <th style="width: 10%">Ảnh</th>
+                    
                     <th style="width: 10%">Ngày đăng</th>
                     
                 </tr>
@@ -56,8 +56,8 @@
                     <td>{{ $item->blog_id }}</td>
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->content }}</td>
-                    <td><img src="{{asset("img/$item->blog_pic")}}" alt=""  ></td>
-                    <td>{{ $item->post_date }}</td>
+                    
+                    <td>{{ $item->created_at }}</td>
                     <td class="project-actions text-right">
                       <a class="btn btn-primary btn-sm" href="">
                           <i class="fas fa-folder">
@@ -67,7 +67,7 @@
                         <a class="btn btn-info btn-sm" href="{{url("/admin/blog/editBlog/{$item->blog_id}")}}">
                           <i class="fas fa-pencil-alt">
                           </i>
-                          Xem ảnh
+                          Sửa
                       </a>
                       <a class="btn btn-danger btn-sm" href="{{url("/admin/blog/delete/{$item->blog_id}")}}" onclick="javascript:return confirm('Are you sure ?')">
                           <i class="fas fa-trash">
@@ -82,6 +82,9 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="pagination-block" style="float: right; padding-right: 24px">
+          {{ $ds->links('Admin-Rental.layoutpaginationlinks') }}
+        </div>
       </div>
       <!-- /.card-body -->
     <!-- /.card -->

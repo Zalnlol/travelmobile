@@ -58,7 +58,6 @@ class MGFCarController extends Controller
         
     }
     public function postUpdate(Request $request, $mfg_id) {
-        
         $request->validate([
             'mfg_id' =>'bail|required|alpha',
             'name' => 'bail|required',
@@ -73,7 +72,8 @@ class MGFCarController extends Controller
             $extension = $file->getClientOriginalExtension();
             if($extension != 'jpg' && $extension != 'png' && $extension !='jpeg')
             {
-                return redirect('product/create')->with('loi','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+                session()->flash('status','Bạn chỉ được chọn file có đuôi jpg,png,jpeg');
+                return redirect()->route('admin.mfg-update',compact('mfg_id'));
             }
             $logoName = $file->getClientOriginalName();
             $file->move("img/logo",$logoName);
@@ -95,7 +95,7 @@ class MGFCarController extends Controller
         $p = CarMFG::find($mfg_id);
         $d = DB::table('tb_car_type')->where('mfg_id',$p->mfg_id)->count();
         if($d>0){
-        session()->flash('Dữ liệu đã tồn tại ở mục khác, không thể xóa dữ liệu này');
+        session()->flash('status','Dữ liệu đã tồn tại ở mục khác, không thể xóa dữ liệu này');
         return redirect()->action('MGFCarController@index');  
         }
         else{
