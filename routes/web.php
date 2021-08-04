@@ -520,6 +520,12 @@ Route::get('/AQ/traveler/txthtxcg', [TravelerController::class, "txthtxcg"]);
 Route::get('/AQ/traveler/udkgtbb', [TravelerController::class, "udkgtbb"]);
 Route::get('/AQ/traveler/xtmi', [TravelerController::class, "xtmi"]);
 
+Route::get('/admin/blog/detail/{blog_id}', [BlogController::class, 'DetailBlog']);
+Route::post('/admin/blog/DetailPostBlog', [BlogController::class, 'DetailPostBlog']);
+
+Route::get('/admin/blog/editBlog/{blog_id}', [BlogController::class, 'editBlog']);
+Route::post('/admin/blog/editPostBlog', [BlogController::class, 'editPostBlog']);
+
 //----------------------------------------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------------------------------------
