@@ -21,7 +21,7 @@ class BlogController extends Controller
     public function get()
     {
 
-        $ds = Blog::paginate(6);
+        $ds = Blog::OrderBy("created_at", "DESC")->paginate(6);
 
         return view('Admin-Blog.blog-index', compact('ds'));
     }
