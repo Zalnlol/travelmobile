@@ -2,10 +2,10 @@
 -- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 01, 2021 lúc 08:09 PM
--- Phiên bản máy phục vụ: 10.4.18-MariaDB
--- Phiên bản PHP: 8.0.5
+-- Host: 127.0.0.1
+-- Generation Time: Aug 04, 2021 at 09:12 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `travel_mobile`
+-- Database: `travel_mobile`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -40,7 +40,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -50,7 +50,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -64,7 +64,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -76,35 +76,73 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tb_blog`
+-- Table structure for table `tb_blog`
 --
 
 CREATE TABLE `tb_blog` (
   `blog_id` int(11) NOT NULL,
-  `title` varchar(100) NOT NULL,
+  `title` varchar(150) NOT NULL,
   `content` varchar(500) NOT NULL,
   `blog_pic` varchar(20) NOT NULL,
-  `post_date` date NOT NULL
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tb_blog`
+-- Dumping data for table `tb_blog`
 --
 
-INSERT INTO `tb_blog` (`blog_id`, `title`, `content`, `blog_pic`, `post_date`) VALUES
-(1, 'ĐIỂM MẶT NHỮNG MẪU XE HẠNG B ĐÁNG MUA NHẤT NĂM 2021 TRONG TẦM GIÁ 500 ĐẾN 600 TRIỆU ĐỒNG', 'Xe hạng B hay còn được gọi là xe gia đình cỡ nhỏ, thường có 3 đến 5 cửa, gồm 4 ghế ngồi và được phép chở tối đa 5 người. Những bản hatchback ở phân khúc này thường có chiều dài là 3.900 mm, trong khi chiều dài của bản sedan thường là khoảng 4.200 mm. Với ngoại hình nhỏ gọn, những chiếc xe hạng B duy trì lợi thế trên những con đường thành phố, tuy nhiên, khi tăng tốc, những chiếc xe này cũng có thể đạt được vận tốc đáng kể trên đường cao tốc.\r\n\r\nTrong những năm gần đây, thị trường Việt Nam đã chứ', '1.jpg', '2021-07-01'),
-(7, 'CÙNG MIOTO PHÂN BIỆT CÁC PHÂN KHÚC XE Ô TÔ TẠI THỊ', 'Mỗi quốc gia sẽ có những tiêu chí riêng để xếp loại các phân khúc xe ô tô. Nếu thị trường Mỹ dựa vào kích thước khung xe và động cơ, thị trường Nhật phân theo pháp luật, tạp chí chuyên ngành và các nhà chế tạo ô tô, thì ở Việt Nam, 3 yếu tố cơ bản để phân biệt các mẫu xe chính là dung tích động cơ, kích thước và giá cả.\r\n\r\nPhân biệt được những khái niệm này là điều không hề đơn giản đối với những người mới tìm hiểu về xe. Chính vì vậy, hôm nay, Mioto sẽ cùng bạn nhận biết những dấu hiệu của từng', 'pkA.jpg', '2021-07-01'),
-(1230, 'Hệ thống kiểm soát hành trình thông minh', 'Đây là một tính năng vô cùng tiện lợi, có khả năng sử dụng mô đun dạng radar và camera của xe để có thể thay đổi được tốc độ hành trình. Nếu phát hiện bất kỳ một phương tiện nào đang di chuyển chậm hơn phía trước, hệ thống kiểm soát hành trình sẽ được kích hoạt và duy trì khoảng cách an toàn cho xe. Trong một số phiên bản cao cấp hơn, xe còn có thể dừng lại sau đó sẽ khởi động lại và đi tiếp.', 'tn1.jpg', '2021-07-03'),
-(1232, 'Tính năng tự động bật phanh khẩn cấp', 'Cũng thông qua việc sử dụng các radar và camera trước, tính năng tự động bật phanh khẩn cấp được kích hoạt trong trường hợp cần cảnh báo khả năng va chạm đối với các đối tượng phía trước xe. Nếu người lái không hề có bất kỳ một phản ứng nào, tính năng này sẽ giúp xe phanh lại. Tuy nhiên, các tài xế không nên thật sự phụ thuộc vào tính năng an toàn này. Trên một số loại xe khác nhau, độ sâu và sớm của phanh cũng không giống nhau và đôi khi không thể kịp tránh được va chạm đáng tiếc xảy ra.', 'tn3.jpg', '2021-07-03'),
-(1233, 'Tính năng giám sát điểm mù', 'Giám sát điểm mù là một tính năng sử dụng cảm biến âm thanh ở bộ giảm xóc phía sau và camera gương chiếu hậu để quan sát làn đường liền kề. Vai trò của tính năng này là cảnh báo người lái về các phương tiện khác đang nằm trong điểm mù. Trong trường hợp phát hiện ra xe nằm ở điểm mù hoặc bị che bởi các cột trần xe, đèn cảnh báo sẽ sáng lên hoặc nhấp nháy ở gương chiếu hậu. Đây được xem là một tính năng vận hành khá ổn định và có vai trò đặc biệt quan trọng trong các hành trình của bạn', 'tn4.jpg', '2021-07-03'),
-(1234, 'Tính năng cảnh báo chệch làn đường', 'Dựa trên camera, hệ thống của xe sẽ đưa ra một tính năng tìm kiếm vạch kẻ đường và cảnh báo cho người dùng trong trường hợp phát hiện ra xe đang có nguy cơ đi lệch ra khỏi làn đường hoặc bắt đầu ra khỏi làn đường hiện tại mà không bật xi nhan hay tín hiệu rẽ nào.', 'tn5.jpg', '2021-07-03'),
-(1235, 'Tính năng hỗ trợ giữ làn đường', 'Tính năng này sẽ dễ khiến bạn nhầm lẫn với tính năng trước – cảnh báo chệch làn đường. Tuy nhiên, tính năng này sẽ giúp bạn duy trì được việc điều chỉnh vô lăng để đi đúng làn đường. Bạn có thể cảm nhận được chiếc xe của mình được đưa về đúng làn đường mà không hề có bất kỳ một tín hiệu nào nhờ bánh xe sau khi đổi hướng và vô lăng chuyển động.', 'tn6.jpg', '2021-07-03'),
-(1238, 'THUÊ XE Ô TÔ - NHỮNG ĐIỀU BẠN CẦN LƯU Ý ĐỂ LỰA CHỌN', 'Luôn mang lại cho du khách sự linh động, thoải mái, cùng nhiều trải nghiệm thú vị, dịch vụ thuê xe đang trở nên ngày càng phổ biến trong những năm trở lại đây. Tuy nhiên, việc thuê một chiếc xe không phù hợp có thể khiến cho hành trình của bạn gặp phải những rắc rối không đáng có. Vì thế, TravelMobile chia sẻ một số kinh nghiệm quý giá giúp bạn có thể lựa chọn một chiếc xe lý tưởng để đồng hành cùng chuyến đi của mình nhé!\r\n\r\n\r\n\r\n', 'thue1.jpg', '2021-07-05');
+INSERT INTO `tb_blog` (`blog_id`, `title`, `content`, `blog_pic`, `created_at`, `updated_at`) VALUES
+(2, 'THUÊ XE Ô TÔ - NHỮNG ĐIỀU BẠN CẦN LƯU Ý ĐỂ LỰA CHỌN ĐƯỢC CHIẾC XE PHÙ HỢP NHẤT CHO CHUYẾN ĐI CỦA MÌNH', 'Luôn mang lại cho du khách sự linh động, thoải mái, cùng nhiều trải nghiệm thú vị, dịch vụ thuê xe đang trở nên ngày càng phổ biến trong những năm trở lại đây. Tuy nhiên, việc thuê một chiếc xe không phù hợp có thể khiến cho hành trình của bạn gặp phải những rắc rối không đáng có. Vì vậy, hãy để Mioto chia sẻ một số kinh nghiệm quý giá', '21.jpg', '2021-08-02 21:20:20', '2021-08-02 21:23:18'),
+(3, 'Vui chơi dễ dàng hơn bao giờ hết cùng dịch vụ thuê xe du lịch', 'Xóa bỏ nỗi lo chưa có xe riêng hay chưa có bằng lái, các dịch vụ cho thuê xe du lịch ra đời, trở thành người bạn đồng hành tuyệt vời trong mỗi chuyến đi của bạn.', '33.jpg', '2021-08-02 23:02:22', '2021-08-02 23:02:22'),
+(4, 'ĐIỂM MẶT NHỮNG MẪU XE HẠNG B ĐÁNG MUA NHẤT NĂM 2021 TRONG TẦM GIÁ 500 ĐẾN 600 TRIỆU ĐỒNG', 'Xe hạng B hay còn được gọi là xe gia đình cỡ nhỏ, thường có 3 đến 5 cửa, gồm 4 ghế ngồi và được phép chở tối đa 5 người. Những bản hatchback ở phân khúc này thường có chiều dài là 3.900 mm, trong khi chiều dài của bản sedan thường là khoảng 4.200 mm. Với ngoại hình nhỏ gọn, những chiếc xe hạng B duy trì lợi thế trên những con', '25.jpg', '2021-08-02 23:08:07', '2021-08-02 23:08:07'),
+(5, 'NHỮNG MẪU XE BÁN TẢI NỔI BẬT TRONG TẦM GIÁ 600 TRIỆU', 'Với sự thuận tiện về ứng dụng và hiện đại về thiết kế, trang thiết bị, dòng xe bán tải ngày càng được ưa chuộng tại Việt Nam. Xe bán tải, hay còn gọi là xe Pick-up, rất phổ biến tại Việt Nam và các quốc gia đang phát triển bởi tính đa dụng trong đời sống hàng ngày', '30.jpg', '2021-08-02 23:13:40', '2021-08-02 23:13:40'),
+(6, 'CÙNG MIOTO PHÂN BIỆT CÁC PHÂN KHÚC XE Ô TÔ TẠI THỊ TRƯỜNG VIỆT NAM', 'Mỗi quốc gia sẽ có những tiêu chí riêng để xếp loại các phân khúc xe ô tô. Nếu thị trường Mỹ dựa vào kích thước khung xe và động cơ, thị trường Nhật phân theo pháp luật, tạp chí chuyên ngành và các nhà chế tạo ô tô, thì ở Việt Nam, 3 yếu tố cơ bản để phân biệt các mẫu xe chính là dung tích động cơ, kích thước và giá cả.', '36.jpg', '2021-08-02 23:16:47', '2021-08-02 23:16:47'),
+(7, 'Thuê xe ô tô du lịch và những kinh nghiệm cần biết', 'Hiện nay, một trong những xu hướng du lịch được rất nhiều người ưa chuộng là sử dụng phương tiện ô tô tự lái. Hình thức du lịch bằng ô tô ngày càng trở nên phổ biến nhờ sở hữu nhiều ưu điểm tiện lợi vượt trội. Trong bài viết dưới đây, TravelMobile sẽ hướng dẫn bạn những kinh nghiệm cần “bỏ túi” trước khi bắt đầu cuộc hành trình du lịch bằng ô tô tự lái của mình.', '47.jpg', '2021-08-02 23:21:38', '2021-08-02 23:21:38'),
+(8, 'Những tính năng an toàn trên xe ô tô mà bạn không nên bỏ lỡ!', 'Đã bao giờ bạn “đau đầu” giữa hàng loạt các tính năng an toàn xuất hiện ngày càng đa dạng trên xe ô tô của mình chưa? Trong bài viết sau đây, Mioto sẽ giúp bạn tìm hiểu cách thức hoạt động cũng như vai trò của từng tính năng để bảo vệ bản thân khỏi những trường hợp đáng tiếc khi tham gia giao thông.', '3.jpg', '2021-08-02 23:29:17', '2021-08-02 23:29:17'),
+(9, 'Mua bảo hiểm ô tô và những điều cần biết?', 'Khi tiến hành những bước đầu tiên để sở hữu một chiếc ô tô cho riêng mình, chắc chắn có rất nhiều thứ bạn cần phải chuẩn bị, đặc biệt là bảo hiểm cho ô tô. Trong quá trình sử dụng, chiếc xe của bạn có thể gặp phải một số các tình huống không mong muốn như va chạm, trầy xước hay hỏng móp,… Số tiền bỏ ra để trùng tu và sửa chữa có thể', '52.jpg', '2021-08-02 23:35:20', '2021-08-02 23:35:20'),
+(10, 'Những dấu hiệu dự báo phanh xe của bạn đã không còn an toàn', 'Nếu đã sử dụng chiếc xe mình trong một khoảng thời gian dài, dù không có điều gì bất thường thì bạn cũng nên kiểm tra ngay hệ thống phanh của mình vì sau 4 năm trở đi, rất có thể hệ thống phanh của bạn đã gặp những sự cố tiềm ẩn nguy hiểm.', '9.jpg', '2021-08-02 23:37:04', '2021-08-02 23:37:04'),
+(11, 'Chống say xe ô tô hiệu quả', 'Tùy theo cơ địa mỗi người, có người rất ổn khi di chuyển bằng xe ô tô, nhưng đối với một vài người đây là cực hình khi liên tục bị buồn nôn chóng mặt khi xe di chuyển. Luyện tập cho tiền đình bớt nhạy cảm là cách dứt điểm nhất cho những người say xe. Dười đây là một vài cách có thể áp dụng ngay.', '56.jpg', '2021-08-02 23:38:31', '2021-08-02 23:38:31'),
+(12, 'Kinh nghiệm để bớt nhọc nhằn khi điều khiển xe ô tô giờ cao điểm', 'Kẹt trong dòng người giữa Sài Gòn là điều không mấy dễ chịu. Điều đó còn tệ hơn nếu bạn đang vội và đi ô tô vì những người đi xe máy liên tục luồn lách tranh giành lối đi của bạn. Lô cốt mọc lên chiếm dụng lòng đường khiến bạn quãng đường của bạn bị bó hẹp, chỉ có thể đi những con đường lớn và liên tục kẹt trong dòng người giờ cao điểm.', '60.jpg', '2021-08-02 23:40:27', '2021-08-02 23:40:27'),
+(13, 'Kính xe bị mờ khi trời mưa? Đây là những cách giải quyết đơn giản nhất', 'Thời tiết đã bắt đầu vào hạ, một mùa mưa lại sắp đến kéo theo ngập đường, ùn tắc. Hơn nữa, khi lái xe trong điều kiện thời tiết mưa to, kính xe ô tô sẽ bị ố mờ do mất cân bằng nhiệt độ giữa thời tiết bên ngoài và không gian bên trong xe. Điều này gây ảnh hưởng đến tầm nhìn của tài xế rất nhiều.', '64.jpg', '2021-08-02 23:42:10', '2021-08-02 23:42:10'),
+(14, 'Xe ô tô để lâu không sử dụng nên làm gì?', 'Vì một lý do nào đó mà bạn không sử dụng chiếc xe ô tô của mình nữa, để yên trong một khoảng thời gian dài không sử dụng. Nếu không cất giữ đúng cách và hợp lý, xe của bạn sẽ hao mòn nhanh và gặp những hỏng hóc không mong muốn. Dưới đây là một số mẹo nhỏ để giúp bạn tránh những hỏng hóc và xe vẫn hoạt động bình thường', '67.jpg', '2021-08-02 23:53:41', '2021-08-02 23:53:41'),
+(15, 'Kinh nghiệm chọn xe cho phái đẹp', 'Đã qua rồi cái thời phụ nữ lúc nào cũng phải lui bước về sau để \"nâng khăn sửa túi\", nhường lại những việc lớn cho người đàn ông đảm nhiệm. Chị em thời nay văn minh, tiến bộ, có thể tự làm chủ cuộc đời mình, tự mua nhà, mua xe mà không nhất thiết phải có người đàn ông sánh bước. Vì vậy việc phái nữ lựa chọn cho mình một chiếc xe', '71.png', '2021-08-02 23:56:51', '2021-08-02 23:56:51'),
+(16, 'Lẫy chuyển số trên vô lăng có công dụng gì?', 'Vô lăng trên những xe đời mới thường có nút Paddle Shift, chuyển số dễ dàng bằng nút bấm trên vô lăng. Tuy vậy không nhiều người sử dụng và hiểu được hết công năng và tính ứng dụng của nó mang lại.', '79.jpg', '2021-08-03 00:02:46', '2021-08-03 00:02:46'),
+(17, 'Tổng hợp những cách \"giữ gìn\" ô tô để bán lại được giá', 'Không như ở Mỹ chỉ xem xe hơi là một phương tiện di chuyển và dễ dàng sở hữu, Việt Nam là nơi giá xe ô tô bị đẩy lên rất cao vì những loại thuế má khác nhau, khiến xe hơi trở thành một tài sản rất giá trị trong đời nhiều người. Vì vậy chọn được một chiếc xe giữ giá và giữ cho xe bán được giá là mối quan tâm hàng đầu của nhiều người.', '84.jpg', '2021-08-03 00:07:59', '2021-08-03 00:07:59'),
+(18, 'Động cơ xăng và động cơ dầu khác nhau như thế nào?', 'Khi mua xe hay thuê xe tự lái, bạn sẽ thấy những thông tin như mấy chỗ, số sàn hay số tự động, và đặc biệt là xe chạy động cơ xăng, hay xe chạy động cơ dầu. Đây là điều khiến không ít người băn khoăn và khó lựa chọn. Vậy đâu là điểm khác nhau giữa động cơ xăng và động cơ dầu?', '89.jpg', '2021-08-03 00:17:02', '2021-08-03 00:17:02'),
+(19, 'Điều hòa ô tô và những lưu ý ai cũng nên biết', 'Không chỉ đơn giản là tăng giảm và điều hòa nhiệt độ dễ chịu trên xe ô tô, người sử dụng điều hòa xe hơi cần biết những lưu ý sau để sử dụng điều hòa ô tô vừa hiệu quả vừa tiết kiệm, đồng thời còn đảm bảo sức khỏe cho người ngồi trên xe.', '93.jpg', '2021-08-03 00:19:30', '2021-08-03 00:19:30'),
+(20, 'Thói quen chết người khi nhắn tin lúc đang lái xe', 'Nhiều người thường xem nhẹ việc nhắn tin khi lái xe vì nghĩ chỉ một tin nhắn ngắn không thể gây ảnh hưởng gì nhiều đến quá trình điều khiển. Họ tự tin tay thì trên vô lăng, tay kia lại gõ phím liên hồi, mắt đảo lên đảo xuống vừa nhìn đường vừa nhìn màn hình điện thoại. Nhiều nghiên cứu đã cho thấy hành động nhắn tin khi đang lái xe có liên quan trực tiếp gây ra các vụ tai nạn giao thông thảm khốc.', '96.jpg', '2021-08-03 00:22:46', '2021-08-03 00:22:46'),
+(21, 'Ô tô hết bình phải xử lý như thế nào?', 'Bình ắc quy là bộ phận phát điện chính của xe giúp xe có thể đề máy và cung cấp điện cho những tiện ích khác trên xe hoạt động. Nếu tài xế để xe lâu không sử dụng hoặc để quên cho các tiện ích như đầu DVD, đèn pha hoạt động thâu đêm suốt sáng sẽ gây hết bình và khiến cho chiếc xe của bạn không nổ máy được.', '101.jpg', '2021-08-03 00:33:25', '2021-08-03 00:33:25'),
+(22, 'Phái nữ nên quan tâm đến những tính năng gì khi chọn xe?', 'So với những người đàn ông, phái nữ luôn dịu dàng và mỏng manh, không có nhiều sức vóc. Vì vậy việc chọn lựa một chiếc xe với những tính năng thông minh chắc chắn sẽ giúp các nàng dễ dàng điều khiển và', '71.png', '2021-08-03 00:34:34', '2021-08-03 00:34:34'),
+(23, 'Những lỗi hay mắc phải khi tham gia giao thông', 'Khi tiến hành thuê xe tự lái, bạn phải đảm bảo mình sẽ tuân thủ đúng luật giao thông khi lưu thông trên đường để tránh các tình huống khó xử. Tuy nhiên, thực tế đã chứng minh được rằng các tài xế rất dễ mắc phải 5 lỗi khi tham gia giao thông. Các Travelers hãy cùng tìm hiểu trong bài viết sau để tránh nhé!', '107.jpg', '2021-08-03 00:36:57', '2021-08-03 00:36:57'),
+(24, 'Động cơ ô tô ngày càng yếu và hỏng hóc? Đâu là lý do?', 'Động cơ là bộ phận quan trọng nhất, được ví như trái tim của mỗi chiếc ô tô. Nếu động cơ của bạn đang trong tình trạng yếu dần đều hoặc hỏng hóc vặt liên tục, rất cỏ thể bạn đã mắc phải những lỗi dưới đây khiến tình trạng của động cơ bị xuống cấp.', '111.jpg', '2021-08-03 00:39:39', '2021-08-03 00:39:39'),
+(25, 'Những bộ phận ít được vệ sinh thường xuyên trên xe ôtô', 'Xe ô tô là một tài sản giá trị lớn chỉ sau căn nhà của bạn. Ô tô được ví như một ngôi nhà di động mà bạn và gia đình sẽ sinh hoạt tạm thời khi di chuyển đến một nơi nào đó. Dân gian thường có câu \"Nhà sạch thì mát, bát sạch ngon cơm\" nên việc vệ sinh mọi ngóc ngách ô tô cũng cần thiết như vệ sinh chính ngôi nhà,', '115.jpg', '2021-08-03 01:33:28', '2021-08-03 01:33:28'),
+(26, 'Không quen tay khi lái xe lạ? Đây là những điều bạn cần lưu ý!', 'Khi mượn xe của bạn bè hay thuê xe tự lái trên Mioto, bạn phải sử dụng một chiếc xe không quen thuộc vì mỗi xe có một thiết kế và cách sử dụng tương đối khác nhau. Dù là một tài xế lâu năm hay mới tập chạy thì việc phải điều khiển một chiếc xe lạ sẽ it nhiều khiến bạn hơi bỡ ngỡ. Dưới đây là một vài lưu ý vào mẹo nhỏ có thể giúp bạn', '119.jpg', '2021-08-03 04:53:05', '2021-08-03 04:53:05'),
+(27, 'Làm thế nào để lái xe ô tô đường dài đúng tư thế, không gây mệt mỏi?', 'Đối với những trường hợp lái xe đường dài, chắc chắn 100% các tài xế sẽ cảm thấy mỏi lưng, mỏi cổ và cảm giác căng thẳng. Nguyên nhân dẫn đến kết quả này là vì tài xế đã không ngồi đúng tư thế khoa học, gây khó khăn trong quá trình lái xe. Trong bài viết sau đây, TravelMobile sẽ hướng dẫn bạn tư thế lái xe “chuẩn” để bắt đầu một cuộc hành trình mới tốt nhất', '122.jpg', '2021-08-03 04:57:32', '2021-08-03 04:57:32'),
+(28, 'Lùi xe ô tô không đơn giản như bạn nghĩ! 6 nguyên tắc cực dễ nhớ dưới đây sẽ giúp bạn!', 'Những ai mới lái ô tô đều có cảm giác chung là ô tô khá bít bùng và khó quan sát phía sau. Việc lùi xe ô tô thường là thao tác đòi hỏi nhiều kinh nghiệm và khả năng điều khiển linh hoạt của người lái. Nắm ngay 6 điều dưới đây để lùi xe dễ dàng, an toàn không gây xây xướt cho xe, cũng như giữ an toàn cho chính bạn', '125.jpg', '2021-08-03 05:01:14', '2021-08-03 05:01:14'),
+(29, 'Bị CSGT \"tuýt còi\" và những nguyên tắc cần biết', 'Khi di chuyển lưu thông trên đường, việc bị cảnh sát giao thông ra hiệu dừng xe là điều không ai mong muốn. Tuy vậy, ít ai có thể tránh khỏi việc này. CSGT tuýt còi bạn khi xe của bạn có dấu hiệu vi phạm luật giao thông. Vì vậy, một ít hiểu biết về luật pháp và nhưng nguyên tắc ứng xử cần lưu ý sau đây sẽ giúp bạn hiểu rõ về các quyền hạn của mình để tránh bị phạt oan khi gặp CSGT', '130.jpg', '2021-08-03 05:02:43', '2021-08-03 05:02:43'),
+(30, 'Công dụng tuyệt vời của seat belt khi ngồi trên ôtô', 'Seat belt (Dây an toàn) là thứ có mặt trên mọi chiếc xe từ siêu sang đến bình dân giá rẻ. Ngoài việc đảm bảo an toàn cho người ngồi trên xe, đây có là một chi tiết quan trọng bạn cần lưu ý để tránh vi phạm luật an toàn giao thông khi lưu thông trên đường.', '133.jpg', '2021-08-03 05:03:40', '2021-08-03 05:03:40'),
+(31, 'Những nguy hiểm chết người khi không bảo dưỡng ôtô thường xuyên', 'Những bác tài lâu năm thường phải hiểu rất rõ về chiếc xe của mình và tình trạng hiện tại của chúng vì trên mỗi chuyến xe là tính mạng của rất nhiều người và cả chính bác tài. Nhưng với những người lái xe thông thường, họ thường không có nhiều kinh nghiệm trong việc “lắng nghe” chiếc xe của mình, để những hỏng hóc ngày càng trầm trọng hơn', '67.jpg', '2021-08-03 05:06:18', '2021-08-03 05:06:18'),
+(32, '7 điều cần lưu ý để giữ nội thất sạch sẽ', 'Ngoại thất sạch sẽ, chỉnh chu, bóng bẩy thì nhìn thích mắt thật, nhưng điều đó không quan trọng bằng nội thất- nơi tiếp xúc trực tiếp với bạn, nơi bạn và gia đình sinh hoạt tạm thời cho đến khi tới điểm đến. Chính vì vậy, không gian này cần được giữ sạch sẽ tinh tươm và không có mùi để tránh gây ra những bệnh truyền nhiễm.', '123.jpg', '2021-08-03 05:08:14', '2021-08-03 05:08:14'),
+(33, '4 điều “đau đầu” khi sử dụng ô tô ở đô thị', 'Ôtô là tài sản rất lớn của cuộc sống mỗi người, chỉ sau căn nhà che nắng che mưa. Việc sở hữu một chiếc ô tô tốn không ít chi phí và là mơ ước của rất nhiều người. Ngoài những tiện lợi mà một chiếc xế hộp mang lại cho gia đình bạn, đằng sau nó là những vấn đề về chi phí phát sinh khá đau đầu cho chủ xe.', '136.jpg', '2021-08-03 05:11:21', '2021-08-03 05:11:21'),
+(34, 'Làm thế nào để tránh gây tai nạn thảm khốc như “Ngã tư hàng xanh”', 'Theo rất nhiều báo chí đã đưa tin, vụ tai nạn xe điên liên hoàn tại Ngã tư hàng xanh là do vướng giày cao gót vào chân ga, nhầm chân ga thành chân phanh. Việc sử dụng xe số tự động dù tiện lợi nhưng cũng dễ khiến người lái nhầm chân phanh và chân ga và vô tình dẫn đến những tai nạn thảm khốc', '1.jpg', '2021-08-03 05:12:27', '2021-08-03 05:12:27'),
+(35, 'Mua xe cũ cần kiểm tra kĩ những chi tiết nào?', 'Mua xe cũ có thể tiết kiệm cho bạn hàng đống chi phí. Tuy vậy, đây cũng là một việc khá rủi ro nếu bạn không có nhiều kinh nghiệm trong lĩnh vực xe. Mioto sẽ đem đến cho bạn những kiến thức kiểm tra tổng quát và những chi tiết bạn nên chú ý khi mua xe cũ', '10.jpg', '2021-08-03 05:15:08', '2021-08-03 05:15:08'),
+(36, 'Hãy lưu ý những điều này khi đưa xe đi đổ xăng', 'Đổ xăng tưởng chừng rất đơn giản, nhưng luôn có những điều bạn phải tuân thủ để tránh gây ra nguy hiểm cho chính mình', '142.jpg', '2021-08-03 05:16:30', '2021-08-03 05:16:30'),
+(37, '8 lời khuyên bảo vệ ô tô khỏi mất cắp', 'Xe hơi là tài sản lớn, đôi khi giá trị bằng cả căn nhà nên việc bảo vệ tối đa cho xế cưng của bạn là điều hiển nhiên. Và làm sao để chống trộm cắp xe hơi hay phụ tùng trên xe là điều khiến nhiều người phải đau đầu suy nghĩ.', '28.jpg', '2021-08-03 05:20:38', '2021-08-03 05:20:38'),
+(38, 'Làm thế nào để xe của bạn luôn trong tình trạng tốt nhất?', 'Việc “chăm sóc” cho tài sản giá trị (có khi lên đến hàng tỷ đồng)- chiếc oto của bạn là việc cần thiết và cũng khá đơn giản để thực hiện.\r\n\r\nTất nhiên không kể đến việc sửa chữa vào bảo trì xe là những việc cần có chuyên môn, kinh nghiệm và tay nghề lâu năm, bạn nên nhờ đến các kĩ thuật viên để giúp bạn làm việc này.', '11.jpg', '2021-08-03 05:22:45', '2021-08-03 05:22:45'),
+(39, 'Cần phải chuẩn bị gì khi mua ô tô cũ?', 'Mua xe hơi cũ, second hand hay thậm chí là đã qua vài đời chủ không đơn giản chỉ “tiền trao cháo múc” như mua xe mới nguyên đai nguyên kiện. Nếu không hiểu biết và cân nhắc những thủ tục, giấy tờ pháp lý sẽ khiến bạn gặp nhiều rắc rối sau này.', '154.jpg', '2021-08-03 05:24:00', '2021-08-03 05:24:00'),
+(40, 'Sự thật về việc xe số tự động ngốn xăng so với số sàn?', 'Vấn đề số tự động hay số sàn của xe phụ thuộc vào ý thích của mỗi người khi chọn lựa. Người ta hay bảo số tự động dễ chạy hơn số sàn và nhiều người gặp trở ngại trong việc chạy xe số sàn.', '143.jpg', '2021-08-03 05:25:09', '2021-08-03 05:25:09'),
+(41, 'Cân nhắc khi mua ô tô mới', 'Hẳn khi ra quyết định mua ôtô, ai cũng trải qua những việc rất đau đầu bởi ôtô là một tài sản giá trị lớn, đỏi hỏi người dùng phải cân nhắc kĩ lưỡng. Không chỉ cần giá xe vừa túi tiền, tính năng đủ dùng để phục vụ nhu cầu đi lại, mà xa hơn là cân nhắc giá trí bán lại khi không dùng nữa hoặc muốn nâng cấp. Đây là 10 gợi ý để người tiêu dùng cân nhắc khi quyết định tậu xe hơi mới', '38.jpg', '2021-08-03 05:28:32', '2021-08-03 05:28:32'),
+(42, 'Thuê xe hơi du lịch - tại sao không?', 'Tại sao bạn không chọn cho mình một cách du lịch hoàn toàn khác đi bằng cách thuê xe hơi du lịch bằng hình thức tự lái? Đây là cách chưa phổ biến lắm nhưng đang trở thành trào lưu, một xu hướng du lịch trải nghiệm mới của giới trẻ.', '39.jpg', '2021-08-03 05:30:45', '2021-08-03 05:30:45'),
+(43, '5 cách đơn giản để vệ sinh xe', 'Bài viết này cung cấp cho bạn 5 bước đơn giản mà hiệu quả để chiếc xe bạn luôn mới và tốt nhất.', '161.jpg', '2021-08-03 05:33:13', '2021-08-03 05:33:13'),
+(44, 'Quan tâm đến xe tự lái khi tìm kiếm không gian riêng, tại sao không?', 'Để biến mất khỏi thành phố vài ngày, di chuyển lòng vòng nhiều địa điểm du lịch, thăm hỏi họ hàng xa, đi chơi nghỉ dưỡng, hẳn nhiên các phương tiện công cộng chưa bao giờ không nằm trong top lựa chọn của đa số người tại TP.HCM cả.', '164.jpg', '2021-08-03 05:36:43', '2021-08-03 05:36:43'),
+(45, 'Các dòng xe đáng trải nghiệm', 'Bạn biết lái xe, bạn đam mê làm chủ tốc độ, bạn có ao ước rằng cuối tuần sẽ vu vi cùng gia đình hay bạn bè, người yêu. Chạy trốn khỏi đô thị phồn hoa tấp nập trong vài ngày để lấy năng lượng tiếp tục chiến đấu. Mong muốn sở hữu một chiếc xe hơi để thỏa mãn thú tiêu khiển.', '165.jpg', '2021-08-03 05:39:07', '2021-08-03 05:39:07'),
+(46, 'Cùng tìm hiểu những công viên nước hoành tráng và đáng đi nhất Việt Nam', 'Bạn đã đi công viên nước nhiều rồi, nhưng bạn đã biết đến những công viên hoành tráng và đáng đi nhất Việt Nam chưa? Khám phá ngay bên dưới xem bạn đã khám phá được bao nhiêu chỗ rồi nhé!', '166.jpg', '2021-08-03 05:41:04', '2021-08-03 05:41:04');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tb_car_mfg`
+-- Table structure for table `tb_car_mfg`
 --
 
 CREATE TABLE `tb_car_mfg` (
@@ -116,7 +154,7 @@ CREATE TABLE `tb_car_mfg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tb_car_mfg`
+-- Dumping data for table `tb_car_mfg`
 --
 
 INSERT INTO `tb_car_mfg` (`mfg_id`, `name`, `logo`, `nation`, `website`) VALUES
@@ -162,7 +200,7 @@ INSERT INTO `tb_car_mfg` (`mfg_id`, `name`, `logo`, `nation`, `website`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tb_car_pic`
+-- Table structure for table `tb_car_pic`
 --
 
 CREATE TABLE `tb_car_pic` (
@@ -177,7 +215,7 @@ CREATE TABLE `tb_car_pic` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tb_car_pic`
+-- Dumping data for table `tb_car_pic`
 --
 
 INSERT INTO `tb_car_pic` (`pic_id`, `car_id`, `image`, `image_left`, `image_right`, `image_behind`, `created_at`, `updated_at`) VALUES
@@ -235,7 +273,7 @@ INSERT INTO `tb_car_pic` (`pic_id`, `car_id`, `image`, `image_left`, `image_righ
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tb_car_rental`
+-- Table structure for table `tb_car_rental`
 --
 
 CREATE TABLE `tb_car_rental` (
@@ -277,7 +315,7 @@ CREATE TABLE `tb_car_rental` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tb_car_rental`
+-- Dumping data for table `tb_car_rental`
 --
 
 INSERT INTO `tb_car_rental` (`car_id`, `user_id`, `type_id`, `plate_id`, `brand`, `name`, `seatnum`, `auto`, `fuel`, `consumption`, `description`, `model_year`, `rent_price`, `convertible`, `bluetooth`, `gps`, `usb`, `kid_chair`, `map`, `camera`, `address`, `lat`, `lng`, `discount_weekly`, `discount_monthly`, `free_ship_distance`, `max_ship_distance`, `shipping_price_km`, `max_travel_distance`, `over_max_travel_cost`, `rules`, `status`, `approval`, `created_at`, `updated_at`) VALUES
@@ -336,7 +374,7 @@ INSERT INTO `tb_car_rental` (`car_id`, `user_id`, `type_id`, `plate_id`, `brand`
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tb_car_type`
+-- Table structure for table `tb_car_type`
 --
 
 CREATE TABLE `tb_car_type` (
@@ -350,7 +388,7 @@ CREATE TABLE `tb_car_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tb_car_type`
+-- Dumping data for table `tb_car_type`
 --
 
 INSERT INTO `tb_car_type` (`type_id`, `mfg_id`, `model`, `suggest_price`, `fuel_type`, `seatnum`, `car_style`) VALUES
@@ -671,7 +709,7 @@ INSERT INTO `tb_car_type` (`type_id`, `mfg_id`, `model`, `suggest_price`, `fuel_
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tb_question_answer`
+-- Table structure for table `tb_question_answer`
 --
 
 CREATE TABLE `tb_question_answer` (
@@ -683,7 +721,7 @@ CREATE TABLE `tb_question_answer` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tb_rental_contract`
+-- Table structure for table `tb_rental_contract`
 --
 
 CREATE TABLE `tb_rental_contract` (
@@ -703,10 +741,17 @@ CREATE TABLE `tb_rental_contract` (
   `comment` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `tb_rental_contract`
+--
+
+INSERT INTO `tb_rental_contract` (`contract_id`, `user_id`, `car_id`, `contract_date`, `pickup_date`, `return_date`, `rental_price`, `service_cost`, `pickup_address`, `shipping_cost`, `contract_value`, `deposit`, `status`, `comment`) VALUES
+(1, 7, 5, '2021-08-02 15:59:32', '2021-08-02 14:00:00', '2021-08-04 02:00:00', 2200000, 154000, '590 Cách Mạng Tháng Tám, phường 11, Quận 3, Thành phố Hồ Chí Minh, Việt Nam', 0, 2354000, 706200, 'Đã hoàn thành', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tb_rental_schedule`
+-- Table structure for table `tb_rental_schedule`
 --
 
 CREATE TABLE `tb_rental_schedule` (
@@ -722,12 +767,13 @@ CREATE TABLE `tb_rental_schedule` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tb_review`
+-- Table structure for table `tb_review`
 --
 
 CREATE TABLE `tb_review` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `car_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `contract_id` int(11) DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
   `star_num` tinyint(4) DEFAULT NULL,
   `comment` varchar(255) DEFAULT NULL,
@@ -735,10 +781,17 @@ CREATE TABLE `tb_review` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `tb_review`
+--
+
+INSERT INTO `tb_review` (`id`, `car_id`, `contract_id`, `user_id`, `star_num`, `comment`, `created_at`, `updated_at`) VALUES
+(1, 5, 1, 7, 5, 'Dịch vụ tốt', '2021-08-02 14:12:18', '2021-08-02 14:12:18');
+
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tb_user`
+-- Table structure for table `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -766,61 +819,64 @@ CREATE TABLE `tb_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tb_user`
+-- Dumping data for table `tb_user`
 --
 
 INSERT INTO `tb_user` (`user_id`, `profile_id`, `name`, `email`, `email_verified_at`, `is_admin`, `password`, `mobile`, `gender`, `dob`, `driver_id`, `driver_id_image_approval`, `driver_id_image`, `avatar_image`, `joined_date`, `status`, `remember_token`, `created_at`, `updated_at`, `facebook_id`, `google_id`) VALUES
-(1, NULL, 'Nguyễn Ngọc Thiện', 'nguyenngocthien@gmail.com', NULL, NULL, '$2y$10$1MYidIVayA28LztCizVz.e1d4m1898R9VDgAaajcxkPh7AUTPDI7u', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-07-30 23:58:15', '2021-07-30 23:58:15', NULL, NULL),
+(1, NULL, 'Thien', 'nguyenngocthien@gmail.com', NULL, NULL, '$2y$10$1MYidIVayA28LztCizVz.e1d4m1898R9VDgAaajcxkPh7AUTPDI7u', '0989096911', 1, '1993-09-14', '270170002051', 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-07-30 23:58:15', '2021-07-30 23:58:15', NULL, NULL),
 (2, NULL, 'Nguyễn Ngọc Thiện', 'thien@travelmobile.com', NULL, 1, '$2y$10$mNPcQQCy8A4eAZulurU/uuvV3jmuKpT1T8SVHG4fr36b6SB1Bcds.', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-07-31 00:28:08', '2021-07-31 00:28:08', NULL, NULL),
 (3, NULL, 'Lê Nguyễn Thành Nhân', 'lenguyenthanhnhan@gmaill.com', NULL, NULL, '$2y$10$o7LlrsmpCWaDqR2zMvWMsuZNYF9jcNz74pNYPmDRcSgbITJT61VhK', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-07-31 04:02:23', '2021-07-31 04:02:23', NULL, NULL),
 (4, NULL, 'Phạm Viết Vương', 'phamvietvuong@gmail.com', NULL, NULL, '$2y$10$q49XXZoZiHAIWS72IRdvJu6X/OXo20sYG41Y7oqlB3aHp7u8Dkvnm', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-08-01 01:40:07', '2021-08-01 01:40:07', NULL, NULL),
 (5, NULL, 'Lê Hữu Tâm', 'Lehuutam@gmail.com', NULL, NULL, '$2y$10$thTUQWIdghZtHY9UluFVEe37HMdim1vstJJzVBxKrGaOX4MpD5026', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-08-01 02:46:21', '2021-08-01 02:46:21', NULL, NULL),
-(6, NULL, 'Phạm Quốc Toàn', 'phamquoctoan@gmail.com', NULL, NULL, '$2y$10$YhGqWnSTbEinucI0JeN9fO91qliPEVyoBs3IG6PgXFwijqBJ.riAG', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-08-01 09:05:38', '2021-08-01 09:05:38', NULL, NULL);
+(6, NULL, 'Phạm Quốc Toàn', 'phamquoctoan@gmail.com', NULL, NULL, '$2y$10$YhGqWnSTbEinucI0JeN9fO91qliPEVyoBs3IG6PgXFwijqBJ.riAG', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-08-01 09:05:38', '2021-08-01 09:05:38', NULL, NULL),
+(7, NULL, 'Thành Nhân', 'thanhnhanle@gmail.com', NULL, NULL, '$2y$10$g3GO8seIzlpufwRGdCq72OrvuJVlrsupI5PFxBUM8vro/Txcys9xG', '0375515819', 1, '2002-10-04', '9846785736', 1, '197225839_1169131763566603_3013798318839820731_n.jpg', 'a5d0dfd35d44a11af855.jpg', NULL, 0, NULL, '2021-08-02 08:56:55', '2021-08-02 08:56:55', NULL, NULL),
+(8, NULL, 'Thien', 'khanonline35@yahoo.com', NULL, NULL, '$2y$10$IUBP8/FGznRHRHixukwClusnx/byfHs.A6pRw3BHIHzmnERvsmeMG', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, 'kl41qjDVDaahRQv12KpMDGZhb8SNtRNzFl96L1YeAEv61Or1bGgbbf7itfU1', '2021-08-02 13:48:38', '2021-08-02 13:50:44', NULL, NULL),
+(9, NULL, 'lê nguyễn thành nhân', 'lenhannhan123@gmail.com', NULL, NULL, '$2y$10$Y7KKqJDja5JSILAVpnlwquf6uNNHTs.z3phm3N06vBH11kOMo7WnS', NULL, NULL, NULL, NULL, 0, NULL, 'default-user-2.png', NULL, 0, NULL, '2021-08-02 14:04:39', '2021-08-02 14:04:39', NULL, NULL);
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Chỉ mục cho bảng `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Chỉ mục cho bảng `tb_blog`
+-- Indexes for table `tb_blog`
 --
 ALTER TABLE `tb_blog`
   ADD PRIMARY KEY (`blog_id`);
 
 --
--- Chỉ mục cho bảng `tb_car_mfg`
+-- Indexes for table `tb_car_mfg`
 --
 ALTER TABLE `tb_car_mfg`
   ADD PRIMARY KEY (`mfg_id`);
 
 --
--- Chỉ mục cho bảng `tb_car_pic`
+-- Indexes for table `tb_car_pic`
 --
 ALTER TABLE `tb_car_pic`
   ADD PRIMARY KEY (`pic_id`),
   ADD KEY `FK_car_id_car_pic` (`car_id`);
 
 --
--- Chỉ mục cho bảng `tb_car_rental`
+-- Indexes for table `tb_car_rental`
 --
 ALTER TABLE `tb_car_rental`
   ADD PRIMARY KEY (`car_id`),
@@ -828,7 +884,7 @@ ALTER TABLE `tb_car_rental`
   ADD KEY `FK_type_id_car_rental` (`type_id`);
 
 --
--- Chỉ mục cho bảng `tb_car_type`
+-- Indexes for table `tb_car_type`
 --
 ALTER TABLE `tb_car_type`
   ADD PRIMARY KEY (`type_id`),
@@ -836,7 +892,7 @@ ALTER TABLE `tb_car_type`
   ADD KEY `FK_mfg_id_car_type` (`mfg_id`);
 
 --
--- Chỉ mục cho bảng `tb_rental_contract`
+-- Indexes for table `tb_rental_contract`
 --
 ALTER TABLE `tb_rental_contract`
   ADD PRIMARY KEY (`contract_id`),
@@ -844,7 +900,7 @@ ALTER TABLE `tb_rental_contract`
   ADD KEY `FK_car_id_rental_contract` (`car_id`);
 
 --
--- Chỉ mục cho bảng `tb_rental_schedule`
+-- Indexes for table `tb_rental_schedule`
 --
 ALTER TABLE `tb_rental_schedule`
   ADD PRIMARY KEY (`schedule_id`),
@@ -852,15 +908,16 @@ ALTER TABLE `tb_rental_schedule`
   ADD KEY `FK_rental_contract` (`id_rental_contract`);
 
 --
--- Chỉ mục cho bảng `tb_review`
+-- Indexes for table `tb_review`
 --
 ALTER TABLE `tb_review`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_car_id_review` (`car_id`),
-  ADD KEY `FK_user_id_review` (`user_id`);
+  ADD KEY `FK_user_id_review` (`user_id`),
+  ADD KEY `FK_contract_id` (`contract_id`);
 
 --
--- Chỉ mục cho bảng `tb_user`
+-- Indexes for table `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`user_id`),
@@ -868,111 +925,112 @@ ALTER TABLE `tb_user`
   ADD KEY `FK_profile_id_user` (`profile_id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT cho bảng `tb_blog`
+-- AUTO_INCREMENT for table `tb_blog`
 --
 ALTER TABLE `tb_blog`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1247;
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT cho bảng `tb_car_pic`
+-- AUTO_INCREMENT for table `tb_car_pic`
 --
 ALTER TABLE `tb_car_pic`
   MODIFY `pic_id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT cho bảng `tb_car_rental`
+-- AUTO_INCREMENT for table `tb_car_rental`
 --
 ALTER TABLE `tb_car_rental`
   MODIFY `car_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT cho bảng `tb_car_type`
+-- AUTO_INCREMENT for table `tb_car_type`
 --
 ALTER TABLE `tb_car_type`
   MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=315;
 
 --
--- AUTO_INCREMENT cho bảng `tb_rental_contract`
+-- AUTO_INCREMENT for table `tb_rental_contract`
 --
 ALTER TABLE `tb_rental_contract`
-  MODIFY `contract_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `contract_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `tb_rental_schedule`
+-- AUTO_INCREMENT for table `tb_rental_schedule`
 --
 ALTER TABLE `tb_rental_schedule`
-  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `schedule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `tb_review`
+-- AUTO_INCREMENT for table `tb_review`
 --
 ALTER TABLE `tb_review`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `tb_user`
+-- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `tb_car_pic`
+-- Constraints for table `tb_car_pic`
 --
 ALTER TABLE `tb_car_pic`
   ADD CONSTRAINT `FK_car_id_car_pic` FOREIGN KEY (`car_id`) REFERENCES `tb_car_rental` (`car_id`);
 
 --
--- Các ràng buộc cho bảng `tb_car_rental`
+-- Constraints for table `tb_car_rental`
 --
 ALTER TABLE `tb_car_rental`
   ADD CONSTRAINT `FK_type_id_car_rental` FOREIGN KEY (`type_id`) REFERENCES `tb_car_type` (`type_id`),
   ADD CONSTRAINT `FK_user_id_car_rental` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`user_id`);
 
 --
--- Các ràng buộc cho bảng `tb_car_type`
+-- Constraints for table `tb_car_type`
 --
 ALTER TABLE `tb_car_type`
   ADD CONSTRAINT `FK_mfg_id_car_type` FOREIGN KEY (`mfg_id`) REFERENCES `tb_car_mfg` (`mfg_id`);
 
 --
--- Các ràng buộc cho bảng `tb_rental_contract`
+-- Constraints for table `tb_rental_contract`
 --
 ALTER TABLE `tb_rental_contract`
   ADD CONSTRAINT `FK_car_id_rental_contract` FOREIGN KEY (`car_id`) REFERENCES `tb_car_rental` (`car_id`),
   ADD CONSTRAINT `FK_user_id_rental_contract` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`user_id`);
 
 --
--- Các ràng buộc cho bảng `tb_rental_schedule`
+-- Constraints for table `tb_rental_schedule`
 --
 ALTER TABLE `tb_rental_schedule`
   ADD CONSTRAINT `FK_car_id_rental_schedule` FOREIGN KEY (`car_id`) REFERENCES `tb_car_rental` (`car_id`),
   ADD CONSTRAINT `FK_rental_contract` FOREIGN KEY (`id_rental_contract`) REFERENCES `tb_rental_contract` (`contract_id`);
 
 --
--- Các ràng buộc cho bảng `tb_review`
+-- Constraints for table `tb_review`
 --
 ALTER TABLE `tb_review`
   ADD CONSTRAINT `FK_car_id` FOREIGN KEY (`car_id`) REFERENCES `tb_car_rental` (`car_id`),
+  ADD CONSTRAINT `FK_contract_id` FOREIGN KEY (`contract_id`) REFERENCES `tb_rental_contract` (`contract_id`),
   ADD CONSTRAINT `FK_user_id_review` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`user_id`);
 COMMIT;
 

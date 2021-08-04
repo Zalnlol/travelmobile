@@ -65,7 +65,7 @@ class ProfilesController extends Controller
         $driver_id = $request->input('driver_id');
 
         $data = request()->validate([
-            'name' => ['required', 'alpha', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'avatar_image' => '',
             'mobile' => ['required', 'digits_between:10,11'],
             'dob' => 'required|date|before_or_equal:'.\Carbon\Carbon::now()->subYears(18)->format('d-m-Y'),
