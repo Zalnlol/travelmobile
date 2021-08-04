@@ -149,7 +149,7 @@ Route::prefix('user')->middleware('checklogin:admin,user')->group(function() {
 
             Route::get('triphistory/review/{contract_id}', 'ReviewController@review')->name('review.create');
             Route::post('triphistory/postreview', 'ReviewController@postReview')->name('review.post');
-
+            Route::get('mycars/triplist/lookreview/{contract_id}', 'ReviewController@lookReview')->name('review.look');
 
 
 

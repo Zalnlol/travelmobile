@@ -22,10 +22,11 @@
         <div class="container">   
             <div class="row">
                 <div class="col-sm-8">   
-                    <form action="#" method="" enctype="multipart/form-data">
+                    <form action="{{ url('user/triphistory') }}" method="GET">
                         @csrf
                         <h3 class="pull-left">Bạn đã đánh giá rồi</h3>
-                        <button type="submit" class="btn btn-normal pull-right">Phản hồi</button>
+                        <button type="submit" class="btn btn-normal pull-right" onclick="return redirect()->back()" data-component="button" data-content="">Quay lại</button>
+                    
                         <fieldset>
                             <div class="row">
                                 <div class="col-sm-3 col-lg-2 hidden-xs">

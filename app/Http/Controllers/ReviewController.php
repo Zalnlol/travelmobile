@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class ReviewController extends Controller
 {
-    function review($id)
+    public function review($id)
     {
         $coid = RentalContract::where('contract_id', $id)->first()->contract_id;
         $uid = RentalContract::where('contract_id', $id)->first()->user_id;
@@ -21,17 +21,25 @@ class ReviewController extends Controller
         {
             $id = Review::where('contract_id', $id)->first()->id;
             //dd($id);
-            $hasReview = Review::where('id', $data)->get();
-            return view('User-review.done', compact('hasReview'));
+            // $hasReview = Review::where('id', $data)->get();
+            return view('User-review.done');
         }
         
         return view('User-review.index', compact('coid', 'uid', 'caid'));      
     }
 
-    function postReview(Request $request)
+    public function postReview(Request $request)
     {
         $review = $request->all();
         Review::create($review);
         return redirect('/');
+    }
+
+    public function lookReview($id, Request $request)
+    {
+        $data = Review::where('contract_id', $id)->get();
+
+        //dd($data);
+        return view('User-Review.look', compact('data'));
     }
 }

@@ -143,6 +143,8 @@
                                 @if ($rental['status']=='Đã hoàn thành' )
                                     <a class="dropdown-item"
                                         href="{{ url('/user/mycars/triplist/xemchitiet/' . $rental['contract_id']) }}">Xem chi tiết</a>
+                                        <a class="dropdown-item"
+                                        href="{{ url('user/mycars/triplist/lookreview/' . $rental['contract_id']) }}">Xem đánh giá</a>
                                 @endif
               
                       

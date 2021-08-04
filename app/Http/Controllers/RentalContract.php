@@ -364,6 +364,8 @@ class RentalContract extends Controller
 
             $i+=1;
         }
+        $test = Review::all();
+        //dd($test);
 
         return view('profiles.historytrips',compact('data3'));
 

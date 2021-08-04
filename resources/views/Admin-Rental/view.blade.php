@@ -621,7 +621,7 @@ font-weight: bolder;}
           </div>
         </li>
 
-        <li class="form-line" data-type="control_checkbox" id="id_26">
+        {{-- <li class="form-line" data-type="control_checkbox" id="id_26">
           <label class="form-label form-label-top" id="label_24" for="input_24"> Giảm giá </label>
           </li>
 
@@ -638,7 +638,7 @@ font-weight: bolder;}
             <input type="range" name="discount_monthly" id="range_weight2" disabled style="width: 200px" value="{{ $rentalview->discount_monthly }}" min="1" max="75" oninput="range_weight_disp2.value = range_weight2.value">
             <output  id="range_weight_disp2">{{ $rentalview->discount_monthly }}</output> %
           </div>
-        </li>
+        </li> --}}
 
       </ul>
         <li class="form-line" data-type="control_checkbox" id="id_26">

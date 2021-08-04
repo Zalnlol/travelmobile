@@ -721,7 +721,7 @@
                 </div>
 
                 </ul>
-                <ul class="form-section">
+                {{-- <ul class="form-section">
 
                     <li class="form-line" data-type="control_image" id="id_25">
                         <div id="cid_25" class="form-input-wide">
@@ -753,7 +753,7 @@
                             <output id="range_weight_disp2"></output> %
                         </div>
                     </li>
-                </ul>
+                </ul> --}}
 
                 <li class="form-line" data-type="control_checkbox" id="id_26">
                     <label class="form-label form-label-top" id="label_24" for="input_24"> Địa chỉ xe </label>
