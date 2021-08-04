@@ -2,6 +2,7 @@
 
 <div class="card " style="height:550px">
     <div class="card-body scrollbar-grey" style=" overflow-y: auto;">
+        
         <div class="row" id="danhsachxe">
             {{-- {{dd($danhsachxe)}} --}}
             @foreach ($danhsachxe as $chiecxe)
