@@ -10,7 +10,7 @@
             <br>
             <br>
             <br><br>
-            <h4 class="blog-title">TravelerMobile'S BLOG</h4>
+            <h4 class="blog-title">Travel Mobile Blog</h4>
         </div>
         <div class="row">
 
@@ -25,7 +25,6 @@
                     <h6>{{ $row->title }}</h6>
 
                     <p>{{ $row->content }}</p>
-                    <a href="#">Xem chi tiết</a>
 
                 </div>
 
