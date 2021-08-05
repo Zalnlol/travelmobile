@@ -22,13 +22,11 @@
         <div class="container">   
             <div class="row">
                 <div class="col-sm-8">
-                 
-  
-                    @foreach ($data as $item)
+                              
                     <form action="{{ url('user/mycars/history') }}" method="GET">
                         @csrf
                 
-                        <h3 class="pull-left">Đánh giá của người thuê xe</h3>
+                        <h3 class="pull-left">Chưa có đánh giá</h3>
                         <button type="submit" onclick="return redirect()->back()" class="btn btn-normal pull-right">Quay lại</button>
                         <fieldset>
                             <div class="row">
@@ -41,10 +39,24 @@
                                     <input type="hidden" name="user_id" value="">
                                     <input type="hidden" name="car_id" value="">
                        
-                                    <textarea class="form-control" id="message" name="comment" placeholder="Your message" required="">{{ $item->comment }}</textarea>
+                                    <textarea class="form-control" id="message" name="comment" placeholder="Your message"></textarea>
                                     <ul class="list-unstyled list-inline media-detail pull-left">
                                         <div id="rating">
-                                            @if ($item->star_num == null)
+                                            <input type="radio"  id="" name=""read value="5" />
+                                            <label class = "full" for="" title="Awesome - 5 stars"></label>
+                                        
+                                            <input type="radio"  id="" name=""read value="4" />
+                                            <label class = "full" for="" title="Pretty good - 4 stars"></label>
+                                        
+                                            <input type="radio"  id="" name=""read value="3" />
+                                            <label class = "full" for="" title="Meh - 3 stars"></label>
+                                        
+                                            <input type="radio"  id="" name=""read value="2" />
+                                            <label class = "full" for="" title="Kinda bad - 2 stars"></label>
+                                        
+                                            <input type="radio"  id="" name=""read value="1"  />
+                                            <label class = "full" for="" title="Sucks big time - 1 star"></label>
+                                            {{-- @if ($item->star_num == null)
                                             <input type="radio"  id="" name=""read value="5" />
                                             <label class = "full" for="" title="Awesome - 5 stars"></label>
                                         
@@ -139,11 +151,11 @@
                                     
                                         <input type="radio"  id="" name=""read value="1" />
                                         <label class = "full" for="" title="Sucks big time - 1 star"></label>
-                                    @endif
+                                    @endif --}}
                                         </div>
                                     </ul>
                                     <ul class="list-unstyled list-inline media-detail pull-right" style="margin-top: 6px">
-                                        <li><i class="fa fa-calendar"></i>{{ $item->created_at }}</li>
+                                        <li><i class="fa fa-calendar"></i></li>
                                     </ul>
 
                                 </div>
@@ -152,7 +164,7 @@
                     </form>
                              
                                        
-                    @endforeach   
+                    
                 </div>
             </div>
         </div>

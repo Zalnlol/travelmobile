@@ -668,7 +668,7 @@
                     @foreach ($review as $item)
 
                     <div class="media">
-                        <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+                        <a class="pull-left" href="#"><img class="media-object" src="../img/{{ $item->user->avatar_image }} " alt=""></a>
                         <div class="media-body">
                             <h4 class="media-heading">{{ $item->user->name }}</h4>
                             <p>{{ $item->comment }}</p>
