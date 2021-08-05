@@ -80,11 +80,11 @@
                           </i>
                           Xem ảnh
                       </a>
-                        <a class="btn btn-danger btn-sm" href="{{ route('admin.rental.delete', $item->car_id) }}" onclick="javascript:return confirm('Bạn chắc chứ ?')">
+                        {{-- <a class="btn btn-danger btn-sm" href="{{ route('admin.rental.delete', $item->car_id) }}" onclick="javascript:return confirm('Bạn chắc chứ ?')">
                             <i class="fas fa-trash">
                             </i>
                             Xóa
-                        </a>
+                        </a> --}}
                     </td>
                 </tr>
                                      

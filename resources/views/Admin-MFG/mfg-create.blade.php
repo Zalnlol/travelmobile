@@ -29,16 +29,33 @@
                                         <p class="help is-danger">{{ $errors->first('name') }}</p>
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="image">Logo</label>
                                     <img class="img-fluid" src=""/>
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="image" name="logo">
-                                            <label class="custom-file-label" for="image">-----  Chọn logo  -----</label>
+                                            <label class="custom-file-label" for="image"></label>
                                         </div>
                                     </div>
                                     <p class="help is-danger">{{ $errors->first('logo') }}</p>
+                                </div> --}}
+                                <div class="form-group">
+                                    <label for="">Chọn ảnh</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="file1" name="logo"
+                                                multiple>
+
+                                            <label class="custom-file-label" for="">Choose file</label>
+
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="">Upload</span>
+                                        </div>
+
+                                    </div>
+                                    <img id="image1" style="width: 100%" />
                                 </div>
                                 <div>
                                     <label for="txt-name">Chọn Xuất xứ:</label>
@@ -85,4 +102,23 @@
             bsCustomFileInput.init();
         });
     </script>
+     <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-fileinput.min.js') }}"></script>
+     <script type="text/javascript">
+         $(document).ready(function() {
+             bsCustomFileInput.init();
+         });
+     </script>
+     <script>
+         document.getElementById("file1").onchange = function() {
+             var reader = new FileReader();
+ 
+             reader.onload = function(e) {
+                 // get loaded data and render thumbnail.
+                 document.getElementById("image1").src = e.target.result;
+             };
+ 
+             // read the image file as a data URL.
+             reader.readAsDataURL(this.files[0]);
+         };
+     </script>
 @endsection
