@@ -38,8 +38,12 @@ class ReviewController extends Controller
     public function lookReview($id, Request $request)
     {
         $data = Review::where('contract_id', $id)->get();
-
-        //dd($data);
-        return view('User-Review.look', compact('data'));
+        if(count($data) > 0)
+        {
+            return view('User-Review.look', compact('data'));
+        }else{
+            return view('User-Review.look2');
+        }
+        
     }
 }

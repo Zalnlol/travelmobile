@@ -6,7 +6,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="offset-md-3 col-md-4">
+                <div class="offset-md-3 col-md-6">
                     <!-- general form elements -->
 
                     <div class="card card-primary">
@@ -29,21 +29,21 @@
                                     <label for="txt-name">Tiêu đề</label>
                                     {{-- <input type="text" class="form-control" id="title" name="title"
                                     placeholder="Nhập tiêu đề" required value="{{ $blog->title }}"> --}}
-                                    <textarea class="form-control " rows="3" id="description" name="title" cols="40"
-                                        rows="6" value="{{ $blog->title }}" readonly></textarea>
+                                    <textarea class="form-control" rows="3" id="description" name="title" cols="40"
+                                        rows="6" value="" readonly>{{ $blog->title }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="txt-price">Nội dung</label>
                                     {{-- <input type="text" class="form-control ckeditor" id="content" name="content"
                                     placeholder="Nhập nội dung" required value="{{ $blog->content }}"> --}}
                                     <textarea class="form-control ckeditor" id="description" name="content" cols="70"
-                                        rows="4" value="{{ $blog->content }}" readonly></textarea>
+                                        rows="4" value="" readonly>{{ $blog->content }}</textarea>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txt-price">Ảnh </label>
                                     <div id="image" name="blog_pic">
-                                        <img width="500px" src="{{ url('img/'.$blog->blog_pic ) }}"/>
+                                        <img width="550px" src="../../../img/blog/{{ $blog->blog_pic }}"/>
                                     </div>
                                 </div>
 
@@ -67,6 +67,6 @@
         </div>
     </section>
 
-
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 
 @endsection
