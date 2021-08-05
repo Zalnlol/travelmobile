@@ -1,5 +1,6 @@
 @extends('layoutAdmin.layout')
 @section('title', 'Thêm hãng xe mới')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 @section('content')
     <section class="content">
         <div class="container-fluid">
@@ -94,6 +95,16 @@
             </div>
         </div>
     </section>
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+           
+          var fileName = $(this).val().split("\\").pop();
+          $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+
+
 @endsection
 @section('script-section')
     <script src="{{ asset('plugins/bs-custom-file-input/bs-custom-fileinput.min.js') }}"></script>
