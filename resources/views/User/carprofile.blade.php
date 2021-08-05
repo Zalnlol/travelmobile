@@ -439,11 +439,11 @@
 
                         <div class="row" id="thoi-gian">
                             <div class="col-sm-7">
-                                <span style="margin-left:2%">Dịch vụ giao xe tận nơi</span>
+                                <span style="margin-left:2%">Miễn phí trong vòng </span>
                             </div>
                             <div class="col-sm-5" style="text-align: right">
-                                <span>Bán kính <span id="bankinhgiao">{{ $carlist['free_ship_distance'] }}</span>
-                                    km</span>
+                                <span><span id="bankinhgiao">{{ $carlist['free_ship_distance'] }}</span>
+                                    km đầu tiên</span>
                             </div>
                         </div>
                         <div class="row" id="thoi-gian1">
