@@ -60,7 +60,7 @@
                                 <div class="form-group">
                                     <label for="txt-name">Website</label>
                                     <input type="text" class="form-control" id="txt-name" name="website"
-                                        placeholder="Nhập website của hãng">
+                                        value="https://www.">
                                         <p class="help is-danger">{{ $errors->first('website') }}</p>
                                 </div>
                                 
