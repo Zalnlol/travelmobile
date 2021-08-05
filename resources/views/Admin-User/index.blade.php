@@ -76,11 +76,11 @@
                             <a class="btn btn-primary btn-sm" href="{{ url('admin/update/'.$user->user_id) }}" >
                                 <i class="fas fa-pencil-alt">Chi tiết</i>
                             </a>
-                            <a class="btn btn-danger btn-sm" href="{{ url('admin/delete/'.$user->user_id) }}" onclick="javascript:return confirm('Bạn có chắc chắn ?')">
-                                <i class="fas fa-trash">
-                                </i>
-                                Xóa
+                            @if ($user->user_id != $currentuser_id)
+                            <a class="btn btn-danger btn-sm" href="{{ url('admin/delete/'.$user->user_id) }}" onclick="javascript:return confirm('Are you sure ?')">
+                                <i class="fas fa-trash"> Delete</i>
                             </a>
+                            @endif
                         </td>
                     </tr>
                     @endforeach
